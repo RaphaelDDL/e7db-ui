@@ -1,0 +1,47 @@
+@charset 'utf-8';
+
+$assetsUrl: 'https://assets.epicsevendb.com';
+
+$gap: 32px;
+$column-gap: 0rem;
+
+$boxBorder: rgba(86, 68, 47, 1);
+
+$menuBackgroundColor: rgb(23, 50, 92);
+$menuOptionsBorderColor: rgba(45, 76, 130, 0.9);
+$menuFontColor: rgb(112, 160, 208);
+$skillEnhanceFontColor: darken(rgb(217, 85, 31), 5%);
+$menuOptionsBackgroundColor: rgb(23, 50, 92);
+$sectionBoxBackgroundColor: darken($menuBackgroundColor, 18%);
+
+$heroClassList: 'knight' 'warrior' 'thief' 'soul-weaver' 'mage' 'ranger' 'material';
+$heroElementList: 'fire' 'earth' 'ice' 'light' 'dark';
+$heroSignList: 'aries' 'taurus' 'gemini' 'cancer' 'leo' 'virgo' 'libra' 'scorpio' 'sagittarius' 'capricorn' 'aquarius'
+    'pisces';
+// $heroRelationList: 'grudge' 'longing' 'love' 'rival' 'trust';
+
+$heroRelationList: (
+    grudge: #d483fe,
+    longing: #d1fa29,
+    love: #fd9bc0,
+    rival: #ed4243,
+    trust: #6bcefe,
+);
+
+$imprintPositions: (
+    d: lightgray,
+    c: green,
+    b: blue,
+    a: purple,
+    s: red,
+    ss: red,
+    sss: red,
+);
+
+//Pseudo Classes
+%clearBoth {
+    clear: both;
+    content: ' ';
+    display: table;
+    height: 0;
+}

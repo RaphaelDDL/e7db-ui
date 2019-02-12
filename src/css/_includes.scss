@@ -1,0 +1,16 @@
+@charset 'utf-8';
+
+// https://fonts.google.com/specimen/Noto+Sans?selection.family=Noto+Sans
+@font-face {
+    font-family: 'Noto Sans Regular';
+    src: url('/fonts/notosans-regular-webfont.woff2') format('woff2'),
+        url('/fonts/notosans-regular-webfont.woff') format('woff');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@import '~normalize.css';
+
+@import '~nprogress/nprogress';
+@import 'nprogress_overrides';

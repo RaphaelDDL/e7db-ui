@@ -1,0 +1,12 @@
+module.exports = {
+    "minify": true,
+    "options": [
+      "mq",
+      "prefixed",
+    ],
+    "feature-detects": [
+      "test/css/flexbox",
+      "test/img/webp",
+      "test/img/srcset",
+    ]
+}

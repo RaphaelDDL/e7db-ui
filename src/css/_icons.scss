@@ -1,0 +1,358 @@
+@charset 'utf-8';
+
+/*
+    RARITY, STAR RATING
+*/
+@function starRating($number) {
+    $url: url(#{$assetsUrl}/assets/stars/cm_icon_star.png);
+    $finalUrl: '';
+    @for $i from 1 through $number {
+        @if $i > 1 {
+            $finalUrl: $finalUrl + ', ' + $url;
+        } @else {
+            $finalUrl: $url;
+        }
+    }
+    @return $finalUrl;
+}
+
+@function starPositioning($starNumber, $elWidth, $iconSize, $iconGap) {
+    $firstPositioning: $elWidth - $iconSize;
+    $finalPositioning: 0;
+
+    @for $i from 1 through $starNumber {
+        @if $i > 1 {
+            $currentPos: $firstPositioning - ($iconSize * (($i - 1)) * $iconGap);
+
+            $finalPositioning: $finalPositioning + ', ' + $currentPos;
+        } @else {
+            $finalPositioning: $firstPositioning;
+        }
+    }
+    @if type-of($finalPositioning) == string {
+        @return unquote($finalPositioning);
+    } @else {
+        @return $finalPositioning;
+    }
+}
+[class*='star-rating-'] {
+    &::after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        background-color: transparent;
+        background-repeat: no-repeat;
+    }
+}
+
+@for $i from 1 through 6 {
+    $iconSizeWidth: 3rem;
+    $iconSizeHeight: 2.9rem;
+    $iconGap: 0.75;
+    $elWidth: 0;
+
+    .star-rating-#{$i}::after {
+        @if $i > 1 {
+            $elWidth: ($iconSizeWidth * $i) - (($i - 1) * $iconGap);
+        } @else {
+            $elWidth: $iconSizeWidth;
+        }
+        width: $elWidth;
+        height: $iconSizeHeight;
+        background-size: $iconSizeWidth $iconSizeHeight;
+        background-image: starRating($i);
+        background-position-x: starPositioning($i, $elWidth, $iconSizeWidth, $iconGap);
+        background-position-y: 50%;
+    }
+
+    .star-rating-#{$i}.small::after {
+        $iconSizeWidth: $iconSizeWidth / 2;
+        $iconSizeHeight: $iconSizeHeight / 2;
+
+        @if $i == 1 {
+            $elWidth: $iconSizeWidth;
+        } @else if $i == 2 {
+            $elWidth: $iconSizeWidth * 0.25 + ($iconSizeWidth * $i) - (($i - 1) * $iconGap);
+        } @else if $i == 3 {
+            $elWidth: $iconSizeWidth * 0.55 + ($iconSizeWidth * $i) - (($i - 1) * $iconGap);
+        } @else {
+            $elWidth: $iconSizeWidth + ($iconSizeWidth * $i) - (($i - 1) * $iconGap);
+        }
+        width: $elWidth;
+        height: $iconSizeHeight;
+        background-size: $iconSizeWidth $iconSizeHeight;
+        background-image: starRating($i);
+        background-position-x: starPositioning($i, $elWidth, $iconSizeWidth, $iconGap);
+        background-position-y: 100%;
+    }
+}
+
+/*
+    JOB, CLASS
+*/
+[class*='hero-class-'] {
+    &::before,
+    &::after {
+        display: inline-block;
+        vertical-align: middle;
+        background-color: transparent;
+    }
+    &::after {
+        text-transform: capitalize;
+    }
+    &::before {
+        $iconSize: 2.3rem;
+        content: '';
+        height: $iconSize;
+        width: $iconSize;
+        background-size: $iconSize auto;
+        background-position: left center;
+        background-repeat: no-repeat;
+        margin-right: 0.5rem;
+    }
+}
+
+@for $i from 1 through length($heroClassList) {
+    $current: nth($heroClassList, $i);
+
+    .hero-class-#{$current}::before {
+        background-image: url(#{$assetsUrl}/assets/role_icon/cm_icon_role_#{$current}.png);
+    }
+    .hero-class-#{$current}:not(.no-text)::after {
+        content: '#{$current}';
+    }
+}
+
+/*
+    ELEMENT, AFINITY
+*/
+[class*='hero-element-'] {
+    $iconSize: 3.4rem;
+
+    &::before,
+    &::after {
+        display: inline-block;
+        vertical-align: middle;
+        background-color: transparent;
+    }
+    &::after {
+        text-transform: capitalize;
+    }
+    &::before {
+        content: '';
+        height: $iconSize;
+        width: $iconSize;
+        background-size: $iconSize auto;
+        background-position: left center;
+        background-repeat: no-repeat;
+        margin-right: 0.5rem;
+    }
+    &.small::before {
+        $iconSize: $iconSize / 2;
+        height: $iconSize;
+        width: $iconSize;
+        background-size: $iconSize auto;
+    }
+}
+
+@for $i from 1 through length($heroElementList) {
+    $current: nth($heroElementList, $i);
+
+    .hero-element-#{$current}::before {
+        @if $current == 'dark' or $current == 'light' {
+            background-image: url(#{$assetsUrl}/assets/attribute_icon/cm_icon_prom#{$current}.png);
+        } @else {
+            background-image: url(#{$assetsUrl}/assets/attribute_icon/cm_icon_pro#{$current}.png);
+        }
+    }
+    .hero-element-#{$current}:not(.no-text)::after {
+        content: '#{$current}';
+    }
+}
+
+/*
+    ZODIAC SIGN
+*/
+[class*='hero-sign-'] {
+    &::before,
+    &::after {
+        display: inline-block;
+        vertical-align: middle;
+        background-color: transparent;
+    }
+    &::after {
+        text-transform: capitalize;
+    }
+    &::before {
+        $iconSize: 2.9rem;
+        content: '';
+        height: $iconSize;
+        width: $iconSize;
+        background-size: $iconSize auto;
+        background-position: left center;
+        background-repeat: no-repeat;
+        margin-right: 0.5rem;
+    }
+}
+
+@for $i from 1 through length($heroSignList) {
+    $current: nth($heroSignList, $i);
+
+    .hero-sign-#{$current}::before {
+        background-image: url(#{$assetsUrl}/assets/signs/#{$i}_#{$current}.png);
+    }
+    .hero-sign-#{$current}:not(.no-text)::after {
+        content: '#{$current}';
+    }
+}
+
+/*
+    RELATIONSHIP
+*/
+[class*='hero-relation-'] {
+    &::before,
+    &::after {
+        display: inline-block;
+        vertical-align: middle;
+        background-color: transparent;
+    }
+    &::after {
+        text-transform: capitalize;
+    }
+    &::before {
+        $iconSize: 3.4rem * 0.75;
+        content: '';
+        height: $iconSize;
+        width: $iconSize;
+        background-size: $iconSize auto;
+        background-position: left center;
+        background-repeat: no-repeat;
+        margin-right: 0.5rem;
+    }
+}
+
+@each $name, $color in $heroRelationList {
+    .hero-relation-#{$name} {
+        color: $color;
+
+        &::before {
+            background-image: url(#{$assetsUrl}/assets/relationship_icon/cm_icon_storymap_#{$name}.png);
+        }
+        &:not(.no-text)::after {
+            content: '#{$name}';
+        }
+    }
+}
+
+/*
+    SKILL UPGRADE, SOUL CONSUME
+*/
+.skill-icon {
+    &.upgrade-active::before {
+        z-index: 5;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        top: -0.4rem;
+        left: -0.2rem;
+        background: transparent url(#{$assetsUrl}/skill_upgrade_active.png) center center no-repeat;
+        background-size: 100% auto;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        height: 1.75rem;
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0;
+        background-size: 1.2rem auto;
+        background-color: transparent;
+        background-position: right center;
+        background-repeat: repeat-x;
+        z-index: 10;
+    }
+    &[class*='consume-soul-']::after {
+        background-image: url(#{$assetsUrl}/assets/stars/cm_icon_star_s.png);
+    }
+
+    @for $i from 1 through 4 {
+        &.consume-soul-#{$i}::after {
+            width: $i * 1.2rem;
+            @if ($i == 1) {
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+
+/*
+    SECTION LOADER
+*/
+.fetchingData {
+    .spinner {
+        display: block;
+    }
+
+    .spinner-icon {
+        margin: 1rem auto 0;
+        width: 5rem;
+        height: 5rem;
+        box-sizing: border-box;
+
+        border: solid 0 transparent;
+        border-left: solid 0.2rem;
+        border-top: solid 0.3rem;
+        border-top-color: $skillEnhanceFontColor;
+        border-left-color: $skillEnhanceFontColor;
+        border-radius: 50%;
+
+        -webkit-animation: nprogress-spinner 400ms linear infinite;
+        animation: nprogress-spinner 400ms linear infinite;
+    }
+}
+
+/*
+    AWAKENING TABS
+*/
+@for $i from 1 through 4 {
+    .awakening-tab-icon-#{$i}:not(.no-text)::after {
+        content: 'x#{$i}';
+    }
+}
+.section-tabs.awakening-tabs {
+    .tabs-component-tab {
+        &,
+        &.is-active {
+            .tabs-component-tab-a {
+                min-height: 3.5rem;
+                $iconSize: 3rem;
+                content: '';
+                background-size: $iconSize auto;
+                background-position: center center;
+                background-repeat: no-repeat;
+                margin-right: 0.5rem;
+                background-image: url(#{$assetsUrl}/assets/stars/cm_icon_star_j.png);
+            }
+        }
+
+        &.is-active ~ .tabs-component-tab {
+            .tabs-component-tab-a {
+                background-image: url(#{$assetsUrl}/assets/stars/cm_icon_star.png);
+            }
+        }
+    }
+}
+
+/*
+    MEMORY IMPRINT
+*/
+@each $rank, $color in $imprintPositions {
+    .memory-imprint-rank-#{$rank} {
+        color: $color !important;
+    }
+}
