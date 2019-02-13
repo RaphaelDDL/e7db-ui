@@ -4,7 +4,7 @@
     RARITY, STAR RATING
 */
 @function starRating($number) {
-    $url: url(#{$assetsUrl}/assets/stars/cm_icon_star.png);
+    $url: url(#{$assetsUrl}/star/cm_icon_star.png);
     $finalUrl: '';
     @for $i from 1 through $number {
         @if $i > 1 {
@@ -116,7 +116,7 @@
     $current: nth($heroClassList, $i);
 
     .hero-class-#{$current}::before {
-        background-image: url(#{$assetsUrl}/assets/role_icon/cm_icon_role_#{$current}.png);
+        background-image: url(#{$assetsUrl}/class/cm_icon_role_#{$current}.png);
     }
     .hero-class-#{$current}:not(.no-text)::after {
         content: '#{$current}';
@@ -160,9 +160,9 @@
 
     .hero-element-#{$current}::before {
         @if $current == 'dark' or $current == 'light' {
-            background-image: url(#{$assetsUrl}/assets/attribute_icon/cm_icon_prom#{$current}.png);
+            background-image: url(#{$assetsUrl}/attribute/cm_icon_prom#{$current}.png);
         } @else {
-            background-image: url(#{$assetsUrl}/assets/attribute_icon/cm_icon_pro#{$current}.png);
+            background-image: url(#{$assetsUrl}/attribute/cm_icon_pro#{$current}.png);
         }
     }
     .hero-element-#{$current}:not(.no-text)::after {
@@ -199,7 +199,7 @@
     $current: nth($heroSignList, $i);
 
     .hero-sign-#{$current}::before {
-        background-image: url(#{$assetsUrl}/assets/signs/#{$i}_#{$current}.png);
+        background-image: url(#{$assetsUrl}/zodiac-sign/#{$i}_#{$current}.png);
     }
     .hero-sign-#{$current}:not(.no-text)::after {
         content: '#{$current}';
@@ -236,7 +236,7 @@
         color: $color;
 
         &::before {
-            background-image: url(#{$assetsUrl}/assets/relationship_icon/cm_icon_storymap_#{$name}.png);
+            background-image: url(#{$assetsUrl}/relationship/cm_icon_storymap_#{$name}.png);
         }
         &:not(.no-text)::after {
             content: '#{$name}';
@@ -259,7 +259,7 @@
         right: 0;
         top: -0.4rem;
         left: -0.2rem;
-        background: transparent url(#{$assetsUrl}/skill_upgrade_active.png) center center no-repeat;
+        background: transparent url(#{$assetsUrl}/skill/upgrade_active.png) center center no-repeat;
         background-size: 100% auto;
     }
 
@@ -277,7 +277,7 @@
         z-index: 10;
     }
     &[class*='consume-soul-']::after {
-        background-image: url(#{$assetsUrl}/assets/stars/cm_icon_star_s.png);
+        background-image: url(#{$assetsUrl}/star/cm_icon_star_s.png);
     }
 
     @for $i from 1 through 4 {
@@ -336,13 +336,13 @@
                 background-position: center center;
                 background-repeat: no-repeat;
                 margin-right: 0.5rem;
-                background-image: url(#{$assetsUrl}/assets/stars/cm_icon_star_j.png);
+                background-image: url(#{$assetsUrl}/star/cm_icon_star_j.png);
             }
         }
 
         &.is-active ~ .tabs-component-tab {
             .tabs-component-tab-a {
-                background-image: url(#{$assetsUrl}/assets/stars/cm_icon_star.png);
+                background-image: url(#{$assetsUrl}/star/cm_icon_star.png);
             }
         }
     }

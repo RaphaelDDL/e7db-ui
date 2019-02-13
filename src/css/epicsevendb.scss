@@ -59,12 +59,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh);
-    background: black url(#{$assetsUrl}/bg_tablet-up.jpg) 50% 50% no-repeat fixed;
+    background: black url(#{$assetsUrl}/website/bg_tablet-up.jpg) 50% 50% no-repeat fixed;
     background-size: cover;
     padding-top: 5.75rem;
 
     @include mobile {
-        background-image: url(#{$assetsUrl}/bg_mobile.jpg);
+        background-image: url(#{$assetsUrl}/website/bg_mobile.jpg);
     }
 }
 .content {
@@ -233,7 +233,7 @@ nav.top-nav-bar {
         text-transform: capitalize;
         font-size: 1.4rem;
         line-height: 3rem;
-        background: transparent url(#{$assetsUrl}/ico_back_btn.png) left center no-repeat;
+        background: transparent url(#{$assetsUrl}/website/ico_back_btn.png) left center no-repeat;
         background-size: 1.2rem auto;
         padding: 1.2rem 1rem 1rem 1.8rem;
 
@@ -308,7 +308,7 @@ nav.top-nav-bar {
             }
             a {
                 min-width: 3rem;
-                background: transparent url(#{$assetsUrl}/ico_menu.png) center center no-repeat;
+                background: transparent url(#{$assetsUrl}/website/ico_menu.png) center center no-repeat;
                 background-size: 3rem 3rem;
             }
             &.active {
@@ -319,7 +319,7 @@ nav.top-nav-bar {
                     }
                 }
                 a {
-                    background-image: url(#{$assetsUrl}/iconfinder_x_alt_118584.png);
+                    background-image: url(#{$assetsUrl}/website/ico_close_btn.png);
                 }
             }
         }
@@ -617,7 +617,7 @@ aside.column {
     &::after {
         content: '';
         display: inline-block;
-        background: transparent url(#{$assetsUrl}/skill_cooldown.png) center center no-repeat;
+        background: transparent url(#{$assetsUrl}/skill/ico_cooldown.png) center center no-repeat;
         width: 1.5rem;
         height: 1.7rem;
         background-size: 1.5rem auto;
@@ -634,7 +634,7 @@ aside.column {
 .skill-soul-burn::after {
     content: '';
     display: inline-block;
-    background: transparent url(#{$assetsUrl}/skill_soul.png) center center no-repeat;
+    background: transparent url(#{$assetsUrl}/star/cm_icon_star_s.png) center center no-repeat;
     width: 1.2rem;
     height: 1.77rem;
     background-size: 1.2rem auto;
@@ -1071,7 +1071,7 @@ aside.column {
             top: 0;
             right: 0;
             bottom: 0;
-            background: transparent url(#{$assetsUrl}/assets/item_arti/arti_frame_small.png) right center no-repeat;
+            background: transparent url(#{$assetsUrl}/artifact/_layout/arti_frame_small.png) right center no-repeat;
             z-index: 1;
             background-size: 27.2rem * $multi auto;
         }
@@ -1136,7 +1136,7 @@ aside.column {
     &::before {
         top: 0;
         left: 0;
-        background: transparent url(#{$assetsUrl}/assets/item_arti/arti_frame_deco_1.png) left top no-repeat;
+        background: transparent url(#{$assetsUrl}/artifact/_layout/arti_frame_deco_1.png) left top no-repeat;
         background-size: contain;
         width: 100%;
         max-width: 17rem;
@@ -1147,7 +1147,7 @@ aside.column {
         bottom: 0;
         left: 0;
         right: 0;
-        background: transparent url(#{$assetsUrl}/assets/item_arti/arti_frame_deco_2.png) center bottom no-repeat;
+        background: transparent url(#{$assetsUrl}/artifact/_layout/arti_frame_deco_2.png) center bottom no-repeat;
         background-size: contain;
         width: 100%;
         max-width: 37.8rem;

@@ -1,6 +1,6 @@
 {
     "name": "epicsevendb-ui",
-    "version": "0.4.5",
+    "version": "0.4.6",
     "private": true,
     "license": "CC-BY-NC-SA-4.0",
     "data": {
@@ -12,7 +12,7 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build --modern && zip -r -9 dist.zip ./dist",
         "dist": "serve -d dist",
-        "lint": "vue-cli-service lint --no-fix"
+        "lint": "vue-cli-service lint --fix"
     },
     "dependencies": {
         "axios": "*",

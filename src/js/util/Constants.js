@@ -1,4 +1,4 @@
-import packagejson from "../../../package.json";
+import packagejson from '../../../package.json';
 
 export const analyticsId = packagejson.data.analyticsId;
 export const assetsUrl = packagejson.data.assetsEndpoint;
