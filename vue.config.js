@@ -33,8 +33,8 @@ module.exports = {
         resolve: {
             extensions: ['.js', '.vue', '.json'],
             alias: {
-                '~': path.resolve(__dirname, 'src/'),
-                '@': path.resolve('src/'),
+                '~': path.resolve(__dirname, 'node_modules/'),
+                '@': path.resolve(__dirname, 'src/'),
                 modernizr$: path.resolve(__dirname, '.modernizrrc'),
             },
         },

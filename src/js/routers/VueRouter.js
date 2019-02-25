@@ -11,7 +11,7 @@ const routes = [
         path: '/',
         component: () => import('@/js/components/general/Home.vue'),
         meta: {
-            title: `Home | ${BASE_HEADER}`,
+            title: `${BASE_HEADER}`,
             metaTags: [
                 {
                     name: 'description',

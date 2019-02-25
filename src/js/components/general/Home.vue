@@ -54,11 +54,140 @@
             </section>
         </aside>
         <main class="column is-three-fifths-tablet is-12-mobile">
+            <!-- <section class="section-container">
+                <div class="section-box">
+                    <SectionLinks isMobileNav="false" />
+                </div>
+            </section> -->
             <section class="section-container">
                 <div class="section-box">
                     <h1>EpicSevenDB.com Changelog</h1>
                     <hr />
                     <ul class="bullets changelog">
+                        <li>
+                            <strong>Feb 23rd, 2019 - version 0.6.0</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/journal_hero.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>Search by Name bug fix</strong> <br />searching all lowercase would fare
+                                        results,let's say, "abyssal". But if you cased the search, "Abyssal", it would
+                                        not. Now search is case-insensitive.
+                                    </li>
+                                    <li>
+                                        <strong>All Filters implemented</strong>
+                                        <br />You can filter the Artifact List by <strong class="white">Rarity</strong>,
+                                        <strong class="white">Class</strong>, <strong class="white">Element</strong> and
+                                        also <strong class="white">Search by Name</strong>.
+
+                                        <br /><br />
+                                        You can filter the Hero List by
+                                        <strong class="white">Rarity</strong>, <strong class="white">Class</strong>,
+                                        <strong class="white">Zodiac</strong>, <strong class="white">Element</strong>,
+                                        <strong class="white">Search by Name</strong> and also by
+                                        <strong class="white">Buffs and Debuffs</strong>. <br /><br />
+
+                                        Buffs and Debuffs are multiselect, therefore you can search for that hero you
+                                        wanted to have both Immunity and Barrier (Angelica), or that gets Immortality
+                                        and Attack Up (Kayron, Sven) and so on.
+                                        <br /><br />
+
+                                        Currently I'm missing Sagittarius and Capricorn icons, but you can hover over
+                                        the missing icons and browser should render the name on the tooltip. Just
+                                        remember Saint Seiya/Knights of the Zodiac's Gold Saint's order lol!
+                                    </li>
+                                    <li>
+                                        <strong>Database updated</strong>
+                                        <br />Hero and Artifact data updated with latest from
+                                        <a
+                                            href="https://github.com/EpicSevenDB/gamedatabase"
+                                            rel="noopener"
+                                            target="_blank"
+                                            >Github database Hero list</a
+                                        >, that means, all heroes and artifacts currently in game are here.. Tamarinne,
+                                        Lidica, etc.
+                                    </li>
+                                </ul>
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports, or email me directly through
+                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Feb 18th, 2019 - version 0.5.5</strong>
+                            <div class="bullet-description">
+                                <p>Implemented the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>Hero Filters</strong>
+                                        <br />You can now filter the Artifact List by
+                                        <strong class="white">Rarity</strong>, <strong class="white">Class</strong>,
+                                        <strong class="white">Element</strong> and also
+                                        <strong class="white">Search by Name</strong>. I decided to release before I
+                                        finish Buff/Debuff since the filters for artifact and hero are pretty much the
+                                        same so was easy to use the same component. I will implement filter by
+                                        <strong class="white">Zodiac Sign</strong>, but currently I'm missing
+                                        Sagittarius and Capricorn icons, so I need to get them first.
+                                    </li>
+                                </ul>
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports, or email me directly through
+                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Feb 18th, 2019 - version 0.5.0</strong>
+                            <div class="bullet-description">
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>Artifact Filters</strong>
+                                        <br />You can now filter the Artifact List by
+                                        <strong class="white">Rarity</strong>,
+                                        <strong class="white">Class Exclusive</strong> and also
+                                        <strong class="white">Search by Name</strong>. Hero List filter is just around
+                                        the corner, I'm finishing implementing the search by buff/debuff.
+                                    </li>
+                                    <li>
+                                        <strong>Database updated</strong>
+                                        <br />Hero and Artifact data updated with latest from
+                                        <a
+                                            href="https://github.com/EpicSevenDB/gamedatabase"
+                                            rel="noopener"
+                                            target="_blank"
+                                            >Github database Hero list</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <strong>Hero Status updated/fixed</strong>
+                                        <br />We updated the percentage status from string (`150`) to float (`1.5`) on
+                                        gamedatabase so I'm adjusting the UI to do the necessary calc (aka times 100).
+                                    </li>
+                                </ul>
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports. or email me directly through
+                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
                         <li>
                             <strong>Feb 13th, 2019 - version 0.4.6</strong>
                             <div class="bullet-description">
@@ -404,11 +533,15 @@
 </template>
 
 <script>
+import SectionLinks from '@/js/layout/SectionLinks.vue';
 import { gaPageView } from '@/js/util/Analytics';
 export default {
     inject: ['assetsUrl'],
     mounted() {
         gaPageView(this.$ga);
+    },
+    components: {
+        SectionLinks,
     },
 };
 </script>

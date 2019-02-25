@@ -107,6 +107,19 @@ ul {
 
         &.changelog {
             margin-bottom: 1.6rem;
+
+            .changelog-image {
+                display: block;
+                max-width: 15rem;
+                height: auto;
+                margin: 0 auto 1rem;
+
+                @include tablet {
+                    float: right;
+                    margin: 0 0 1rem 1rem;
+                }
+            }
+
             li > strong {
                 color: $skillEnhanceFontColor;
                 font-weight: bold;
@@ -951,51 +964,169 @@ aside.column {
     }
 }
 
-.hero-list-filters {
-    flex-wrap: wrap;
+// .hero-list-filters {
+//     flex-wrap: wrap;
 
-    @include mobile {
-        .column:not(:first-child) {
-            margin-top: 2rem;
-        }
+//     @include mobile {
+//         .column:not(:first-child) {
+//             margin-top: 2rem;
+//         }
+//     }
+
+//     @include until($desktop) {
+//         .column:not(:first-child):not(:nth-child(2)) {
+//             margin-top: 2rem;
+//         }
+//     }
+
+//     @include desktop {
+//         .column:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
+//             margin-top: 2rem;
+//         }
+//     }
+// }
+
+.list-filters {
+    margin-bottom: 1.5rem;
+
+    div + h4 {
+        margin-top: 1.5rem;
+        cursor: pointer;
     }
 
-    @include until($desktop) {
-        .column:not(:first-child):not(:nth-child(2)) {
-            margin-top: 2rem;
-        }
-    }
-
-    @include desktop {
-        .column:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
-            margin-top: 2rem;
+    @include tablet {
+        .toggleable-btns .column {
+            &:first-child {
+                padding-right: 0.5rem;
+            }
+            &:last-child {
+                padding-left: 0.5rem;
+            }
         }
     }
 }
 
-.filter-group {
-    border: 0.1rem solid $boxBorder;
-    border-radius: 0 0 0.8rem 0.8rem;
-    border-top: 0;
+.filter-by-name,
+.btn-clear-filters {
+    width: 100%;
+    height: 2.7rem;
+    display: block;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-evenly;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    font-size: 1.6rem;
+    appearance: none;
+    position: relative;
+}
 
-    li {
-        text-align: center;
-        display: block;
-        border-left: 0.1rem solid $boxBorder;
-        padding: 0.5rem;
+.filter-by-name {
+    @include tablet {
+        width: 75%;
+        margin: 0 0 0 auto;
+    }
+}
 
-        span,
-        span::before,
-        span::after {
-            display: block;
-            margin: 0 auto;
+.btn-clear-filters {
+    background-color: lightgray;
+
+    &:hover {
+        background-color: gray;
+    }
+
+    &:active {
+        background-color: gray;
+    }
+
+    @include tablet {
+        width: auto;
+        margin: 0 auto;
+    }
+}
+
+.filter-multiselect {
+    margin-bottom: 1rem;
+}
+
+// https://github.com/shentao/vue-multiselect/issues/859
+.is-multiselect-container {
+    z-index: 10;
+    position: relative;
+}
+
+.buff-debuff-filter-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    vertical-align: middle;
+    margin-right: .5rem;
+
+    &[lazy=error]{
+        border: .1rem solid rgb(64,64,64);
+        border-radius: .5rem;
+
+        &.buff {
+            background-color:rgb(40	,169	,252	);
         }
 
-        &:first-child {
-            border-left: 0;
+        &.debuff {
+            background-color: rgb(236	,40,	53	);
+        }
+    }
+}
+
+
+
+.filter-group {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-bottom: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+
+    li {
+        border: 0.1rem solid $boxBorder;
+        border-radius: 0.5rem;
+        background-color: $sectionBoxBackgroundColor;
+        transition: all ease 0.3s;
+
+        &:not(:first-child) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            margin-left: -0.1rem;
+        }
+        &:not(:last-child) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:hover {
+            background-color: $boxBorder;
+        }
+
+        &.selected {
+            background-color: $skillEnhanceFontColor;
+            color: #fff;
+        }
+
+        &,
+        label {
+            flex: 1 1 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        label {
+            // display: block;
+            padding: 0.5rem;
+            min-height: 3.5rem;
+
+            input[type='radio'] {
+                position: absolute;
+                pointer-events: none;
+                clip: rect(0, 0, 0, 0);
+            }
         }
     }
 }

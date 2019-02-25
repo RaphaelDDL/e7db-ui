@@ -108,6 +108,9 @@
         background-size: $iconSize auto;
         background-position: left center;
         background-repeat: no-repeat;
+    }
+
+    &:not(.no-text)::before {
         margin-right: 0.5rem;
     }
 }
@@ -145,13 +148,16 @@
         background-size: $iconSize auto;
         background-position: left center;
         background-repeat: no-repeat;
-        margin-right: 0.5rem;
     }
     &.small::before {
         $iconSize: $iconSize / 2;
         height: $iconSize;
         width: $iconSize;
         background-size: $iconSize auto;
+    }
+
+    &:not(.no-text)::before {
+        margin-right: 0.5rem;
     }
 }
 
@@ -184,13 +190,16 @@
         text-transform: capitalize;
     }
     &::before {
-        $iconSize: 2.9rem;
+        $iconSize: 2.5rem;
         content: '';
         height: $iconSize;
         width: $iconSize;
         background-size: $iconSize auto;
         background-position: left center;
         background-repeat: no-repeat;
+    }
+
+    &:not(.no-text)::before{
         margin-right: 0.5rem;
     }
 }
