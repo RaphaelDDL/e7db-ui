@@ -8,6 +8,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import ResultsList from '@/js/components/search/ResultsList';
+import { stripText } from '@/js/util/Utils';
 
 export default {
     data() {
@@ -24,7 +25,7 @@ export default {
         ...mapGetters('artifact', { artifactList: 'list' }), // this.artifactList
 
         trimmedSearch() {
-            return this.stripText(this.searchText);
+            return stripText(this.searchText);
         },
         filteredHeroes() {
             return (
@@ -50,12 +51,6 @@ export default {
             }
             return undefined;
         },
-        stripText(value) {
-            return value
-                .trim()
-                .toLowerCase()
-                .replace(/\s|-|'|&/g, ''); // remove white space and other special characters
-        },
     },
 
     mounted() {
@@ -64,8 +59,8 @@ export default {
             this.dispatch(this.artifactList, 'artifact/getList'),
         ]).then(() => {
             // just store these changes so we don't have to calc on the fly
-            this.heroList.forEach((h) => (h.trimmedName = this.stripText(h.name)));
-            this.artifactList.forEach((a) => (a.trimmedName = this.stripText(a.name)));
+            this.heroList.forEach((h) => (h.trimmedName = stripText(h.name)));
+            this.artifactList.forEach((a) => (a.trimmedName = stripText(a.name)));
             this.isLoading = false;
         });
     },
