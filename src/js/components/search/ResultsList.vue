@@ -30,10 +30,10 @@ export default {
     },
     computed: {
         displayHeroes() {
-            return (this.heroes && this.heroes.slice(0, 5)) || [];
+            return (this.heroes && this.heroes.slice(0, 3)) || [];
         },
         displayArtifacts() {
-            return (this.artifacts && this.artifacts.slice(0, 5)) || [];
+            return (this.artifacts && this.artifacts.slice(0, 2)) || [];
         },
     },
 };

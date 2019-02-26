@@ -1,6 +1,6 @@
 <template>
-    <div class="search">
-        <input type="text" class="search-input" v-model="searchText" />
+    <div class="search-container">
+        <input type="text" class="search-input" v-model="searchText" placeholder="Search by name..." />
         <ResultsList v-if="!isLoading" :artifacts="filteredArtifacts" :heroes="filteredHeroes" />
     </div>
 </template>

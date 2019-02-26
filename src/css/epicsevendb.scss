@@ -1327,3 +1327,19 @@ aside.column {
         }
     }
 }
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+
+    .search-input {
+        width: 80%;
+        margin: 0 auto 1rem;
+        height: 1.2rem;
+        border-radius: 0.4rem;
+        padding: 1rem;
+        padding-top: 1.3rem;
+        font-size: 2rem;
+        height: 3rem;
+    }
+}
