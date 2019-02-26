@@ -4,59 +4,13 @@
             <section class="section-container">
                 <LoadingMessage :isLoading="isLoading" />
                 <div class="section-box hero-list" v-if="!isLoading && list && list.length">
-                    <!-- <div class="columns hero-list-filters">
-                                    <div class="column is-half-tablet is-one-third-desktop">
-                                        <h4 class="strong">Rarity:</h4>
-                                        <ul class="filter-group">
-                                            <li class="star-rating-1 small"></li>
-                                            <li class="star-rating-2 small active"></li>
-                                            <li class="star-rating-3 small"></li>
-                                            <li class="star-rating-4 small"></li>
-                                            <li class="star-rating-5 small"></li>
-                                        </ul>
-                                    </div>
-                                    <div class="column is-half-tablet is-one-third-desktop">
-                                        <h4 class="strong">Elements:</h4>
-                                        <ul class="filter-group">
-                                            <li><span class="hero-element-fire no-text small"></span></li>
-                                            <li><span class="hero-element-ice no-text small active"></span></li>
-                                            <li><span class="hero-element-earth no-text small"></span></li>
-                                            <li><span class="hero-element-light no-text small"></span></li>
-                                            <li><span class="hero-element-dark no-text small"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="column is-half-tablet is-one-third-desktop">
-                                        <h4 class="strong">Class:</h4>
-                                        <ul class="filter-group">
-                                            <li class="hero-class-knight no-text"></li>
-                                            <li class="hero-class-warrior no-text active"></li>
-                                            <li class="hero-class-thief no-text"></li>
-                                            <li class="hero-class-mage no-text"></li>
-                                            <li class="hero-class-soul-weaver no-text"></li>
-                                            <li class="hero-class-ranger no-text"></li>
-                                            <li class="hero-class-material no-text"></li>
-                                        </ul>
-                                    </div>
-                                    <div class="column is-half-tablet is-one-third-desktop">
-                                        <h4 class="strong">Buff/Debuff:</h4>
-                                        <ul class="filter-group">
-                                            <li class="">
-                                                <select name="" id=""
-                                                    ><option value="">Buff</option></select
-                                                >
-                                            </li>
-                                            <li class="">
-                                                <select name="" id=""
-                                                    ><option value="">Debuff</option></select
-                                                >
-                                            </li>
-                                        </ul>
-                                    </div>
-                    </div>-->
-                    Filters in future release
-                    <hr />
+                    <ListFilters :filters="filters" @filters:clear="clearSelection" pageType="hero" />
+
+                    <h4 v-if="filteredHeroList && !filteredHeroList.length">
+                        No matches for your current filters :(
+                    </h4>
                     <ul class="columns is-mobile hero-list-ul">
-                        <ListItem :hero="hero" :id="hero.fileId" :key="hero.fileId" v-for="hero in list" />
+                        <ListItem :hero="hero" :id="hero.fileId" :key="hero.fileId" v-for="hero in filteredHeroList" />
                     </ul>
                 </div>
             </section>
@@ -67,22 +21,81 @@
 <script>
 import { mapGetters } from 'vuex';
 import ListItem from '@/js/components/heroes/ListItem';
+import ListFilters from '@/js/components/general/ListFilters';
 import LoadingMessage from '@/js/components/general/LoadingMessage';
 import { gaPageView } from '@/js/util/Analytics';
+import {
+    debounce,
+    getByKeyword,
+    getByRarity,
+    getByClass,
+    getByElement,
+    getByBuffDebuff,
+    getByZodiac,
+} from '@/js/util/Utils';
+
+const e = document.createEvent('Event');
+e.initEvent('scroll', true, true);
+
+const filterDefaults = {
+    keyword: '',
+    rarity: 0,
+    heroClass: '',
+    element: '',
+    zodiac: '',
+    buffs: [],
+    debuffs: [],
+};
 
 export default {
     data() {
         return {
             isLoading: false,
+            filters: { ...filterDefaults },
         };
     },
     components: {
         ListItem,
+        ListFilters,
         LoadingMessage,
     },
     // use this.list
-    computed: { ...mapGetters('hero', ['list']) }, //this.list
-    // computed: { ...mapGetters('hero', { heroList: 'list' }) }, //this.heroList
+    computed: {
+        ...mapGetters('hero', ['list']),
+        filteredHeroList() {
+            return getByZodiac(
+                getByBuffDebuff(
+                    getByRarity(
+                        getByKeyword(
+                            getByClass(getByElement(this.list, this.filters.element), this.filters.heroClass),
+                            this.filters.keyword
+                        ),
+                        this.filters.rarity
+                    ),
+                    [...this.filters.buffs, ...this.filters.debuffs]
+                ),
+                this.filters.zodiac
+            );
+        },
+    },
+
+    methods: {
+        clearSelection() {
+            this.filters = { ...filterDefaults };
+        },
+    },
+
+    watch: {
+        filters: {
+            handler() {
+                // debugger;
+                // this.$store.dispatch('artifact/filterArtifactList', this.filters);
+                debounce(window.dispatchEvent(e), 500);
+            },
+            deep: true,
+        },
+    },
+
     mounted() {
         if (!this.list || (this.list && !this.list.length)) {
             this.isLoading = true;

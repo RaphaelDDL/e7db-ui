@@ -82,13 +82,15 @@
                             <img
                                 :data-src="`${assetsUrl}/buff/${buff}.png`"
                                 :key="buff"
-                                alt="buff"
+                                :alt="buffDebuffKeyToName(buff) ? buffDebuffKeyToName(buff).name : buff"
+                                :title="buffDebuffKeyToName(buff) ? buffDebuffKeyToName(buff).name : buff"
                                 v-for="buff in skill.buffs"
                             />
                             <img
                                 :data-src="`${assetsUrl}/buff/${debuff}.png`"
                                 :key="debuff"
-                                alt="debuff"
+                                :title="buffDebuffKeyToName(debuff) ? buffDebuffKeyToName(debuff).name : debuff"
+                                :alt="buffDebuffKeyToName(debuff) ? buffDebuffKeyToName(debuff).name : debuff"
                                 v-for="debuff in skill.debuffs"
                             />
                             {{ skill.name }}
@@ -294,31 +296,31 @@
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Critical Hit Chance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.chc }}%
+                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.chc | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Critical Hit Damage</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.chd }}%
+                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.chd | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Effectiveness</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.eff }}%
+                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.eff | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Effect Resistance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.efr }}%
+                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.efr | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Dual Attack Chance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.dac }}%
+                                        {{ heroDetail.stats.lv1BaseStarNoAwaken.dac | toPercent }}
                                     </div>
                                 </li>
                             </ul>
@@ -359,31 +361,31 @@
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Critical Hit Chance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.chc }}%
+                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.chc | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Critical Hit Damage</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.chd }}%
+                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.chd | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Effectiveness</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.eff }}%
+                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.eff | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Effect Resistance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.efr }}%
+                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.efr | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Dual Attack Chance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.dac }}%
+                                        {{ heroDetail.stats.lv50FiveStarNoAwaken.dac | toPercent }}
                                     </div>
                                 </li>
                             </ul>
@@ -426,31 +428,31 @@
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Critical Hit Chance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarNoAwaken.chc }}%
+                                        {{ heroDetail.stats.lv60SixStarNoAwaken.chc | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Critical Hit Damage</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarNoAwaken.chd }}%
+                                        {{ heroDetail.stats.lv60SixStarNoAwaken.chd | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Effectiveness</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarNoAwaken.eff }}%
+                                        {{ heroDetail.stats.lv60SixStarNoAwaken.eff | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Effect Resistance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarNoAwaken.efr }}%
+                                        {{ heroDetail.stats.lv60SixStarNoAwaken.efr | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Dual Attack Chance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarNoAwaken.dac }}%
+                                        {{ heroDetail.stats.lv60SixStarNoAwaken.dac | toPercent }}
                                     </div>
                                 </li>
                             </ul>
@@ -491,31 +493,31 @@
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Critical Hit Chance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.chc }}%
+                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.chc | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Critical Hit Damage</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.chd }}%
+                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.chd | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Effectiveness</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.eff }}%
+                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.eff | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Effect Resistance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.efr }}%
+                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.efr | toPercent }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">Dual Attack Chance</div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.dac }}%
+                                        {{ heroDetail.stats.lv60SixStarFullyAwakened.dac | toPercent }}
                                     </div>
                                 </li>
                             </ul>
@@ -625,12 +627,6 @@
                             </a>
                         </router-link>
                     </ul>
-                    <hr />
-                    <p>
-                        Observation: {{ heroDetail.name }} might have more relationships, but only the heroes which we
-                        currently have data are present, in order to present you with a link you can click and go to
-                        their detail page. As the database grows, the other ones will automatically be shown.
-                    </p>
                 </div>
             </section>
         </aside>
@@ -642,6 +638,7 @@ import LoadingMessage from '@/js/components/general/LoadingMessage';
 import { Tabs, Tab } from 'vue-tabs-component';
 import Modernizr from 'modernizr';
 import { gaPageView } from '@/js/util/Analytics';
+import { buffDebuffKeyToName } from '@/js/util/Utils';
 
 export default {
     inject: ['assetsUrl'],
@@ -726,6 +723,7 @@ export default {
         Tab,
     },
     methods: {
+        buffDebuffKeyToName,
         updateDocTitle() {
             if (document && document.title) {
                 document.title = `${this.heroDetail.name} ${document.title}`;

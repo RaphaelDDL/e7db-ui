@@ -1,5 +1,6 @@
 <template>
     <nav class="top-nav-bar">
+        <!-- <div class="container"> -->
         <a @click="goBack" class="nav-back">Back</a>
 
         <router-link class="nav-logo" to="/">
@@ -16,6 +17,7 @@
         <div class="nav-touch-links">
             <SectionLinks isMobileNav="true" />
         </div>
+        <!-- </div> -->
     </nav>
 </template>
 
