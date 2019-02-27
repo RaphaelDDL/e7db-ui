@@ -1,14 +1,28 @@
 <template>
-    <div class="search-container">
-        <input type="text" class="search-input" v-model="searchText" placeholder="Search by name..." />
-        <ResultsList v-if="!isLoading" :artifacts="filteredArtifacts" :heroes="filteredHeroes" />
-    </div>
+    <section class="section-container">
+        <LoadingMessage :isLoading="isLoading" />
+
+        <div class="section-box" v-if="!isLoading">
+            <h1>What are you looking for?</h1>
+            <hr />
+            <div class="search-container">
+                <input
+                    type="search"
+                    class="filter-by-name"
+                    v-model="searchText"
+                    placeholder="Search for Heroes and Artifacts..."
+                />
+                <ResultsList :artifacts="filteredArtifacts" :heroes="filteredHeroes" />
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import ResultsList from '@/js/components/search/ResultsList';
 import { stripText } from '@/js/util/Utils';
+import LoadingMessage from '@/js/components/general/LoadingMessage';
 
 export default {
     data() {
@@ -19,6 +33,7 @@ export default {
     },
     components: {
         ResultsList,
+        LoadingMessage,
     },
     computed: {
         ...mapGetters('hero', { heroList: 'list' }), // this.heroList
