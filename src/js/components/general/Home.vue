@@ -61,6 +61,13 @@
             </section> -->
             <section class="section-container">
                 <div class="section-box">
+                    <h1>What are you looking for?</h1>
+                    <hr />
+                    <SearchWidget />
+                </div>
+            </section>
+            <section class="section-container">
+                <div class="section-box">
                     <h1>EpicSevenDB.com Changelog</h1>
                     <hr />
                     <ul class="bullets changelog">
@@ -535,6 +542,7 @@
 <script>
 import SectionLinks from '@/js/layout/SectionLinks.vue';
 import { gaPageView } from '@/js/util/Analytics';
+import SearchWidget from '@/js/components/search/SearchWidget';
 export default {
     inject: ['assetsUrl'],
     mounted() {
@@ -542,6 +550,7 @@ export default {
     },
     components: {
         SectionLinks,
+        SearchWidget,
     },
 };
 </script>

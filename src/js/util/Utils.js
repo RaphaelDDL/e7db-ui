@@ -19,6 +19,13 @@ export function debounce(func, wait, immediate) {
     };
 }
 
+export function stripText(value) {
+    return (value + '')
+        .trim()
+        .toLowerCase()
+        .replace(/\s|-|'|&/g, ''); // remove white space and other special characters
+}
+
 // general filters
 export function getByKeyword(list, keyword) {
     if (typeof keyword !== 'string' || !Array.isArray(list)) {
