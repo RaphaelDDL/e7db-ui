@@ -59,13 +59,9 @@
                     <SectionLinks isMobileNav="false" />
                 </div>
             </section> -->
-            <section class="section-container">
-                <div class="section-box">
-                    <h1>What are you looking for?</h1>
-                    <hr />
-                    <SearchWidget />
-                </div>
-            </section>
+
+            <SearchWidget />
+
             <section class="section-container">
                 <div class="section-box">
                     <h1>EpicSevenDB.com Changelog</h1>
