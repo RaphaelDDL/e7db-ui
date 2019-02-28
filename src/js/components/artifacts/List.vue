@@ -56,7 +56,6 @@ export default {
         ...mapGetters('artifact', ['list']), //this.list,
         // ...mapState('artifact', ['filteredArtifactList']), //this.filteredArtifactList,
         filteredArtifactList() {
-            console.log(this.filters);
             return getByRarity(
                 getByKeyword(getByExclusive(this.list, this.filters.exclusive), this.filters.keyword),
                 this.filters.rarity

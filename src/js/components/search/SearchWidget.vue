@@ -21,8 +21,11 @@
 <script>
 import { mapGetters } from 'vuex';
 import ResultsList from '@/js/components/search/ResultsList';
-import { stripText } from '@/js/util/Utils';
+import { stripText, debounce } from '@/js/util/Utils';
 import LoadingMessage from '@/js/components/general/LoadingMessage';
+
+const e = document.createEvent('Event');
+e.initEvent('scroll', true, true);
 
 export default {
     data() {
@@ -55,6 +58,14 @@ export default {
                 this.trimmedSearch.length &&
                 this.artifactList.filter((a) => a.trimmedName.indexOf(this.trimmedSearch) > -1)
             );
+        },
+    },
+
+    watch: {
+        trimmedSearch: {
+            handler() {
+                debounce(window.dispatchEvent(e), 500);
+            },
         },
     },
 

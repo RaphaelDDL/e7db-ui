@@ -41,12 +41,67 @@
                     <hr />
                     <ul class="bullets">
                         <li>
+                            <a href="https://quazzywazzy.github.io/e7-gacha-simulator/" rel="noopener" target="_blank"
+                                >E7 Gacha Simulator</a
+                            >
+                            <div class="bullet-description">
+                                Created by <strong class="white">QuazzyWazzy</strong>, it's a browser Summon Simulator
+                                using EpicSevenDB API. |
+                                <a
+                                    href="https://github.com/QuazzyWazzy/e7-gacha-simulator"
+                                    rel="noopener"
+                                    target="_blank"
+                                    >Visit it's Github Repo</a
+                                >
+                            </div>
+                        </li>
+                        <li>
+                            <a href="https://stocky37.github.io/epicseven-tools/" rel="noopener" target="_blank"
+                                >Equipment Preview/Planner Tool</a
+                            >
+                            <div class="bullet-description">
+                                Created by <strong class="white">stocky37</strong>, it's a Character Equipment
+                                Preview/Planner, and as the name says, you can plan your current Hero, see ways of
+                                improving, all without spending Gold in-game swapping items around. Using EpicSevenDB
+                                API's data. |
+                                <a href="https://github.com/stocky37/epicseven-tools" rel="noopener" target="_blank"
+                                    >Visit it's Github Repo</a
+                                >
+                            </div>
+                        </li>
+                        <li>
+                            <a
+                                href="https://old.reddit.com/r/EpicSeven/comments/at73kb/i_made_a_bot_yufinebot_for_discord_servers_around/"
+                                rel="noopener"
+                                target="_blank"
+                                >YufineBot, A Discord Bot for E7</a
+                            >
+                            <div class="bullet-description">
+                                Created by <strong class="white">Dimbreath</strong>, it's a Discord Bot that can be
+                                added to any Server, and it brings multiple E7 information as well as a Summon
+                                Simulator. Using EpicSevenDB API's data.
+                            </div>
+                        </li>
+                        <li>
+                            <a href="https://whothatcatalyst.netlify.com/" rel="noopener" target="_blank"
+                                >WhoThatCatalyst: Catalyst to Hero Filter</a
+                            >
+                            <div class="bullet-description">
+                                Created by <strong class="white">w_7_z</strong> and
+                                <strong class="white">machinelearningman</strong>, it's a Catalyst per Hero Filter. You
+                                search the catalyst name, it gives you which heroes need it, as well as which skills
+                                and/or upgrades. Using EpicSevenDB API's data. |
+                                <a href="https://github.com/cypir/e7-catalyst-to-hero" rel="noopener" target="_blank"
+                                    >Visit it's Github Repo</a
+                                >
+                            </div>
+                        </li>
+                        <li>
                             <a href="https://databuilder.epicsevendb.com">E7DB DataBuilder</a>
                             <div class="bullet-description">
-                                For those who have little or none knowledge of Git, Github or JSON but still have a good
-                                heart and is willing to help our DB by submitting hero data.
-                                <br />Fill the form fields, export the JSON then send us directly by DMing
-                                <strong>RaphaelDDL#5150</strong> on Discord.
+                                Created by <strong class="white">Squachie</strong>, it's a Hero Data Builder, which is
+                                used to create new hero data for EpicSevenDB API. New hero being released and you want
+                                to contribute? Fill up the hero's details and send us the JSON it exports :)
                             </div>
                         </li>
                     </ul>
@@ -67,6 +122,53 @@
                     <h1>EpicSevenDB.com Changelog</h1>
                     <hr />
                     <ul class="bullets changelog">
+                        <li>
+                            <strong>Feb 28th, 2019 - version 0.6.5</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>Hero List scroll lag/stutter</strong> <br />Hero List was lagging the
+                                        scroll when had more than 3 heroes per line. In case you care on "why", it was a
+                                        funny experience discovering the bottleneck was that border-radius in
+                                        conjunction with a border having a RGBA color (with opacity &lt; 1) destroyed
+                                        browser's performance (Chrome specially). Fixed!
+                                    </li>
+                                    <li>
+                                        <strong>Home Filter!</strong>
+                                        <br />You can Search for Artifact and Hero names on the form on top of the
+                                        screen!<br /><br />
+                                        Props to <strong class="white">willhausman</strong> who contributed for this on
+                                        our github. We appreciate!
+                                    </li>
+                                    <li>
+                                        <strong>Database updated</strong>
+                                        <br />Hero and Artifact data updated with latest from
+                                        <a
+                                            href="https://github.com/EpicSevenDB/gamedatabase"
+                                            rel="noopener"
+                                            target="_blank"
+                                            >Github database Hero list</a
+                                        >, including feb 27th patch (Radiant Forever, Ludwig buff). Thank you verrrryyyy
+                                        much to <strong class="white">Kromagg</strong>, really owning the data, both
+                                        adding new and fixing already existing. And also, thank you in advance for both
+                                        <strong class="white">Kromagg</strong> and
+                                        <strong class="white">stocky37</strong> on their current work with the
+                                        multipliers (release date TBD).
+                                    </li>
+                                </ul>
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports, or email me directly through
+                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
                         <li>
                             <strong>Feb 23rd, 2019 - version 0.6.0</strong>
                             <div class="bullet-description">

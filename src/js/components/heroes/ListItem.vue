@@ -1,10 +1,10 @@
 <template>
-    <router-link :to="detailUrl" class="column" tag="li" v-lazy-container="{ selector: 'img' }">
+    <router-link :to="detailUrl" class="column" tag="li">
         <a class="hero-list-card">
             <div :class="heroClass" class="no-text">
                 <h2>{{ hero.name }}</h2>
             </div>
-            <img :data-error="`${this.assetsUrl}/hero/_placeholder/small_missing.png`" :data-src="imageUrls.small" />
+            <img class="hero-list-card-image" v-lazy="imageUrls" :key="hero.name" />
             <div :class="[starRating, heroElement]" class="no-text small"></div>
         </a>
         <div class="hero-list-background"></div>
@@ -30,7 +30,8 @@ export default {
         },
         imageUrls() {
             return {
-                small: `${this.assetsUrl}/hero/${this.hero.fileId}/small.png`,
+                src: `${this.assetsUrl}/hero/${this.hero.fileId}/small.png`,
+                error: `${this.assetsUrl}/hero/_placeholder/small_missing.png`,
             };
         },
     },

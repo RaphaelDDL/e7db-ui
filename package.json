@@ -23,7 +23,7 @@
         "vue": "^2.6.6",
         "vue-analytics": "*",
         "vue-axios": "*",
-        "vue-lazyload": "*",
+        "vue-lazyload": "^1.2.6",
         "vue-multiselect": "^2.1.3",
         "vue-router": "*",
         "vue-tabs-component": "*",
