@@ -31,14 +31,11 @@ export function getByKeyword(list, keyword) {
     if (typeof keyword !== 'string' || !Array.isArray(list)) {
         return list;
     }
-    const search = (keyword + '').trim().toLowerCase();
+    const search = stripText(keyword);
     if (!search.length) {
         return list;
     }
-    return list.filter(
-        (listItem) =>
-            listItem.name.toLowerCase().indexOf(search) > -1 || listItem.fileId.toLowerCase().indexOf(search) > -1
-    );
+    return list.filter((listItem) => listItem.trimmedName.indexOf(search) > -1);
 }
 
 export function getByRarity(list, rarity) {
