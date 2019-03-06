@@ -17,7 +17,7 @@
     "dependencies": {
         "axios": "*",
         "core-js": "^2.6.5",
-        "modernizr": "*",
+        "modernizr": "3.7.0",
         "normalize.css": "*",
         "nprogress": "*",
         "vue": "^2.6.6",
