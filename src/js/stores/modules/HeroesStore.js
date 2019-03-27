@@ -1,4 +1,5 @@
 import HTTP, { errorHandler } from '@/js/stores/HTTP';
+import { stripText } from '@/js/util/Utils';
 
 export default {
     namespaced: true,
@@ -36,6 +37,8 @@ export default {
                     })
                     .then((heroes) => {
                         if (heroes && heroes.length) {
+                            heroes.forEach((h) => (h.trimmedName = stripText(h.name)));
+
                             commit('SET_HEROES', heroes);
                             resolve(heroes);
                         } else {
