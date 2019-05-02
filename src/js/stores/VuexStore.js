@@ -3,6 +3,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import hero from '@/js/stores/modules/HeroesStore';
 import artifact from '@/js/stores/modules/ArtifactsStore';
+import item from '@/js/stores/modules/ItemsStore';
 
 Vue.use(Vuex);
 
@@ -23,6 +24,7 @@ export default new Vuex.Store({
     modules: {
         hero,
         artifact,
+        item,
     },
     mutations: {
         addGlobalError(state, { error = {}, when = 'action' }) {

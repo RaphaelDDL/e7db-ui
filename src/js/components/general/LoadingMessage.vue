@@ -1,5 +1,5 @@
 <template>
-    <div class="fetchingData section-box" v-if="isLoading">
+    <div class="fetchingData" v-if="isLoading" :class="{ 'section-box': !noBorder }">
         <h4>Fetching data, please wait..</h4>
         <div class="spinner">
             <div class="spinner-icon"></div>
@@ -10,7 +10,7 @@
 <script>
 export default {
     name: 'Loading',
-    props: ['isLoading'],
+    props: ['isLoading', 'noBorder'],
 };
 </script>
 

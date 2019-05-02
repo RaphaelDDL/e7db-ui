@@ -127,13 +127,22 @@
                                     v-for="(enhancement, enhancementindex) in skill.enhancement"
                                 >
                                     {{ enhancement.description }}
-                                    <div v-if="enhancement.resources && enhancement.resources.length">
-                                        <span
+                                    <div
+                                        v-if="enhancement.resources && enhancement.resources.length"
+                                        class="resource-item-list"
+                                    >
+                                        <!-- <span
                                             :key="resourceindex"
                                             class="resource-item"
                                             v-for="(resource, resourceindex) in enhancement.resources"
                                             >{{ resource.qty }}x {{ resource.item | catalystName }}</span
-                                        >
+                                        > -->
+
+                                        <ItemPopover
+                                            :key="`${skill.name}_${enhancementindex}_${resourceindex}`"
+                                            v-for="(resource, resourceindex) in enhancement.resources"
+                                            :resource="resource"
+                                        />
                                     </div>
                                 </li>
                             </ol>
@@ -185,13 +194,30 @@
                             </div>
                         </div>
                         <h4>Consumed Resources</h4>
-                        <div class="awakening-resources" v-if="awakening.resources && awakening.resources.length">
+                        <!-- <div class="awakening-resources" v-if="awakening.resources && awakening.resources.length">
                             <span
                                 :key="resourceindex"
                                 class="resource-item"
                                 v-for="(resource, resourceindex) in awakening.resources"
                                 >{{ resource.qty }}x {{ resource.item | catalystName }}</span
                             >
+                        </div> -->
+                        <div
+                            v-if="awakening.resources && awakening.resources.length"
+                            class="awakening-resources resource-item-list"
+                        >
+                            <!-- <span
+                                    :key="resourceindex"
+                                    class="resource-item"
+                                    v-for="(resource, resourceindex) in enhancement.resources"
+                                    >{{ resource.qty }}x {{ resource.item | catalystName }}</span
+                                > -->
+
+                            <ItemPopover
+                                :key="`${index}_${resourceindex}`"
+                                v-for="(resource, resourceindex) in awakening.resources"
+                                :resource="resource"
+                            />
                         </div>
                     </tab>
                 </tabs>
@@ -634,9 +660,10 @@
 </template>
 
 <script>
-import LoadingMessage from '@/js/components/general/LoadingMessage';
-import { Tabs, Tab } from 'vue-tabs-component';
 import Modernizr from 'modernizr';
+import LoadingMessage from '@/js/components/general/LoadingMessage';
+import ItemPopover from '@/js/components/items/ItemPopover';
+import { Tabs, Tab } from 'vue-tabs-component';
 import { gaPageView } from '@/js/util/Analytics';
 import { buffDebuffKeyToName } from '@/js/util/Utils';
 
@@ -721,6 +748,7 @@ export default {
         LoadingMessage,
         Tabs,
         Tab,
+        ItemPopover,
     },
     methods: {
         buffDebuffKeyToName,
@@ -728,7 +756,7 @@ export default {
             if (document && document.title) {
                 document.title = `${this.heroDetail.name} ${document.title}`;
             }
-            gaPageView(this.$ga);
+            gaPageView();
         },
         skillClasses(skill) {
             let soulBurnNum = parseInt(skill.soulBurn, 10);

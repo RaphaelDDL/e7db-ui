@@ -206,7 +206,7 @@ export default {
             if (document && document.title) {
                 document.title = `${this.artifactDetail.name} ${document.title}`;
             }
-            gaPageView(this.$ga);
+            gaPageView();
         },
     },
     mounted() {

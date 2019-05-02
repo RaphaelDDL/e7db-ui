@@ -3,11 +3,12 @@ import axios from 'axios';
 import Vue from 'vue';
 import VueAxios from 'vue-axios';
 import { apiUrl } from '@/js/util/Constants';
+import { gaException } from '@/js/util/Analytics';
 
 Vue.use(VueAxios, axios);
 
 Vue.config.errorHandler = function(err, vm, info) {
-    errorHandler({ dispatch: vm.$store.dispatch }, err, 'Vue errorHandler' + info);
+    errorHandler({ dispatch: vm.$store.dispatch }, err, 'Vue errorHandler =>' + info);
 };
 
 axios.defaults.baseURL = apiUrl;
@@ -21,13 +22,17 @@ NProgress.configure({
 
 const errorHandler = ({ dispatch, reject }, error, when) => {
     NProgress.done();
+
+    console.warn('[Global Error Handler]: Error ' + when + ': ' + error);
+
+    gaException({ error, when });
+
     if (dispatch) {
         dispatch('globalError', { error, when }, { root: true });
     }
     if (reject) {
         return reject(error);
     }
-    console.warn('[Global Error Handler]: Error ' + when + ': ' + error);
 };
 
 // scotch.io/tutorials/add-loading-indicators-to-your-vuejs-application
@@ -61,6 +66,12 @@ const httpMethods = {
     },
     getSingleHero: (fileId) => {
         return axios.get(`hero/${fileId}`);
+    },
+    getItemsList: () => {
+        return axios.get('item');
+    },
+    getSingleItem: (fileId) => {
+        return axios.get(`item/${fileId}`);
     },
 };
 

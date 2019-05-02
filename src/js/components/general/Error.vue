@@ -7,7 +7,7 @@ import { gaPageView } from '@/js/util/Analytics';
 export default {
     inject: ['assetsUrl'],
     mounted() {
-        gaPageView(this.$ga);
+        gaPageView();
     },
 };
 </script>

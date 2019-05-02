@@ -1,6 +1,72 @@
 <template>
     <div class="columns homepage is-mobile">
+        <div class="column is-12">
+            <SearchWidget />
+
+            <section class="section-container home-menu-parent">
+                <div class="section-box">
+                    <ul class="home-menu">
+                        <router-link @click.native="trackMenuEvent" tag="li" to="/heroes">
+                            <a>
+                                <img :src="`${assetsUrl}/website/journal_hero.png`" alt />
+                                Heroes
+                            </a>
+                        </router-link>
+                        <router-link @click.native="trackMenuEvent" tag="li" to="/artifacts">
+                            <a>
+                                <img :src="`${assetsUrl}/website/journal_artifact.png`" />
+                                Artifacts
+                            </a>
+                        </router-link>
+                        <router-link @click.native="trackMenuEvent" tag="li" to="/changelog">
+                            <a>
+                                <img :src="`${assetsUrl}/website/book_changelog.png`" />
+                                Changelog
+                            </a>
+                        </router-link>
+                        <router-link @click.native="trackMenuEvent" tag="li" to="/about">
+                            <a>
+                                <img :src="`${assetsUrl}/website/book_about.png`" />
+                                About
+                            </a>
+                        </router-link>
+                    </ul>
+                </div>
+            </section>
+        </div>
         <aside class="column is-two-fifths-tablet is-12-mobile">
+            <section class="section-container">
+                <div class="section-box">
+                    <h1>Current Events</h1>
+                    <hr />
+                    <ul class="banner-list">
+                        <router-link @click.native="trackMenuEvent" tag="li" to="/hero/baiken">
+                            <a>
+                                <img :src="`${assetsUrl}/banner/gacha/baiken.png`" alt="Baiken Limited Drop Rate Up" />
+                                Limited Drop Rate Up - Baiken
+                            </a>
+                        </router-link>
+                        <router-link @click.native="trackMenuEvent" tag="li" to="/hero/sol">
+                            <a>
+                                <img
+                                    :src="`${assetsUrl}/banner/sidestory/gg_baiken.png`"
+                                    alt="Guilty Gear Side Story: Visitors from another world"
+                                />
+                                Guilty Gear Side Story: Visitors from Another World
+                            </a>
+                        </router-link>
+                        <router-link @click.native="trackMenuEvent" tag="li" to="/hero/haste">
+                            <a>
+                                <img
+                                    :src="`${assetsUrl}/banner/sidestory/haste_vampire_thirst.png`"
+                                    alt="Haste Side Story: A Vampires Thirst"
+                                />
+                                Side Story: A Vampire's Thirst
+                            </a>
+                        </router-link>
+                    </ul>
+                </div>
+            </section>
             <section class="section-container">
                 <div class="section-box">
                     EpicSevenDB is a database for Epic Seven game. You can download the game on
@@ -45,8 +111,9 @@
                                 >E7 Gacha Simulator</a
                             >
                             <div class="bullet-description">
-                                Created by <strong class="white">QuazzyWazzy</strong>, it's a browser Summon Simulator
-                                using EpicSevenDB API. |
+                                Created by
+                                <strong class="white">QuazzyWazzy</strong>, it's a browser Summon Simulator using
+                                EpicSevenDB API. |
                                 <a
                                     href="https://github.com/QuazzyWazzy/e7-gacha-simulator"
                                     rel="noopener"
@@ -60,10 +127,10 @@
                                 >Equipment Preview/Planner Tool</a
                             >
                             <div class="bullet-description">
-                                Created by <strong class="white">stocky37</strong>, it's a Character Equipment
-                                Preview/Planner, and as the name says, you can plan your current Hero, see ways of
-                                improving, all without spending Gold in-game swapping items around. Using EpicSevenDB
-                                API's data. |
+                                Created by
+                                <strong class="white">stocky37</strong>, it's a Character Equipment Preview/Planner, and
+                                as the name says, you can plan your current Hero, see ways of improving, all without
+                                spending Gold in-game swapping items around. Using EpicSevenDB API's data. |
                                 <a href="https://github.com/stocky37/epicseven-tools" rel="noopener" target="_blank"
                                     >Visit it's Github Repo</a
                                 >
@@ -77,9 +144,10 @@
                                 >YufineBot, A Discord Bot for E7</a
                             >
                             <div class="bullet-description">
-                                Created by <strong class="white">Dimbreath</strong>, it's a Discord Bot that can be
-                                added to any Server, and it brings multiple E7 information as well as a Summon
-                                Simulator. Using EpicSevenDB API's data.
+                                Created by
+                                <strong class="white">Dimbreath</strong>, it's a Discord Bot that can be added to any
+                                Server, and it brings multiple E7 information as well as a Summon Simulator. Using
+                                EpicSevenDB API's data.
                             </div>
                         </li>
                         <li>
@@ -87,7 +155,8 @@
                                 >WhoThatCatalyst: Catalyst to Hero Filter</a
                             >
                             <div class="bullet-description">
-                                Created by <strong class="white">w_7_z</strong> and
+                                Created by
+                                <strong class="white">w_7_z</strong> and
                                 <strong class="white">machinelearningman</strong>, it's a Catalyst per Hero Filter. You
                                 search the catalyst name, it gives you which heroes need it, as well as which skills
                                 and/or upgrades. Using EpicSevenDB API's data. |
@@ -99,9 +168,10 @@
                         <li>
                             <a href="https://databuilder.epicsevendb.com">E7DB DataBuilder</a>
                             <div class="bullet-description">
-                                Created by <strong class="white">Squachie</strong>, it's a Hero Data Builder, which is
-                                used to create new hero data for EpicSevenDB API. New hero being released and you want
-                                to contribute? Fill up the hero's details and send us the JSON it exports :)
+                                Created by
+                                <strong class="white">Squachie</strong>, it's a Hero Data Builder, which is used to
+                                create new hero data for EpicSevenDB API. New hero being released and you want to
+                                contribute? Fill up the hero's details and send us the JSON it exports :)
                             </div>
                         </li>
                     </ul>
@@ -109,528 +179,11 @@
             </section>
         </aside>
         <main class="column is-three-fifths-tablet is-12-mobile">
-            <!-- <section class="section-container">
-                <div class="section-box">
-                    <SectionLinks isMobileNav="false" />
-                </div>
-            </section> -->
-
-            <SearchWidget />
-
             <section class="section-container">
                 <div class="section-box">
-                    <h1>EpicSevenDB.com Changelog</h1>
+                    <h1>Newest Heroes and Artifacts</h1>
                     <hr />
-                    <ul class="bullets changelog">
-                        <li>
-                            <strong>Feb 28th, 2019 - version 0.6.5</strong>
-                            <div class="bullet-description">
-                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
-                                <p>Implemented and/or Fixed the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Hero List scroll lag/stutter</strong> <br />Hero List was lagging the
-                                        scroll when had more than 3 heroes per line. In case you care on "why", it was a
-                                        funny experience discovering the bottleneck was that border-radius in
-                                        conjunction with a border having a RGBA color (with opacity &lt; 1) destroyed
-                                        browser's performance (Chrome specially). Fixed!
-                                    </li>
-                                    <li>
-                                        <strong>Home Filter!</strong>
-                                        <br />You can Search for Artifact and Hero names on the form on top of the
-                                        screen!<br /><br />
-                                        Props to <strong class="white">willhausman</strong> who contributed for this on
-                                        our github. We appreciate!
-                                    </li>
-                                    <li>
-                                        <strong>Database updated</strong>
-                                        <br />Hero and Artifact data updated with latest from
-                                        <a
-                                            href="https://github.com/EpicSevenDB/gamedatabase"
-                                            rel="noopener"
-                                            target="_blank"
-                                            >Github database Hero list</a
-                                        >, including feb 27th patch (Radiant Forever, Ludwig buff). Thank you verrrryyyy
-                                        much to <strong class="white">Kromagg</strong>, really owning the data, both
-                                        adding new and fixing already existing. And also, thank you in advance for both
-                                        <strong class="white">Kromagg</strong> and
-                                        <strong class="white">stocky37</strong> on their current work with the
-                                        multipliers (release date TBD).
-                                    </li>
-                                </ul>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports, or email me directly through
-                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Feb 23rd, 2019 - version 0.6.0</strong>
-                            <div class="bullet-description">
-                                <img :src="`${assetsUrl}/website/journal_hero.png`" class="changelog-image" />
-                                <p>Implemented and/or Fixed the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Search by Name bug fix</strong> <br />searching all lowercase would fare
-                                        results,let's say, "abyssal". But if you cased the search, "Abyssal", it would
-                                        not. Now search is case-insensitive.
-                                    </li>
-                                    <li>
-                                        <strong>All Filters implemented</strong>
-                                        <br />You can filter the Artifact List by <strong class="white">Rarity</strong>,
-                                        <strong class="white">Class</strong>, <strong class="white">Element</strong> and
-                                        also <strong class="white">Search by Name</strong>.
-
-                                        <br /><br />
-                                        You can filter the Hero List by
-                                        <strong class="white">Rarity</strong>, <strong class="white">Class</strong>,
-                                        <strong class="white">Zodiac</strong>, <strong class="white">Element</strong>,
-                                        <strong class="white">Search by Name</strong> and also by
-                                        <strong class="white">Buffs and Debuffs</strong>. <br /><br />
-
-                                        Buffs and Debuffs are multiselect, therefore you can search for that hero you
-                                        wanted to have both Immunity and Barrier (Angelica), or that gets Immortality
-                                        and Attack Up (Kayron, Sven) and so on.
-                                        <br /><br />
-
-                                        Currently I'm missing Sagittarius and Capricorn icons, but you can hover over
-                                        the missing icons and browser should render the name on the tooltip. Just
-                                        remember Saint Seiya/Knights of the Zodiac's Gold Saint's order lol!
-                                    </li>
-                                    <li>
-                                        <strong>Database updated</strong>
-                                        <br />Hero and Artifact data updated with latest from
-                                        <a
-                                            href="https://github.com/EpicSevenDB/gamedatabase"
-                                            rel="noopener"
-                                            target="_blank"
-                                            >Github database Hero list</a
-                                        >, that means, all heroes and artifacts currently in game are here.. Tamarinne,
-                                        Lidica, etc.
-                                    </li>
-                                </ul>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports, or email me directly through
-                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Feb 18th, 2019 - version 0.5.5</strong>
-                            <div class="bullet-description">
-                                <p>Implemented the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Hero Filters</strong>
-                                        <br />You can now filter the Artifact List by
-                                        <strong class="white">Rarity</strong>, <strong class="white">Class</strong>,
-                                        <strong class="white">Element</strong> and also
-                                        <strong class="white">Search by Name</strong>. I decided to release before I
-                                        finish Buff/Debuff since the filters for artifact and hero are pretty much the
-                                        same so was easy to use the same component. I will implement filter by
-                                        <strong class="white">Zodiac Sign</strong>, but currently I'm missing
-                                        Sagittarius and Capricorn icons, so I need to get them first.
-                                    </li>
-                                </ul>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports, or email me directly through
-                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Feb 18th, 2019 - version 0.5.0</strong>
-                            <div class="bullet-description">
-                                <p>Implemented and/or Fixed the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Artifact Filters</strong>
-                                        <br />You can now filter the Artifact List by
-                                        <strong class="white">Rarity</strong>,
-                                        <strong class="white">Class Exclusive</strong> and also
-                                        <strong class="white">Search by Name</strong>. Hero List filter is just around
-                                        the corner, I'm finishing implementing the search by buff/debuff.
-                                    </li>
-                                    <li>
-                                        <strong>Database updated</strong>
-                                        <br />Hero and Artifact data updated with latest from
-                                        <a
-                                            href="https://github.com/EpicSevenDB/gamedatabase"
-                                            rel="noopener"
-                                            target="_blank"
-                                            >Github database Hero list</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <strong>Hero Status updated/fixed</strong>
-                                        <br />We updated the percentage status from string (`150`) to float (`1.5`) on
-                                        gamedatabase so I'm adjusting the UI to do the necessary calc (aka times 100).
-                                    </li>
-                                </ul>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports. or email me directly through
-                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Feb 13th, 2019 - version 0.4.6</strong>
-                            <div class="bullet-description">
-                                <p>Implemented and/or Fixed the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Images reorganized</strong>
-                                        <br />Reddit user <strong class="white">buttreynolds</strong> was kind enough to
-                                        provide everyone with his datamined images, so there are almost all images.
-                                        There are still list images missing for both artifacts and heroes but it's much
-                                        more complete now.
-                                    </li>
-                                    <li>
-                                        <strong>Database updated</strong>
-                                        <br />Hero and Artifact data updated with latest from
-                                        <a
-                                            href="https://github.com/EpicSevenDB/gamedatabase"
-                                            rel="noopener"
-                                            target="_blank"
-                                            >Github database Hero list</a
-                                        >
-                                        :-)
-                                    </li>
-                                    <li>
-                                        <strong>Code Refactored</strong>
-                                        <br />Not much difference visually, but now code for the store is modular, aka a
-                                        module for hero and for artifact, in preparation for the filters.
-                                    </li>
-                                </ul>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports. or email me directly through
-                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Feb 7th, 2019 - version 0.4.1</strong>
-                            <div class="bullet-description">
-                                <p>Fixed the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Hero Memory Imprint Bonuses being rounded</strong>
-                                        <br />I mistakenly rounded the imprint bonuses, which I shouldn't. For example,
-                                        Yuna's B Imprint was showing as 4% instead of 4.3%. This is now fixed it. Thank
-                                        you <strong class="white">Kromagg</strong> for noticing.
-                                    </li>
-                                </ul>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports. or email me directly through
-                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Feb 6th, 2019 - version 0.4.0</strong>
-                            <div class="bullet-description">
-                                <p>Implemented and/or Fixed the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Hero Skills Buffs and Debuffs</strong>
-                                        <br />All skills now have their specific buffs (blue) and debuffs (red) on the
-                                        top right of the skill section.
-                                    </li>
-                                    <li>
-                                        <strong>Hero Memory Imprint Bonuses</strong>
-                                        <br />Now you are able to consult what bonuses each hero gets when upgrading
-                                        it's imprint.
-                                    </li>
-                                    <li>
-                                        <strong>Hero Memory Imprint Positioning</strong>
-                                        <br />You are now able to see which formation slots your favorite hero applies
-                                        it's Memory Imprint bonus to.
-                                        <br />
-                                        <br />Works as in-game. White slots means it applies to; grayish slots means it
-                                        does not apply to that position.
-                                    </li>
-                                    <li>
-                                        <strong>Changelog year fix</strong>
-                                        <br />I was dumb and kept using 2018 on the titles even after we changed to 2019
-                                        lol. Fixed.
-                                    </li>
-                                </ul>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports.
-                                </p>
-                                <p>
-                                    You can also now email me directly through
-                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Jan 28th, 2019 - version 0.3.2</strong>
-                            <div class="bullet-description">
-                                <p>Implemented and/or Fixed the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>
-                                            Hero and Artifact List, as well as Specialty and Relation lists
-                                        </strong>
-                                        <br />Updated router code to generate links with anchor, so now you can right
-                                        click and choose 'Open in New Tab' if you'd like to open multiple from the list
-                                        page. Also helps with SEO.
-                                    </li>
-                                    <li>
-                                        <strong>Hero Status</strong>
-                                        <br />Updated Hero Detail page to have 4 status tables:
-                                        <ul class="bullets">
-                                            <li>Lv1, Base acquirable star</li>
-                                            <li>Lv50, 5 stars</li>
-                                            <li>Lv60, 6 stars</li>
-                                            <li>Lv60, 6 stars, fully awakened</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <strong>Hero Awakening</strong>
-                                        <br />Awakening #3 now correctly states that there's a skill upgrade.
-                                    </li>
-                                </ul>
-                                <p>Next update will be in the next few days.</p>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports.
-                                </p>
-                                <p>
-                                    You can also now email me directly through
-                                    <strong class="white">raphaelddl@epicsevendb.com</strong> if you prefer.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Jan 24th, 2019 - version 0.3.0</strong>
-                            <div class="bullet-description">
-                                <p>Implemented and/or Fixed the following:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Updated Database</strong>
-                                        <br />I guess we have most (if not all) heroes. Not all images though, but
-                                        still.
-                                    </li>
-                                    <li>
-                                        <strong>Hero List</strong>
-                                        <br />Fixed the image of a few heroes which had their image bigger than the
-                                        rest. That means, Watcher Shuri, Luna, Yufine, Maya, etc etc.
-                                    </li>
-                                    <li>
-                                        <strong>Hero Detail: Awakening</strong>
-                                        <br />Awakening section now has the data for the upgrades and resources.
-                                    </li>
-                                    <li>
-                                        <strong>Hero Detail: Specialty Change</strong>
-                                        <br />Specialty Change section added to heroes that have them, linking to their
-                                        Specialty changed versions. E.g.: Lorina will have a link for Commander Lorina,
-                                        Kluri for Falconer Kluri, etc.
-                                    </li>
-                                </ul>
-                                <p>
-                                    The hero list filters, memory imprint section and skill multipliers (thanks
-                                    <strong class="white">MaxNumbers</strong>) are next on the roadmap (they are almost
-                                    ready), but I wanted to update the website already since we had a great update on
-                                    the database files, thanks to all contributers but specially due to
-                                    <strong class="white">Kromagg</strong> efforts fixing and reconverting all files
-                                    (thanks <strong class="white">Squachie</strong> for the awesome DataBuilder, it's
-                                    rocking!). <br />We'll also have soon 4 stat blocks, due to the help of
-                                    <strong class="white">stocky37</strong>. We'll have the following stats blocks:
-                                </p>
-                                <ul class="bullets">
-                                    <li>Lv1, Base acquirable star</li>
-                                    <li>Lv50, 5 stars</li>
-                                    <li>Lv60, 6 stars</li>
-                                    <li>Lv60, 6 stars, fully awakened</li>
-                                </ul>
-                                <p>Next update will be in the next couple days.</p>
-                                <p>
-                                    Please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                    if you got feedback or bug reports.
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Jan 10th, 2019 - version 0.2.5</strong>
-                            <div class="bullet-description">
-                                <p>Only fixes today:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Hero List</strong>
-                                        <br />Fixed the image sizing. At first, I left to browser decide the size after
-                                        image downloaded, but on older phones, the repaint/reflow after each image
-                                        downloads is too slow so some heroes were stacking on one another for a few
-                                        seconds until browser recalculated the sizes and fixed itself. Should be more
-                                        performant now.
-                                    </li>
-                                    <li>
-                                        <strong>Hero Detail</strong>
-                                        <br />Some heroes we did at the start of project had different data structure
-                                        (they'll be fixed) so I fixed the code to support both types. That means,
-                                        Cecilia's Skill Enhancements now appear - just the names - as well as there
-                                        shouldn't have any more Relationship issues that end up being an error page.
-                                        Only heroes we have data on will be shown. So, for example, as this news' time,
-                                        we don't have data on any of Cecilia relations, so the section will not show
-                                        until we get data (e.g. Yufine, Nemunas, etc)
-                                    </li>
-                                </ul>
-                                <p>
-                                    Got feedback, bug reports? As usual, please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >Open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Jan 7th, 2019 - version 0.2.0</strong>
-                            <div class="bullet-description">
-                                <p>
-                                    Heroes List and Detail page are released. Detail page still need some work on things
-                                    we have data but I still haven't coded the layout (it's missing a few things like
-                                    Imprint positions, proper upgrade resources images, etc).
-                                </p>
-                                <p>
-                                    Also there are not many heroes yet. If you feel like giving us a hand, please use
-                                    <a href="https://databuilder.epicsevendb.com">E7DB DataBuilder</a>
-                                    to submit any hero (check the ones that were already worked on at
-                                    <a
-                                        href="https://github.com/EpicSevenDB/gamedatabase/tree/master/hero"
-                                        rel="noopener"
-                                        target="_blank"
-                                        >Github database Hero list page</a
-                                    >
-                                    to avoid spending time on repeated hero).
-                                </p>
-                                <p>
-                                    Got feedback, bug reports? As usual, please
-                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                        >Open an issue on our EpicSevenDB/ui Github page</a
-                                    >
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Dec 28th, 2018 - version 0.1.6</strong>
-                            <div class="bullet-description">
-                                <p>
-                                    Small fix now, placeholders will not flicker anymore. Code was retrying to download
-                                    for 3x times, but I already know 404 are the images that I don't have :v
-                                </p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Dec 27th, 2018 - version 0.1.5</strong>
-                            <div class="bullet-description">
-                                <p>
-                                    I hope you guys have enjoyed your holiday, and also our first release.
-                                </p>
-                                <p>I've fixed a few issues today:</p>
-                                <ul class="bullets">
-                                    <li>
-                                        <strong>Typos</strong>
-                                        <br />I think I fixed all typos (like <strong>22th</strong> to
-                                        <strong>22nd</strong>) and others. Let me know if I missed any
-                                    </li>
-                                    <li>
-                                        <strong>Placeholder for missing images</strong>
-                                        <br />Implemented placeholder images for artifacts that we do not have their
-                                        images. That means you'll see a SD Ras and Arky on artifact's icons/small/full
-                                        images which are missing. Thank you, wife for the edits :P
-                                        <br />
-                                        <br />Example Artifact missing icon:
-                                        <br />
-                                        <img
-                                            src="https://assets.epicsevendb.com/artifact/_placeholder/icon_missing.png"
-                                        />
-                                    </li>
-                                    <li>
-                                        <strong>API Caching</strong>
-                                        <br />Implemented caching to the API calls for the list. This is also a
-                                        preparation to make Heroes list perform better, and also to the list filters.
-                                        <br />
-                                        <br />That means it'll hit the API only once per user session, meaning anytime
-                                        you hit <a class href="/artifacts"> <strong>Artifacts</strong> </a>&nbsp;link
-                                        after the first time, it'll instantly load because I cached the first time's
-                                        response. For you, it's a little less bandwidth used. Hopefully your browser
-                                        cached the images :)
-                                    </li>
-                                </ul>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Dec 22nd, 2018 - version 0.1.0</strong>
-                            <div class="bullet-description">
-                                Initial release of the website, featuring
-                                <a class href="/artifacts"> <strong>Artifacts</strong> </a>. Unfortunately we do not
-                                have ALL images of all artifacts, so you might notice some missing icons or full arts.
-                                Contact us if you have successfully extracted all game's assets!
-                                <br />
-                                <br />We are currently using a free account of Heroku and mLabs for the API and
-                                Database, while the website hosting itself is on a paid host. Therefore, the website
-                                might not have downtimes, but the backend might see some downtime if we reach the free
-                                quota. Please report any issue you find when browser the website on our
-                                <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
-                                    >Github page</a
-                                >
-                                by creating a new issue and posting the error messages you were presented with.
-                                <br />
-                                <br />Next release will feature Heroes. Stay tuned. <br />Please Contribute! Learn more
-                                on <a class href="/about">About</a>&nbsp;page.
-                                <p>I hope you guys enjoy. Happy Holidays.</p>
-                                <p>Best, <br />RaphaelDDL</p>
-                            </div>
-                        </li>
-                    </ul>
+                    <ResultsList :artifacts="latestArtifacts" :heroes="latestHeroes" />
                 </div>
             </section>
         </main>
@@ -639,16 +192,111 @@
 
 <script>
 import SectionLinks from '@/js/layout/SectionLinks.vue';
-import { gaPageView } from '@/js/util/Analytics';
+import { gaPageView, gaEvent } from '@/js/util/Analytics';
 import SearchWidget from '@/js/components/search/SearchWidget';
+import ResultsList from '@/js/components/search/ResultsList';
+
 export default {
+    data() {
+        return {
+            latestHeroes: [
+                {
+                    name: 'Baiken',
+                    rarity: 5,
+                    classType: 'thief',
+                    element: 'earth',
+                    zodiac: 'scorpio',
+                    fileId: 'baiken',
+                    buffs: [],
+                    debuffs: ['stic_blood', 'stic_blood'],
+                },
+                {
+                    name: 'Sol',
+                    rarity: 5,
+                    classType: 'warrior',
+                    element: 'fire',
+                    zodiac: 'sagittarius',
+                    fileId: 'sol',
+                    buffs: [],
+                    debuffs: ['stic_silence', 'stic_buf_impossible'],
+                },
+                {
+                    name: 'Sage Baal & Sezan',
+                    rarity: 5,
+                    classType: 'mage',
+                    element: 'light',
+                    zodiac: 'taurus',
+                    fileId: 'sage-baal-sezan',
+                    buffs: [],
+                    debuffs: ['stic_sleep', 'stic_sleep'],
+                },
+                {
+                    name: 'Crescent Moon Rin',
+                    rarity: 4,
+                    classType: 'thief',
+                    element: 'dark',
+                    zodiac: 'taurus',
+                    fileId: 'crescent-moon-rin',
+                    buffs: [
+                        'stic_att_up',
+                        'stic_speed_up',
+                        'stic_cri_up',
+                        'stic_cridmg_up',
+                        'stic_def_up',
+                        'stic_protect',
+                        'stic_dodge_up',
+                        'stic_debuf_impossible',
+                        'stic_debuf_impossible',
+                    ],
+                    debuffs: [],
+                },
+            ],
+            latestArtifacts: [
+                {
+                    event: 'brawl-revelator',
+                    exclusive: [],
+                    fileId: 'portrait-of-the-saviors',
+                    name: 'Portrait of the Saviors',
+                    rarity: 4,
+                },
+                {
+                    name: 'Junkyard Dog',
+                    rarity: 5,
+                    exclusive: ['warrior'],
+                    event: 'visitors-from-another-world',
+                    fileId: 'junkyard-dog',
+                },
+                {
+                    name: 'Torn Sleeve',
+                    rarity: 5,
+                    exclusive: ['thief'],
+                    event: '',
+                    fileId: 'torn-sleeve',
+                },
+            ],
+        };
+    },
     inject: ['assetsUrl'],
     mounted() {
-        gaPageView(this.$ga);
+        gaPageView();
     },
     components: {
         SectionLinks,
         SearchWidget,
+        ResultsList,
+    },
+    methods: {
+        trackMenuEvent(mouseEvent) {
+            const linkName = mouseEvent.currentTarget
+                ? (mouseEvent.currentTarget.innerText + '').trim().toLowerCase()
+                : '';
+            gaEvent({
+                eventCategory: 'home-nav',
+                eventAction: 'click',
+                eventLabel: linkName,
+                // eventValue: 123
+            });
+        },
     },
 };
 </script>

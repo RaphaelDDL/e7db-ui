@@ -247,7 +247,7 @@ import { gaPageView } from '@/js/util/Analytics';
 
 export default {
     mounted() {
-        gaPageView(this.$ga);
+        gaPageView();
     },
 };
 </script>

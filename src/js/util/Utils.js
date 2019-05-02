@@ -31,11 +31,14 @@ export function getByKeyword(list, keyword) {
     if (typeof keyword !== 'string' || !Array.isArray(list)) {
         return list;
     }
-    const search = stripText(keyword);
+    const search = (keyword + '').trim().toLowerCase();
     if (!search.length) {
         return list;
     }
-    return list.filter((listItem) => listItem.trimmedName.indexOf(search) > -1);
+    return list.filter(
+        (listItem) =>
+            listItem.name.toLowerCase().indexOf(search) > -1 || listItem.fileId.toLowerCase().indexOf(search) > -1
+    );
 }
 
 export function getByRarity(list, rarity) {
@@ -237,301 +240,301 @@ const BUFF_DEBUFF_LIST = [
         type: 'D',
         name: 'Decrease Attack',
         _id: 'stic_att_dn',
-        description: '',
     },
     {
         type: 'D',
         name: 'Burn',
         _id: 'stic_blaze',
-        description: '',
     },
     {
         type: 'D',
         name: 'Decrease Hit Chance',
         _id: 'stic_blind',
-        description: '',
     },
     {
         type: 'D',
         name: 'Bleed',
         _id: 'stic_blood',
-        description: '',
     },
     {
         type: 'D',
         name: 'Cannot Buff',
         _id: 'stic_buf_impossible',
-        description: '',
     },
     {
         type: 'D',
         name: 'Critical Damage Decrease',
         _id: 'stic_cridmg_dn',
-        description: '',
+    },
+    {
+        type: 'B',
+        name: 'Critical Hit Resistance',
+        _id: 'stic_crires_up',
     },
     {
         type: 'D',
         name: 'Curse',
         _id: 'stic_curse',
-        description: '',
     },
     {
         type: 'D',
         name: 'Decrease Defense',
         _id: 'stic_def_dn',
-        description: '',
     },
     // {
     //     type: 'D',
     //     name: 'Confused*',
     //     _id: 'stic_dizzy',
-    //     description: '',
+    //
     // },
     {
         type: 'D',
         name: 'Decrease Evasion Chance',
         _id: 'stic_dodge_dn',
-        description: '',
     },
     {
         type: 'D',
         name: 'Poison',
         _id: 'stic_dot',
-        description: '',
     },
     // {
     //     type: 'D',
     //     name: 'Explosion*',
     //     _id: 'stic_explosion',
-    //     description: '',
+    //
     // },
     // {
     //     type: 'D',
     //     name: 'Freezing*',
     //     _id: 'stic_freezing',
-    //     description: '',
+    //
     // },
     {
         type: 'D',
         name: 'Unhealable',
         _id: 'stic_heal_impossible',
-        description: '',
     },
     {
         type: 'D',
         name: 'Magic Nail',
         _id: 'stic_nail',
-        description: '',
     },
     {
         type: 'D',
         name: 'Provoke',
         _id: 'stic_provoke',
-        description: '',
     },
     // {
     //     type: 'D',
     //     name: 'Shock*',
     //     _id: 'stic_shock',
-    //     description: '',
+
     // },
     {
         type: 'D',
         name: 'Target',
         _id: 'stic_sign',
-        description: '',
     },
     {
         type: 'D',
         name: 'Silence',
         _id: 'stic_silence',
-        description: '',
     },
     {
         type: 'D',
         name: 'Sleep',
         _id: 'stic_sleep',
-        description: '',
     },
     {
         type: 'D',
         name: 'Decrease Speed',
         _id: 'stic_speed_dn',
-        description: '',
     },
     {
         type: 'D',
         name: 'Stun',
         _id: 'stic_stun',
-        description: '',
     },
     {
         type: 'D',
         name: 'Vampirism',
         _id: 'stic_vampire',
-        description: '',
     },
     // {
     //     type: 'M',
     //     name: 'One Turn Buff',
     //     _id: 'stic_buff_one',
-    //     description: '',
+    //
     // },
     // {
     //     type: 'M',
     //     name: 'Two Turns Buff',
     //     _id: 'stic_buff_two',
-    //     description: '',
+    //
     // },
     // {
     //     type: 'M',
     //     name: 'Three Turns Buff',
     //     _id: 'stic_buff_three',
-    //     description: '',
+    //
     // },
     // {
     //     type: 'M',
     //     name: 'One Turn Debuff',
     //     _id: 'stic_debuff_one',
-    //     description: '',
+    //
     // },
     // {
     //     type: 'M',
     //     name: 'Two Turn Debuff',
     //     _id: 'stic_debuff_two',
-    //     description: '',
+    //
     // },
     // {
     //     type: 'M',
     //     name: 'Three Turn Debuff',
     //     _id: 'stic_debuff_three',
-    //     description: '',
+    //
     // },
     // {
     //     type: 'B',
     //     name: 'Attack Increase',
     //     _id: 'stic_att_inc',
-    //     description: '',
+    //
     // },
     {
         type: 'B',
         name: 'Increase Attack',
         _id: 'stic_att_up',
-        description: '',
+    },
+    {
+        type: 'B',
+        name: 'Increase Attack (Greater)',
+        _id: 'stic_att_up2',
     },
     {
         type: 'B',
         name: 'Revive',
         _id: 'stic_bless',
-        description: '',
     },
     // {
     //     type: 'B',
     //     name: '',
     //     _id: 'stic_con_up',
-    //     description: '',
+    //
     // },
     {
         type: 'B',
         name: 'Counter',
         _id: 'stic_counter',
-        description: '',
+    },
+    {
+        type: 'B',
+        name: 'Skill Nullifier',
+        _id: 'stic_endure',
     },
     {
         type: 'B',
         name: 'Critical Rate Up',
         _id: 'stic_cri_up',
-        description: '',
     },
     {
         type: 'B',
         name: 'Critical Damage Up',
         _id: 'stic_cridmg_up',
-        description: '',
     },
     {
         type: 'B',
         name: 'Immunity',
         _id: 'stic_debuf_impossible',
-        description: '',
     },
     {
         type: 'B',
         name: 'Increase Defense',
         _id: 'stic_def_up',
-        description: '',
     },
     {
         type: 'B',
         name: 'Increase Evasion Chance',
         _id: 'stic_dodge_up',
-        description: '',
     },
     // {
     //     type: 'B',
     //     name: 'Guardian Buff',
     //     _id: 'stic_force_arka',
-    //     description: '',
+    //
     // },
     {
         type: 'B',
         name: 'Continous Healing',
         _id: 'stic_heal',
-        description: '',
     },
     {
         type: 'B',
         name: 'Stealth',
         _id: 'stic_hide',
-        description: '',
     },
     {
         type: 'B',
         name: 'Immortal',
         _id: 'stic_immortality',
-        description: '',
+    },
+    {
+        type: 'B',
+        name: 'Loveliness',
+        _id: 'stic_lovely',
+    },
+    {
+        type: 'B',
+        name: 'Idol',
+        _id: 'stic_showtime',
     },
     {
         type: 'B',
         name: 'Invincible',
         _id: 'stic_invincible',
-        description: '',
     },
     {
         type: 'B',
         name: 'Rage',
         _id: 'stic_madness',
-        description: '',
     },
     // {
     //     type: 'B',
     //     name: 'HP UP*',
     //     _id: 'stic_maxhp_up',
-    //     description: '',
+    //
     // },
     {
         type: 'B',
         name: 'Barrier',
         _id: 'stic_protect',
-        description: '',
     },
-    // {
-    //     type: 'B',
-    //     name: 'Reflect',
-    //     _id: 'stic_reflect',
-    //     description: '',
-    // },
+    {
+        type: 'B',
+        name: 'Reflect',
+        _id: 'stic_reflect',
+    },
     // {
     //     type: 'B',
     //     name: 'Restore*',
     //     _id: 'stic_restore',
-    //     description: '',
+
     // },
     {
         type: 'B',
         name: 'Increase Speed',
         _id: 'stic_speed_up',
-        description: '',
+    },
+    {
+        type: 'B',
+        name: 'Increase Speed (Greater)',
+        _id: 'stic_speed_up2',
+    },
+    {
+        type: 'B',
+        name: 'Vigor',
+        _id: 'stic_haki',
     },
 ];
 

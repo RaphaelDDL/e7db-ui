@@ -16,6 +16,13 @@
                     </p>
                     <ul class="bullets">
                         <li>
+                            <a href="https://ko-fi.com/RaphaelDDL" rel="noopener" target="_blank">Ko-Fi</a>
+                            <div class="bullet-description">
+                                If you'd like to support us in any way, you could by buying a coffee or tea. That's an
+                                engineer's fuel :)
+                            </div>
+                        </li>
+                        <li>
                             <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
                                 >Github:EpicSevenDB/ui</a
                             >
@@ -81,7 +88,7 @@
 import { gaPageView } from '@/js/util/Analytics';
 export default {
     mounted() {
-        gaPageView(this.$ga);
+        gaPageView();
     },
 };
 </script>

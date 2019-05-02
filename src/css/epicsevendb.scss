@@ -10,6 +10,7 @@
 @import 'includes';
 @import 'grid';
 @import 'icons';
+@import 'tooltip';
 
 /*
 Overall + Flex trick for footer always on bottom
@@ -77,6 +78,17 @@ body {
 /*
     General
 */
+.sr-only {
+    position: absolute;
+    width: 0.1rem;
+    height: 0.1rem;
+    padding: 0;
+    margin: -0.1rem;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 a,
 .white {
     color: white !important;
@@ -94,6 +106,12 @@ ul {
         li {
             &:not(:first-of-type) {
                 margin-top: 2rem;
+            }
+        }
+
+        &.collapsed li {
+            &:not(:first-of-type) {
+                margin-top: .5rem;
             }
         }
         a {
@@ -178,6 +196,10 @@ strong,
     border: 0;
     border-top: 0.1rem solid $boxBorder;
     margin: 1.2rem auto;
+}
+
+.skillEnhanceFontColor {
+    color: $skillEnhanceFontColor;
 }
 
 .clearBoth {
@@ -351,13 +373,12 @@ nav.top-nav-bar {
         ul {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-evenly;
 
             li {
-                flex: 0 0 auto;
+                flex: 0 0 45%;
                 width: 50%;
-            }
 
-            a {
                 box-shadow: 0.3rem 0.3rem 3rem rgba(0, 0, 0, 0.3) inset;
                 border: 0.1rem solid $menuOptionsBorderColor;
                 border-radius: 1.5rem;
@@ -666,12 +687,12 @@ aside.column {
 
 .skill-enhance-list {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     flex-wrap: wrap;
 
     @include tablet {
         //causes flex double column on tablet n up
-        max-height: 25rem;
+        // max-height: 25rem;
     }
 
     list-style: none inside none;
@@ -679,7 +700,7 @@ aside.column {
     padding-left: 3rem;
     margin-top: 0.5rem;
     /* https://www.w3.org/Style/Examples/007/color-bullets.en.html */
-    & li {
+    & > li {
         flex: 1 0 auto;
         width: 100%;
 
@@ -714,6 +735,141 @@ aside.column {
         display: inline;
     }
 }
+
+.resource-item-asset {
+    text-align: center;
+    background: transparent url(#{$assetsUrl}/item/_layout/_itembg_stuff_1.png) 50% 0 no-repeat;
+    background-size: contain;
+
+    img {
+        margin: 0 auto;
+        display: block;
+        width: 95%;
+        height: auto;
+    }
+
+    @for $i from 1 through length($catalystTierList) {
+        $current: nth($catalystTierList, $i);
+
+        &.catalyst-tier-#{$current} {
+            background-image: url(#{$assetsUrl}/item/_layout/_itembg_stuff_#{$i}.png);
+        }
+    }
+}
+
+.item-tooltip {
+    font-size: 1.2rem;
+
+    &.tooltip.popover {
+        .popover-arrow {
+            border-color: $boxBorder;
+        }
+        .popover-inner {
+            background-color: $sectionBoxBackgroundColor;
+            border: 0.1rem solid $boxBorder;
+            color: white;
+            padding: 1.2rem;
+            min-width: 10rem;
+            max-width: 30rem;
+            max-height: 25rem;
+            overflow-y: scroll;
+
+            @include tablet {
+                min-width: 15rem;
+                max-width: 35rem;
+                max-height: 35rem;
+            }
+        }
+    }
+
+    hr {
+        @extend .boxBorderHr;
+    }
+
+    .resource-item-asset {
+        margin-left: -0.7rem;
+        margin-top: -0.7rem;
+        &,
+        & img {
+            width: 9rem;
+            max-width: 9rem;
+            height: 8.5rem;
+        }
+    }
+
+    .item-type {
+        font-size: 1.4rem;
+        color: $skillEnhanceFontColor;
+        text-transform: capitalize;
+    }
+
+    .item-name {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .item-quantity {
+        font-size: 1.4rem;
+        color: rgb(100, 183, 69);
+    }
+
+    .item-description {
+        color: $skillEnhanceFontColor;
+    }
+
+    .item-locations {
+        h3 {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.resource-item-list {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: -0.5rem;
+
+    @include from(450px) {
+        justify-content: left;
+    }
+
+    .v-popover {
+        margin-left: 0;
+        // margin-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-size: 1.4rem;
+        border-radius: 0.8rem;
+        color: #fff;
+        padding: 0.2rem;
+        border: 0.1rem solid $boxBorder;
+        background-color: $sectionBoxBackgroundColor;
+
+        @include from(450px) {
+            margin-left: 0.5rem;
+        }
+
+        .tooltip-target {
+            overflow: hidden;
+            max-width: 9rem;
+        }
+    }
+
+    .resource-item-asset {
+        &,
+        & img {
+            width: 6rem;
+            height: 5.6rem;
+            margin: 0 auto;
+        }
+    }
+}
+
 /*
     /end skill card element
 */
@@ -861,7 +1017,8 @@ aside.column {
     }
 }
 
-.hero-list, .artifact-list {
+.hero-list,
+.artifact-list {
     .hero-list-ul {
         flex-wrap: wrap;
         padding-left: 0.5rem;
@@ -1057,23 +1214,21 @@ aside.column {
     width: 2.8rem;
     height: 2.8rem;
     vertical-align: middle;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 
-    &[lazy=error]{
-        border: .1rem solid rgb(64,64,64);
-        border-radius: .5rem;
+    &[lazy='error'] {
+        border: 0.1rem solid rgb(64, 64, 64);
+        border-radius: 0.5rem;
 
         &.buff {
-            background-color:rgb(40	,169	,252	);
+            background-color: rgb(40, 169, 252);
         }
 
         &.debuff {
-            background-color: rgb(236	,40,	53	);
+            background-color: rgb(236, 40, 53);
         }
     }
 }
-
-
 
 .filter-group {
     position: relative;
@@ -1468,5 +1623,65 @@ aside.column {
         font-size: 2rem;
         height: 3rem;
         line-height: 3rem;
+    }
+}
+
+.banner-list {
+    li,
+    a,
+    img {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
+    img {
+        width: 60%;
+    }
+    @include tablet {
+        img {
+            width: 75%;
+        }
+    }
+    li {
+        border-top: 0.1rem solid $boxBorder;
+        margin-top: 1.2rem;
+        padding: 1.2rem 0 0;
+
+        &:first-child {
+            border-top: 0;
+            margin-top: 0;
+            padding: 0;
+        }
+        &::last-child {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.home-menu-parent {
+    display: none;
+
+    @include tablet {
+        display: block;
+    }
+}
+
+.home-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        width: auto;
+        max-width: 16.7rem;
+        max-height: 15.8rem;
+    }
+
+    li {
+        flex: 1 1 auto;
+        text-align: center;
     }
 }

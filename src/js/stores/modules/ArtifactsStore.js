@@ -1,5 +1,4 @@
 import HTTP, { errorHandler } from '@/js/stores/HTTP';
-import { stripText } from '@/js/util/Utils';
 
 export default {
     namespaced: true,
@@ -66,7 +65,6 @@ export default {
                     if (!artifacts.length) {
                         throw new Error('results.length === 0 for artifacts list');
                     }
-                    artifacts.forEach((a) => (a.trimmedName = stripText(a.name)));
                     commit('SET_ARTIFACTS', artifacts);
                     return resolve(artifacts);
                 } catch (error) {

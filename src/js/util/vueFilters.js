@@ -13,7 +13,25 @@ function isFloat(n) {
     return Number(n) === n && n % 1 !== 0;
 }
 
-Vue.filter('toPercent', function(value) {
+function formatNumber(n) {
+    const cents = '.';
+    const decimal = ',';
+    let values, x, x1, x2;
+
+    values = String(n).trim();
+
+    x = values.split(cents);
+    x1 = x[0];
+    x2 = x.length > 1 ? cents + x[1] : '';
+
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + decimal + '$2');
+    }
+    return x1 + x2;
+}
+
+function toPercent(value) {
     if (typeof value !== 'number') {
         return value;
     }
@@ -29,10 +47,10 @@ Vue.filter('toPercent', function(value) {
         // default:
         //     return '';
     }
-});
+}
 
 Vue.filter('statusName', statusKeyToName);
-
 Vue.filter('catalystName', catalystKeyToName);
-
+Vue.filter('formatNumber', formatNumber);
 Vue.filter('buffDebuffName', buffDebuffKeyToName);
+Vue.filter('toPercent', toPercent);

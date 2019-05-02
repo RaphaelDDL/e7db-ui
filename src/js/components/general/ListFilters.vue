@@ -13,7 +13,8 @@
                             name="keyword"
                             placeholder="Search by name.."
                             type="search"
-                            v-model="selfFilters.keyword"
+                            v-debounce="delay"
+                            v-model.lazy="selfFilters.keyword"
                         />
                     </form>
                 </div>
@@ -266,6 +267,8 @@
 <script>
 import Multiselect from 'vue-multiselect';
 import { buffDebuffByType } from '@/js/util/Utils';
+import { gaEvent } from '@/js/util/Analytics';
+import { inputDebounce } from '@/js/util/Directives';
 
 export default {
     inject: ['assetsUrl'],
@@ -275,6 +278,7 @@ export default {
     },
     data() {
         return {
+            delay: 500,
             isVisible: false,
             heroClasses: ['all', 'knight', 'warrior', 'thief', 'mage', 'soul-weaver', 'ranger'],
             heroElements: ['all', 'fire', 'ice', 'earth', 'light', 'dark'],
@@ -299,6 +303,9 @@ export default {
     },
     components: {
         Multiselect,
+    },
+    directives: {
+        debounce: inputDebounce,
     },
     computed: {
         classList() {
@@ -329,10 +336,35 @@ export default {
     methods: {
         toggleVisibility() {
             this.$emit('filters:clear');
+            gaEvent({
+                eventCategory: `${this.pageType}:filters`,
+                eventAction: 'visibility',
+                eventLabel: 'toggle',
+                eventValue: !this.isVisible,
+            });
             return (this.isVisible = !this.isVisible);
         },
         clearSelection() {
             this.$emit('filters:clear');
+            gaEvent({
+                eventCategory: `${this.pageType}:filters`,
+                eventAction: 'clearSelection',
+                // eventLabel: JSON.stringify(this.selfFilters),
+                // eventValue: 123
+            });
+        },
+    },
+    watch: {
+        selfFilters: {
+            handler() {
+                gaEvent({
+                    eventCategory: `${this.pageType}:filters`,
+                    eventAction: 'update',
+                    eventLabel: JSON.stringify(this.selfFilters),
+                    // eventValue: 123
+                });
+            },
+            deep: true,
         },
     },
 };

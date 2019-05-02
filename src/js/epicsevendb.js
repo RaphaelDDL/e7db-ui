@@ -5,6 +5,7 @@ import Footer from '@/js/layout/Footer.vue';
 import ApplicationBody from '@/js/layout/ApplicationBody.vue';
 import VueLazyLoad from 'vue-lazyload';
 import VueAnalytics from 'vue-analytics';
+import VTooltip from 'v-tooltip';
 import '@/js/util/vueFilters';
 import { analyticsId } from '@/js/util/Constants';
 
@@ -18,6 +19,8 @@ Vue.use(VueAnalytics, {
     id: analyticsId,
     autoTracking: false,
 });
+
+Vue.use(VTooltip);
 
 document.querySelector('html').classList.remove('no-js');
 

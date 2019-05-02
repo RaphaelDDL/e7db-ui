@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const BASE_HEADER = 'EpicSevenDB.com - Epic7 Wiki and Database';
+const BASE_HEADER = 'EpicSevenDB.com - Epic Seven Wiki and Database';
 
 const routes = [
     { path: '/index.html', redirect: '/' },
@@ -79,6 +79,23 @@ const routes = [
                     property: 'og:description',
                     content:
                         'Discover Guides and Tools to help you in your quest to become a stronger Heir in EpicSeven game.',
+                },
+            ],
+        },
+    },
+    {
+        path: '/changelog',
+        component: () => import('@/js/components/general/Changelog.vue'),
+        meta: {
+            title: `Changelog | ${BASE_HEADER}`,
+            metaTags: [
+                {
+                    name: 'description',
+                    content: 'Discover more about what is EpicSevenDB, who runs and how to contribute to the project!',
+                },
+                {
+                    property: 'og:description',
+                    content: 'Discover more about what is EpicSevenDB, who runs and how to contribute to the project!',
                 },
             ],
         },

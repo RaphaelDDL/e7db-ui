@@ -103,7 +103,7 @@ export default {
                 this.isLoading = false;
             });
         }
-        gaPageView(this.$ga);
+        gaPageView();
     },
 };
 </script>

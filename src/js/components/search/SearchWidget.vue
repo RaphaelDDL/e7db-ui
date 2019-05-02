@@ -9,7 +9,8 @@
                 <input
                     type="search"
                     class="filter-by-name"
-                    v-model="searchText"
+                    v-model.lazy="searchText"
+                    v-debounce="delay"
                     placeholder="Search for Heroes and Artifacts..."
                 />
                 <ResultsList :artifacts="filteredArtifacts" :heroes="filteredHeroes" />
@@ -21,7 +22,8 @@
 <script>
 import { mapGetters } from 'vuex';
 import ResultsList from '@/js/components/search/ResultsList';
-import { stripText, debounce, getByKeyword } from '@/js/util/Utils';
+import { stripText, debounce } from '@/js/util/Utils';
+import { inputDebounce } from '@/js/util/Directives';
 import LoadingMessage from '@/js/components/general/LoadingMessage';
 
 const e = document.createEvent('Event');
@@ -32,7 +34,11 @@ export default {
         return {
             isLoading: false,
             searchText: '',
+            delay: 500,
         };
+    },
+    directives: {
+        debounce: inputDebounce,
     },
     components: {
         ResultsList,
@@ -46,11 +52,17 @@ export default {
             return stripText(this.searchText);
         },
         filteredHeroes() {
-            return this.heroList && this.trimmedSearch.length && getByKeyword(this.heroList, this.trimmedSearch);
+            return (
+                this.heroList &&
+                this.trimmedSearch.length &&
+                this.heroList.filter((h) => h.trimmedName.indexOf(this.trimmedSearch) > -1)
+            );
         },
         filteredArtifacts() {
             return (
-                this.artifactList && this.trimmedSearch.length && getByKeyword(this.artifactList, this.trimmedSearch)
+                this.artifactList &&
+                this.trimmedSearch.length &&
+                this.artifactList.filter((a) => a.trimmedName.indexOf(this.trimmedSearch) > -1)
             );
         },
     },
@@ -78,6 +90,9 @@ export default {
             this.dispatch(this.heroList, 'hero/getList'),
             this.dispatch(this.artifactList, 'artifact/getList'),
         ]).then(() => {
+            // just store these changes so we don't have to calc on the fly
+            this.heroList.forEach((h) => (h.trimmedName = stripText(h.name)));
+            this.artifactList.forEach((a) => (a.trimmedName = stripText(a.name)));
             this.isLoading = false;
         });
     },
