@@ -85,3 +85,4 @@ sw.*
 
 static/.htaccess
 .DS_Store
+*.code-workspace

@@ -55,7 +55,7 @@
                                                 >
                                             </li>
                                             <li>
-                                                Spanish - By <strong>Dimbreath</strong>
+                                                Spanish (Español) - By <strong>Dimbreath</strong>
                                                 <img
                                                     :src="`${assetsUrl}/website/flags/Spain.png`"
                                                     class="locale-flags"
