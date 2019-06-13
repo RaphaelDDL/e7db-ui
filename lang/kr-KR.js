@@ -1,5 +1,3 @@
-// {{ $t("home.aaaaa") }}
-
 const heroAndArtifactCommons = {
     image: "일러스트레이션",
     icon: "아이콘",
@@ -125,5 +123,3 @@ export default {
             "이를 위해 GitHub을 통해 피드백, 아이디어 및 게임 데이터를 수신하며 전 세계의 에픽세븐 커뮤니티의 도움을 받고 있습니다. 저희에게 도움을 주고 싶다면 아래 링크를 참조해주세요. 크고 작은 모든 도움에 감사드립니다!",
     },
 };
-
-// {{ $t("heroes.aaaaa") }}

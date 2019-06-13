@@ -1,5 +1,3 @@
-// {{ $t("home.aaaaa") }}
-
 const heroAndArtifactCommons = {
     image: "Ilustración",
     icon: "Icono",
@@ -126,5 +124,3 @@ export default {
             "Para eso, recibe ayuda de la comunidad por medio de sugerencias, ideas e información del juego por medio de Github. Si piensas que puedes darnos una mano, por favor mira los links abajo. ¡Toda la ayuda es apreciada!",
     },
 };
-
-// {{ $t("heroes.aaaaa") }}
