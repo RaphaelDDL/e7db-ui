@@ -12,7 +12,8 @@ export default {
         en: "Inglês",
         pt: "Português",
         es: "Espanhol",
-        kr: "Coreano",
+        ko: "Coreano",
+        fr: "Francês",
     },
     links: {
         home: "Início",

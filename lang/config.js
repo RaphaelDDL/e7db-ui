@@ -31,6 +31,13 @@ module.exports = {
             file: "es-AR.js",
             countries: ["Spain", "Argentina"],
         },
+        {
+            name: "Français",
+            code: "fr",
+            iso: "fr-FR",
+            file: "fr-FR.js",
+            countries: ["France", "Canada"],
+        },
     ],
     langDir: "lang/",
     defaultLocale: "en",

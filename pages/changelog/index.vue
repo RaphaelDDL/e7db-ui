@@ -65,6 +65,17 @@
                                                     class="locale-flags"
                                                 />
                                             </li>
+                                            <li>
+                                                French (Français) - By <strong>Bowlegends</strong>
+                                                <img
+                                                    :src="`${assetsUrl}/website/flags/France.png`"
+                                                    class="locale-flags"
+                                                />
+                                                <img
+                                                    :src="`${assetsUrl}/website/flags/Canada.png`"
+                                                    class="locale-flags"
+                                                />
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
