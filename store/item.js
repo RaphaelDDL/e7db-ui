@@ -26,6 +26,12 @@ export const mutations = {
 export const actions = {
     getList({ dispatch, commit }) {
         return new Promise((resolve, reject) => {
+            const listGetter = this.getters["item/list"];
+            if (listGetter && listGetter.length) {
+                resolve(listGetter);
+                return;
+            }
+
             this.$axios
                 .get("item")
                 .then(r => r.data.results)

@@ -37,12 +37,12 @@ export const actions = {
     globalErrorClear({ commit }) {
         return commit("removeGlobalError");
     },
-    nuxtServerInit({ dispatch }) {
-        return Promise.all([
-            dispatch("item/getList"),
-            dispatch("hero/getList"),
-            dispatch("artifact/getList"),
-            dispatch("latest/getList"),
-        ]);
-    },
+    // nuxtServerInit({ dispatch }) {
+    //     return Promise.all([
+    //         dispatch("item/getList"),
+    //         dispatch("hero/getList"),
+    //         dispatch("artifact/getList"),
+    //         dispatch("latest/getList"),
+    //     ]);
+    // },
 };

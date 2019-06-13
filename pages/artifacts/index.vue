@@ -61,6 +61,9 @@ export default {
             );
         },
     },
+    asyncData({ store }) {
+        return store.dispatch("artifact/getList");
+    },
 
     mounted() {
         if (!this.list || (this.list && !this.list.length)) {

@@ -20,6 +20,11 @@ export const mutations = {
 export const actions = {
     getList({ dispatch, commit }) {
         return new Promise((resolve, reject) => {
+            const listGetter = this.getters["latest/all"];
+            if (listGetter && listGetter.length) {
+                resolve(listGetter);
+                return;
+            }
             this.$axios
                 .get("latest")
                 .then(r => r.data.results)

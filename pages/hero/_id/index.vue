@@ -762,7 +762,14 @@ export default {
         );
     },
     asyncData({ params, store }) {
-        return store.dispatch("hero/getSingle", { fileId: params.id }).then(heroDetail => {
+        return Promise.all([
+            store.dispatch("item/getList").catch(error => {
+                return error;
+            }),
+            store.dispatch("hero/getSingle", { fileId: params.id }).catch(error => {
+                return error;
+            }),
+        ]).then(([itemList, heroDetail]) => {
             return {
                 isLoading: false,
                 heroDetail: heroDetail,

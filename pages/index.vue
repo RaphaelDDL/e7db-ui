@@ -73,7 +73,10 @@
                             @click.native="trackMenuEvent"
                         >
                             <a>
-                                <img v-lazy="`${assetsUrl}/banner/sidestory/unrecorded_history.png`" alt="Unrecorded History" />
+                                <img
+                                    v-lazy="`${assetsUrl}/banner/sidestory/unrecorded_history.png`"
+                                    alt="Unrecorded History"
+                                />
                                 Unrecorded History
                             </a>
                         </nuxt-link>
@@ -246,6 +249,13 @@ export default {
             },
             this
         );
+    },
+    asyncData({ store }) {
+        return Promise.all([
+            store.dispatch("latest/getList"),
+            store.dispatch("hero/getList"),
+            store.dispatch("artifact/getList"),
+        ]);
     },
     methods: {
         trackMenuEvent(mouseEvent) {

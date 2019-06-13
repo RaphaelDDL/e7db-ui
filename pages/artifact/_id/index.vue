@@ -3,7 +3,7 @@
         <LoadingMessage :is-loading="isLoading" class="column" />
 
         <main v-if="!isLoading && showDetails" class="column is-three-fifths">
-            <nuxt-link :to="localePath('artifacts')">&lt; {{ $t("artifacts.aaaaa") }}</nuxt-link>
+            <nuxt-link :to="localePath('artifacts')">&lt; {{ $t("artifacts.back") }}</nuxt-link>
             <hr class="boxBorderHr" />
             <section class="section-container hero-title">
                 <div class="columns is-mobile">
@@ -220,7 +220,11 @@ export default {
         );
     },
     asyncData({ params, store }) {
-        return store.dispatch("artifact/getSingle", { fileId: params.id }).then(artifactDetail => {
+        return Promise.all([
+            store.dispatch("artifact/getSingle", { fileId: params.id }).catch(error => {
+                return error;
+            }),
+        ]).then(([artifactDetail]) => {
             return {
                 isLoading: false,
                 artifactDetail: artifactDetail,
@@ -228,6 +232,7 @@ export default {
             };
         });
     },
+
     // mounted() {
     //     const fileId = this.$route.params.fileId;
 
