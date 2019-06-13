@@ -40,7 +40,7 @@ async function start() {
                 fontSrc: ["'self'"],
                 styleSrc: ["'self'", "'unsafe-inline'"],
                 imgSrc: ["'self'", "data:", "*.epicsevendb.com", "*"],
-                scriptSrc: ["'self'", "'unsafe-inline'", "*.google.com", "*.google-analytics.com"],
+                scriptSrc: ["'self'", "'unsafe-inline'", "*.google.com", "*.googleapis.com", "*.google-analytics.com"],
                 connectSrc: ["'self'", "*.epicsevendb.com", "epicsevendb-apiserver.herokuapp.com"],
             },
         })
