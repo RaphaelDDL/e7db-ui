@@ -18,7 +18,7 @@
             </li>
         </ul>
         <div class="nav-touch-links">
-            <SectionLinks :key="$i18n.locale" s-mobile-nav="true" @nav-click="trackNavInteractions" />
+            <SectionLinks :key="$i18n.locale" is-mobile-nav="true" @nav-click="trackNavInteractions" />
         </div>
         <!-- </div> -->
     </nav>
