@@ -30,7 +30,7 @@ module.exports = {
     // Plugins to load before mounting the App
     plugins: [
         { src: "~/plugins/axios.js" },
-        { src: "~/plugins/gAnalytics.js", mode: "client" },
+        // { src: "~/plugins/gAnalytics.js", mode: "client" },
         { src: "~/plugins/jsModal.js" },
         { src: "~/plugins/lazyLoad.js", mode: "client" },
         { src: "~/plugins/routerAfterEach.js", mode: "client" },
@@ -44,7 +44,7 @@ module.exports = {
     // @nuxtjs/google-analytics module configuration
     googleAnalytics: {
         id: pkg.data.analyticsId,
-        dev: false,
+        dev: true,
         autoTracking: {
             pageviewOnLoad: false,
             page: false,
