@@ -10,9 +10,9 @@ module.exports = {
         },
         {
             name: "한국어",
-            code: "kr",
-            iso: "kr-KR",
-            file: "kr-KR.js",
+            code: "ko",
+            iso: "ko-KR",
+            file: "ko-KR.js",
             countries: ["Korea,-South"],
         },
         {
