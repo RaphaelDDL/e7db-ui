@@ -1,0 +1,11 @@
+{
+    "tabWidth": 4,
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "singleQuote": false,
+    "wrapAttributes": true,
+    "sortAttributes": true,
+    "xhtml": true,
+    "selfClosingCustomElements": true,
+    "selfClosingElements": true
+}

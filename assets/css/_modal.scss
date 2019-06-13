@@ -1,0 +1,51 @@
+.language-selector-modal {
+    background-color: $menuBackgroundColor;
+    border: 0.1rem solid $boxBorder;
+    margin: 0;
+    padding: 0;
+
+        li {
+            a {
+                position: relative;
+                box-shadow: 0.3rem 0.3rem 3rem rgba(0, 0, 0, 0.3) inset;
+                border: 0.1rem solid $menuOptionsBorderColor;
+                padding: 2rem 1.5rem;
+                margin: 0;
+                color: $menuFontColor;
+                background-color: $menuOptionsBackgroundColor;
+                font-size: 1.6rem;
+                text-transform: uppercase;
+                font-weight: bold;
+                display: block;
+                text-decoration: none;
+                &:hover,
+                &:focus {
+                    background-color: darken($menuOptionsBackgroundColor, 5%);
+                }
+
+                &:after {
+                    content: '';
+                    display: block;
+                    float: right;
+                    width: 3rem;
+                    height: 2.2rem;
+                    background: transparent 50% 50% no-repeat;
+                }
+            }
+            &.lang-selected a {
+                background-color: darken($menuOptionsBackgroundColor, 8%);
+                color: $skillEnhanceFontColor !important;
+
+                &:after {
+                    background-image: url(#{$assetsUrl}/website/_checked.png);
+                }
+            }
+        }
+}
+
+// applies to modal and sectionlinks
+.locale-flags {
+    vertical-align: middle;
+    height: 1.9rem;
+    margin-left: 0.5rem;
+}
