@@ -1,4 +1,6 @@
 // https://medium.com/@ale_colombo/a-simple-multilanguage-site-with-nuxt-js-and-nuxt-i18n-43cce9f9f0fe
+
+// langcodes http://www.lingoes.net/en/translator/langcode.htm
 module.exports = {
     locales: [
         {
