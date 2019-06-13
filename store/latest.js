@@ -1,6 +1,4 @@
-function errorHandler(obj, error, msg) {
-    console.error(msg);
-}
+import { errorHandler } from "~/util/Utils";
 
 export const state = () => ({ hero: [], artifact: [] });
 

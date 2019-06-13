@@ -600,3 +600,7 @@ export function headMetaTags(metaTags = {}, instanceThis = {}) {
 
     return head;
 }
+
+export function errorHandler({ dispatch, reject }, error, apiType) {
+    reject();
+}

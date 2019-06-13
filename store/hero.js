@@ -1,4 +1,4 @@
-function errorHandler() {}
+import { errorHandler } from "~/util/Utils";
 
 export const state = () => ({ heroList: [] });
 

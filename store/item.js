@@ -1,8 +1,4 @@
-function errorHandler({ dispatch, reject }, error, apiType) {
-    console.log(apiType);
-    console.log(error);
-    reject();
-}
+import { errorHandler } from "~/util/Utils";
 
 export const state = () => ({ itemList: [] });
 
