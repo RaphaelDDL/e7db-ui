@@ -40,7 +40,7 @@
                     <h1>{{ $t("home.currentEvents") }}</h1>
                     <hr />
                     <ul class="banner-list">
-                        <nuxt-link
+                        <!-- <nuxt-link
                             tag="li"
                             :to="
                                 localePath({
@@ -58,6 +58,23 @@
                                     alt="Luluca Limited Drop Rate Up"
                                 />
                                 Limited Drop Rate Up - Luluca
+                            </a>
+                        </nuxt-link> -->
+                        <nuxt-link
+                            tag="li"
+                            :to="
+                                localePath({
+                                    name: 'hero-id',
+                                    params: {
+                                        id: 'ras',
+                                    },
+                                })
+                            "
+                            @click.native="trackMenuEvent"
+                        >
+                            <a>
+                                <img v-lazy="`${assetsUrl}/banner/sidestory/unrecorded_history.png`" alt="Unrecorded History" />
+                                Unrecorded History
                             </a>
                         </nuxt-link>
                         <nuxt-link
