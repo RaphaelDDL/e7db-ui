@@ -114,6 +114,12 @@ export default {
             specialtyExplain: "You need the unit to be level 50 before you can start the Specialty Change quests.",
             battleArt: "Battle Art",
             relations: "Relations",
+            specialtySkill: {
+                header: "Specialty Skill",
+                command: "Command",
+                charm: "Charm",
+                politics: "Politics",
+            },
         },
         heroAndArtifactCommons
     ),

@@ -41,6 +41,7 @@ module.exports = {
     ],
     langDir: "lang/",
     defaultLocale: "en",
+    fallbackLocale: "en",
     lazy: true,
     seo: true,
     baseUrl: "https://epicsevendb.com",

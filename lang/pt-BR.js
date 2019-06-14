@@ -116,6 +116,12 @@ export default {
                 "Você precisa que o herói esteja no nível 50 antes que possa comecar a missão de Troca de Especialidade",
             battleArt: "Ilustração de Batalha",
             relations: "Relações",
+            specialtySkill: {
+                header: "Habilidade Especial",
+                command: "Comando",
+                charm: "Charme",
+                politics: "Política",
+            },
         },
         heroAndArtifactCommons
     ),
