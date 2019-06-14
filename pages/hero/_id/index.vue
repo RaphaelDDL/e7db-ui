@@ -607,6 +607,56 @@
                 </div>
             </section>
 
+            <!-- hero specialty skill -->
+            <section v-if="heroDetail.specialtySkill" class="section-container">
+                <div class="section-box">
+                    <h1>{{ $t("heroes.specialtySkill.header") }}</h1>
+                    <hr />
+                    <div v-lazy-container="{ selector: 'img' }" class="skill-icon">
+                        <img
+                            :data-error="`${assetsUrl}/hero/_placeholder/sk_missing.png`"
+                            :data-src="skillImage(skill, index + 1)"
+                        />
+                    </div>
+                    <h1 class="skill-name">
+                        {{ heroDetail.specialtySkill.name }}
+                    </h1>
+                    <div class="skill-sub-desc">
+                        <div v-if="heroDetail.specialtySkill.dispatch" class="skill-soul-acquire">
+                            {{ heroDetail.specialtySkill.dispatch }}
+                        </div>
+                        <div v-if="skillCooldown(skill)" class="skill-cooldown">
+                            {{ heroDetail.specialtySkill.enhancement }}
+                        </div>
+                    </div>
+
+                    <div v-if="heroDetail.specialtySkill.description" class="skill-desc">
+                        {{ heroDetail.specialtySkill.description }}
+                    </div>
+                    <hr />
+                    <ul>
+                        <li class="columns is-mobile">
+                            <div class="column is-half hero-stats-type">{{ $t("heroes.specialtySkill.command") }}</div>
+                            <div class="column is-half hero-stats-value">
+                                {{ heroDetail.specialtySkill.stats.command }}
+                            </div>
+                        </li>
+                        <li class="columns is-mobile">
+                            <div class="column is-half hero-stats-type">{{ $t("heroes.specialtySkill.charm") }}</div>
+                            <div class="column is-half hero-stats-value">
+                                {{ heroDetail.specialtySkill.stats.charm }}
+                            </div>
+                        </li>
+                        <li class="columns is-mobile">
+                            <div class="column is-half hero-stats-type">{{ $t("heroes.specialtySkill.politics") }}</div>
+                            <div class="column is-half hero-stats-value">
+                                {{ heroDetail.specialtySkill.stats.politics }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
             <!-- hero bg -->
             <section v-if="heroDetail.background" class="section-container">
                 <div class="section-box">

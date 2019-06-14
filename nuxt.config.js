@@ -15,7 +15,6 @@ module.exports = {
             { hid: "description", name: "description", content: pkg.description },
             { hid: "og:description", name: "og:description", content: pkg.description },
             { hid: "og:site_name", name: "og:site_name", content: "EpicSevenDB" },
-            // { hid: 'og:url', name: 'og:url', content: 'https://epicsevendb.com' },
             { hid: "og:image", name: "og:image", content: "https://assets.epicsevendb.com/favicon.png" },
         ],
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
@@ -30,7 +29,6 @@ module.exports = {
     // Plugins to load before mounting the App
     plugins: [
         { src: "~/plugins/axios.js" },
-        // { src: "~/plugins/gAnalytics.js", mode: "client" },
         { src: "~/plugins/jsModal.js" },
         { src: "~/plugins/lazyLoad.js", mode: "client" },
         { src: "~/plugins/routerAfterEach.js", mode: "client" },
@@ -55,7 +53,7 @@ module.exports = {
         // See https://github.com/nuxt-community/axios-module#options
         https: true,
         progress: true,
-        retry: { retries: 3 },
+        retry: { retries: 2 },
         baseURL: pkg.data.apiEndpoint,
         debug: false,
     },
