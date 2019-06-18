@@ -219,12 +219,15 @@ export default {
             this
         );
     },
-    asyncData({ params, store }) {
+    asyncData({ params, store, redirect }) {
         return Promise.all([
             store.dispatch("artifact/getSingle", { fileId: params.id }).catch(error => {
                 return error;
             }),
         ]).then(([artifactDetail]) => {
+            if (!artifactDetail || (artifactDetail && !artifactDetail.name)) {
+                return redirect(302, "/artifacts");
+            }
             return {
                 isLoading: false,
                 artifactDetail: artifactDetail,

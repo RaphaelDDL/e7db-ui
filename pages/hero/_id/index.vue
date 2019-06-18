@@ -609,18 +609,18 @@
 
             <!-- hero specialty skill -->
             <section v-if="heroDetail.specialtySkill" class="section-container">
-                <div class="section-box">
+                <div class="section-box hero-stats">
                     <h1>{{ $t("heroes.specialtySkill.header") }}</h1>
                     <hr />
-                    <div v-lazy-container="{ selector: 'img' }" class="skill-icon">
+                    <!-- <div v-lazy-container="{ selector: 'img' }" class="skill-icon">
                         <img
                             :data-error="`${assetsUrl}/hero/_placeholder/sk_missing.png`"
                             :data-src="skillImage(skill, index + 1)"
                         />
-                    </div>
-                    <h1 class="skill-name">
+                    </div> -->
+                    <h2 class="skill-name">
                         {{ heroDetail.specialtySkill.name }}
-                    </h1>
+                    </h2>
                     <div class="skill-sub-desc">
                         <div v-if="heroDetail.specialtySkill.dispatch" class="skill-soul-acquire">
                             {{ heroDetail.specialtySkill.dispatch }}
@@ -811,7 +811,7 @@ export default {
             this
         );
     },
-    asyncData({ params, store }) {
+    asyncData({ params, store, redirect }) {
         return Promise.all([
             store.dispatch("item/getList").catch(error => {
                 return error;
@@ -820,6 +820,9 @@ export default {
                 return error;
             }),
         ]).then(([itemList, heroDetail]) => {
+            if (!heroDetail || (heroDetail && !heroDetail.name)) {
+                return redirect(302, "/heroes");
+            }
             return {
                 isLoading: false,
                 heroDetail: heroDetail,

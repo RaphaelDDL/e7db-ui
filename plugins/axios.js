@@ -1,4 +1,4 @@
-import authentication from "~/util/Constants";
+import { authentication } from "~/util/Constants";
 
 export default function({ $axios }) {
     if (authentication.value) {
