@@ -859,7 +859,6 @@ export default {
         },
     },
     // mounted() {
-    //     debugger;
     //     let fileId = this.$route.params.id;
 
     //     this.isLoading = true;

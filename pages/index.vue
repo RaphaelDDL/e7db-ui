@@ -259,7 +259,6 @@ export default {
     },
     methods: {
         trackMenuEvent(mouseEvent) {
-            debugger;
             const linkName = mouseEvent.currentTarget
                 ? (mouseEvent.currentTarget.innerText + "").trim().toLowerCase()
                 : "";
