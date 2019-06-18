@@ -7,3 +7,8 @@ export const projectVersion = packagejson.version;
 
 // ## if need to change, change on nuxt.config.js titleTemplate too
 export const basePageHeader = "EpicSevenDB.com - Epic Seven Wiki and Database";
+
+export const authentication = {
+    key: "x-e7db-auth-key",
+    value: process.env.E7DB_AUTH_KEY || "",
+};
