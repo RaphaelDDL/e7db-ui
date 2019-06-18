@@ -647,8 +647,13 @@ aside.column {
     color: rgb(72, 137, 232);
 }
 
+.skill-bonus,
 .skill-cooldown {
     color: white;
+}
+
+
+.skill-cooldown {
     &::after {
         content: '';
         display: inline-block;
@@ -661,6 +666,7 @@ aside.column {
     }
 }
 
+.skill-bonus,
 .skill-cooldown,
 .skill-soul-burn {
     text-align: right;

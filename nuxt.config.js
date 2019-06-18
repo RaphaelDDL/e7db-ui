@@ -8,6 +8,9 @@ module.exports = {
         port: process.env.PORT || 3000, // default: 3000
         host: process.env.HOST || "0.0.0.0", // default: localhost
     },
+    env: {
+        E7DB_AUTH_KEY: process.env.E7DB_AUTH_KEY || "",
+    },
     head: {
         meta: [
             { charset: "utf-8" },

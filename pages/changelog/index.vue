@@ -7,6 +7,46 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>June 12th, 2019 - version 1.1.4</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Multi-language issues
+                                        </strong>
+                                        <br />
+                                        Fixed issues with lang selector and the lang keys, fixed korean to use standard
+                                        ISO format (ko-KR) instead of (kr-KR), therefore to get Korean, you must access
+                                        /ko not /kr
+                                    </li>
+                                    <li>
+                                        <strong>Specialty Skill</strong> added as well. Now you can see the bonus when
+                                        sending your party on High Command missions! (pending skill icons).
+                                    </li>
+                                    <li>
+                                        Made 404 Error page a bit better. You'll only see it when you type something
+                                        wrong on the url, all links on website goes to your place lol.
+                                    </li>
+                                    <li>
+                                        Talking of typing something wrong on the url, fixed that if you attempt to write
+                                        a wrong artifact/hero id on the detail pages, it'll redirect you to the list
+                                        pages, instead of throwing an ugly ass heroku application error page.
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>June 12th, 2019 - version 1.1.0</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />

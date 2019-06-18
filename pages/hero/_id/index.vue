@@ -612,12 +612,13 @@
                 <div class="section-box hero-stats">
                     <h1>{{ $t("heroes.specialtySkill.header") }}</h1>
                     <hr />
-                    <!-- <div v-lazy-container="{ selector: 'img' }" class="skill-icon">
-                        <img
+                    <div v-lazy-container="{ selector: 'img' }" class="skill-icon">
+                        <img :data-src="`${assetsUrl}/hero/_placeholder/sk_missing.png`" />
+                        <!-- <img
                             :data-error="`${assetsUrl}/hero/_placeholder/sk_missing.png`"
                             :data-src="skillImage(skill, index + 1)"
-                        />
-                    </div> -->
+                        /> -->
+                    </div>
                     <h2 class="skill-name">
                         {{ heroDetail.specialtySkill.name }}
                     </h2>
@@ -625,7 +626,7 @@
                         <div v-if="heroDetail.specialtySkill.dispatch" class="skill-soul-acquire">
                             {{ heroDetail.specialtySkill.dispatch }}
                         </div>
-                        <div v-if="skillCooldown(skill)" class="skill-cooldown">
+                        <div v-if="heroDetail.specialtySkill.enhancement" class="skill-bonus">
                             {{ heroDetail.specialtySkill.enhancement }}
                         </div>
                     </div>
