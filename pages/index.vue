@@ -46,7 +46,7 @@
                                 localePath({
                                     name: 'hero-id',
                                     params: {
-                                        id: 'luluca',
+                                        id: 'tywin',
                                     },
                                 })
                             "
@@ -54,12 +54,29 @@
                         >
                             <a>
                                 <img
-                                    v-lazy="`${assetsUrl}/banner/gacha/luluca.png`"
-                                    alt="Luluca Limited Drop Rate Up"
+                                    v-lazy="`${assetsUrl}/banner/gacha/tywin.png`"
+                                    alt="Tywin Drop Rate Up"
                                 />
-                                Limited Drop Rate Up - Luluca
+                                Drop Rate Up - Tywin
                             </a>
                         </nuxt-link> -->
+                        <nuxt-link
+                            tag="li"
+                            :to="
+                                localePath({
+                                    name: 'hero-id',
+                                    params: {
+                                        id: 'tywin',
+                                    },
+                                })
+                            "
+                            @click.native="trackMenuEvent"
+                        >
+                            <a>
+                                <img v-lazy="`${assetsUrl}/banner/sidestory/tywin.png`" alt="Unspoken Truth" />
+                                Unspoken Truth
+                            </a>
+                        </nuxt-link>
                         <nuxt-link
                             tag="li"
                             :to="
@@ -75,26 +92,9 @@
                             <a>
                                 <img
                                     v-lazy="`${assetsUrl}/banner/sidestory/unrecorded_history.png`"
-                                    alt="Unrecorded History"
+                                    alt="unrecorded_history"
                                 />
                                 Unrecorded History
-                            </a>
-                        </nuxt-link>
-                        <nuxt-link
-                            tag="li"
-                            :to="
-                                localePath({
-                                    name: 'hero-id',
-                                    params: {
-                                        id: 'luluca',
-                                    },
-                                })
-                            "
-                            @click.native="trackMenuEvent"
-                        >
-                            <a>
-                                <img v-lazy="`${assetsUrl}/banner/sidestory/luluca.png`" alt="The Chosen Shaman" />
-                                The Chosen Shaman
                             </a>
                         </nuxt-link>
                     </ul>
