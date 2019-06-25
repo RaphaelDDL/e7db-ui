@@ -432,13 +432,18 @@ footer {
         }
         margin: 0.3rem;
         &:last-of-type {
-            margin: 1.5rem 0 0.5rem;
+            margin: 1.5rem 0;
         }
     }
     a {
         text-decoration: none;
         color: white;
         font-weight: bold;
+    }
+    .nuxtjs-link {
+        display: block;
+        margin: 0 auto;
+        width: 9rem;
     }
 }
 

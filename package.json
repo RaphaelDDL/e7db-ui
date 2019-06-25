@@ -51,7 +51,7 @@
     "express-rate-limit": "^4.0.3",
     "helmet": "^3.18.0",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.8.0",
+    "nuxt": "^2.8.1",
     "nuxt-i18n": "^5.12.4",
     "v-tooltip": "^2.0.2",
     "vue-i18n": "^8.11.2",
