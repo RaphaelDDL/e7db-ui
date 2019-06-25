@@ -635,7 +635,7 @@
                         {{ heroDetail.specialtySkill.description }}
                     </div>
                     <hr />
-                    <ul>
+                    <ul v-if="heroDetail.specialtySkill.stats">
                         <li class="columns is-mobile">
                             <div class="column is-half hero-stats-type">{{ $t("heroes.specialtySkill.command") }}</div>
                             <div class="column is-half hero-stats-value">
@@ -710,9 +710,9 @@
 
 <script>
 // import Modernizr from 'modernizr';
+import { Tabs, Tab } from "vue-tabs-component";
 import LoadingMessage from "~/components/general/LoadingMessage";
 import ItemPopover from "~/components/items/ItemPopover";
-import { Tabs, Tab } from "vue-tabs-component";
 import { mountedPageView } from "~/util/vueMixins";
 import { buffDebuffKeyToName, headMetaTags } from "~/util/Utils";
 
