@@ -608,7 +608,7 @@
             </section>
 
             <!-- hero specialty skill -->
-            <section v-if="heroDetail.specialtySkill" class="section-container">
+            <section v-if="heroDetail.specialtySkill && heroDetail.specialtySkill.name" class="section-container">
                 <div class="section-box hero-stats">
                     <h1>{{ $t("heroes.specialtySkill.header") }}</h1>
                     <hr />
