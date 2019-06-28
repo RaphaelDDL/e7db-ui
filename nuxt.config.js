@@ -31,6 +31,7 @@ module.exports = {
 
     // Plugins to load before mounting the App
     plugins: [
+        { src: "~/plugins/aPlayer.js", mode: "client" },
         { src: "~/plugins/axios.js" },
         { src: "~/plugins/jsModal.js" },
         { src: "~/plugins/lazyLoad.js", mode: "client" },
@@ -66,16 +67,20 @@ module.exports = {
         /*
          ** You can extend webpack config here
          */
-        // extend(config, ctx) {
-        //     // Run ESLint on save
-        //     if (ctx.isDev && ctx.isClient) {
-        //         config.module.rules.push({
-        //             enforce: 'pre',
-        //             test: /\.(js|vue)$/,
-        //             loader: 'eslint-loader',
-        //             exclude: /(node_modules)/,
-        //         });
-        //     }
-        // },
+        extend(config, ctx) {
+            // Run ESLint on save
+            // if (ctx.isDev && ctx.isClient) {
+            //     config.module.rules.push({
+            //         enforce: 'pre',
+            //         test: /\.(js|vue)$/,
+            //         loader: 'eslint-loader',
+            //         exclude: /(node_modules)/,
+            //     });
+            // }
+
+            // fixing warning for hls of aplayer
+            // https://github.com/SevenOutman/vue-aplayer/issues/61
+            config.externals = "hls.js";
+        },
     },
 };

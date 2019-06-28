@@ -47,8 +47,16 @@ function toPercent(value) {
     }
 }
 
+function noUnderscore(value) {
+    if (typeof value !== "string") {
+        return value;
+    }
+    return value.replace(/_/gi, " ");
+}
+
 Vue.filter("statusName", statusKeyToName);
 Vue.filter("catalystName", catalystKeyToName);
 Vue.filter("formatNumber", formatNumber);
 Vue.filter("buffDebuffName", buffDebuffKeyToName);
 Vue.filter("toPercent", toPercent);
+Vue.filter("noUnderscore", noUnderscore);

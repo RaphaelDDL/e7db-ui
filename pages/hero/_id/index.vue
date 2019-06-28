@@ -545,13 +545,13 @@
                     <hr />
                     <ul class="hero-specialty">
                         <nuxt-link
-                            :key="heroDetail.specialtyChangeName.fileId"
+                            :key="heroDetail.specialtyChangeName._id"
                             v-lazy-container="{ selector: 'img' }"
                             :to="
                                 localePath({
                                     name: 'hero-id',
                                     params: {
-                                        id: heroDetail.specialtyChangeName.fileId,
+                                        id: heroDetail.specialtyChangeName._id,
                                     },
                                 })
                             "
@@ -561,17 +561,13 @@
                                 <div class="column hero-specialty-icon">
                                     <img
                                         :data-error="`${assetsUrl}/hero/_placeholder/icon_missing.png`"
-                                        :data-src="
-                                            `${assetsUrl}/hero/${heroDetail.specialtyChangeName.fileId}/icon.png`
-                                        "
+                                        :data-src="`${assetsUrl}/hero/${heroDetail.specialtyChangeName._id}/icon.png`"
                                         class="hero-illustration-img hero-illustration-icon"
                                     />
                                 </div>
                                 <div class="column hero-specialty-description">
                                     <p class="hero-specialty-name">
-                                        {{
-                                            heroDetail.specialtyChangeName.name || heroDetail.specialtyChangeName.fileId
-                                        }}
+                                        {{ heroDetail.specialtyChangeName.name || heroDetail.specialtyChangeName._id }}
                                     </p>
                                 </div>
                             </a>
@@ -581,7 +577,7 @@
                     <p>
                         <strong class="white">{{ heroDetail.name }}</strong> {{ $t("heroes.specialtyTransition") }}
                         <strong class="white">
-                            {{ heroDetail.specialtyChangeName.name || heroDetail.specialtyChangeName.fileId }} </strong
+                            {{ heroDetail.specialtyChangeName.name || heroDetail.specialtyChangeName._id }} </strong
                         >. {{ $t("heroes.specialtyExplain") }}
                     </p>
                 </div>
@@ -681,7 +677,7 @@
                                 localePath({
                                     name: 'hero-id',
                                     params: {
-                                        id: relation.fileId,
+                                        id: relation._id,
                                     },
                                 })
                             "
@@ -691,7 +687,7 @@
                                 <div class="column hero-relationship-icon">
                                     <img
                                         :data-error="`${assetsUrl}/hero/_placeholder/icon_missing.png`"
-                                        :data-src="`${assetsUrl}/hero/${relation.fileId}/icon.png`"
+                                        :data-src="`${assetsUrl}/hero/${relation._id}/icon.png`"
                                         class="hero-illustration-img hero-illustration-icon"
                                     />
                                 </div>
@@ -702,6 +698,35 @@
                             </a>
                         </nuxt-link>
                     </ul>
+                </div>
+            </section>
+
+            <!-- hero voices -->
+            <section v-if="heroDetail.voiceList && heroDetail.voiceList.length" class="section-container">
+                <div class="section-box">
+                    <h1>{{ $t("heroes.voice") }}</h1>
+                    <hr />
+                    <no-ssr placeholder="Audio files are being rendered..">
+                        <ul class="heroes-voice-list">
+                            <li v-for="voice in heroDetail.voiceList" :key="voice">
+                                <aplayer
+                                    :mini="true"
+                                    preload="none"
+                                    :mutex="true"
+                                    :volume="1"
+                                    :autoplay="false"
+                                    repeat="no-repeat"
+                                    :controls="false"
+                                    controlslist="nodownload"
+                                    theme="#050a13"
+                                    :music="generateMusicObject(voice)"
+                                />
+                                <span>
+                                    {{ voice | noUnderscore }}
+                                </span>
+                            </li>
+                        </ul>
+                    </no-ssr>
                 </div>
             </section>
         </aside>
@@ -791,9 +816,9 @@ export default {
     computed: {
         imageUrls() {
             return {
-                full: `${this.assetsUrl}/hero/${this.heroDetail.fileId}/full.png`,
-                small: `${this.assetsUrl}/hero/${this.heroDetail.fileId}/small.png`,
-                icon: `${this.assetsUrl}/hero/${this.heroDetail.fileId}/icon.png`,
+                full: `${this.assetsUrl}/hero/${this.heroDetail._id}/full.png`,
+                small: `${this.assetsUrl}/hero/${this.heroDetail._id}/small.png`,
+                icon: `${this.assetsUrl}/hero/${this.heroDetail._id}/icon.png`,
             };
         },
         // webpSupport() {
@@ -807,7 +832,7 @@ export default {
             {
                 title: `${heroName} | Hero`,
                 description: `See detailed information about ${classType} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
-                image: this.heroDetail && this.heroDetail.fileId ? this.imageUrls.full : "",
+                image: this.heroDetail && this.heroDetail._id ? this.imageUrls.full : "",
             },
             this
         );
@@ -848,7 +873,7 @@ export default {
         },
         skillImage(skill = {}, skillPos = 1) {
             const passive = skill.isPassive == true ? "p" : ""; // eslint-disable-line eqeqeq
-            return `${this.assetsUrl}/hero/${this.heroDetail.fileId}/sk_${skillPos}${passive}.png`;
+            return `${this.assetsUrl}/hero/${this.heroDetail._id}/sk_${skillPos}${passive}.png`;
         },
         skillCooldown(skill = {}) {
             const cdNum = parseInt(skill.cooldown, 10);
@@ -856,6 +881,13 @@ export default {
         },
         heroRelationClass(type = "") {
             return type ? `hero-relation-${type}` : "";
+        },
+        generateMusicObject(voice) {
+            return {
+                title: voice,
+                src: `${this.assetsUrl}/voice/${this.heroDetail._id}/${voice}.wav`,
+                pic: `${this.assetsUrl}/hero/${this.heroDetail._id}/icon.png`,
+            };
         },
     },
     // mounted() {

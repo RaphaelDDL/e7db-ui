@@ -116,12 +116,6 @@ export default {
                 "Cette unité à besoin d'être niveau 50 pour commencer les quêtes de changement de spécialité (Évolution)",
             battleArt: "Image en combat",
             relations: "Relations",
-            specialtySkill: {
-                header: "Specialty Skill",
-                command: "Command",
-                charm: "Charm",
-                politics: "Politics",
-            },
         },
         heroAndArtifactCommons
     ),

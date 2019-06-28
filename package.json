@@ -1,6 +1,6 @@
 {
   "name": "epicsevendb-ui",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
   "author": "RaphaelDDL <raphaelddl@epicsevendb.com>",
   "repository": "https://github.com/EpicSevenDB/ui",
@@ -54,6 +54,7 @@
     "nuxt": "^2.8.1",
     "nuxt-i18n": "^5.12.4",
     "v-tooltip": "^2.0.2",
+    "vue-aplayer": "^1.6.1",
     "vue-i18n": "^8.11.2",
     "vue-js-modal": "^1.3.31",
     "vue-lazyload": "^1.2.6",

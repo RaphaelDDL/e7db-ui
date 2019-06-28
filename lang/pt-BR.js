@@ -122,6 +122,7 @@ export default {
                 charm: "Charme",
                 politics: "Política",
             },
+            voice: "Frases",
         },
         heroAndArtifactCommons
     ),

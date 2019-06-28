@@ -1697,3 +1697,27 @@ aside.column {
         text-align: center;
     }
 }
+
+
+.heroes-voice-list {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    justify-items: center;
+    flex-wrap: wrap;
+
+    .aplayer {
+        margin: 0 auto;
+    }
+
+    li {
+        text-align: center;
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+        width:33%;
+
+        @include tablet {
+            width:25%;
+        }
+    }
+}

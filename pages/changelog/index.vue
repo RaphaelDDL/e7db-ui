@@ -7,6 +7,33 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>June 28th, 2019 - version 1.2.0</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Sound List
+                                        </strong>
+                                        <br />
+                                        Implemented Heroes' Voices on each Hero detail page! Thank you
+                                        <strong>Dimbreath</strong> for providing the files and renaming them properly.
+                                        There are a few heroes missing, we'll work to add to those too.
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>June 12th, 2019 - version 1.1.4</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
