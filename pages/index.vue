@@ -66,15 +66,15 @@
                                 localePath({
                                     name: 'hero-id',
                                     params: {
-                                        id: 'tywin',
+                                        id: 'lilibet',
                                     },
                                 })
                             "
                             @click.native="trackMenuEvent"
                         >
                             <a>
-                                <img v-lazy="`${assetsUrl}/banner/sidestory/tywin.png`" alt="Unspoken Truth" />
-                                Unspoken Truth
+                                <img v-lazy="`${assetsUrl}/banner/sidestory/lilibet.png`" alt="A Piece of the Past" />
+                                A Piece of the Past
                             </a>
                         </nuxt-link>
                         <nuxt-link
