@@ -1,11 +1,7 @@
-import header from "./header";
-import stats from "./stats";
-import skill from "./skill";
-import artwork from "./artwork";
-import lore from "./lore";
+import Header from "./header";
+import Stats from "./stats";
+import Skill from "./skill";
+import Artwork from "./artwork";
+import Lore from "./lore";
 
-export const Header = header;
-export const Stats = stats;
-export const Skill = skill;
-export const Artwork = artwork;
-export const Lore = lore;
+export { Header, Stats, Skill, Artwork, Lore };

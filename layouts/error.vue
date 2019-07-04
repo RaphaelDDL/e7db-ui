@@ -6,7 +6,7 @@
                     <h1>{{ $t("errors.title") }}</h1>
                     <hr />
                     <p>
-                        Would you mind trying to start from
+                        Would you mind starting from
                         <nuxt-link :to="localePath('index')">{{ $t("links.home") }}</nuxt-link> again?
                     </p>
                     <p>{{ $t("errors.description") }}</p>
