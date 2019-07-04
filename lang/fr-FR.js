@@ -110,12 +110,10 @@ export default {
                 dac: "Chance de double attaque",
             },
             specialty: "Changement de spécialité (Évolution)",
-            // {normalName} {specialtyTransition} {specialtyName}
-            specialtyTransition: "has a Specialty Change to",
-            specialtyExplain:
-                "Cette unité à besoin d'être niveau 50 pour commencer les quêtes de changement de spécialité (Évolution)",
-            battleArt: "Image en combat",
             relations: "Relations",
+            battleArt: "Image en combat",
+            specialtyChangeExplain:
+                "<strong class='white'>{0}</strong> has a Specialty Change to <strong class='white'>{1}</strong>. YCette unité à besoin d'être niveau 50 pour commencer les quêtes de changement de spécialité (Évolution).",
             specialtySkill: {
                 header: "Relation",
                 command: "Commande",

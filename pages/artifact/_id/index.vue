@@ -22,7 +22,7 @@
 import LoadingMessage from "~/components/general/LoadingMessage";
 import { headMetaTags } from "~/util/Utils";
 import { mountedPageView } from "~/util/vueMixins";
-import * as ArtifactComponents from "~/components/artifact";
+import ArtifactComponents from "~/components/artifact";
 export default {
     components: {
         LoadingMessage,

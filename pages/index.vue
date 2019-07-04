@@ -207,6 +207,20 @@
                                 contribute? Fill up the hero's details and send us the JSON it exports :)
                             </div>
                         </li>
+                        <li>
+                            <a href="http://epicseventools.com">EpicSeven Tools</a>
+                            <div class="bullet-description">
+                                Created by
+                                <strong class="white">budandan</strong>, it's a Damage Calculator, a Lab Team Optimizer
+                                and All Camping Teams DB. Using EpicSevenDB API's data. |
+                                <a
+                                    href="https://github.com/budandan/e7-lab-team-optimizer"
+                                    rel="noopener"
+                                    target="_blank"
+                                    >Visit it's Github Repo</a
+                                >
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </section>

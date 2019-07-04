@@ -109,9 +109,8 @@ export default {
                 dac: "Probabilidad de ataque doble",
             },
             specialty: "Cambio de Especialidad",
-            // {normalName} {specialtyTransition} {specialtyName}
-            specialtyTransition: "Cambia de especialidad a",
-            specialtyExplain: "El héroe tiene que ser nivel 50 antes de poder iniciar el cambio de especialidad.",
+            specialtyChangeExplain:
+                "<strong class='white'>{0}</strong> cambia de especialidad a <strong class='white'>{1}</strong>. El héroe tiene que ser nivel 50 antes de poder iniciar el cambio de especialidad.",
             battleArt: "Arte de Batalla",
             relations: "Relaciones",
             specialtySkill: {

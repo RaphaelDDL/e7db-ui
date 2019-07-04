@@ -110,10 +110,8 @@ export default {
                 dac: "Chance de Ataque Combinado",
             },
             specialty: "Troca de Especialidade",
-            // {normalName} {specialtyTransition} {specialtyName}
-            specialtyTransition: "tem Troca de Especialidade para",
-            specialtyExplain:
-                "Você precisa que o herói esteja no nível 50 antes que possa comecar a missão de Troca de Especialidade",
+            specialtyChangeExplain:
+                "<strong class='white'>{0}</strong> tem Troca de Especialidade para <strong class='white'>{1}</strong>. Você precisa que o herói esteja no nível 50 antes que possa comecar a missão de Troca de Especialidade.",
             battleArt: "Ilustração de Batalha",
             relations: "Relações",
             specialtySkill: {

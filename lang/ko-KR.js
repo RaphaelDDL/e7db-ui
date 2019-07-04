@@ -109,9 +109,8 @@ export default {
                 dac: "협공확률",
             },
             specialty: "클래스 체인지",
-            // {normalName} {specialtyTransition} {specialtyName}
-            specialtyTransition: "는(은) 클래스 체인지가 가능합니다:",
-            specialtyExplain: "클래스 체인지 퀘스트를 시작하기 전에 해당 영웅의 레벨이 50이어야 합니다.",
+            specialtyChangeExplain:
+                "<strong class='white'>{0}</strong> 는(은) 클래스 체인지가 가능합니다: <strong class='white'>{1}</strong>. 클래스 체인지 퀘스트를 시작하기 전에 해당 영웅의 레벨이 50이어야 합니다.",
             battleArt: "전투중 일러스트",
             relations: "관계",
             specialtySkill: {

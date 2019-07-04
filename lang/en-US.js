@@ -109,9 +109,8 @@ export default {
                 dac: "Dual Attack Chance",
             },
             specialty: "Specialty Change",
-            // {normalName} {specialtyTransition} {specialtyName}
-            specialtyTransition: "has a Specialty Change to",
-            specialtyExplain: "You need the unit to be level 50 before you can start the Specialty Change quests.",
+            specialtyChangeExplain:
+                "<strong class='white'>{0}</strong> has a Specialty Change to <strong class='white'>{1}</strong>. You need the unit to be level 50 before you can start the Specialty Change quests.",
             battleArt: "Battle Art",
             relations: "Relations",
             specialtySkill: {

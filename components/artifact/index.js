@@ -4,4 +4,4 @@ import Skill from "./skill";
 import Artwork from "./artwork";
 import Lore from "./lore";
 
-export { Header, Stats, Skill, Artwork, Lore };
+export default { Header, Stats, Skill, Artwork, Lore };
