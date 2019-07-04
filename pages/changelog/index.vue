@@ -7,6 +7,50 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>July 4th, 2019 - version 1.3.0</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Icons
+                                        </strong>
+                                        <br />
+                                        Now Attributes on both Hero and Artifact detail pages have their corresponding
+                                        icons. That means, Attack has a Sword, Defense has a Shield and so on. So to
+                                        make easier to see, not having to read the entire string anymore.
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            Translations
+                                        </strong>
+                                        <br />
+                                        Updated a few keys on all translation files, some were missing, like Specialty
+                                        Skills and what not.
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            Refactored Code
+                                        </strong>
+                                        <br />
+                                        Both Artifact and Hero detail pages were refactored into smaller components. Yet
+                                        to see if will have any performance difference, but at least for coding, it's
+                                        lot easier now to edit smaller pieces instead of a 1k lines file rofl.
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>June 28th, 2019 - version 1.2.0</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
