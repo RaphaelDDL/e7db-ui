@@ -114,6 +114,13 @@ export default {
             specialtyExplain: "클래스 체인지 퀘스트를 시작하기 전에 해당 영웅의 레벨이 50이어야 합니다.",
             battleArt: "전투중 일러스트",
             relations: "관계",
+            specialtySkill: {
+                header: "특성",
+                command: "지휘",
+                charm: "매력",
+                politics: "정치",
+            },
+            voice: "음성 목록",
         },
         heroAndArtifactCommons
     ),

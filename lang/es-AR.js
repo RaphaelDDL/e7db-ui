@@ -114,6 +114,13 @@ export default {
             specialtyExplain: "El héroe tiene que ser nivel 50 antes de poder iniciar el cambio de especialidad.",
             battleArt: "Arte de Batalla",
             relations: "Relaciones",
+            specialtySkill: {
+                header: "Especialidad",
+                command: "Comando",
+                charm: "Encanto",
+                politics: "Política",
+            },
+            voice: "Voces",
         },
         heroAndArtifactCommons
     ),
