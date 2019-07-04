@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-$assetsUrl: 'https://assets.epicsevendb.com';
+$assetsUrl: "https://assets.epicsevendb.com";
 
 $gap: 32px;
 $column-gap: 0rem;
@@ -14,13 +14,12 @@ $skillEnhanceFontColor: darken(rgb(217, 85, 31), 5%);
 $menuOptionsBackgroundColor: rgb(23, 50, 92);
 $sectionBoxBackgroundColor: darken($menuBackgroundColor, 18%);
 
+$catalystTierList: "1" "2" "3" "4" "5";
+$heroClassList: "knight" "warrior" "thief" "soul-weaver" "mage" "ranger" "material";
+$heroElementList: "fire" "earth" "ice" "light" "dark";
+$heroSignList: "aries" "taurus" "gemini" "cancer" "leo" "virgo" "libra" "scorpio" "sagittarius" "capricorn" "aquarius";
+$statList: "cp" "atk" "def" "hp" "spd" "chc" "chd" "eff" "efr" "dac";
 
-
-$catalystTierList: '1' '2' '3' '4' '5';
-$heroClassList: 'knight' 'warrior' 'thief' 'soul-weaver' 'mage' 'ranger' 'material';
-$heroElementList: 'fire' 'earth' 'ice' 'light' 'dark';
-$heroSignList: 'aries' 'taurus' 'gemini' 'cancer' 'leo' 'virgo' 'libra' 'scorpio' 'sagittarius' 'capricorn' 'aquarius'
-    'pisces';
 $heroRelationList: (
     grudge: #d483fe,
     longing: #d1fa29,
@@ -42,7 +41,7 @@ $imprintPositions: (
 //Pseudo Classes
 %clearBoth {
     clear: both;
-    content: ' ';
+    content: " ";
     display: table;
     height: 0;
 }

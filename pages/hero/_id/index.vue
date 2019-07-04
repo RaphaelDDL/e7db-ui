@@ -11,10 +11,9 @@
                     <div class="column is-three-fifths hero-name">
                         <h1>{{ heroDetail.name }}</h1>
                     </div>
-                    <div v-lazy-container="{ selector: 'img' }" class="column is-two-fifths hero-thumb">
+                    <div class="column is-two-fifths hero-thumb">
                         <img
-                            :data-error="`${assetsUrl}/hero/_placeholder/small_missing.png`"
-                            :data-src="imageUrls.small"
+                            v-lazy="{ src: imageUrls.small, error: `${assetsUrl}/hero/_placeholder/small_missing.png` }"
                             alt
                         />
                     </div>
@@ -72,10 +71,13 @@
                         :name="`${$t('heroes.skill')} #${index + 1}`"
                         class="skill-card section-box"
                     >
-                        <div v-lazy-container="{ selector: 'img' }" :class="skillClasses(skill)" class="skill-icon">
+                        <div :class="skillClasses(skill)" class="skill-icon">
                             <img
-                                :data-error="`${assetsUrl}/hero/_placeholder/sk_missing.png`"
-                                :data-src="skillImage(skill, index + 1)"
+                                v-lazy="{
+                                    src: skillImage(skill, index + 1),
+                                    error: `${assetsUrl}/hero/_placeholder/sk_missing.png`,
+                                }"
+                                alt
                             />
                         </div>
                         <h1 v-lazy-container="{ selector: 'img' }" class="skill-name">
@@ -168,6 +170,10 @@
                                     <li v-if="awakening.skillUpgrade">
                                         <div class="columns is-mobile">
                                             <div class="column is-half hero-stats-type">
+                                                <img
+                                                    v-lazy="`${assetsUrl}/stat/game_hud_element_good.png`"
+                                                    class="stat-icon"
+                                                />
                                                 {{ $t("heroes.skillUpgrade") }}
                                             </div>
                                             <div class="column is-half hero-stats-value">
@@ -184,7 +190,10 @@
                                             :key="improvementObjectKey"
                                             class="columns is-mobile"
                                         >
-                                            <div class="column is-half hero-stats-type">
+                                            <div
+                                                class="column is-half hero-stats-type"
+                                                :class="heroStatsClass(improvementObjectKey)"
+                                            >
                                                 {{ improvementObjectKey | statusName }}
                                             </div>
                                             <div class="column is-half hero-stats-value">
@@ -253,7 +262,10 @@
                                         >
                                             <span class="sr-only">{{ memoryImprint.rank }}</span>
                                         </div>
-                                        <div class="column is-half hero-stats-value">
+                                        <div
+                                            class="column is-half hero-stats-value"
+                                            :class="heroStatsClass(memoryImprint.status.type)"
+                                        >
                                             <strong>{{ memoryImprint.status.type | statusName }}</strong>
                                             <span>&nbsp;+{{ memoryImprint.status.increase | toPercent }}</span>
                                         </div>
@@ -281,7 +293,10 @@
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
-                                    <div class="column is-half hero-stats-type">{{ $t("heroes.attributes.atk") }}</div>
+                                    <div class="column is-half hero-stats-type">
+                                        <span :class="heroStatsClass('atk')"></span>
+                                        {{ $t("heroes.attributes.atk") }}
+                                    </div>
                                     <div class="column is-half hero-stats-value">
                                         {{ heroDetail.stats.lv1BaseStarNoAwaken.atk }}
                                     </div>
@@ -631,21 +646,30 @@
                         {{ heroDetail.specialtySkill.description }}
                     </div>
                     <hr />
-                    <ul v-if="heroDetail.specialtySkill.stats">
+                    <ul v-if="heroDetail.specialtySkill.stats" v-lazy-container="{ selector: 'img' }">
                         <li class="columns is-mobile">
-                            <div class="column is-half hero-stats-type">{{ $t("heroes.specialtySkill.command") }}</div>
+                            <div class="column is-half hero-stats-type">
+                                <img :data-src="`${assetsUrl}/stat/icon_specialty_command.png`" class="stat-icon" />
+                                {{ $t("heroes.specialtySkill.command") }}
+                            </div>
                             <div class="column is-half hero-stats-value">
                                 {{ heroDetail.specialtySkill.stats.command }}
                             </div>
                         </li>
                         <li class="columns is-mobile">
-                            <div class="column is-half hero-stats-type">{{ $t("heroes.specialtySkill.charm") }}</div>
+                            <div class="column is-half hero-stats-type">
+                                <img :data-src="`${assetsUrl}/stat/icon_specialty_charm.png`" class="stat-icon" />
+                                {{ $t("heroes.specialtySkill.charm") }}
+                            </div>
                             <div class="column is-half hero-stats-value">
                                 {{ heroDetail.specialtySkill.stats.charm }}
                             </div>
                         </li>
                         <li class="columns is-mobile">
-                            <div class="column is-half hero-stats-type">{{ $t("heroes.specialtySkill.politics") }}</div>
+                            <div class="column is-half hero-stats-type">
+                                <img :data-src="`${assetsUrl}/stat/icon_specialty_politics.png`" class="stat-icon" />
+                                {{ $t("heroes.specialtySkill.politics") }}
+                            </div>
                             <div class="column is-half hero-stats-value">
                                 {{ heroDetail.specialtySkill.stats.politics }}
                             </div>
@@ -874,6 +898,9 @@ export default {
         skillImage(skill = {}, skillPos = 1) {
             const passive = skill.isPassive == true ? "p" : ""; // eslint-disable-line eqeqeq
             return `${this.assetsUrl}/hero/${this.heroDetail._id}/sk_${skillPos}${passive}.png`;
+        },
+        heroStatsClass(type = "") {
+            return type ? `stat-icon-${type}` : "";
         },
         skillCooldown(skill = {}) {
             const cdNum = parseInt(skill.cooldown, 10);
