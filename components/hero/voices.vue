@@ -44,8 +44,8 @@ export default {
         generateMusicObject(voice) {
             return {
                 title: voice,
-                src: `${this.assetsUrl}/voice/${this._id}/${voice}.wav`,
-                pic: `${this.assetsUrl}/hero/${this._id}/icon.png`,
+                src: `${this.assetsUrl}/voice/${this.id}/${voice}.wav`,
+                pic: `${this.assetsUrl}/hero/${this.id}/icon.png`,
             };
         },
     },

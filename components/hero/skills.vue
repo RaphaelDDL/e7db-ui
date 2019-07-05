@@ -129,7 +129,7 @@ export default {
         },
         skillImage(skill = {}, skillPos = 1) {
             const passive = skill.isPassive == true ? "p" : ""; // eslint-disable-line eqeqeq
-            return `${this.assetsUrl}/hero/${this._id}/sk_${skillPos}${passive}.png`;
+            return `${this.assetsUrl}/hero/${this.id}/sk_${skillPos}${passive}.png`;
         },
         skillCooldown(skill = {}) {
             const cdNum = parseInt(skill.cooldown, 10);
