@@ -39,7 +39,7 @@
                                     class="column is-half hero-stats-value"
                                     :class="heroStatsClass(mImprint.status.type)"
                                 >
-                                    <strong>{{ mImprint.status.type | statusName }}</strong>
+                                    <strong>{{ $t(`heroes.attributes.${mImprint.status.type}`) }}</strong>
                                     <span>&nbsp;+{{ mImprint.status.increase | toPercent }}</span>
                                 </div>
                             </li>

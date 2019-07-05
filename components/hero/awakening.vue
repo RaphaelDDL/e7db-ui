@@ -38,7 +38,7 @@
                                         class="column is-half hero-stats-type"
                                         :class="heroStatsClass(improvementObjectKey)"
                                     >
-                                        {{ improvementObjectKey | statusName }}
+                                        {{ $t(`heroes.attributes.${improvementObjectKey}`) }}
                                     </div>
                                     <div class="column is-half hero-stats-value">
                                         {{ improvementObjectValue | toPercent }}
