@@ -23,13 +23,19 @@
                             <h4>{{ $t("artifacts.baseLevelStats") }} (+0)</h4>
                             <ul v-if="stats.base">
                                 <li class="columns is-mobile">
-                                    <div class="column is-half hero-stats-type">Attack</div>
+                                    <div class="column is-half hero-stats-type">
+                                        <span :class="heroStatsClass('atk')"></span>
+                                        {{ $t("heroes.attributes.atk") }}
+                                    </div>
                                     <div class="column is-half hero-stats-value">
                                         {{ stats.base.atk }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
-                                    <div class="column is-half hero-stats-type">Health</div>
+                                    <div class="column is-half hero-stats-type">
+                                        <span :class="heroStatsClass('hp')"></span>
+                                        {{ $t("heroes.attributes.hp") }}
+                                    </div>
                                     <div class="column is-half hero-stats-value">
                                         {{ stats.base.hp }}
                                     </div>
@@ -40,13 +46,19 @@
                             <h4>{{ $t("artifacts.maxLevelStats") }} (+30)</h4>
                             <ul v-if="stats.max">
                                 <li class="columns is-mobile">
-                                    <div class="column is-half hero-stats-type">Attack</div>
+                                    <div class="column is-half hero-stats-type">
+                                        <span :class="heroStatsClass('atk')"></span>
+                                        {{ $t("heroes.attributes.atk") }}
+                                    </div>
                                     <div class="column is-half hero-stats-value">
                                         {{ stats.max.atk }}
                                     </div>
                                 </li>
                                 <li class="columns is-mobile">
-                                    <div class="column is-half hero-stats-type">Health</div>
+                                    <div class="column is-half hero-stats-type">
+                                        <span :class="heroStatsClass('hp')"></span>
+                                        {{ $t("heroes.attributes.hp") }}
+                                    </div>
                                     <div class="column is-half hero-stats-value">
                                         {{ stats.max.hp }}
                                     </div>
@@ -93,6 +105,11 @@ export default {
                 heroExclusive = `${heroExclusive} hero-class-${heroClass}`;
             });
             return heroExclusive;
+        },
+    },
+    methods: {
+        heroStatsClass(type = "") {
+            return type ? `stat-icon-${type}` : "";
         },
     },
 };
