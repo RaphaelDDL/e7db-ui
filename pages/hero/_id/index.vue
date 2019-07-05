@@ -12,7 +12,7 @@
                 :zodiac="heroDetail.zodiac"
             />
 
-            <Skills :_id="heroDetail._id" :skills-list="heroDetail.skills" />
+            <Skills :id="heroDetail._id" :skills-list="heroDetail.skills" />
 
             <Awakening :awakening-list="heroDetail.awakening" :hero-stats-class="heroStatsClass" />
 
@@ -44,8 +44,8 @@
 
             <Voices
                 v-if="heroDetail.voiceList && heroDetail.voiceList.length"
+                :id="heroDetail._id"
                 :voice-list="heroDetail.voiceList"
-                :_id="heroDetail._id"
             />
         </aside>
     </div>
