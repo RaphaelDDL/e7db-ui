@@ -140,19 +140,17 @@
                     <hr />
                     <ul class="bullets">
                         <li>
-                            <a href="https://quazzywazzy.github.io/e7-gacha-simulator/" rel="noopener" target="_blank"
-                                >E7 Gacha Simulator</a
+                            <a
+                                href="https://old.reddit.com/r/EpicSeven/comments/at73kb/i_made_a_bot_yufinebot_for_discord_servers_around/"
+                                rel="noopener"
+                                target="_blank"
+                                >YufineBot, A Discord Bot for E7</a
                             >
                             <div class="bullet-description">
                                 Created by
-                                <strong class="white">QuazzyWazzy</strong>, it's a browser Summon Simulator using
-                                EpicSevenDB API. |
-                                <a
-                                    href="https://github.com/QuazzyWazzy/e7-gacha-simulator"
-                                    rel="noopener"
-                                    target="_blank"
-                                    >Visit it's Github Repo</a
-                                >
+                                <strong class="white">Dimbreath</strong>, it's a Discord Bot that can be added to any
+                                Server, and it brings multiple E7 information as well as a Summon Simulator. Using
+                                EpicSevenDB API's data.
                             </div>
                         </li>
                         <li>
@@ -169,18 +167,34 @@
                                 >
                             </div>
                         </li>
+
                         <li>
-                            <a
-                                href="https://old.reddit.com/r/EpicSeven/comments/at73kb/i_made_a_bot_yufinebot_for_discord_servers_around/"
-                                rel="noopener"
-                                target="_blank"
-                                >YufineBot, A Discord Bot for E7</a
-                            >
+                            <a href="http://epicseventools.com">EpicSeven Tools</a>
                             <div class="bullet-description">
                                 Created by
-                                <strong class="white">Dimbreath</strong>, it's a Discord Bot that can be added to any
-                                Server, and it brings multiple E7 information as well as a Summon Simulator. Using
-                                EpicSevenDB API's data.
+                                <strong class="white">budandan</strong>, it's a Damage Calculator, a Lab Team Optimizer
+                                and All Camping Teams DB. Using EpicSevenDB API's data. |
+                                <a
+                                    href="https://github.com/budandan/e7-lab-team-optimizer"
+                                    rel="noopener"
+                                    target="_blank"
+                                    >Visit it's Github Repo</a
+                                >
+                            </div>
+                        </li>
+                        <li>
+                            <a href="https://e7selects.herokuapp.com">Abyss Team Selector</a>
+                            <div class="bullet-description">
+                                Created by
+                                <strong class="white">Wilson Yung &amp; Julianne Lin</strong>, it's a Abyss Team
+                                builder, that users can create teams and share their strategies for each floor. Using
+                                EpicSevenDB API's data. |
+                                <a
+                                    href="https://github.com/wyung/epic7-abyss-team-builder"
+                                    rel="noopener"
+                                    target="_blank"
+                                    >Visit it's Github Repo</a
+                                >
                             </div>
                         </li>
                         <li>
@@ -208,13 +222,15 @@
                             </div>
                         </li>
                         <li>
-                            <a href="http://epicseventools.com">EpicSeven Tools</a>
+                            <a href="https://quazzywazzy.github.io/e7-gacha-simulator/" rel="noopener" target="_blank"
+                                >E7 Gacha Simulator</a
+                            >
                             <div class="bullet-description">
                                 Created by
-                                <strong class="white">budandan</strong>, it's a Damage Calculator, a Lab Team Optimizer
-                                and All Camping Teams DB. Using EpicSevenDB API's data. |
+                                <strong class="white">QuazzyWazzy</strong>, it's a browser Summon Simulator using
+                                EpicSevenDB API. |
                                 <a
-                                    href="https://github.com/budandan/e7-lab-team-optimizer"
+                                    href="https://github.com/QuazzyWazzy/e7-gacha-simulator"
                                     rel="noopener"
                                     target="_blank"
                                     >Visit it's Github Repo</a
