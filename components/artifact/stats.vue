@@ -10,7 +10,7 @@
                             <div class="column is-half hero-stats-type">{{ $t("artifacts.grade") }}</div>
                             <div :class="starRating" class="column is-half hero-stats-value"></div>
                         </li>
-                        <li class="columns is-mobile">
+                        <li v-if="exclusive.length" class="columns is-mobile">
                             <div class="column is-half hero-stats-type">
                                 {{ $t("artifacts.classExclusive") }}
                             </div>
