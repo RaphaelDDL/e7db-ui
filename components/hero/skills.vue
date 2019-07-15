@@ -59,7 +59,9 @@
 
                 <hr />
                 <div v-if="skill.enhancement && skill.enhancement.length">
-                    <div class="skill-enhance">Skill Enhance</div>
+                    <div class="skill-enhance">
+                        {{ $t("heroes.skillEnhance") }}
+                    </div>
                     <ol class="skill-enhance-list">
                         <li
                             v-for="(enhancement, enhancementindex) in skill.enhancement"

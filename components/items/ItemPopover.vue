@@ -28,7 +28,7 @@
                         <div v-if="itemDetail.name || resource.item" class="item-name">
                             {{ itemDetail.name || resource.item | catalystName }}
                         </div>
-                        <div class="item-quantity">Needed: {{ resource.qty | formatNumber }}</div>
+                        <div class="item-quantity">{{ $t("item.needed") }}: {{ resource.qty | formatNumber }}</div>
                     </div>
                 </div>
                 <div v-if="itemDetail.description" class="item-description">{{ itemDetail.description }}</div>
@@ -42,7 +42,7 @@
                     <hr />
                     <div v-if="itemDetail.locations && itemDetail.locations.length" class="columns">
                         <div class="column">
-                            <h3>Stage Drops:</h3>
+                            <h3>{{ $t("item.stageDrops") }}:</h3>
                             <ul class="bullets collapsed">
                                 <li v-for="location in itemDetail.locations" :key="location.node">
                                     <span class="skillEnhanceFontColor">{{ location.node }}</span>
@@ -62,10 +62,11 @@
                     />
                     <div v-if="itemDetail.apShops && itemDetail.apShops.length" class="columns">
                         <div class="column">
-                            <h3>AP Shops:</h3>
+                            <h3>{{ $t("item.apShops") }}:</h3>
                             <ul class="bullets collapsed">
                                 <li v-for="apShop in itemDetail.apShops" :key="apShop.chapter">
-                                    <span class="skillEnhanceFontColor">{{ apShop.chapter }}</span> | Available:
+                                    <span class="skillEnhanceFontColor">{{ apShop.chapter }}</span> |
+                                    {{ $t("item.available") }}:
                                     <span class="skillEnhanceFontColor">{{ apShop.quantity }}</span> | Cost:
                                     <span class="skillEnhanceFontColor">{{ apShop.cost }}AP</span>
                                 </li>

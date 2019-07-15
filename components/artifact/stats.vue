@@ -14,7 +14,9 @@
                             <div class="column is-half hero-stats-type">
                                 {{ $t("artifacts.classExclusive") }}
                             </div>
-                            <div :class="heroExclusive" class="column is-half hero-stats-value"></div>
+                            <div :class="heroExclusive" class="column is-half hero-stats-value no-text">
+                                {{ $t(`classes.${exclusive[0]}`) }}
+                            </div>
                         </li>
                     </ul>
                     <hr />

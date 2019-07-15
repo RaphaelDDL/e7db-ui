@@ -84,6 +84,7 @@ export default {
             soulBurnEffect: "소울번 효과",
             awakening: "각성",
             statsIncrease: "능력치 증가",
+            skillEnhance: "기술 향상",
             skillUpgrade: "스킬 강화",
             skillUpgradeApplied: "예",
             resources: "소모되는 자원",
@@ -167,9 +168,9 @@ export default {
         trust: "신뢰",
     },
     item: {
-        needed: "필요: {0}",
+        needed: "필요",
         stageDrops: "스테이지 드롭",
         apShops: "AP 숍",
-        available: "사용 가능함: {0}",
+        available: "사용 가능함",
     },
 };

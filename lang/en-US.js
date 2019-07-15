@@ -84,7 +84,8 @@ export default {
             soulBurnEffect: "Soul Burn Effect",
             awakening: "Awakening",
             statsIncrease: "Stats Increase",
-            skillUpgrade: "Skill Upgrade",
+            skillEnhance: "Skill Enhance",
+            skillUpgrade: "YES",
             skillUpgradeApplied: "YES",
             resources: "Consumed Resources",
             imprint: "Memory Imprint",
@@ -167,9 +168,9 @@ export default {
         trust: "Trust",
     },
     item: {
-        needed: "Needed: {0}",
+        needed: "Needed",
         stageDrops: "Stage Drops",
         apShops: "AP Shops",
-        available: "Available: {0}",
+        available: "Available",
     },
 };

@@ -29,7 +29,9 @@
                         </div>
                         <div class="column hero-relationship-description">
                             <p class="hero-relationship-name">{{ relation.name }}</p>
-                            <p :class="heroRelationClass(relation.relationType)"></p>
+                            <p :class="heroRelationClass(relation.relationType)" class="no-text">
+                                {{ $t(`relationships.${relation.relationType}`) }}
+                            </p>
                         </div>
                     </a>
                 </nuxt-link>

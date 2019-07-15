@@ -6,25 +6,25 @@
                     <h1>{{ $t("heroes.profile") }}</h1>
                     <hr />
                     <ul>
-                        <li class="columns is-mobile">
+                        <li v-if="rarity" class="columns is-mobile">
                             <div class="column is-half hero-stats-type">{{ $t("heroes.grade") }}</div>
                             <div :class="`star-rating-${rarity}`" class="column is-half hero-stats-value"></div>
                         </li>
-                        <li class="columns is-mobile">
+                        <li v-if="classType" class="columns is-mobile">
                             <div class="column is-half hero-stats-type">{{ $t("heroes.classType") }}</div>
-                            <div :class="`hero-class-${classType}`" class="column is-half hero-stats-value">
+                            <div :class="`hero-class-${classType}`" class="column is-half hero-stats-value no-text">
                                 {{ $t(`classes.${classType}`) }}
                             </div>
                         </li>
-                        <li class="columns is-mobile">
+                        <li v-if="element" class="columns is-mobile">
                             <div class="column is-half hero-stats-type">{{ $t("filters.element") }}</div>
-                            <div :class="`hero-element-${element}`" class="column is-half hero-stats-value">
+                            <div :class="`hero-element-${element}`" class="column is-half hero-stats-value no-text">
                                 {{ $t(`elements.${element}`) }}
                             </div>
                         </li>
-                        <li class="columns is-mobile">
+                        <li v-if="zodiac" class="columns is-mobile">
                             <div class="column is-half hero-stats-type">{{ $t("filters.zodiac") }}</div>
-                            <div :class="`hero-sign-${zodiac}`" class="column is-half hero-stats-value">
+                            <div :class="`hero-sign-${zodiac}`" class="column is-half hero-stats-value no-text">
                                 {{ $t(`zodiacSigns.${zodiac}`) }}
                             </div>
                         </li>
