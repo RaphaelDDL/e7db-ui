@@ -91,7 +91,7 @@ export default {
         return headMetaTags(
             {
                 title: "About",
-                description: "Discover more about what is EpicSevenDB, who runs and how to contribute to the project!",
+                description: "Discover more about EpicSevenDB, who runs it and how to contribute to the project!",
                 image: this.assetsUrl + "/website/book_about.png",
             },
             this
