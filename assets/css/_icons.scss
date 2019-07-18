@@ -275,11 +275,11 @@
     &::after {
         content: '';
         display: block;
-        height: 1.75rem;
+        height: 2.5rem;
         position: absolute;
         bottom: 0.5rem;
         right: 0;
-        background-size: 1.2rem auto;
+        background-size: 2rem auto;
         background-color: transparent;
         background-position: right center;
         background-repeat: repeat-x;
@@ -291,7 +291,7 @@
 
     @for $i from 1 through 4 {
         &.consume-soul-#{$i}::after {
-            width: $i * 1.2rem;
+            width: $i * 2rem;
             @if ($i == 1) {
                 background-repeat: no-repeat;
             }
