@@ -1,0 +1,31 @@
+.aplayer {
+    &.aplayer-withlist .aplayer-body .aplayer-info {
+        padding-bottom: 1rem;
+        border-bottom: 0.1rem solid #56442f;
+    }
+
+    .aplayer-list ol li {
+        border-top: 0.1rem solid #112544;
+
+        &.aplayer-list-light, &:hover {
+            background: #112544;
+            color: #c34c1c;
+        }
+
+        .aplayer-list-index {
+            color: #c34c1c;
+        }
+    }
+
+    .aplayer-controller .aplayer-time {
+        color: #c34c1c;
+
+        .aplayer-icon .aplayer-fill {
+            fill: #c34c1c;
+        }
+    }
+
+    .aplayer-bar-wrap .aplayer-bar .aplayer-played {
+        background:#c34c1c !important;
+    }
+}
