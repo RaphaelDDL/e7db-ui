@@ -10,6 +10,7 @@ import SpecialtySkill from "./specialtySkill";
 import SpecialtyChange from "./specialtyChange";
 import Imprint from "./imprint";
 import Profile from "./profile";
+import Camping from "./camping";
 
 export default {
     Header,
@@ -24,4 +25,5 @@ export default {
     Imprint,
     Profile,
     Awakening,
+    Camping,
 };

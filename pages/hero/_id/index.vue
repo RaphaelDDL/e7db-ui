@@ -44,6 +44,11 @@
 
             <Lore v-if="heroDetail.background" :background="heroDetail.background" />
 
+            <Camping
+                v-if="heroDetail.camping && heroDetail.camping.options && heroDetail.camping.options.length"
+                :camping="heroDetail.camping"
+            />
+
             <Relations v-if="heroDetail.relations && heroDetail.relations.length" :relations="heroDetail.relations" />
 
             <Voices
