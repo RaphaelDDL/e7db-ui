@@ -12,7 +12,11 @@
                 :zodiac="heroDetail.zodiac"
             />
 
-            <Skills :id="heroDetail._id" :skills-list="heroDetail.skills" />
+            <Skills
+                :id="heroDetail._id"
+                :skills-list="heroDetail.skills"
+                :self-skill-bar-name="heroDetail.selfSkillBarName"
+            />
 
             <Awakening :awakening-list="heroDetail.awakening" :hero-stats-class="heroStatsClass" />
 

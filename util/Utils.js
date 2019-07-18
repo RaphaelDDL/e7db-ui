@@ -209,33 +209,33 @@ export function catalystKeyToName(value) {
     return ITEM_LIST[value] || value;
 }
 
-export function statusKeyToName(value) {
-    if (!value) {
-        return "";
-    }
-    switch (value) {
-        case "atk":
-            return "Attack";
-        case "def":
-            return "Defense";
-        case "hp":
-            return "Health";
-        case "spd":
-            return "Speed";
-        case "chc":
-            return "Critical Hit Chance";
-        case "chd":
-            return "Critical Hit Damage";
-        case "eff":
-            return "Effectiveness";
-        case "efr":
-            return "Effect Resistance";
-        case "dac":
-            return "Dual Attack Chance";
-        default:
-            return "";
-    }
-}
+// export function statusKeyToName(value) {
+//     if (!value) {
+//         return "";
+//     }
+//     switch (value) {
+//         case "atk":
+//             return "Attack";
+//         case "def":
+//             return "Defense";
+//         case "hp":
+//             return "Health";
+//         case "spd":
+//             return "Speed";
+//         case "chc":
+//             return "Critical Hit Chance";
+//         case "chd":
+//             return "Critical Hit Damage";
+//         case "eff":
+//             return "Effectiveness";
+//         case "efr":
+//             return "Effect Resistance";
+//         case "dac":
+//             return "Dual Attack Chance";
+//         default:
+//             return "";
+//     }
+// }
 
 const BUFF_DEBUFF_LIST = [
     {

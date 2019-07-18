@@ -19,7 +19,7 @@
                             :music="generateMusicObject(voice)"
                         />
                         <span>
-                            {{ voice | noUnderscore }}
+                            {{ voice | noUnderscore(true) }}
                         </span>
                     </li>
                 </ul>

@@ -44,7 +44,15 @@
                         {{ skill.cooldown }} {{ $t("heroes.turns") }}
                     </div>
                 </div>
-
+                <div v-if="selfSkillBarName && skill.selfSkillBarValue && skill.selfSkillBarValue !== 0">
+                    <div class="skill-sub-desc">
+                        <div class="skill-selfskillbar">
+                            <span v-if="skill.selfSkillBarValue > 0">{{ $t("heroes.acquire") }}</span>
+                            <span v-if="skill.selfSkillBarValue < 0">{{ $t("heroes.consume") }}</span>
+                            {{ skill.selfSkillBarValue | noUnderscore }} {{ selfSkillBarName | noUnderscore(true) }}
+                        </div>
+                    </div>
+                </div>
                 <div v-if="skill.description" class="skill-desc">{{ skill.description }}</div>
                 <div v-if="skill.soulBurn && skill.soulBurnEffect">
                     <hr />
@@ -111,6 +119,9 @@ export default {
             default: () => [],
         },
         id: {
+            type: String,
+        },
+        selfSkillBarName: {
             type: String,
         },
     },
