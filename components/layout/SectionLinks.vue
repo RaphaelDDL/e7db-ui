@@ -1,11 +1,14 @@
 <template>
     <ul :class="{ 'nav-links': !isMobile }" aria-label="menu">
         <nuxt-link tag="li" :to="localePath('index')" @click.native="trackMenuEvent">
-            <a>{{ $t("links.home") }}</a>
+            <a>
+                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/home.png`" alt />
+                {{ $t("links.home") }}</a
+            >
         </nuxt-link>
         <nuxt-link tag="li" :to="localePath('about')" @click.native="trackMenuEvent">
             <a>
-                <img v-if="isMobile" :src="`${assetsUrl}/website/book_about.png`" alt />
+                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/about.png`" alt />
                 {{ $t("links.about") }}</a
             >
         </nuxt-link>
@@ -18,14 +21,22 @@
     </nuxt-link> -->
         <nuxt-link tag="li" :to="localePath('heroes')" @click.native="trackMenuEvent">
             <a>
-                <img v-if="isMobile" :src="`${assetsUrl}/website/journal_hero.png`" alt />
+                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/heroes.png`" alt />
                 {{ $t("links.heroes") }}
             </a>
         </nuxt-link>
+
         <nuxt-link tag="li" :to="localePath('artifacts')" @click.native="trackMenuEvent">
             <a>
-                <img v-if="isMobile" :src="`${assetsUrl}/website/journal_artifact.png`" alt />
+                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/artifacts.png`" alt />
                 {{ $t("links.artifacts") }}
+            </a>
+        </nuxt-link>
+
+        <nuxt-link tag="li" :to="localePath('items')" @click.native="trackMenuEvent">
+            <a>
+                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/items.png`" alt />
+                {{ $t("links.items") }}
             </a>
         </nuxt-link>
         <!-- <nuxt-link tag='li' :to='/monsters'  @click.native="trackMenuEvent">
@@ -40,7 +51,7 @@
     </nuxt-link>-->
         <nuxt-link tag="li" :to="localePath('changelog')" @click.native="trackMenuEvent">
             <a>
-                <img v-if="isMobile" :src="`${assetsUrl}/website/book_changelog.png`" alt />
+                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/changelog.png`" alt />
                 {{ $t("links.changelog") }}
             </a>
         </nuxt-link>

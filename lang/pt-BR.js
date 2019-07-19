@@ -20,6 +20,7 @@ export default {
         about: "Sobre + Contribuindo",
         heroes: "Heróis",
         artifacts: "Artefatos",
+        items: "Ítens",
         changelog: "Atualizações",
         privacyPolicy: "Política de Privacidade",
         back: "Voltar",

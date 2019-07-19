@@ -7,6 +7,58 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>July 19th, 2019 - version 1.4.0</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Voices
+                                        </strong>
+                                        <br />
+                                        Hero voices are now under a playlist rather than separately. This should fix the
+                                        lag that was happening when scrolling due to the amount of aplayer instances.
+                                        Now it's only one :D
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            Items
+                                        </strong>
+                                        <br />
+                                        Added Item page. Still a WIP, utilizes same popover component as the awakening
+                                        and skill Enhancements on hero page. That is, clicking on the item shows a
+                                        popover with item details, some have AP Shops and Stage Drop lists. Filters and
+                                        other items to be added soon.
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            Hero Camping Options
+                                        </strong>
+                                        <br />
+                                        Added the Hero Camping Options on the Hero Detail page.
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            Section Icons
+                                        </strong>
+                                        <br />
+                                        Changed the section images on home and mobile menu in order for all to have same
+                                        standard. Yes, they are the guild icons :P
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>July 4th, 2019 - version 1.3.0</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />

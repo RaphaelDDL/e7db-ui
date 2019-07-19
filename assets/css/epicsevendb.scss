@@ -871,6 +871,16 @@ aside.column {
             overflow: hidden;
             max-width: 9rem;
         }
+
+        .trigger {
+            margin: 0 auto;
+        }
+    }
+
+    &.item-page .v-popover {
+        display: flex;
+        flex: 1 0 auto;
+
     }
 
     .resource-item-asset {

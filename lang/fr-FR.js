@@ -20,6 +20,7 @@ export default {
         about: "À propos + Contribution",
         heroes: "Héros",
         artifacts: "Artefacts",
+        items: "Objets",
         changelog: "Changelog",
         privacyPolicy: "politique de confidentialité",
         back: "Retour",

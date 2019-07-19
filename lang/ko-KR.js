@@ -20,6 +20,7 @@ export default {
         about: "위키에 대해서",
         heroes: "영웅",
         artifacts: "아티팩트",
+        items: "아이템",
         changelog: "체인지로그",
         privacyPolicy: "개인정보보호정책",
         back: "뒤로가기",

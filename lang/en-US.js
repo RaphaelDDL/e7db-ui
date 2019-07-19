@@ -23,6 +23,7 @@ export default {
         changelog: "Changelog",
         privacyPolicy: "Privacy Policy",
         back: "Back",
+        items: "Items",
     },
     loader: {
         message: "Fetching data, please wait..",

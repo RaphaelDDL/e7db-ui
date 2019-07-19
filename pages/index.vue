@@ -8,25 +8,31 @@
                     <ul class="home-menu">
                         <nuxt-link tag="li" :to="localePath('heroes')" @click.native="trackMenuEvent">
                             <a>
-                                <img v-lazy="`${assetsUrl}/website/journal_hero.png`" alt />
+                                <img v-lazy="`${assetsUrl}/website/section-icons/heroes.png`" alt />
                                 {{ $t("links.heroes") }}
                             </a>
                         </nuxt-link>
                         <nuxt-link tag="li" :to="localePath('artifacts')" @click.native="trackMenuEvent">
                             <a>
-                                <img v-lazy="`${assetsUrl}/website/journal_artifact.png`" />
+                                <img v-lazy="`${assetsUrl}/website/section-icons/artifacts.png`" />
                                 {{ $t("links.artifacts") }}
+                            </a>
+                        </nuxt-link>
+                        <nuxt-link tag="li" :to="localePath('items')" @click.native="trackMenuEvent">
+                            <a>
+                                <img v-lazy="`${assetsUrl}/website/section-icons/items.png`" />
+                                {{ $t("links.items") }}
                             </a>
                         </nuxt-link>
                         <nuxt-link tag="li" :to="localePath('changelog')" @click.native="trackMenuEvent">
                             <a>
-                                <img v-lazy="`${assetsUrl}/website/book_changelog.png`" />
+                                <img v-lazy="`${assetsUrl}/website/section-icons/changelog.png`" />
                                 {{ $t("links.changelog") }}
                             </a>
                         </nuxt-link>
                         <nuxt-link tag="li" :to="localePath('about')" @click.native="trackMenuEvent">
                             <a>
-                                <img v-lazy="`${assetsUrl}/website/book_about.png`" />
+                                <img v-lazy="`${assetsUrl}/website/section-icons/about.png`" />
                                 {{ $t("links.about") }}
                             </a>
                         </nuxt-link>

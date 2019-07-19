@@ -28,7 +28,9 @@
                         <div v-if="itemDetail.name || resource.item" class="item-name">
                             {{ itemDetail.name || resource.item | catalystName }}
                         </div>
-                        <div class="item-quantity">{{ $t("item.needed") }}: {{ resource.qty | formatNumber }}</div>
+                        <div v-if="!isList" class="item-quantity">
+                            {{ $t("item.needed") }}: {{ resource.qty | formatNumber }}
+                        </div>
                     </div>
                 </div>
                 <div v-if="itemDetail.description" class="item-description">{{ itemDetail.description }}</div>
@@ -96,6 +98,10 @@ export default {
                     qty: 0,
                 };
             },
+        },
+        isList: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

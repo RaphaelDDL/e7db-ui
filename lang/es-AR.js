@@ -19,6 +19,7 @@ export default {
         about: "Sobre + Contribuir",
         heroes: "Héroes",
         artifacts: "Artefactos",
+        items: "Ítems",
         changelog: "Actualizaciones",
         privacyPolicy: "Política de Privacidad",
         back: "Volver",
