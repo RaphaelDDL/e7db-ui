@@ -20,10 +20,10 @@ export default {
         about: "About + Contributing",
         heroes: "Heroes",
         artifacts: "Artifacts",
+        items: "Items",
         changelog: "Changelog",
         privacyPolicy: "Privacy Policy",
         back: "Back",
-        items: "Items",
     },
     loader: {
         message: "Fetching data, please wait..",
