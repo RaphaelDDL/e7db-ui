@@ -162,11 +162,15 @@ export default {
         pisces: "Pisces",
     },
     relationships: {
+        // hostile/grudge same
+        hostile: "Hostile",
         grudge: "Grudge",
         longing: "Longing",
         love: "Love",
         rival: "Rival",
-        trust: "Trust",
+        // trust/friendly same
+        trust: "Friendly",
+        friendly: "Friendly",
     },
     item: {
         needed: "Needed",

@@ -156,7 +156,7 @@ export default {
             {
                 title: `${heroName} | Hero`,
                 description: `See detailed information about ${classType} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
-                image: this.heroDetail && this.heroDetail._id ? this.imageUrls.full : "",
+                image: this.heroDetail && this.heroDetail._id ? this.imageUrls.icon : "",
             },
             this
         );
