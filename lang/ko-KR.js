@@ -104,7 +104,7 @@ export default {
                 def: "방어력",
                 hp: "생명력",
                 spd: "속도",
-                chc: "치명확륙",
+                chc: "치명확률",
                 chd: "치명피해",
                 eff: "효과적중",
                 efr: "효과저항",
