@@ -21,6 +21,7 @@ export default {
         heroes: "Heroes",
         artifacts: "Artifacts",
         items: "Items",
+        creators: "Content Creators",
         changelog: "Changelog",
         privacyPolicy: "Privacy Policy",
         back: "Back",

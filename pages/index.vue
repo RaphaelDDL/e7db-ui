@@ -24,6 +24,12 @@
                                 {{ $t("links.items") }}
                             </a>
                         </nuxt-link>
+                        <nuxt-link tag="li" :to="localePath('creators')" @click.native="trackMenuEvent">
+                            <a>
+                                <img v-lazy="`${assetsUrl}/website/section-icons/creators.png`" />
+                                {{ $t("links.creators") }}
+                            </a>
+                        </nuxt-link>
                         <nuxt-link tag="li" :to="localePath('changelog')" @click.native="trackMenuEvent">
                             <a>
                                 <img v-lazy="`${assetsUrl}/website/section-icons/changelog.png`" />
@@ -40,39 +46,19 @@
                 </div>
             </section>
         </div>
-        <aside class="column is-two-fifths-tablet is-12-mobile">
+        <aside class="column is-two-fifths-tablet is-12-mobile home">
             <section class="section-container">
                 <div class="section-box">
                     <h1>{{ $t("home.currentEvents") }}</h1>
                     <hr />
                     <ul class="banner-list">
-                        <!-- <nuxt-link
-                            tag="li"
-                            :to="
-                                localePath({
-                                    name: 'hero-id',
-                                    params: {
-                                        id: 'tywin',
-                                    },
-                                })
-                            "
-                            @click.native="trackMenuEvent"
-                        >
-                            <a>
-                                <img
-                                    v-lazy="`${assetsUrl}/banner/gacha/tywin.png`"
-                                    alt="Tywin Drop Rate Up"
-                                />
-                                Drop Rate Up - Tywin
-                            </a>
-                        </nuxt-link> -->
                         <nuxt-link
                             tag="li"
                             :to="
                                 localePath({
                                     name: 'hero-id',
                                     params: {
-                                        id: 'charlotte',
+                                        id: 'seaside-bellona',
                                     },
                                 })
                             "
@@ -80,10 +66,30 @@
                         >
                             <a>
                                 <img
-                                    v-lazy="`${assetsUrl}/banner/sidestory/charlotte.png`"
-                                    alt="Heavy Lies the Crown"
+                                    v-lazy="`${assetsUrl}/banner/gacha/seaside-bellona.png`"
+                                    alt="Tywin Drop Rate Up"
                                 />
-                                Heavy Lies the Crown
+                                Limited Summon - Seaside Bellona
+                            </a>
+                        </nuxt-link>
+                        <nuxt-link
+                            tag="li"
+                            :to="
+                                localePath({
+                                    name: 'hero-id',
+                                    params: {
+                                        id: 'seaside-bellona',
+                                    },
+                                })
+                            "
+                            @click.native="trackMenuEvent"
+                        >
+                            <a>
+                                <img
+                                    v-lazy="`${assetsUrl}/banner/sidestory/song_of_the_sea_2.png`"
+                                    alt="Song of the Sea"
+                                />
+                                Song of the Sea
                             </a>
                         </nuxt-link>
                         <nuxt-link
@@ -299,7 +305,7 @@ export default {
     methods: {
         trackMenuEvent(mouseEvent) {
             const linkName = mouseEvent.currentTarget
-                ? (mouseEvent.currentTarget.innerText + "").trim().toLowerCase()
+                ? (mouseEvent.currentTarget.textContent + "").trim().toLowerCase()
                 : "";
             this.$ga.event({
                 eventCategory: "home-nav",

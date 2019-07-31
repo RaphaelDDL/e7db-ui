@@ -7,6 +7,63 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>July 31th, 2019 - version 1.4.1</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Content Creators
+                                        </strong>
+                                        <br />
+                                        Added Content Creators page. You'll be able to see a few quality Creators of
+                                        Epic Seven content in there. Content is randomized so noone thinks "the first is
+                                        better than the others", everyone featured here is good (in my opinion)!
+                                        <br />
+                                        Page still needs to have translation applied :P
+                                        <br />
+                                        <br />
+                                        <div>
+                                            Social Icons made by
+                                            <a
+                                                href="https://www.flaticon.com/authors/freepik"
+                                                title="Freepik"
+                                                rel="noopener"
+                                                target="_blank"
+                                                >Freepik</a
+                                            >
+                                            from
+                                            <a
+                                                href="https://www.flaticon.com/"
+                                                title="Flaticon"
+                                                rel="noopener"
+                                                target="_blank"
+                                                >www.flaticon.com</a
+                                            >
+                                            is licensed by
+                                            <a
+                                                href="http://creativecommons.org/licenses/by/3.0/"
+                                                title="Creative Commons BY 3.0"
+                                                rel="noopener"
+                                                target="_blank"
+                                                >CC 3.0 BY</a
+                                            >
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>July 19th, 2019 - version 1.4.0</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />

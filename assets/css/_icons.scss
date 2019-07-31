@@ -254,6 +254,39 @@
 }
 
 /*
+    SOCIAL
+*/
+[class*='social-icon-'] {
+    &::before,
+    &::after {
+        display: inline-block;
+        vertical-align: middle;
+        background-color: transparent;
+    }
+    &::after {
+        text-transform: capitalize;
+    }
+    &::before {
+        $iconSize: 1.5rem;
+        content: '';
+        height: $iconSize;
+        width: $iconSize;
+        background-size: $iconSize auto;
+        background-position: left center;
+        background-repeat: no-repeat;
+        margin-right: 0.5rem;
+    }
+}
+
+@each $name in $socialList {
+    .social-icon-#{$name} {
+        &::before {
+            background-image: url(#{$assetsUrl}/website/social/#{$name}.svg?tst);
+        }
+    }
+}
+
+/*
     SKILL UPGRADE, SOUL CONSUME
 */
 .skill-icon {
