@@ -281,7 +281,7 @@
 @each $name in $socialList {
     .social-icon-#{$name} {
         &::before {
-            background-image: url(#{$assetsUrl}/website/social/#{$name}.svg?tst);
+            background-image: url(#{$assetsUrl}/website/social/#{$name}.svg);
         }
     }
 }
