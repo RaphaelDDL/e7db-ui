@@ -184,7 +184,7 @@
                         </li>
 
                         <li>
-                            <a href="http://epicseventools.com">EpicSeven Tools</a>
+                            <a href="http://epicseventools.com" rel="noopener" target="_blank">EpicSeven Tools</a>
                             <div class="bullet-description">
                                 Created by
                                 <strong class="white">budandan</strong>, it's a Damage Calculator, a Lab Team Optimizer
@@ -198,7 +198,9 @@
                             </div>
                         </li>
                         <li>
-                            <a href="https://e7selects.herokuapp.com">Abyss Team Selector</a>
+                            <a href="https://e7selects.herokuapp.com" rel="noopener" target="_blank"
+                                >Abyss Team Selector</a
+                            >
                             <div class="bullet-description">
                                 Created by
                                 <strong class="white">Wilson Yung &amp; Julianne Lin</strong>, it's a Abyss Team
@@ -228,7 +230,9 @@
                             </div>
                         </li>
                         <li>
-                            <a href="https://databuilder.epicsevendb.com">E7DB DataBuilder</a>
+                            <a href="https://databuilder.epicsevendb.com" rel="noopener" target="_blank"
+                                >E7DB DataBuilder</a
+                            >
                             <div class="bullet-description">
                                 Created by
                                 <strong class="white">Squachie</strong>, it's a Hero Data Builder, which is used to
