@@ -1,5 +1,5 @@
 <template>
-    <section v-show="globalError && globalError.stack && globalError.message" class="globalError section-box">
+    <section class="globalError section-box">
         <div class="header">
             <a class="globalErrorClear" @click="globalErrorClear">Close X</a>
             <h4>
@@ -23,9 +23,10 @@
 export default {
     name: "GlobalError",
     inject: ["assetsUrl"],
-    computed: {
-        globalError() {
-            return this.$store.getters.globalError;
+    props: {
+        globalError: {
+            type: Object,
+            default: () => ({}),
         },
     },
     watch: {

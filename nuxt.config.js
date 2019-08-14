@@ -27,7 +27,7 @@ module.exports = {
     loading: { color: "#008be6", throttle: 0, height: "4px" },
 
     // Global CSS
-    css: ["~/assets/css/epicsevendb.scss"],
+    css: ["~/assets/scss/epicsevendb.scss"],
 
     // Plugins to load before mounting the App
     plugins: [

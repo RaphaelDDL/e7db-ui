@@ -1,62 +1,84 @@
 <template>
-    <div class="columns">
-        <LoadingMessage :is-loading="isLoading" class="column" />
+    <div>
+        <nuxt-link :to="localePath('heroes')">&lt; {{ $t("heroes.back") }}</nuxt-link>
 
-        <main v-if="!isLoading && showDetails" class="column is-three-fifths">
-            <Header :image-urls="imageUrls" :name="heroDetail.name" />
+        <ProfileExtended
+            :id="heroDetail._id"
+            :name="heroDetail.name"
+            :image-urls="imageUrls"
+            :rarity="heroDetail.rarity"
+            :class-type="heroDetail.classType"
+            :element="heroDetail.element"
+            :zodiac="heroDetail.zodiac"
+            :summon-quote="heroDetail.summonQuote"
+            :description="heroDetail.description"
+        />
 
-            <Profile
-                :rarity="heroDetail.rarity"
-                :class-type="heroDetail.classType"
-                :element="heroDetail.element"
-                :zodiac="heroDetail.zodiac"
-            />
+        <div class="columns hero-detail-container">
+            <LoadingMessage :is-loading="isLoading" class="column" />
 
-            <Skills
-                :id="heroDetail._id"
-                :skills-list="heroDetail.skills"
-                :self-skill-bar-name="heroDetail.selfSkillBarName"
-            />
+            <main v-if="!isLoading && showDetails" class="column is-three-fifths">
+                <!-- <nuxt-link :to="localePath('heroes')">&lt; {{ $t("heroes.back") }}</nuxt-link>
+                    <hr class="boxBorderHr" />
+                    -->
+                <!-- <Header :image-urls="imageUrls" :name="heroDetail.name" /> -->
 
-            <Awakening :awakening-list="heroDetail.awakening" :hero-stats-class="heroStatsClass" />
+                <!-- <Profile
+                        :rarity="heroDetail.rarity"
+                        :class-type="heroDetail.classType"
+                        :element="heroDetail.element"
+                        :zodiac="heroDetail.zodiac"
+                    /> -->
 
-            <Imprint
-                :memory-imprint-formation="heroDetail.memoryImprintFormation"
-                :memory-imprint="heroDetail.memoryImprint"
-                :hero-stats-class="heroStatsClass"
-            />
+                <Skills
+                    :id="heroDetail._id"
+                    :skills-list="heroDetail.skills"
+                    :self-skill-bar-name="heroDetail.selfSkillBarName"
+                />
 
-            <Stats :stats="heroDetail.stats" :hero-stats-class="heroStatsClass" />
-        </main>
-        <aside v-if="!isLoading && showDetails" class="column is-two-fifths">
-            <SpecialtyChange
-                v-if="heroDetail.specialtyChangeName"
-                :specialty-change-name="heroDetail.specialtyChangeName"
-                :name="heroDetail.name"
-            />
+                <Awakening :awakening-list="heroDetail.awakening" :hero-stats-class="heroStatsClass" />
 
-            <Artwork :image-urls="imageUrls" />
+                <Imprint
+                    :memory-imprint-formation="heroDetail.memoryImprintFormation"
+                    :memory-imprint="heroDetail.memoryImprint"
+                    :hero-stats-class="heroStatsClass"
+                />
 
-            <SpecialtySkill
-                v-if="heroDetail.specialtySkill && heroDetail.specialtySkill.name"
-                :specialty-skill="heroDetail.specialtySkill"
-            />
+                <Stats :stats="heroDetail.stats" :hero-stats-class="heroStatsClass" />
+            </main>
+            <aside v-if="!isLoading && showDetails" class="column is-two-fifths">
+                <Lore v-if="heroDetail.background" :background="heroDetail.background" />
 
-            <Lore v-if="heroDetail.background" :background="heroDetail.background" />
+                <SpecialtyChange
+                    v-if="heroDetail.specialtyChangeName"
+                    :specialty-change-name="heroDetail.specialtyChangeName"
+                    :name="heroDetail.name"
+                />
 
-            <Camping
-                v-if="heroDetail.camping && heroDetail.camping.options && heroDetail.camping.options.length"
-                :camping="heroDetail.camping"
-            />
+                <!-- <Artwork :image-urls="imageUrls" /> -->
 
-            <Relations v-if="heroDetail.relations && heroDetail.relations.length" :relations="heroDetail.relations" />
+                <Camping
+                    v-if="heroDetail.camping && heroDetail.camping.options && heroDetail.camping.options.length"
+                    :camping="heroDetail.camping"
+                />
 
-            <Voices
-                v-if="heroDetail.voiceList && heroDetail.voiceList.length"
-                :id="heroDetail._id"
-                :voice-list="heroDetail.voiceList"
-            />
-        </aside>
+                <SpecialtySkill
+                    v-if="heroDetail.specialtySkill && heroDetail.specialtySkill.name"
+                    :specialty-skill="heroDetail.specialtySkill"
+                />
+
+                <Relations
+                    v-if="heroDetail.relations && heroDetail.relations.length"
+                    :relations="heroDetail.relations"
+                />
+
+                <Voices
+                    v-if="heroDetail.voiceList && heroDetail.voiceList.length"
+                    :id="heroDetail._id"
+                    :voice-list="heroDetail.voiceList"
+                />
+            </aside>
+        </div>
     </div>
 </template>
 
@@ -175,7 +197,7 @@ export default {
             }
             return {
                 isLoading: false,
-                heroDetail: heroDetail,
+                heroDetail,
                 showDetails: true,
             };
         });

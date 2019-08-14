@@ -1,22 +1,14 @@
 <template>
-    <div>
-        <nuxt-link :to="localePath('heroes')">&lt; {{ $t("heroes.back") }}</nuxt-link>
-        <hr class="boxBorderHr" />
-
-        <section class="section-container hero-title">
-            <div class="columns is-mobile">
-                <div class="column is-three-fifths hero-name">
-                    <h1>{{ name }}</h1>
-                </div>
-                <div class="column is-two-fifths hero-thumb">
-                    <img
-                        v-lazy="{ src: imageUrls.small, error: `${assetsUrl}/hero/_placeholder/small_missing.png` }"
-                        alt
-                    />
-                </div>
+    <section class="section-container hero-title">
+        <div class="columns is-mobile">
+            <div class="column is-three-fifths hero-name">
+                <h1>{{ name }}</h1>
             </div>
-        </section>
-    </div>
+            <div class="column is-two-fifths hero-thumb">
+                <img v-lazy="{ src: imageUrls.small, error: `${assetsUrl}/hero/_placeholder/small_missing.png` }" alt />
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>

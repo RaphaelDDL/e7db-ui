@@ -2,9 +2,9 @@
     <div id="app" class="content">
         <NavBar />
         <div class="container main-container">
-            <div class="columns">
+            <div v-show="globalError && globalError.stack && globalError.message" class="columns">
                 <div class="column is-12">
-                    <GlobalError />
+                    <GlobalError :global-error="globalError" />
                 </div>
             </div>
             <nuxt :key="$route.fullPath" />
@@ -31,6 +31,9 @@ export default {
     computed: {
         version() {
             return this.$store.getters.version;
+        },
+        globalError() {
+            return this.$store.getters.globalError;
         },
     },
 };

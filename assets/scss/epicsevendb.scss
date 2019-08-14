@@ -70,6 +70,7 @@ body {
         background-image: url(#{$assetsUrl}/website/bg_mobile.jpg);
     }
 }
+
 #__nuxt {
     flex: 1;
     font-size: 1.2rem;
@@ -600,7 +601,7 @@ aside.column {
 
 .section-box {
     font-size: 1.4rem;
-    border-radius: 0.8rem;
+    border-radius: $sectionBoxBorderRadius;
     color: gray;
     padding: 1.5rem 2rem;
     border: 0.1rem solid $boxBorder;
@@ -1821,3 +1822,137 @@ aside.column {
         }
     }
 }
+
+@keyframes heroMove {
+    0%,50%,100% {
+        transform: rotate(0);
+      }
+    25% {
+        transform: rotate(-1deg);
+    }
+    75% {
+        transform: rotate(1deg);
+    }
+  }
+
+
+.hero-summoning {
+    background: transparent no-repeat top right;
+    // background-image: url($libraryBackground);
+    // background: transparent no-repeat top right;
+    overflow: hidden;
+    box-shadow: inset 0 0 2rem -0.5rem black;
+    position: relative;
+    padding: 0;
+    background-size: auto 60rem;
+    margin: 2.5rem auto;
+    height: 50rem;
+
+    @include tablet {
+        height: 40rem;
+    }
+
+    .fullbody-fit {
+        max-width: 100%;
+        max-height: 60rem;
+        position: absolute;
+        top: 10%;
+        bottom: 0;
+        right: 10%;
+        z-index: -1;
+
+        @include tablet {
+            top: 0;
+        }
+
+        &[lazy=loading] {
+            width: 8.0rem;
+            height: 11.6rem;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            right: unset;
+            bottom: unset;
+        }
+
+        &[lazy=error] {
+            top: 50%;
+            transform: translate(0, -50%) scaleX(-1);
+            -ms-filter: "FlipH";
+            filter: FlipH;
+        }
+
+        @include tablet {
+            &[lazy=loaded] {
+                transform-origin: center bottom;
+                animation: heroMove 8s infinite running;
+            }
+        }
+    }
+
+    .profile {
+        background: transparent url(#{$assetsUrl}/website/summon/gacha_get_bg1.png) top left no-repeat;
+        background-size: contain;
+        height: 20rem;
+        padding: 1.5rem 0 0 2rem;
+        color: white;
+        @include stroke();
+    }
+
+    .summon-2line {
+        display: none;
+        width: 100%;
+
+        @include from(450px) {
+            display: block;
+            color: white;
+            @include stroke();
+        }
+
+        @include tablet {
+            color: lighten($menuFontColor, 10%);
+            width: 25%;
+        }
+    }
+
+    .summon-quote {
+        color: darken(rgb(177, 156, 122), 15%);
+        font-weight: bold;
+        font-size: 1.6rem;
+        padding: 2.5rem 4rem;
+        border-radius: 1rem;
+        display: block;
+        background-color: rgba(adjust-color(rgb(177, 156, 122), $lightness: +50%), 0.8);
+        margin: 0 2rem;
+        box-shadow: inset 0 0 2rem -0.5rem darken(rgb(177, 156, 122), 15%);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2rem;
+        z-index: 1;
+    }
+
+    // .artwork {
+    //     height: 60rem;
+
+    //     img {
+    //         float: right;
+    //         display: block;
+    //         max-width: 100%;
+    //         max-height: 60rem;
+    //         position: absolute;
+    //         top: 0;
+    //         right: 0;
+    //         margin: 0 0 0 auto;
+    //         z-index: 0;
+    //     }
+    // }
+}
+// .hero-detail-container {
+//     main {
+//         margin-top: -20rem;
+//     }
+//     aside {
+//         margin-top: -20rem;
+//     }
+// }

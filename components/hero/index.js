@@ -10,6 +10,7 @@ import SpecialtySkill from "./specialtySkill";
 import SpecialtyChange from "./specialtyChange";
 import Imprint from "./imprint";
 import Profile from "./profile";
+import ProfileExtended from "./profileExtended";
 import Camping from "./camping";
 
 export default {
@@ -23,6 +24,7 @@ export default {
     SpecialtySkill,
     SpecialtyChange,
     Imprint,
+    ProfileExtended,
     Profile,
     Awakening,
     Camping,
