@@ -48,7 +48,12 @@ async function start() {
                     "*.google-analytics.com",
                     "*.cloudflare.com",
                 ],
-                connectSrc: ["'self'", "*.epicsevendb.com", "epicsevendb-apiserver.herokuapp.com"],
+                connectSrc: [
+                    "'self'",
+                    "*.epicsevendb.com",
+                    "epicsevendb-apiserver.herokuapp.com",
+                    "www.google-analytics.com",
+                ],
             },
         })
     );
