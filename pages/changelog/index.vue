@@ -7,6 +7,41 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>August 16th, 2019 - version 1.5.0</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Hero Detail Page revamp
+                                        </strong>
+                                        <br />
+                                        Revamped Hero Profile at Details page to look like the summon screen in-game.
+                                        That means, we added the small description and the summon quote of everyone!
+                                        <br />
+                                        <br />
+                                        We are using images
+                                        <strong class="white"> Warkolak </strong>d of full body. There are a bunch
+                                        missing yet but we have 68 so far. See some examples, like Aramintha, Cermia,
+                                        Baiken, Cecilia, etc. The page looks great, thank you War for the image edits,
+                                        they are awesome! <br /><br />
+                                        Some images are big so I've implemented the running Ras gif as a "loading", like
+                                        in game, lol.
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>July 31th, 2019 - version 1.4.1</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />

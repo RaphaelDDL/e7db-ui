@@ -1,50 +1,47 @@
 <template>
     <section class="hero-summoning section-box">
-        <!-- <section class="hero-summoning section-box" v-lazy:background-image="`${assetsUrl}/website/summon/gacha_get_bg0.png`"> -->
-        <!-- <section class="hero-summoning section-box" v-lazy:background-image="fullbodyImg"> -->
-        <div class="columns">
-            <div class="column is-12">
-                <div class="profile">
-                    <span
-                        :class="`hero-element-${element}`"
-                        class="no-text"
-                        :title="$t(`elements.${element}`) + ' ' + $t('filters.element')"
-                    >
-                        {{ $t(`elements.${element}`) }}
-                    </span>
-                    &nbsp; &nbsp; &nbsp;
-                    <span
-                        :class="`hero-class-${classType}`"
-                        class="no-text"
-                        :title="$t(`classes.${classType}`) + ' ' + $t('heroes.classType')"
-                    >
-                        {{ $t(`classes.${classType}`) }}
-                    </span>
-                    &nbsp; &nbsp; &nbsp;
-                    <span
-                        :class="`hero-sign-${zodiac}`"
-                        class="no-text"
-                        :title="$t(`zodiacSigns.${zodiac}`) + ' ' + $t('filters.zodiac')"
-                    >
-                        {{ $t(`zodiacSigns.${zodiac}`) }}
-                    </span>
-                    <br />
-                    <h1>
-                        {{ name }}
-                        <span :class="`star-rating-${rarity}`" :title="`${rarity} star ` + $t('heroes.grade')"></span>
-                    </h1>
-                    <p class="summon-2line">
-                        {{ description }}
-                    </p>
-                </div>
-
-                <div class="summon-quote">
-                    {{ summonQuote }}
-                </div>
-            </div>
-        </div>
         <img v-lazy="fullbodyImg" class="fullbody-fit" />
-        <!-- <img v-lazy="`${assetsUrl}/website/summon/gacha_get_bg0.png`" alt="" class="bg-fit"> -->
+
+        <div class="profile">
+            <span
+                v-if="element"
+                :class="`hero-element-${element}`"
+                class="no-text"
+                :title="$t(`elements.${element}`) + ' ' + $t('filters.element')"
+            >
+                {{ $t(`elements.${element}`) }}
+            </span>
+            &nbsp; &nbsp; &nbsp;
+            <span
+                v-if="classType"
+                :class="`hero-class-${classType}`"
+                class="no-text"
+                :title="$t(`classes.${classType}`) + ' ' + $t('heroes.classType')"
+            >
+                {{ $t(`classes.${classType}`) }}
+            </span>
+            &nbsp; &nbsp; &nbsp;
+            <span
+                v-if="zodiac"
+                :class="`hero-sign-${zodiac}`"
+                class="no-text"
+                :title="$t(`zodiacSigns.${zodiac}`) + ' ' + $t('filters.zodiac')"
+            >
+                {{ $t(`zodiacSigns.${zodiac}`) }}
+            </span>
+            <br />
+            <h1>
+                {{ name }}
+                <span :class="`star-rating-${rarity}`" :title="`${rarity} star ` + $t('heroes.grade')"></span>
+            </h1>
+            <p v-if="description" class="summon-2line">
+                {{ description }}
+            </p>
+        </div>
+
+        <div v-if="summonQuote" class="summon-quote">
+            {{ summonQuote }}
+        </div>
     </section>
 </template>
 

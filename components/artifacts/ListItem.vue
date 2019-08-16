@@ -41,6 +41,7 @@ export default {
                 small: {
                     src: `${this.assetsUrl}/artifact/${this.artifact.fileId}/small.jpg`,
                     error: `${this.assetsUrl}/artifact/_placeholder/small_missing.jpg`,
+                    loading: `${this.assetsUrl}/website/loading.gif`,
                 },
                 icon: {
                     src: `${this.assetsUrl}/artifact/${this.artifact.fileId}/icon.png`,
