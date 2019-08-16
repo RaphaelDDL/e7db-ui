@@ -47,6 +47,7 @@ async function start() {
                     "*.googleapis.com",
                     "*.google-analytics.com",
                     "*.cloudflare.com",
+                    "*.doubleclick.net",
                 ],
                 connectSrc: [
                     "'self'",
@@ -56,6 +57,7 @@ async function start() {
                     "*.google-analytics.com",
                     "*.google.com",
                     "*.googleapis.com",
+                    "*.doubleclick.net",
                 ],
             },
         })
