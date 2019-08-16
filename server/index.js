@@ -52,7 +52,10 @@ async function start() {
                     "'self'",
                     "*.epicsevendb.com",
                     "epicsevendb-apiserver.herokuapp.com",
-                    "www.google-analytics.com",
+                    "*.cloudflare.com",
+                    "*.google-analytics.com",
+                    "*.google.com",
+                    "*.googleapis.com",
                 ],
             },
         })
