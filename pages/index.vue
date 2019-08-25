@@ -58,18 +58,15 @@
                                 localePath({
                                     name: 'hero-id',
                                     params: {
-                                        id: 'seaside-bellona',
+                                        id: 'vivian',
                                     },
                                 })
                             "
                             @click.native="trackMenuEvent"
                         >
                             <a>
-                                <img
-                                    v-lazy="`${assetsUrl}/banner/gacha/seaside-bellona.png`"
-                                    alt="Tywin Drop Rate Up"
-                                />
-                                Limited Summon - Seaside Bellona
+                                <img v-lazy="`${assetsUrl}/banner/gacha/vivian.png`" alt="Tywin Drop Rate Up" />
+                                Limited Summon - Vivian
                             </a>
                         </nuxt-link>
                         <nuxt-link
@@ -78,18 +75,15 @@
                                 localePath({
                                     name: 'hero-id',
                                     params: {
-                                        id: 'seaside-bellona',
+                                        id: 'vivian',
                                     },
                                 })
                             "
                             @click.native="trackMenuEvent"
                         >
                             <a>
-                                <img
-                                    v-lazy="`${assetsUrl}/banner/sidestory/song_of_the_sea_2.png`"
-                                    alt="Song of the Sea"
-                                />
-                                Song of the Sea
+                                <img v-lazy="`${assetsUrl}/banner/sidestory/vivian.png`" alt="An Uphill Battle" />
+                                An Uphill Battle
                             </a>
                         </nuxt-link>
                         <nuxt-link
