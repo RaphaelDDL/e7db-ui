@@ -7,6 +7,36 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>August 30th, 2019 - version 1.5.1</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Memory Imprint Filter @ Hero List Page
+                                        </strong>
+                                        <br />
+                                        Now added a new filter, requested by many: Memory Imprint filter. Select between
+                                        Attack%, Attack+, and so on when filtering your desired unit! You can choose
+                                        only one as there's just one imprint per hero anyway, so selecting multiple
+                                        would either give zero results (if A and B) and strange results (A or B). Well,
+                                        if many ask to be multiple, then I'll change it but for now, single Imprint
+                                        only.
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>August 16th, 2019 - version 1.5.0</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />

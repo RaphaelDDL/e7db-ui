@@ -21,7 +21,7 @@
 <script>
 import { mapGetters } from "vuex";
 import ListItem from "~/components/heroes/ListItem";
-import ListFilters from "~/components/general/ListFilters";
+import ListFilters from "~/components/heroes/ListFilters";
 import { mountedPageView } from "~/util/vueMixins";
 import LoadingMessage from "~/components/general/LoadingMessage";
 import {
@@ -31,6 +31,7 @@ import {
     getByElement,
     getByBuffDebuff,
     getByZodiac,
+    getByImprint,
     headMetaTags,
 } from "~/util/Utils";
 
@@ -42,6 +43,7 @@ const filterDefaults = {
     zodiac: "",
     buffs: [],
     debuffs: [],
+    imprint: "",
 };
 
 export default {
@@ -62,18 +64,21 @@ export default {
     computed: {
         ...mapGetters("hero", ["list"]),
         filteredHeroList() {
-            return getByZodiac(
-                getByBuffDebuff(
-                    getByRarity(
-                        getByKeyword(
-                            getByClass(getByElement(this.list, this.filters.element), this.filters.heroClass),
-                            this.filters.keyword
+            return getByImprint(
+                getByZodiac(
+                    getByBuffDebuff(
+                        getByRarity(
+                            getByKeyword(
+                                getByClass(getByElement(this.list, this.filters.element), this.filters.heroClass),
+                                this.filters.keyword
+                            ),
+                            this.filters.rarity
                         ),
-                        this.filters.rarity
+                        [...this.filters.buffs, ...this.filters.debuffs]
                     ),
-                    [...this.filters.buffs, ...this.filters.debuffs]
+                    this.filters.zodiac
                 ),
-                this.filters.zodiac
+                this.filters.imprint
             );
         },
     },

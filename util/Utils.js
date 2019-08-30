@@ -38,8 +38,7 @@ export function getByKeyword(list, keyword) {
         return list;
     }
     return list.filter(
-        listItem =>
-            listItem.name.toLowerCase().indexOf(search) > -1 || listItem.fileId.toLowerCase().indexOf(search) > -1
+        listItem => listItem.name.toLowerCase().includes(search) || listItem.fileId.toLowerCase().includes(search)
     );
 }
 
@@ -92,6 +91,13 @@ export function getByBuffDebuff(list, BuffsDebuffs) {
             [...hero.buffs, ...hero.debuffs].includes(r)
         );
     });
+}
+
+export function getByImprint(list, imprint) {
+    if (!imprint || !Array.isArray(list)) {
+        return list;
+    }
+    return list.filter(listItem => listItem.memoryImprintAttribute === imprint._id);
 }
 
 // export function getByBuff(list, buffs) {
@@ -209,33 +215,34 @@ export function catalystKeyToName(value) {
     return ITEM_LIST[value] || value;
 }
 
-// export function statusKeyToName(value) {
-//     if (!value) {
-//         return "";
-//     }
-//     switch (value) {
-//         case "atk":
-//             return "Attack";
-//         case "def":
-//             return "Defense";
-//         case "hp":
-//             return "Health";
-//         case "spd":
-//             return "Speed";
-//         case "chc":
-//             return "Critical Hit Chance";
-//         case "chd":
-//             return "Critical Hit Damage";
-//         case "eff":
-//             return "Effectiveness";
-//         case "efr":
-//             return "Effect Resistance";
-//         case "dac":
-//             return "Dual Attack Chance";
-//         default:
-//             return "";
-//     }
-// }
+function statusKeyToName(value) {
+    if (!value) {
+        return "";
+    }
+    switch (value) {
+        case "atk":
+            return "Attack";
+        case "def":
+            return "Defense";
+        case "hp":
+            return "Health";
+        case "spd":
+            return "Speed";
+        case "chc":
+            return "Critical Hit Chance";
+        case "chd":
+            return "Critical Hit Damage";
+        case "eff":
+            return "Effectiveness";
+        case "efr":
+            return "Effect Resistance";
+        case "dac":
+            return "Dual Attack Chance";
+        default:
+            return "";
+    }
+}
+export { statusKeyToName };
 
 const BUFF_DEBUFF_LIST = [
     {
@@ -603,4 +610,67 @@ export function headMetaTags(metaTags = {}, instanceThis = {}) {
 
 export function errorHandler({ dispatch, reject }, error, apiType) {
     reject();
+}
+
+const IMPRINT_LIST = [
+    {
+        type: ["+"],
+        _id: "spd",
+        icon: "stic_speed_up",
+    },
+    {
+        type: ["%", "+"],
+        _id: "atk",
+        icon: "stic_att_up",
+    },
+    {
+        type: ["%", "+"],
+        _id: "def",
+        icon: "stic_def_up",
+    },
+    {
+        type: ["%", "+"],
+        _id: "hp",
+        icon: "stic_maxhp_up",
+    },
+    {
+        type: ["%"],
+        _id: "chc",
+        icon: "stic_cri_up",
+    },
+    {
+        type: ["%"],
+        _id: "chd",
+        icon: "stic_cridmg_up",
+    },
+    {
+        type: ["%"],
+        _id: "dac",
+        icon: "stic_att_inc",
+    },
+    {
+        type: ["%"],
+        _id: "eff",
+        icon: "stic_con_up",
+    },
+    {
+        type: ["%"],
+        _id: "efr",
+        icon: "stic_restore",
+    },
+];
+
+export function imprintList() {
+    const returnList = [];
+    IMPRINT_LIST.forEach(imprint => {
+        imprint.type.forEach(imprintType => {
+            returnList.push({
+                _id: imprint._id + imprintType,
+                attribute: imprint._id,
+                type: imprintType,
+                icon: imprint.icon,
+            });
+        });
+    });
+    return returnList;
 }

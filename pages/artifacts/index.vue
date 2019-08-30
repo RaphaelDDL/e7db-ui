@@ -26,7 +26,7 @@
 <script>
 import { mapGetters } from "vuex";
 import ListItem from "~/components/artifacts/ListItem";
-import ListFilters from "~/components/general/ListFilters";
+import ListFilters from "~/components/artifacts/ListFilters";
 import LoadingMessage from "~/components/general/LoadingMessage";
 import { getByKeyword, getByRarity, getByExclusive, headMetaTags } from "~/util/Utils";
 import { mountedPageView } from "~/util/vueMixins";
