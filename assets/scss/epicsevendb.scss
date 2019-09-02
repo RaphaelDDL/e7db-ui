@@ -732,9 +732,33 @@ aside.column {
 }
 
 .skill-soul-acquire,
-.skill-soul-burn {
+.skill-soul-burn,
+.skill-mult-title {
     color: rgb(72, 137, 232);
 }
+
+.skill-multi-notes{
+    text-align: center;
+    color:white;
+    font-size: 1.1rem;
+
+    @include tablet {
+        text-align: left;
+    }
+
+    &:focus {
+        outline: 0;
+
+        & ~ .skill-multi-note {
+            display: block;
+        }
+    }
+}
+.skill-multi-note {
+    display: none;
+    font-size: 1.2rem;
+}
+
 
 .skill-bonus,
 .skill-cooldown {

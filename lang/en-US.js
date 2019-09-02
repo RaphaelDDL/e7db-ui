@@ -83,6 +83,7 @@ export default {
             soul: "Soul",
             passive: "Passive",
             turns: "turns",
+            soulBurn: "Soul Burn",
             soulBurnEffect: "Soul Burn Effect",
             awakening: "Awakening",
             statsIncrease: "Stats Increase",
@@ -123,6 +124,11 @@ export default {
                 politics: "Politics",
             },
             voice: "Sound List",
+            multipliers: {
+                header: "Multipliers",
+                mult: "Multiplier",
+                multSimplified: "Simplified", // as in Simplified Multiplier
+            },
         },
         heroAndArtifactCommons
     ),

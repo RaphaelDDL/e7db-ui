@@ -64,6 +64,45 @@
                     </div>
                     <div class="skill-desc">{{ skill.soulBurnEffect }}</div>
                 </div>
+                <div v-if="skill.simpleDmgMod && skill.simpleDmgMod.simplified">
+                    <hr />
+                    <div class="skill-sub-desc skill-multi-desc">
+                        <div>
+                            <p>
+                                <span class="skill-mult-title"
+                                    >{{ $t("heroes.multipliers.multSimplified") }}
+                                    {{ $t("heroes.multipliers.mult") }}</span
+                                >
+                                <br />
+                                <strong>{{ skill.simpleDmgMod.simplified }}</strong>
+                            </p>
+                            <p v-if="skill.simpleDmgMod.simplified !== skill.simpleDmgMod.simplifiedSoulburn">
+                                <span class="skill-mult-title"
+                                    >{{ $t("heroes.soulBurn") }} {{ $t("heroes.multipliers.mult") }}</span
+                                >
+                                <br />
+                                <strong>{{ skill.simpleDmgMod.simplifiedSoulburn }}</strong>
+                            </p>
+                            <p class="skill-multi-notes" tabindex="-1">-Click/Tap for Multiplier Notes-</p>
+                            <p class="skill-multi-note">
+                                NOTE#1: Arrays (square brackets <strong class="white">[]</strong>) mean some sort of
+                                scaling, for example, Blood Blade Karin multiplier increases if her S2 conditions are
+                                met. Please see current hero's skill effects to understand better.
+                            </p>
+                            <p class="skill-multi-note">
+                                NOTE#2: We are still working on the multipliers; Some might be presented wrongly when
+                                they scale off different things than attributes, like number of buffs or debuffs, etc.
+                                For a complete data while we still fixing all, consult
+                                <a
+                                    href="https://docs.google.com/spreadsheets/d/1aqL0Uj26PRW_jAUj8pYaSls_DOuFq30fvwQh8ol74-E/edit#gid=0"
+                                    rel="noopener"
+                                    target="_blank"
+                                    >buttreynold's Spreadsheet</a
+                                >.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
                 <hr />
                 <div v-if="skill.enhancement && skill.enhancement.length">
