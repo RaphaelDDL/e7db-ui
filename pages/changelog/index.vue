@@ -7,6 +7,40 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>September 2nd, 2019 - version 1.5.5</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Hero Multipliers
+                                        </strong>
+                                        <br />
+                                        Added Multiplier for the heroes. We are still working on the multipliers; Some
+                                        might be presented wrongly when they scale off different things than attributes,
+                                        like number of buffs or debuffs, or enemy's hp, etc. For a complete data while
+                                        we still fixing all, consult
+                                        <a
+                                            href="https://docs.google.com/spreadsheets/d/1aqL0Uj26PRW_jAUj8pYaSls_DOuFq30fvwQh8ol74-E/edit#gid=0"
+                                            rel="noopener"
+                                            target="_blank"
+                                            >buttreynold's Spreadsheet</a
+                                        >.
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>August 30th, 2019 - version 1.5.1</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
