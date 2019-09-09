@@ -41,7 +41,7 @@ module.exports = {
     ],
 
     // Nuxt.js modules
-    modules: ["@nuxtjs/axios", /* "@nuxtjs/pwa", */ "@nuxtjs/google-analytics", ["nuxt-i18n", I18N]],
+    modules: ["@nuxtjs/axios", "@nuxtjs/pwa", "@nuxtjs/google-analytics", ["nuxt-i18n", I18N]],
 
     // @nuxtjs/google-analytics module configuration
     googleAnalytics: {
