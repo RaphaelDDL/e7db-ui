@@ -45,4 +45,8 @@ module.exports = {
     lazy: true,
     seo: true,
     baseUrl: "https://epicsevendb.com",
+    vueI18n: {
+        defaultLocale: "en",
+        fallbackLocale: "en",
+    },
 };
