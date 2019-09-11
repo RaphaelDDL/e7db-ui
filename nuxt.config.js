@@ -23,6 +23,11 @@ module.exports = {
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
 
+    // workbox: {
+    //     cacheAssets: false, // for /*
+    //     offline: false // for /_nuxt/*
+    // },
+
     // Customize the progress-bar color
     loading: { color: "#008be6", throttle: 0, height: "4px" },
 
@@ -41,7 +46,7 @@ module.exports = {
     ],
 
     // Nuxt.js modules
-    modules: ["@nuxtjs/axios", "@nuxtjs/pwa", "@nuxtjs/google-analytics", ["nuxt-i18n", I18N]],
+    modules: ["@nuxtjs/axios", ["@nuxtjs/pwa", { workbox: false }], "@nuxtjs/google-analytics", ["nuxt-i18n", I18N]],
 
     // @nuxtjs/google-analytics module configuration
     googleAnalytics: {
