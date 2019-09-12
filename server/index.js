@@ -1,22 +1,21 @@
 const express = require("express");
 const consola = require("consola");
-// const timeout = require("connect-timeout");
+const timeout = require("connect-timeout");
 const helmet = require("helmet");
 const { Nuxt, Builder } = require("nuxt");
 const app = express();
-// app.use(timeout("25s"));
 
 // Import and Set Nuxt.js options
 const config = require("../nuxt.config.js");
 config.dev = !(process.env.NODE_ENV === "production");
 
 async function start() {
-    // function haltOnTimedout(req, res, next) {
-    //     if (!req.timedout) {
-    //         return next();
-    //     }
-    //     console.log("NUXT TIMED OUT AT REQUEST :: " + req.url);
-    // }
+    function haltOnTimedout(req, res, next) {
+        if (!req.timedout) {
+            return next();
+        }
+        console.log("NUXT TIMED OUT AT REQUEST :: " + req.url);
+    }
 
     // Init Nuxt.js
     const nuxt = new Nuxt(config);
@@ -31,8 +30,9 @@ async function start() {
         await nuxt.ready();
     }
 
+    app.use(timeout("25s"));
     app.use(helmet());
-    // app.use(haltOnTimedout);
+    app.use(haltOnTimedout);
     app.use(
         helmet.contentSecurityPolicy({
             directives: {
@@ -64,10 +64,10 @@ async function start() {
             },
         })
     );
-    // app.use(haltOnTimedout);
+    app.use(haltOnTimedout);
     // Give nuxt middleware to express
     app.use(nuxt.render);
-    // app.use(haltOnTimedout);
+    app.use(haltOnTimedout);
 
     // Listen the server
     app.listen(port, host);
