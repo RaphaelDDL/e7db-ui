@@ -185,4 +185,7 @@ export default {
         apShops: "AP Shops",
         available: "Available",
     },
+    ex_equip: {
+        name: "Exclusive Equipment",
+    },
 };

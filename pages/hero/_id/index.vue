@@ -36,6 +36,14 @@
                     :self-skill-bar-name="heroDetail.selfSkillBarName"
                 />
 
+                <ExclusiveEquipment
+                    v-if="heroDetail.ex_equip && heroDetail.ex_equip.length"
+                    :id="heroDetail._id"
+                    :skills-list="heroDetail.skills"
+                    :exclusive-equipment-list="heroDetail.ex_equip"
+                    :hero-stats-class="heroStatsClass"
+                />
+
                 <Awakening :awakening-list="heroDetail.awakening" :hero-stats-class="heroStatsClass" />
 
                 <Imprint

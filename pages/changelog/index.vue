@@ -7,6 +7,58 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
+                            <strong>September 25th, 2019 - version 1.6.0</strong>
+                            <div class="bullet-description">
+                                <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
+                                <p>Implemented and/or Fixed the following:</p>
+                                <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            Hero Exclusive Equipment
+                                        </strong>
+                                        <br />
+                                        Added Exclusive Equipment section on hero page. Thank you
+                                        <strong class="white">Dimbreath</strong> for the PR with all equipment (and the
+                                        assets too lol).
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            Updated E7DB API
+                                        </strong>
+                                        <br />
+                                        API can now be used with our oficial domain, that is,
+                                        <a href="https://api.epicsevendb.com/" target="_blank"
+                                            >https://api.epicsevendb.com/</a
+                                        >. The herokuapp.com URL still works, don't worry.
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            Updated DB
+                                        </strong>
+                                        <br />
+                                        As always, thank you <strong class="white">Kromagg</strong> for keeping the
+                                        gamedatabase updated, and everyone else who reported bugs on the data lately.
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    Please
+                                    <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
+                                        >open an issue on our EpicSevenDB/ui Github page</a
+                                    >
+                                    if you got feedback or bug reports for the website or
+                                    <a
+                                        href="https://github.com/EpicSevenDB/gamedatabase/issues"
+                                        rel="noopener"
+                                        target="_blank"
+                                        >open an issue on our EpicSevenDB/gamedatabase Github page</a
+                                    >
+                                    for data issues.
+                                </p>
+                                <p>Best, <br />RaphaelDDL</p>
+                            </div>
+                        </li>
+                        <li>
                             <strong>September 2nd, 2019 - version 1.5.5</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />

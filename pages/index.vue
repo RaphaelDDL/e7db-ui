@@ -58,15 +58,15 @@
                                 localePath({
                                     name: 'hero-id',
                                     params: {
-                                        id: 'tenebria',
+                                        id: 'lilias',
                                     },
                                 })
                             "
                             @click.native="trackMenuEvent"
                         >
                             <a>
-                                <img v-lazy="`${assetsUrl}/banner/gacha/tenebria.png`" alt="Tenebria Drop Rate Up" />
-                                Limited Summon - Tenebria
+                                <img v-lazy="`${assetsUrl}/banner/gacha/lilias.png`" alt="Lilias Drop Rate Up" />
+                                Limited Summon - Lilias
                             </a>
                         </nuxt-link>
                         <nuxt-link
@@ -82,11 +82,8 @@
                             @click.native="trackMenuEvent"
                         >
                             <a>
-                                <img
-                                    v-lazy="`${assetsUrl}/banner/sidestory/1_year3.png`"
-                                    alt="Reingar's Chaotic Full Moon Festival"
-                                />
-                                Reingar's Chaotic Full Moon Festival
+                                <img v-lazy="`${assetsUrl}/banner/sidestory/lilias.png`" alt="Written in Blood" />
+                                Written in Blood
                             </a>
                         </nuxt-link>
                         <nuxt-link

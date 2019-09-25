@@ -143,6 +143,7 @@ export default {
     },
     props: {
         filters: Object,
+        default: () => {},
     },
     data() {
         return {

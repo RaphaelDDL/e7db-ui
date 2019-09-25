@@ -12,6 +12,7 @@ import Imprint from "./imprint";
 // import Profile from "./profile";
 import ProfileExtended from "./profileExtended";
 import Camping from "./camping";
+import ExclusiveEquipment from "./exclusiveEquipment";
 
 export default {
     // Header,
@@ -26,6 +27,7 @@ export default {
     Imprint,
     ProfileExtended,
     // Profile,
+    ExclusiveEquipment,
     Awakening,
     Camping,
 };
