@@ -37,8 +37,9 @@ async function start() {
         helmet.contentSecurityPolicy({
             directives: {
                 defaultSrc: ["'self'", "*.epicsevendb.com"],
+                frameSrc: ["'self'", "*.epicsevendb.com", "*.twitter.com"],
                 fontSrc: ["'self'"],
-                styleSrc: ["'self'", "'unsafe-inline'"],
+                styleSrc: ["'self'", "'unsafe-inline'", "*.twitter.com", "*.twimg.com"],
                 imgSrc: ["'self'", "data:", "*.epicsevendb.com", "*"],
                 scriptSrc: [
                     "'self'",
@@ -49,6 +50,8 @@ async function start() {
                     "*.cloudflare.com",
                     "*.doubleclick.net",
                     "*.g.doubleclick.net",
+                    "*.twitter.com",
+                    "*.twimg.com",
                 ],
                 connectSrc: [
                     "'self'",
@@ -60,6 +63,7 @@ async function start() {
                     "*.googleapis.com",
                     "*.doubleclick.net",
                     "*.g.doubleclick.net",
+                    "*.twitter.com",
                 ],
             },
         })

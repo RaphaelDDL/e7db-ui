@@ -262,6 +262,21 @@
                     <ResultsList :artifacts="latestArtifacts" :heroes="latestHeroes" />
                 </div>
             </section>
+
+            <section class="section-container">
+                <div class="section-box">
+                    <no-ssr placeholder="@EpicSevenDB Twitter Feed">
+                        <a
+                            class="twitter-timeline"
+                            data-height="600"
+                            data-theme="dark"
+                            href="https://twitter.com/EpicSevenDB?ref_src=twsrc%5Etfw"
+                            >Tweets by EpicSevenDB</a
+                        >
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </no-ssr>
+                </div>
+            </section>
         </main>
     </div>
 </template>

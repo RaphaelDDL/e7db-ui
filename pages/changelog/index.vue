@@ -7,11 +7,36 @@
                     <hr />
                     <ul class="bullets changelog">
                         <li>
-                            <strong>September 25th, 2019 - version 1.6.0</strong>
+                            <strong>September 25th, 2019 - version 1.6.1</strong>
                             <div class="bullet-description">
                                 <img :src="`${assetsUrl}/website/icon_gm_s.png`" class="changelog-image" />
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
+                                    <li>
+                                        <strong>
+                                            EpicSevenDB Twitter
+                                        </strong>
+                                        <br />
+                                        We created a Twitter for the webiste, so you can have updates more frequently.
+                                        We also added the feed on the home page.
+                                        <a href="https://twitter.com/EpicSevenDB?ref_src=twsrc%5Etfw"
+                                            >Follow @EpicSevenDB</a
+                                        >
+                                        <br /><br />
+                                        <no-ssr>
+                                            <a
+                                                href="https://twitter.com/EpicSevenDB?ref_src=twsrc%5Etfw"
+                                                class="twitter-follow-button"
+                                                data-size="large"
+                                                data-show-count="false"
+                                                >Follow @EpicSevenDB</a
+                                            ><script
+                                                async
+                                                src="https://platform.twitter.com/widgets.js"
+                                                charset="utf-8"
+                                            ></script>
+                                        </no-ssr>
+                                    </li>
                                     <li>
                                         <strong>
                                             Hero Exclusive Equipment
