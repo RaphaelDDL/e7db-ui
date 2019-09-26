@@ -49,6 +49,40 @@
         <aside class="column is-two-fifths-tablet is-12-mobile home">
             <section class="section-container">
                 <div class="section-box">
+                    {{ $t("home.appDownloadHeader") }}
+                    <a
+                        href="https://itunes.apple.com/us/app/epic-seven/id1322399438?mt=8"
+                        rel="noopener"
+                        target="_blank"
+                        >iOS</a
+                    >
+                    &
+                    <a
+                        href="https://play.google.com/store/apps/details?id=com.stove.epic7.google&hl=en"
+                        rel="noopener"
+                        target="_blank"
+                        >Android</a
+                    >.
+                </div>
+            </section>
+            <section class="section-container">
+                <div class="section-box">
+                    <ul class="bullets">
+                        <li>
+                            <a href="https://old.reddit.com/r/EpicSeven/" rel="noopener" target="_blank">{{
+                                $t("home.e7Reddit")
+                            }}</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/CTetAqC" rel="noopener" target="_blank">{{
+                                $t("home.e7Discord")
+                            }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section-container">
+                <div class="section-box">
                     <h1>{{ $t("home.currentEvents") }}</h1>
                     <hr />
                     <ul class="banner-list">
@@ -106,40 +140,6 @@
                                 Unrecorded History
                             </a>
                         </nuxt-link>
-                    </ul>
-                </div>
-            </section>
-            <section class="section-container">
-                <div class="section-box">
-                    {{ $t("home.appDownloadHeader") }}
-                    <a
-                        href="https://itunes.apple.com/us/app/epic-seven/id1322399438?mt=8"
-                        rel="noopener"
-                        target="_blank"
-                        >iOS</a
-                    >
-                    &
-                    <a
-                        href="https://play.google.com/store/apps/details?id=com.stove.epic7.google&hl=en"
-                        rel="noopener"
-                        target="_blank"
-                        >Android</a
-                    >.
-                </div>
-            </section>
-            <section class="section-container">
-                <div class="section-box">
-                    <ul class="bullets">
-                        <li>
-                            <a href="https://old.reddit.com/r/EpicSeven/" rel="noopener" target="_blank">{{
-                                $t("home.e7Reddit")
-                            }}</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/CTetAqC" rel="noopener" target="_blank">{{
-                                $t("home.e7Discord")
-                            }}</a>
-                        </li>
                     </ul>
                 </div>
             </section>
