@@ -21,6 +21,7 @@ export default {
         heroes: "Heróis",
         artifacts: "Artefatos",
         items: "Itens",
+        creators: "Youtubers",
         changelog: "Atualizações",
         privacyPolicy: "Política de Privacidade",
         back: "Voltar",
