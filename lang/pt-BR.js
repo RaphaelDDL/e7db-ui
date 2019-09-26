@@ -20,7 +20,7 @@ export default {
         about: "Sobre + Contribuindo",
         heroes: "Heróis",
         artifacts: "Artefatos",
-        items: "Ítens",
+        items: "Itens",
         changelog: "Atualizações",
         privacyPolicy: "Política de Privacidade",
         back: "Voltar",
@@ -52,8 +52,8 @@ export default {
     },
     home: {
         latest: "Últimos Heróis e Artefatos",
-        searchQuestion: "Pelo quê está procurando?",
-        searchPlaceholder: "Search for Heroes and Artifacts...",
+        searchQuestion: "O que está procurando?",
+        searchPlaceholder: "Pesquise por Heróis e Artefatos...",
         currentEvents: "Eventos Atuais",
         appDownloadHeader:
             "EpicSevenDB é uma wiki e banco de dados para o jogo Epic Seven. Você pode baixar o jogo para ",
