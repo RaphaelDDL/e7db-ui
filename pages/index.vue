@@ -265,7 +265,7 @@
 
             <section class="section-container">
                 <div class="section-box">
-                    <no-ssr placeholder="@EpicSevenDB Twitter Feed">
+                    <client-only placeholder="@EpicSevenDB Twitter Feed">
                         <a
                             class="twitter-timeline"
                             data-height="600"
@@ -274,7 +274,7 @@
                             >Tweets by EpicSevenDB</a
                         >
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </no-ssr>
+                    </client-only>
                 </div>
             </section>
         </main>

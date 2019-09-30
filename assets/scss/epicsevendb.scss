@@ -1908,11 +1908,9 @@ aside.column {
             filter: FlipH;
         }
 
-        @include tablet {
-            &[lazy=loaded] {
-                transform-origin: center bottom;
-                animation: heroMove 8s infinite running;
-            }
+        &[lazy=loaded] {
+            transform-origin: center bottom;
+            animation: heroMove 8s infinite running;
         }
     }
 

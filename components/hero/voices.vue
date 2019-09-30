@@ -3,7 +3,7 @@
         <div class="section-box">
             <h1>{{ $t("heroes.voice") }}</h1>
             <hr />
-            <no-ssr placeholder="Audio files are being rendered..">
+            <client-only placeholder="Audio files are being rendered..">
                 <aplayer
                     :music="firstMusic"
                     preload="none"
@@ -35,7 +35,7 @@
                         </span>
                     </li>
                 </ul> -->
-            </no-ssr>
+            </client-only>
         </div>
     </section>
 </template>

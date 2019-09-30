@@ -23,7 +23,7 @@
                                             >Follow @EpicSevenDB</a
                                         >
                                         <br /><br />
-                                        <no-ssr>
+                                        <client-only>
                                             <a
                                                 href="https://twitter.com/EpicSevenDB?ref_src=twsrc%5Etfw"
                                                 class="twitter-follow-button"
@@ -35,7 +35,7 @@
                                                 src="https://platform.twitter.com/widgets.js"
                                                 charset="utf-8"
                                             ></script>
-                                        </no-ssr>
+                                        </client-only>
                                     </li>
                                     <li>
                                         <strong>
