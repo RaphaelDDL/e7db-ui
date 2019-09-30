@@ -79,21 +79,21 @@ export default {
             this
         );
     },
-    asyncData({ params, store, redirect }) {
-        return Promise.all([
+    async asyncData({ params, store, redirect }) {
+        const [artifactDetail] = await Promise.all([
             store.dispatch("artifact/getSingle", { fileId: params.id }).catch(error => {
                 return error;
             }),
-        ]).then(([artifactDetail]) => {
-            if (!artifactDetail || (artifactDetail && !artifactDetail.name)) {
-                return redirect(302, "/artifacts");
-            }
-            return {
-                isLoading: false,
-                artifactDetail: artifactDetail,
-                showDetails: true,
-            };
-        });
+        ]);
+
+        if (!artifactDetail || (artifactDetail && !artifactDetail.name)) {
+            return redirect(302, "/artifacts");
+        }
+        return {
+            isLoading: false,
+            artifactDetail,
+            showDetails: true,
+        };
     },
 };
 </script>

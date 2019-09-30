@@ -191,24 +191,26 @@ export default {
             this
         );
     },
-    asyncData({ params, store, redirect }) {
-        return Promise.all([
-            store.dispatch("item/getList").catch(error => {
-                return error;
-            }),
+    async asyncData({ params, store, redirect }) {
+        const [heroDetail, itemList] = await Promise.all([
             store.dispatch("hero/getSingle", { fileId: params.id }).catch(error => {
                 return error;
             }),
-        ]).then(([itemList, heroDetail]) => {
-            if (!heroDetail || (heroDetail && !heroDetail.name)) {
-                return redirect(302, "/heroes");
-            }
-            return {
-                isLoading: false,
-                heroDetail,
-                showDetails: true,
-            };
-        });
+            store.dispatch("item/getList").catch(error => {
+                return error;
+            }),
+        ]);
+        if (!heroDetail || (heroDetail && !heroDetail.name)) {
+            return redirect(302, "/heroes");
+        }
+        if (!itemList) {
+            // do nothing
+        }
+        return {
+            isLoading: false,
+            heroDetail,
+            showDetails: true,
+        };
     },
     methods: {
         heroStatsClass(type = "") {

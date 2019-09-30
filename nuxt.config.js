@@ -60,9 +60,8 @@ module.exports = {
     // @nuxtjs/axios module configuration
     axios: {
         // See https://github.com/nuxt-community/axios-module#options
-        https: true,
         progress: true,
-        retry: { retries: 2 },
+        retry: { retries: 1 },
         baseURL: pkg.data.apiEndpoint,
         debug: false,
     },
