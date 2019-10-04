@@ -1862,9 +1862,7 @@ aside.column {
 
 
 .hero-summoning {
-    background: transparent no-repeat top center;
-    // background-image: url($libraryBackground);
-    // background: transparent no-repeat top right;
+    background: transparent url(#{$assetsUrl}/website/summon/gacha_get_bg0_e7db.jpg) no-repeat top center;
     overflow: hidden;
     box-shadow: inset 0 0 2rem -0.5rem black;
     position: relative;

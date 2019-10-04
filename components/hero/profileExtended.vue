@@ -99,8 +99,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "~/assets/scss/singles/_libraryBackground.scss";
-.hero-summoning {
-    background-image: url($libraryBackground);
-}
+// @import "~/assets/scss/singles/_libraryBackground.scss";
+// .hero-summoning {
+//     background-image: url($libraryBackground);
+// }
 </style>
