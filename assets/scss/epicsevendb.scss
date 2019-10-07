@@ -1914,7 +1914,7 @@ aside.column {
 
     .profile {
         background: transparent url(#{$assetsUrl}/website/summon/gacha_get_bg1.png) top left no-repeat;
-        background-size: contain;
+        background-size: auto 20rem;
         height: 20rem;
         padding: 1.5rem 2rem 0;
         color: white;
