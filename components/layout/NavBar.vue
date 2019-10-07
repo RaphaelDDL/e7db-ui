@@ -43,7 +43,7 @@ export default {
         };
     },
     watch: {
-        $route: function() {
+        $route() {
             this.toggleMobileNav({}, false);
         },
     },
@@ -55,7 +55,7 @@ export default {
     methods: {
         trackNavInteractions(mouseEvent) {
             const linkName = mouseEvent.currentTarget
-                ? (mouseEvent.currentTarget.innerText + "").trim().toLowerCase()
+                ? (mouseEvent.currentTarget.textContent + "").trim().toLowerCase()
                 : "";
             this.$ga.event({
                 eventCategory: "nav",
@@ -69,7 +69,7 @@ export default {
             this.trackNavInteractions(e);
             return window.history && window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
         },
-        toggleMobileNav: function(ev = {}, forcedState = null) {
+        toggleMobileNav(ev = {}, forcedState = null) {
             if ("preventDefault" in ev) {
                 ev.preventDefault();
             }

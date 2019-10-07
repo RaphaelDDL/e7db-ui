@@ -52,14 +52,14 @@ export default {
             return (
                 this.heroList &&
                 this.trimmedSearch.length &&
-                this.heroList.filter(h => h.trimmedName.indexOf(this.trimmedSearch) > -1)
+                this.heroList.filter(h => h.trimmedName.includes(this.trimmedSearch))
             );
         },
         filteredArtifacts() {
             return (
                 this.artifactList &&
                 this.trimmedSearch.length &&
-                this.artifactList.filter(a => a.trimmedName.indexOf(this.trimmedSearch) > -1)
+                this.artifactList.filter(a => a.trimmedName.includes(this.trimmedSearch))
             );
         },
     },
