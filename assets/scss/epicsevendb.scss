@@ -1280,6 +1280,10 @@ aside.column {
         cursor: pointer;
     }
 
+    div:nth-of-type(5) .is-multiselect-container {
+        z-index: 8;
+    }
+
     @include tablet {
         .toggleable-btns .column {
             &:first-child {
@@ -1288,6 +1292,11 @@ aside.column {
             &:last-child {
                 padding-left: 0.5rem;
             }
+        }
+    }
+    @include mobile {
+        div:nth-of-type(4) .is-multiselect-container:last-child {
+            z-index: 9;
         }
     }
 }
