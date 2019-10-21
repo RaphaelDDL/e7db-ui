@@ -409,6 +409,11 @@ const BUFF_DEBUFF_LIST = [
         name: "Bomb",
         _id: "stic_bomb",
     },
+    {
+        type: "D",
+        name: "Random Debuff",
+        _id: "stic_rnd_debuf",
+    },
     // {
     //     type: 'M',
     //     name: 'One Turn Buff',
