@@ -369,6 +369,46 @@ const BUFF_DEBUFF_LIST = [
         name: "Vampirism",
         _id: "stic_vampire",
     },
+    {
+        type: "D",
+        name: "Penetrate Defense",
+        _id: "efct_def_pen",
+    },
+    {
+        type: "D",
+        name: "Dispel",
+        _id: "efct_dispel",
+    },
+    {
+        type: "D",
+        name: "Cooldown Increase",
+        _id: "efct_cd_up",
+    },
+    {
+        type: "D",
+        name: "Decrease Combat Readiness",
+        _id: "efct_cr_dn",
+    },
+    {
+        type: "D",
+        name: "Detonate",
+        _id: "efct_detonate",
+    },
+    {
+        type: "D",
+        name: "Transfer",
+        _id: "efct_trans",
+    },
+    {
+        type: "D",
+        name: "Extinction",
+        _id: "efct_extinct",
+    },
+    {
+        type: "D",
+        name: "Bomb",
+        _id: "stic_bomb",
+    },
     // {
     //     type: 'M',
     //     name: 'One Turn Buff',
@@ -544,6 +584,41 @@ const BUFF_DEBUFF_LIST = [
         type: "B",
         name: "Vigor",
         _id: "stic_haki",
+    },
+    {
+        type: "B",
+        name: "Cleanse",
+        _id: "efct_cleanse",
+    },
+    {
+        type: "B",
+        name: "Cooldown Reduction",
+        _id: "efct_cd_dn",
+    },
+    {
+        type: "B",
+        name: "Increase Combat Readiness",
+        _id: "efct_cr_up",
+    },
+    {
+        type: "B",
+        name: "Dual Attack",
+        _id: "efct_dual_att",
+    },
+    {
+        type: "B",
+        name: "Extra Turn",
+        _id: "efct_ex_turn",
+    },
+    {
+        type: "B",
+        name: "Buff Stealing",
+        _id: "efct_steal",
+    },
+    {
+        type: "B",
+        name: "Random Buff",
+        _id: "stic_rnd_buf",
     },
 ];
 
