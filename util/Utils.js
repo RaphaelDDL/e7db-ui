@@ -412,7 +412,7 @@ const BUFF_DEBUFF_LIST = [
     {
         type: "D",
         name: "Random Debuff",
-        _id: "stic_rnd_debuf",
+        _id: "efct_rnd_debuf",
     },
     // {
     //     type: 'M',
@@ -623,7 +623,7 @@ const BUFF_DEBUFF_LIST = [
     {
         type: "B",
         name: "Random Buff",
-        _id: "stic_rnd_buf",
+        _id: "efct_rnd_buf",
     },
 ];
 
