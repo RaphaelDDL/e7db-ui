@@ -143,6 +143,28 @@ strong,
     @extend %clearBoth;
 }
 
+.is-text-left {
+    text-align: left;
+}
+
+.is-text-center {
+    text-align: center;
+}
+
+.is-text-right {
+    text-align: right;
+}
+
+button {
+    padding: .5rem 1rem;
+    border-radius: 1.2rem;
+
+    & img {
+        display: inline;
+        vertical-align: middle;
+    }
+}
+
 ul {
     &:not(.bullets) {
         list-style-type: none;
@@ -1978,3 +2000,6 @@ aside.column {
 .ex-equip-tabs {
     //
 }
+
+
+

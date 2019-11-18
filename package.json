@@ -42,6 +42,7 @@
     "@nuxtjs/axios": "^5.6.0",
     "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/pwa": "^2.6.0",
+    "bulma-slider": "^2.0.0",
     "connect-timeout": "^1.9.0",
     "cross-env": "^6.0.0",
     "dateformat": "^3.0.3",

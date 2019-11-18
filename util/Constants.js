@@ -12,3 +12,7 @@ export const authentication = {
     key: "x-e7db-auth-key",
     value: process.env.E7DB_AUTH_KEY || "",
 };
+
+export const language = {
+    key: "x-e7db-lang",
+};

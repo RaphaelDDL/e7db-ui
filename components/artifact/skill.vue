@@ -3,7 +3,7 @@
         <div class="section-box">
             <h1>{{ $t("artifacts.skill") }}</h1>
             <hr />
-            <div class="hero-stats columns">
+            <!-- <div class="hero-stats columns">
                 <div class="column is-half hero-stats-base">
                     <h4>{{ $t("artifacts.baseLevelSkill") }} (lv1, +0)</h4>
                     <ul>
@@ -24,7 +24,19 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
+            <input
+                v-if="hasEnhancements"
+                id="skillrange"
+                v-model="currLevel"
+                type="range"
+                name="skill"
+                min="1"
+                max="11"
+                step="1"
+            />
+
+            <p style="white-space: pre-wrap;">{{ skillDescriptionModel }}</p>
         </div>
     </section>
 </template>
@@ -32,11 +44,8 @@
 <script>
 export default {
     inject: ["assetsUrl"],
-    props: {
-        skillDescription: {
-            type: Object,
-            default: () => {},
-        },
-    },
+    props: {},
+
+    computed: {},
 };
 </script>

@@ -5,15 +5,15 @@
         <main v-if="!isLoading && showDetails" class="column is-three-fifths">
             <Header :image-urls="imageUrls" :name="artifactDetail.name" />
             <Stats
-                :exclusive="artifactDetail.exclusive"
+                :role="artifactDetail.role"
                 :rarity="artifactDetail.rarity"
                 :stats="artifactDetail.stats"
+                :skill="artifactDetail.skill"
             />
-            <Skill :skill-description="artifactDetail.skillDescription" />
+            <Lore :description="artifactDetail.description" />
         </main>
         <aside v-if="!isLoading && showDetails" class="column is-two-fifths">
             <Artwork :image-urls="imageUrls" />
-            <Lore :lore-description="artifactDetail.loreDescription" />
         </aside>
     </div>
 </template>
@@ -36,21 +36,22 @@ export default {
             artifactDetail: {
                 name: "",
                 rarity: 1,
-                exclusive: [],
-                loreDescription: [],
-                skillDescription: {
-                    base: "",
-                    max: "",
+                exclusive: "",
+                role: "",
+                limited: false,
+                description: "",
+                skill: {
+                    description: "",
+                    enhancements: [],
+                },
+                assets: {
+                    image: "",
+                    thumbnail: "",
+                    icon: "",
                 },
                 stats: {
-                    base: {
-                        atk: 0,
-                        hp: 0,
-                    },
-                    max: {
-                        atk: 0,
-                        hp: 0,
-                    },
+                    atk: 0,
+                    hp: 0,
                 },
             },
             isLoading: false,
@@ -59,29 +60,32 @@ export default {
     computed: {
         imageUrls() {
             return {
-                full: `${this.assetsUrl}/artifact/${this.artifactDetail.fileId}/full.png`,
-                small: `${this.assetsUrl}/artifact/${this.artifactDetail.fileId}/small.jpg`,
-                icon: `${this.assetsUrl}/artifact/${this.artifactDetail.fileId}/icon.png`,
+                full: `${this.assetsUrl}/_source/item_arti/${this.artifactDetail.assets.image}.png`,
+                small: `${this.assetsUrl}/_source/item_arti/${this.artifactDetail.assets.thumbnail}.jpg`,
+                icon: `${this.assetsUrl}/_source/item_arti/${this.artifactDetail.assets.icon}.png`,
             };
         },
     },
 
     head() {
-        const artifactName = this.artifactDetail && this.artifactDetail.name ? this.artifactDetail.name : "";
-        const { exclusive } = this.artifactDetail;
-        const exclusivityString = exclusive && exclusive.length ? `, an exclusive ${exclusive}` : "";
+        const {
+            name = "",
+            role = "",
+            assets: { image },
+        } = this.artifactDetail || {};
+        const exclusivityString = role ? `, an exclusive ${role}` : "";
         return headMetaTags(
             {
-                title: `${artifactName} | Artifact`,
-                description: `See detailed information about ${artifactName}${exclusivityString} Artifact on EpicSeven game, including Artwork, Rarity, Class Specificity, Attributes, Skill Effects and more!`,
-                image: this.artifactDetail && this.artifactDetail.fileId ? this.imageUrls.full : "",
+                title: `${name} | Artifact`,
+                description: `See detailed information about ${name}${exclusivityString} Artifact on EpicSeven game, including Artwork, Rarity, Class Specificity, Attributes, Skill Effects and more!`,
+                image: image ? this.imageUrls.full : "",
             },
             this
         );
     },
     async asyncData({ params, store, redirect }) {
         const [artifactDetail] = await Promise.all([
-            store.dispatch("artifact/getSingle", { fileId: params.id }).catch(error => {
+            store.dispatch("artifact/getSingle", { _id: params.id }).catch(error => {
                 return error;
             }),
         ]);
