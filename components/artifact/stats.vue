@@ -13,70 +13,71 @@
                         <li v-if="role" class="columns is-mobile">
                             <div class="column is-half hero-stats-type">{{ $t("artifacts.classExclusive") }}</div>
                             <div :class="heroRole" class="column is-half hero-stats-value no-text">
-                                {{ $t(`classes.${role}`) }}
+                                {{ $t(`classes.${trueRole}`) }}
                             </div>
                         </li>
                     </ul>
                     <hr />
-                    <div class="columns is-full is-mobile">
-                        <div class="column is-one-third is-text-left">
-                            <button @click="currLevel = 1">
-                                <!-- <img :src="`${this.assetsUrl}/level/hero_lv.png`" alt=""> -->
-                                <img :src="`${this.assetsUrl}/level/hero_lv_1.png`" alt="" />
-                            </button>
-                        </div>
-                        <div class="column is-one-third is-text-center">
-                            <button @click="currLevel = 15">
-                                <!-- <img :src="`${this.assetsUrl}/level/hero_lv.png`" alt=""> -->
-                                <img :src="`${this.assetsUrl}/level/hero_lv_1.png`" alt="" />
-                                <img :src="`${this.assetsUrl}/level/hero_lv_5.png`" alt="" />
-                            </button>
-                        </div>
-                        <div class="column is-one-third is-text-right">
-                            <button @click="currLevel = 30">
-                                <!-- <img :src="`${this.assetsUrl}/level/hero_lv.png`" alt=""> -->
-                                <img :src="`${this.assetsUrl}/level/hero_lv_max.png`" alt="" />
-                            </button>
-                        </div>
-                    </div>
-                    <div class="columns is-full is-mobile">
-                        <div class="column  is-text-left">
-                            <button @click="currLevel > 1 ? currLevel-- : false">
-                                <img :src="`${this.assetsUrl}/level/hero_lv_bar.png`" alt="" />
-                            </button>
-                        </div>
-                        <div class="column is-three-quarters is-text-center">
-                            <input
-                                id="skillrange"
-                                v-model.number="currLevel"
-                                max="30"
-                                min="1"
-                                name="skill"
-                                step="1"
-                                type="range"
-                                class="slider is-fullwidth is-large"
-                            />
-                        </div>
-                        <div class="column  is-text-right">
-                            <button @click="currLevel < 30 ? currLevel++ : false">
-                                <img :src="`${this.assetsUrl}/level/hero_lv_p.png`" alt="" />
-                            </button>
-                        </div>
-                    </div>
-                    Level {{ currLevel }} {{ $t("artifacts.stats") }}:
-                    <br />
-                    <span :class="heroStatsClass('atk')"></span>
-                    {{ $t("heroes.attributes.atk") }}
-                    {{ statusByLevel.attack }}
-                    |
-                    <span :class="heroStatsClass('hp')"></span>
+                    <h3 class="skillEnhanceFontColor">Level {{ currLevel }} {{ $t("artifacts.stats") }}:</h3>
 
-                    {{ $t("heroes.attributes.hp") }}
-                    {{ statusByLevel.health }}
+                    <div class="artifact-slider has-margin-bottom">
+                        <div class="columns is-full is-mobile">
+                            <div class="column is-one-third is-text-left">
+                                <button @click="currLevel = 1">
+                                    Lv. 1
+                                </button>
+                            </div>
+                            <div class="column is-one-third is-text-center">
+                                <button @click="currLevel = 15">
+                                    Lv. 15
+                                </button>
+                            </div>
+                            <div class="column is-one-third is-text-right">
+                                <button @click="currLevel = 30">
+                                    Lv. Max
+                                </button>
+                            </div>
+                        </div>
+                        <div class="columns is-full is-mobile">
+                            <div class="column  is-text-left">
+                                <button @click="currLevel > 1 ? currLevel-- : false">
+                                    -1
+                                </button>
+                            </div>
+                            <div class="column is-three-quarters is-text-center">
+                                <input
+                                    id="skillrange"
+                                    v-model.number="currLevel"
+                                    max="30"
+                                    min="1"
+                                    name="skill"
+                                    step="1"
+                                    type="range"
+                                    class="slider is-fullwidth is-large"
+                                />
+                            </div>
+                            <div class="column  is-text-right">
+                                <button @click="currLevel < 30 ? currLevel++ : false">
+                                    +1
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-full is-mobile artifact-status">
+                        <div class="column is-text-center">
+                            <span :class="heroStatsClass('atk')" class="big"></span
+                            ><span class="">{{ $t("heroes.attributes.atk") }}</span>
+                            <span class="white bold">{{ statusByLevel.attack }}</span>
+                        </div>
+                        <div class="column is-text-center">
+                            <span :class="heroStatsClass('hp')" class="big"></span
+                            ><span class="">{{ $t("heroes.attributes.hp") }}</span>
+                            <span class="white bold">{{ statusByLevel.health }}</span>
+                        </div>
+                    </div>
                     <hr />
-                    Level {{ enhancementLevel }} {{ $t("artifacts.skill") }}:
-                    <br />
-                    <p style="white-space: pre-wrap;">{{ skillDescriptionModel }}</p>
+                    <h3 class="skillEnhanceFontColor">Level {{ enhancementLevel }} {{ $t("artifacts.skill") }}:</h3>
+                    <p class="artifact-skill-desc" v-html="skillDescriptionModel"></p>
                 </div>
             </div>
         </div>
@@ -108,33 +109,52 @@ export default {
     },
     data() {
         return {
-            currLevel: 1,
+            currLevel: 30,
         };
     },
     computed: {
         starRating() {
             return `star-rating-${this.rarity}`;
         },
-        heroRole() {
-            const { role } = this;
+        trueRole() {
+            let { role } = this;
 
             if (!role) {
                 return "";
             }
-            return `${role} hero-class-${role}`;
+
+            switch (role) {
+                case "assassin":
+                    role = "thief";
+                    break;
+
+                case "manauser":
+                    role = "soul-weaver";
+                    break;
+
+                default:
+                    break;
+            }
+            return role;
+        },
+        heroRole() {
+            return `${this.trueRole} hero-class-${this.trueRole}`;
         },
         statusByLevel() {
             const { attack, health } = this.stats;
-            if (this.currLevel === 1) {
-                return {
-                    attack,
-                    health,
-                };
-            }
-            return {
-                attack: Math.round(attack + attack * 0.4 * this.currLevel),
-                health: Math.round(health + health * 0.4 * this.currLevel),
+            // math.floor(math.floor((base_stat * (0.75 + (0.05 * grade)))) * (1 + 0.40 * level))
+            const calcStats = attribute => {
+                return Math.floor(Math.floor(attribute * (0.75 + 0.05 * this.rarity)) * (1 + 0.4 * this.currLevel));
             };
+            return {
+                attack: calcStats(attack),
+                health: calcStats(health),
+            };
+
+            // return {
+            //     attack: Math.round(attack + attack * 0.4 * this.currLevel),
+            //     health: Math.round(health + health * 0.4 * this.currLevel),
+            // };
         },
         skillDescription() {
             let { description } = this.skill;
@@ -151,7 +171,7 @@ export default {
             return descArray;
         },
         enhancementLevel() {
-            return Math.round(this.currLevel / 3) + 1;
+            return Math.floor(this.currLevel / 3) + 1;
         },
         skillDescriptionModel() {
             const { enhancements } = this.skill;
@@ -168,7 +188,7 @@ export default {
                     acc.push(curr);
                     const enhancementLevel = enhancements[currentLevel - 1];
                     if (enhancementLevel && enhancementLevel.length && enhancementLevel[i]) {
-                        acc.push(toPercent(enhancementLevel[i]));
+                        acc.push("<span>" + toPercent(enhancementLevel[i]) + "</span>");
                     }
                     return acc;
                 }, []);
