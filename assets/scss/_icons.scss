@@ -415,16 +415,23 @@
         background-color: transparent;
     }
     &::before {
-        $iconSize: 1.6rem;
         content: '';
-        height: $iconSize;
-        width: $iconSize;
-        background-size: $iconSize auto;
         background-position: left center;
         background-repeat: no-repeat;
         background-image: url(#{$assetsUrl}/stat/cm_icon_stat_what.png);
         margin-right: .4rem;
         vertical-align: bottom;
+
+        $iconSize: 1.6rem;
+        height: $iconSize;
+        width: $iconSize;
+        background-size: $iconSize auto;
+    }
+    &.big::before {
+        $iconSize: 3rem;
+        height: $iconSize;
+        width: $iconSize;
+        background-size: $iconSize auto;
     }
 }
 

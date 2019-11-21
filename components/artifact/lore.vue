@@ -3,7 +3,7 @@
         <div class="section-box">
             <h1>{{ $t("artifacts.lore") }}</h1>
             <hr />
-            <p v-for="loreParagraph in loreDescription" :key="loreParagraph">{{ loreParagraph }}</p>
+            <p style="white-space: pre-wrap;">{{ loreDescription }}</p>
         </div>
     </section>
 </template>
@@ -12,9 +12,18 @@
 export default {
     // inject: ["assetsUrl"],
     props: {
-        loreDescription: {
-            type: Array,
-            default: () => [],
+        description: {
+            type: String,
+            default: "",
+        },
+    },
+    computed: {
+        loreDescription() {
+            let desc = this.description;
+            if (desc && typeof desc === "string") {
+                desc = desc.replace("\\n", "\n");
+            }
+            return desc;
         },
     },
 };

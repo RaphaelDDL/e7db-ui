@@ -40,10 +40,10 @@ export const actions = {
                 });
         });
     },
-    getSingle({ dispatch }, { fileId }) {
+    getSingle({ dispatch }, { _id }) {
         return new Promise((resolve, reject) => {
             this.$axios
-                .get(`artifact/${fileId}`)
+                .get(`v2/artifact/${_id}`, { headers: { "x-e7db-lang": this.$i18n.locale } })
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "artifact detail");
@@ -53,7 +53,7 @@ export const actions = {
                         resolve(artifact[0]);
                     } else {
                         const error = {
-                            stack: `results.length === 0 for ${fileId}`,
+                            stack: `results.length === 0 for ${_id}`,
                             message: "Error loading detail",
                         };
                         errorHandler({ dispatch, reject }, error, "artifact detail");
