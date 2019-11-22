@@ -66,12 +66,12 @@
                     <div class="columns is-full is-mobile artifact-status">
                         <div class="column is-text-center">
                             <span :class="heroStatsClass('atk')" class="big"></span
-                            ><span class="">{{ $t("heroes.attributes.atk") }}</span>
+                            ><span class="sr-only">{{ $t("heroes.attributes.atk") }}</span>
                             <span class="white bold">{{ statusByLevel.attack }}</span>
                         </div>
                         <div class="column is-text-center">
                             <span :class="heroStatsClass('hp')" class="big"></span
-                            ><span class="">{{ $t("heroes.attributes.hp") }}</span>
+                            ><span class="sr-only">{{ $t("heroes.attributes.hp") }}</span>
                             <span class="white bold">{{ statusByLevel.health }}</span>
                         </div>
                     </div>
