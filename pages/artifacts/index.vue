@@ -4,7 +4,7 @@
             <section class="section-container">
                 <LoadingMessage :is-loading="isLoading" />
                 <div v-if="!isLoading && list && list.length" class="section-box artifact-list">
-                    <ListFilters :filters="filters" page-type="artifact" @filters:clear="clearSelection" />
+                    <ListFilters :filters="filters" @filters:clear="clearSelection" />
 
                     <h4 v-if="filteredArtifactList && !filteredArtifactList.length">
                         {{ $t("filters.noResult") }}
@@ -28,13 +28,13 @@ import { mapGetters } from "vuex";
 import ListItem from "~/components/artifacts/ListItem";
 import ListFilters from "~/components/artifacts/ListFilters";
 import LoadingMessage from "~/components/general/LoadingMessage";
-import { getByKeyword, getByRarity, getByExclusive, headMetaTags } from "~/util/Utils";
+import { getByKeyword, getByRarity, getByRole, headMetaTags } from "~/util/Utils";
 import { mountedPageView } from "~/util/vueMixins";
 
 const filterDefaults = {
     keyword: "",
     rarity: 0,
-    exclusive: "",
+    role: "",
 };
 
 export default {
@@ -56,7 +56,7 @@ export default {
         // ...mapState('artifact', ['filteredArtifactList']), //this.filteredArtifactList,
         filteredArtifactList() {
             return getByRarity(
-                getByKeyword(getByExclusive(this.list, this.filters.exclusive), this.filters.keyword),
+                getByKeyword(getByRole(this.list, this.filters.role), this.filters.keyword),
                 this.filters.rarity
             );
         },

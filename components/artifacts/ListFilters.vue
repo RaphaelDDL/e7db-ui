@@ -111,16 +111,16 @@
                         >
                             <label
                                 :for="`${classProperty}-${currentClass}`"
-                                :title="`${currentClass === 'all' ? $t('filters.allClasses') : currentClass}`"
+                                :title="`${currentClass === 'all' ? $t('filters.allClasses') : trueRole(currentClass)}`"
                             >
                                 <input
                                     :id="`${classProperty}-${currentClass}`"
                                     v-model="selfFilters[classProperty]"
-                                    :name="classProperty"
+                                    name="role"
                                     type="radio"
                                     :value="`${currentClass === 'all' ? '' : currentClass}`"
                                 />
-                                <span :class="currentClass !== 'all' ? `hero-class-${currentClass} no-text` : ''">{{
+                                <span :class="trueRoleClass(currentClass)">{{
                                     `${currentClass === "all" ? $t("filters.all") : ""}`
                                 }}</span>
                             </label>
@@ -135,6 +135,7 @@
 
 <script>
 import { inputDebounce } from "~/util/Directives";
+import { trueRole } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
@@ -148,7 +149,7 @@ export default {
     data() {
         return {
             delay: 500,
-            heroClasses: ["all", "knight", "warrior", "thief", "mage", "soul-weaver", "ranger"],
+            heroClasses: ["all", "knight", "warrior", "assassin", "mage", "manauser", "ranger"],
         };
     },
     computed: {
@@ -156,7 +157,7 @@ export default {
             return this.heroClasses;
         },
         classProperty() {
-            return "exclusive";
+            return "role";
         },
         selfFilters: {
             get() {
@@ -189,6 +190,13 @@ export default {
                 // eventLabel: JSON.stringify(this.selfFilters),
                 // eventValue: 123
             });
+        },
+        trueRole(currentClass) {
+            return trueRole(currentClass);
+        },
+        trueRoleClass(currentClass) {
+            const role = this.trueRole(currentClass);
+            return role !== "all" ? `hero-class-${role} no-text` : "";
         },
     },
 };

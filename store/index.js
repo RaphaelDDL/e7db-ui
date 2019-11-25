@@ -7,6 +7,7 @@ export const state = () => ({
     },
     version,
     assetsUrl,
+    locale: "en",
 });
 
 export const getters = {
@@ -27,6 +28,9 @@ export const mutations = {
             stack: "",
             message: "",
         };
+    },
+    SET_I18N(state, locale) {
+        state.locale = locale;
     },
 };
 

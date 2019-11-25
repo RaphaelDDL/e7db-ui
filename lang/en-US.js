@@ -5,6 +5,7 @@ const heroAndArtifactCommons = {
     skill: "Skill",
     stats: "Stats",
     grade: "Star Grade",
+    noDescription: "No description available",
 };
 
 export default {

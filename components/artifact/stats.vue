@@ -77,7 +77,8 @@
                     </div>
                     <hr />
                     <h3 class="skillEnhanceFontColor">Level {{ enhancementLevel }} {{ $t("artifacts.skill") }}:</h3>
-                    <p class="artifact-skill-desc" v-html="skillDescriptionModel"></p>
+                    <p v-if="skillDescriptionModel" class="artifact-skill-desc" v-html="skillDescriptionModel"></p>
+                    <p v-else class="artifact-skill-desc">{{ $t("artifacts.noDescription") }}</p>
                 </div>
             </div>
         </div>
@@ -85,7 +86,7 @@
 </template>
 
 <script>
-import { toPercent } from "~/util/Utils";
+import { toPercent, trueRole } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
@@ -117,25 +118,8 @@ export default {
             return `star-rating-${this.rarity}`;
         },
         trueRole() {
-            let { role } = this;
-
-            if (!role) {
-                return "";
-            }
-
-            switch (role) {
-                case "assassin":
-                    role = "thief";
-                    break;
-
-                case "manauser":
-                    role = "soul-weaver";
-                    break;
-
-                default:
-                    break;
-            }
-            return role;
+            const { role } = this;
+            return trueRole(role);
         },
         heroRole() {
             return `${this.trueRole} hero-class-${this.trueRole}`;

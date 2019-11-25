@@ -4,7 +4,7 @@
             localePath({
                 name: 'artifact-id',
                 params: {
-                    id: artifact.fileId,
+                    id: artifact._id,
                 },
             })
         "
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { trueRole } from "~/util/Utils";
+
 export default {
     inject: ["assetsUrl"],
     props: ["artifact"],
@@ -36,25 +38,39 @@ export default {
         starRating() {
             return `star-rating-${this.artifact.rarity}`;
         },
+        // imageUrls() {
+        //     return {
+        //         small: {
+        //             src: `${this.assetsUrl}/artifact/${this.artifact.fileId}/small.jpg`,
+        //             error: `${this.assetsUrl}/artifact/_placeholder/small_missing.jpg`,
+        //             loading: `${this.assetsUrl}/website/loading.gif`,
+        //         },
+        //         icon: {
+        //             src: `${this.assetsUrl}/artifact/${this.artifact.fileId}/icon.png`,
+        //             error: `${this.assetsUrl}/artifact/_placeholder/icon_missing.jpg`,
+        //         },
+        //     };
+        // },
         imageUrls() {
             return {
                 small: {
-                    src: `${this.assetsUrl}/artifact/${this.artifact.fileId}/small.jpg`,
+                    src: `${this.assetsUrl}/_source/item_arti/${this.artifact.assets.thumbnail}.jpg`,
                     error: `${this.assetsUrl}/artifact/_placeholder/small_missing.jpg`,
                     loading: `${this.assetsUrl}/website/loading.gif`,
                 },
                 icon: {
-                    src: `${this.assetsUrl}/artifact/${this.artifact.fileId}/icon.png`,
-                    error: `${this.assetsUrl}/artifact/_placeholder/icon_missing.jpg`,
+                    src: `${this.assetsUrl}/_source/item_arti/${this.artifact.assets.icon}.png`,
+                    error: `${this.assetsUrl}/artifact/_placeholder/icon_missing.png`,
                 },
             };
         },
         heroExclusive() {
-            let heroExclusive = "";
-            this.artifact.exclusive.forEach(heroClass => {
-                heroExclusive = `${heroExclusive} hero-class-${heroClass}`;
-            });
-            return heroExclusive;
+            const { role } = this.artifact;
+            const heroClass = trueRole(role);
+            if (!role) {
+                return "";
+            }
+            return `hero-class-${heroClass}`;
         },
     },
 };

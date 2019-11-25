@@ -16,17 +16,21 @@ export const actions = {
     getList({ dispatch, commit }) {
         return new Promise((resolve, reject) => {
             const listGetter = this.getters["artifact/list"];
-            if (listGetter && listGetter.length) {
+            if (listGetter && listGetter.length && this.state.locale === this.$i18n.locale) {
                 resolve(listGetter);
                 return;
             }
             this.$axios
-                .get("artifact")
-                .then(r => r.data.results)
+                .get("v2/artifact", { headers: { "x-e7db-lang": this.$i18n.locale } })
+                .then(r => {
+                    commit("SET_I18N", this.$i18n.locale, { root: true });
+                    return r.data.results;
+                })
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "artifact list");
                 })
                 .then(artifacts => {
+                    commit("SET_I18N", this.$i18n.locale, { root: true });
                     if (artifacts && artifacts.length) {
                         commit("SET_ARTIFACTS", artifacts);
                         resolve(artifacts);
@@ -40,11 +44,14 @@ export const actions = {
                 });
         });
     },
-    getSingle({ dispatch }, { _id }) {
+    getSingle({ commit, dispatch }, { _id }) {
         return new Promise((resolve, reject) => {
             this.$axios
                 .get(`v2/artifact/${_id}`, { headers: { "x-e7db-lang": this.$i18n.locale } })
-                .then(r => r.data.results)
+                .then(r => {
+                    commit("SET_I18N", this.$i18n.locale, { root: true });
+                    return r.data.results;
+                })
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "artifact detail");
                 })

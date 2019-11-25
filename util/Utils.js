@@ -50,11 +50,11 @@ export function getByRarity(list, rarity) {
 }
 
 // artifact-specific
-export function getByExclusive(list, exclusive) {
-    if (!exclusive || !Array.isArray(list)) {
+export function getByRole(list, role) {
+    if (!role || !Array.isArray(list)) {
         return list;
     }
-    return list.filter(listItem => listItem.exclusive.includes(exclusive));
+    return list.filter(listItem => listItem.role === role);
 }
 
 // hero-specifics
@@ -715,4 +715,24 @@ export function toPercent(value) {
         // default:
         //     return '';
     }
+}
+
+export function trueRole(role) {
+    if (!role) {
+        return "";
+    }
+
+    switch (role) {
+        case "assassin":
+            role = "thief";
+            break;
+
+        case "manauser":
+            role = "soul-weaver";
+            break;
+
+        default:
+            break;
+    }
+    return role;
 }
