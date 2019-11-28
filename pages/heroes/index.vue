@@ -104,7 +104,7 @@ export default {
     head() {
         return headMetaTags(
             {
-                title: "Heroes",
+                title: `${this.$t("links.heroes")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
                 description:
                     "See information about all Heroes in EpicSeven game, including Rarity, Class, Element and more!",
                 image: `${this.assetsUrl}/website/journal_hero.png`,

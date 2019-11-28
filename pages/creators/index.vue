@@ -86,7 +86,7 @@ export default {
     head() {
         return headMetaTags(
             {
-                title: "Creators",
+                title: `${this.$t("links.changelog")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
                 description:
                     "See information about some selected content creators for Epic Seven, like their Youtube, Twitter, Twitch, and other social networks.",
                 image: `${this.assetsUrl}/website/token_ticket_normal.png`,

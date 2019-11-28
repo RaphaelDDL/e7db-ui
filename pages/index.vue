@@ -346,7 +346,7 @@ export default {
     head() {
         return headMetaTags(
             {
-                title: "Home",
+                title: `${this.$t("links.home")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
                 description:
                     "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
             },

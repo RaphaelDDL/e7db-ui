@@ -70,7 +70,7 @@ export default {
     head() {
         return headMetaTags(
             {
-                title: "Items",
+                title: `${this.$t("links.items")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
                 description:
                     "See information about all Items, Catalysts, Enhancement Ingredients and Crafting Materials in EpicSeven game, including Farming Locations, AP Shops and more!",
                 image: `${this.assetsUrl}/website/box_items.png`,

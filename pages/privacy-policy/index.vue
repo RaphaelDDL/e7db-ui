@@ -251,7 +251,9 @@ export default {
     head() {
         return headMetaTags(
             {
-                title: "Privacy Policy",
+                title: `${this.$t("links.privacyPolicy")}${
+                    this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""
+                }`,
                 description: "Read our Privacy Policy on what data is used and gathered.",
             },
             this

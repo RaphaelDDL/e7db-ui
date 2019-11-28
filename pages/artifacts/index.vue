@@ -82,7 +82,7 @@ export default {
     head() {
         return headMetaTags(
             {
-                title: "Artifacts",
+                title: `${this.$t("links.artifacts")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
                 description:
                     "See information about all Artifacts on EpicSeven game, including Rarity, Class Specificity, Attributes and more!",
                 image: `${this.assetsUrl}/website/journal_artifact.png`,

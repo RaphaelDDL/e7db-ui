@@ -30,7 +30,8 @@
                                                 data-size="large"
                                                 data-show-count="false"
                                                 >Follow @EpicSevenDB</a
-                                            ><script
+                                            >
+                                            <script
                                                 async
                                                 src="https://platform.twitter.com/widgets.js"
                                                 charset="utf-8"
@@ -1253,7 +1254,7 @@ export default {
     head() {
         return headMetaTags(
             {
-                title: "Changelog",
+                title: `${this.$t("links.changelog")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
                 description:
                     "Discover more about EpicSevenDB updates, what are the changes, what fix has been deployed, what feature has been implemented!",
                 image: this.assetsUrl + "/website/book_changelog.png",

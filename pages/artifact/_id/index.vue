@@ -30,6 +30,22 @@ export default {
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
+    async asyncData({ params, store, redirect }) {
+        const [artifactDetail] = await Promise.all([
+            store.dispatch("artifact/getSingle", { _id: params.id }).catch(error => {
+                return error;
+            }),
+        ]);
+
+        if (!artifactDetail || (artifactDetail && !artifactDetail.name)) {
+            return redirect(302, "/artifacts");
+        }
+        return {
+            isLoading: false,
+            artifactDetail,
+            showDetails: true,
+        };
+    },
     data() {
         return {
             showDetails: false,
@@ -76,28 +92,14 @@ export default {
         const exclusivityString = role ? `, an exclusive ${role}` : "";
         return headMetaTags(
             {
-                title: `${name} | Artifact`,
+                title: `${name} | ${this.$t("links.artifacts")}${
+                    this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""
+                }`,
                 description: `See detailed information about ${name}${exclusivityString} Artifact on EpicSeven game, including Artwork, Rarity, Class Specificity, Attributes, Skill Effects and more!`,
                 image: image ? this.imageUrls.full : "",
             },
             this
         );
-    },
-    async asyncData({ params, store, redirect }) {
-        const [artifactDetail] = await Promise.all([
-            store.dispatch("artifact/getSingle", { _id: params.id }).catch(error => {
-                return error;
-            }),
-        ]);
-
-        if (!artifactDetail || (artifactDetail && !artifactDetail.name)) {
-            return redirect(302, "/artifacts");
-        }
-        return {
-            isLoading: false,
-            artifactDetail,
-            showDetails: true,
-        };
     },
 };
 </script>

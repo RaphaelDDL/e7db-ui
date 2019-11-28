@@ -104,6 +104,27 @@ export default {
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
+    async asyncData({ params, store, redirect }) {
+        const [heroDetail, itemList] = await Promise.all([
+            store.dispatch("hero/getSingle", { fileId: params.id }).catch(error => {
+                return error;
+            }),
+            store.dispatch("item/getList").catch(error => {
+                return error;
+            }),
+        ]);
+        if (!heroDetail || (heroDetail && !heroDetail.name)) {
+            return redirect(302, "/heroes");
+        }
+        if (!itemList) {
+            // do nothing
+        }
+        return {
+            isLoading: false,
+            heroDetail,
+            showDetails: true,
+        };
+    },
     data() {
         return {
             showDetails: false,
@@ -179,43 +200,24 @@ export default {
         //     return Modernizr.webp && Modernizr.webp.animation;
         // },
     },
+    methods: {
+        heroStatsClass(type = "") {
+            return type ? `stat-icon-${type}` : "";
+        },
+    },
     head() {
         const heroName = this.heroDetail && this.heroDetail.name ? this.heroDetail.name : "";
         const classType = this.heroDetail && this.heroDetail.classType ? this.heroDetail.classType : "";
         return headMetaTags(
             {
-                title: `${heroName} | Hero`,
+                title: `${heroName} | ${this.$t("links.heroes")}${
+                    this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""
+                }`,
                 description: `See detailed information about ${classType} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
                 image: this.heroDetail && this.heroDetail._id ? this.imageUrls.icon : "",
             },
             this
         );
-    },
-    async asyncData({ params, store, redirect }) {
-        const [heroDetail, itemList] = await Promise.all([
-            store.dispatch("hero/getSingle", { fileId: params.id }).catch(error => {
-                return error;
-            }),
-            store.dispatch("item/getList").catch(error => {
-                return error;
-            }),
-        ]);
-        if (!heroDetail || (heroDetail && !heroDetail.name)) {
-            return redirect(302, "/heroes");
-        }
-        if (!itemList) {
-            // do nothing
-        }
-        return {
-            isLoading: false,
-            heroDetail,
-            showDetails: true,
-        };
-    },
-    methods: {
-        heroStatsClass(type = "") {
-            return type ? `stat-icon-${type}` : "";
-        },
     },
 };
 </script>

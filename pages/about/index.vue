@@ -90,7 +90,7 @@ export default {
     head() {
         return headMetaTags(
             {
-                title: "About",
+                title: `${this.$t("links.about")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
                 description: "Discover more about EpicSevenDB, who runs it and how to contribute to the project!",
                 image: this.assetsUrl + "/website/book_about.png",
             },
