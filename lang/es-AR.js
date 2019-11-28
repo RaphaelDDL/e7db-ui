@@ -4,19 +4,17 @@ const heroAndArtifactCommons = {
     lore: "Historia",
     skill: "Habilidade",
     stats: "Estadísticas",
-    grade: "Estrellas", // Technically "Star Grade" -> "Estrellas" but I think it's the most suitable translation for this case.
+    grade: "Rareza",
+    level: "Nivel",
 };
 
 export default {
-    languages: {
-        en: "Inglés",
-        pt: "Portugués",
-        es: "Español",
-        kr: "Coreano",
-    },
+    gameName: "Epic Seven",
+    translationWIP:
+        "Importante: las traducciones siguen siendo un trabajo en progreso. Lo siento por los inconvenientes ocasionados (´・ω・`)",
     links: {
         home: "Inicio",
-        about: "Sobre + Contribuir",
+        about: "Sobre",
         heroes: "Héroes",
         artifacts: "Artefactos",
         items: "Ítems",

@@ -6,12 +6,6 @@
                 {{ $t("links.home") }}</a
             >
         </nuxt-link>
-        <nuxt-link tag="li" :to="localePath('about')" @click.native="trackMenuEvent">
-            <a>
-                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/about.png`" alt />
-                {{ $t("links.about") }}</a
-            >
-        </nuxt-link>
         <!-- <nuxt-link
         tag='li'
         :to="localePath('guidesntools')"
@@ -56,15 +50,21 @@
             <img :src='`${assetsUrl}/website/journal_guardian.png`' alt v-if='isMobile'> Guardians
         </a>
     </nuxt-link>-->
-        <nuxt-link tag="li" :to="localePath('changelog')" @click.native="trackMenuEvent">
+        <nuxt-link tag="li" :to="localePath('about')" @click.native="trackMenuEvent">
+            <a>
+                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/about.png`" alt />
+                {{ $t("links.about") }}</a
+            >
+        </nuxt-link>
+        <!-- <nuxt-link tag="li" :to="localePath('changelog')" @click.native="trackMenuEvent">
             <a>
                 <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/changelog.png`" alt />
                 {{ $t("links.changelog") }}
             </a>
-        </nuxt-link>
+        </nuxt-link> -->
 
         <li>
-            <a href="javascript:void(0)" @click="modalShow">
+            <a href="javascript:void(0)" :class="localeLink" @click="modalShow">
                 Language:
                 <img :src="`${assetsUrl}/website/flags/${currentLocale.countries[0]}.png`" class="locale-flags" />
             </a>
@@ -86,6 +86,9 @@ export default {
         currentLocale() {
             const currentLocale = this.$i18n.locales.filter(i => i.code === this.$i18n.locale);
             return currentLocale.length ? currentLocale[0] : { iso: "en-US", countries: [] };
+        },
+        localeLink() {
+            return this.isMobile ? "localeLink" : "";
         },
     },
     methods: {

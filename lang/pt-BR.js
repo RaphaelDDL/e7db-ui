@@ -5,19 +5,15 @@ const heroAndArtifactCommons = {
     skill: "Habilidade",
     stats: "Atributos",
     grade: "Raridade",
+    level: "Nível",
 };
 
 export default {
-    languages: {
-        en: "Inglês",
-        pt: "Português",
-        es: "Espanhol",
-        ko: "Coreano",
-        fr: "Francês",
-    },
+    gameName: "Epic Seven",
+    translationWIP: "mportante: as traduções ainda estão em andamento. Desculpe pela inconveniência (´・ω・`)",
     links: {
         home: "Início",
-        about: "Sobre + Contribuindo",
+        about: "Sobre",
         heroes: "Heróis",
         artifacts: "Artefatos",
         items: "Itens",

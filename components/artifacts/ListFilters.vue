@@ -20,7 +20,7 @@
         </div>
         <div class="columns toggleable-btns">
             <div class="column is-half-tablet">
-                <h5>{{ $t("filters.rarity") }}</h5>
+                <h5>{{ $t("artifacts.grade") }}</h5>
                 <ul class="filter-group">
                     <li :class="{ selected: !selfFilters.rarity }">
                         <label for="rarity0" title="All">

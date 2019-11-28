@@ -18,7 +18,9 @@
                         </li>
                     </ul>
                     <hr />
-                    <h3 class="skillEnhanceFontColor">Level {{ currLevel }} {{ $t("artifacts.stats") }}:</h3>
+                    <h3 class="skillEnhanceFontColor">
+                        {{ $t("artifacts.level") }} {{ currLevel }} {{ $t("artifacts.stats") }}:
+                    </h3>
 
                     <div class="artifact-slider has-margin-bottom">
                         <div class="columns is-full is-mobile">
@@ -65,18 +67,20 @@
                     </div>
                     <div class="columns is-full is-mobile artifact-status">
                         <div class="column is-text-center">
-                            <span :class="heroStatsClass('atk')" class="big"></span
+                            <span :class="heroStatsClass('atk')" class="big" :title="$t('heroes.attributes.atk')"></span
                             ><span class="sr-only">{{ $t("heroes.attributes.atk") }}</span>
                             <span class="white bold">{{ statusByLevel.attack }}</span>
                         </div>
                         <div class="column is-text-center">
-                            <span :class="heroStatsClass('hp')" class="big"></span
+                            <span :class="heroStatsClass('hp')" class="big" :title="$t('heroes.attributes.hp')"></span
                             ><span class="sr-only">{{ $t("heroes.attributes.hp") }}</span>
                             <span class="white bold">{{ statusByLevel.health }}</span>
                         </div>
                     </div>
                     <hr />
-                    <h3 class="skillEnhanceFontColor">Level {{ enhancementLevel }} {{ $t("artifacts.skill") }}:</h3>
+                    <h3 class="skillEnhanceFontColor">
+                        {{ $t("artifacts.level") }} {{ enhancementLevel }} {{ $t("artifacts.skill") }}:
+                    </h3>
                     <p v-if="skillDescriptionModel" class="artifact-skill-desc" v-html="skillDescriptionModel"></p>
                     <p v-else class="artifact-skill-desc">{{ $t("artifacts.noDescription") }}</p>
                 </div>

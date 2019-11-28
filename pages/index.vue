@@ -81,7 +81,7 @@
                     </ul>
                 </div>
             </section>
-            <section class="section-container">
+            <!-- <section class="section-container">
                 <div class="section-box">
                     <h1>{{ $t("home.currentEvents") }}</h1>
                     <hr />
@@ -142,7 +142,7 @@
                         </nuxt-link>
                     </ul>
                 </div>
-            </section>
+            </section> -->
             <section class="section-container">
                 <div class="section-box">
                     <h1>{{ $t("home.tools") }}</h1>
@@ -189,6 +189,15 @@
                                     target="_blank"
                                     >Visit it's Github Repo</a
                                 >
+                            </div>
+                        </li>
+                        <li>
+                            <a href="https://e7boxmanager.fr" rel="noopener" target="_blank">EpicSeven Box Manager</a>
+                            <div class="bullet-description">
+                                Created by
+                                <strong class="white">Sevih</strong>, is a tool that allows you to manage your box of
+                                heroes more easily by grouping the information concisely. You can choose to share them
+                                or not with your friends and guildmates. Using EpicSevenDB API's data.
                             </div>
                         </li>
                         <li>
@@ -255,11 +264,34 @@
             </section>
         </aside>
         <main class="column is-three-fifths-tablet is-12-mobile">
-            <section class="section-container">
+            <!-- <section class="section-container">
                 <div class="section-box">
                     <h1>{{ $t("home.latest") }}</h1>
                     <hr />
                     <ResultsList :artifacts="latestArtifacts" :heroes="latestHeroes" />
+                </div>
+            </section> -->
+
+            <section class="section-container">
+                <div class="section-box">
+                    <h1>Website Translation Status</h1>
+                    <hr />
+                    <p>
+                        We are looking for help to translate some languages. <br />
+                        If your native language is (or you are very good with) Japanese, Chinese, French or German and
+                        you would like to help translating from English to that language, let us know. <br /><br />
+                        The game data is already translated, we are looking for helpers on the static text of the
+                        website. That is, if you change to any language different than English and still see a few text
+                        in English (other than game data), those are the ones missing translations.
+                    </p>
+                    <p>Also, please let us know if any static text translation is wrong :)</p>
+                    <hr />
+                    <ul class="bullets">
+                        <li>Heroes - Currently working on.</li>
+                        <li>Artifact - Game Data completed; Static Text: Almost there.</li>
+                        <li>Items - Not started</li>
+                        <li>Other Sections - Not started.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -286,34 +318,17 @@ import { mapGetters } from "vuex";
 import { mountedPageView } from "~/util/vueMixins";
 import { headMetaTags } from "~/util/Utils";
 import SearchWidget from "~/components/search/SearchWidget";
-import ResultsList from "~/components/search/ResultsList";
+// import ResultsList from "~/components/search/ResultsList";
 
 export default {
     components: {
         SearchWidget,
-        ResultsList,
+        // ResultsList,
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
     computed: {
         ...mapGetters("latest", ["latestHeroes", "latestArtifacts"]),
-    },
-    head() {
-        return headMetaTags(
-            {
-                title: "Home",
-                description:
-                    "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
-            },
-            this
-        );
-    },
-    asyncData({ store }) {
-        return Promise.all([
-            store.dispatch("latest/getList"),
-            store.dispatch("hero/getList"),
-            store.dispatch("artifact/getList"),
-        ]);
     },
     methods: {
         trackMenuEvent(mouseEvent) {
@@ -327,6 +342,23 @@ export default {
                 // eventValue: 123
             });
         },
+    },
+    head() {
+        return headMetaTags(
+            {
+                title: "Home",
+                description:
+                    "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
+            },
+            this
+        );
+    },
+    asyncData({ store }) {
+        return Promise.all([
+            // store.dispatch("latest/getList"),
+            store.dispatch("hero/getList"),
+            store.dispatch("artifact/getList"),
+        ]);
     },
 };
 </script>

@@ -5,19 +5,15 @@ const heroAndArtifactCommons = {
     skill: "스킬",
     stats: "능력치",
     grade: "별 등급",
+    level: "수평",
 };
 
 export default {
-    languages: {
-        en: "영어",
-        pt: "포르투갈어",
-        es: "스페인어",
-        ko: "한국어",
-        fr: "-",
-    },
+    gameName: "에픽세븐",
+    translationWIP: "중요 : 번역은 아직 진행 중입니다. 불편을 드려 죄송합니다 (´・ω・`)",
     links: {
         home: "홈으로",
-        about: "위키에 대해서",
+        about: "위키에",
         heroes: "영웅",
         artifacts: "아티팩트",
         items: "아이템",

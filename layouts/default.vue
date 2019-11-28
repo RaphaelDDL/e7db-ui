@@ -7,6 +7,19 @@
                     <GlobalError :global-error="globalError" />
                 </div>
             </div>
+            <div v-if="this.$i18n.locale !== 'en'" class="columns">
+                <div class="column is-12">
+                    <section class="globalWarning section-box">
+                        <div class="header">
+                            <div class="warningMessage">
+                                <p>
+                                    <em>{{ $t("translationWIP") }}</em>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
             <nuxt :key="$route.fullPath" />
         </div>
         <div class="app-version">{{ $t("home.version") }} {{ version }}</div>

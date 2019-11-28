@@ -322,6 +322,10 @@ ul {
 /*
     Top Nav
 */
+.localeLink {
+    display: block;
+    padding: 3rem;
+}
 nav.top-nav-bar {
     @include NavFooterBG("bottom");
 
@@ -485,7 +489,7 @@ nav.top-nav-bar {
             justify-content: space-evenly;
 
             li {
-                flex: 0 0 45%;
+                flex: 1 0 45%;
                 width: 50%;
 
                 box-shadow: 0.3rem 0.3rem 3rem rgba(0, 0, 0, 0.3) inset;
@@ -1779,6 +1783,31 @@ aside.column {
     }
 
     .errorMessage {
+        &,
+        & pre {
+            margin-top: 1.5rem;
+        }
+
+        pre {
+            width: 100%;
+            overflow: auto;
+        }
+    }
+}
+
+.globalWarning {
+    border-color: yellow;
+    padding: 0;
+    background-color: darken(yellow,40%);
+    font-size: 1.2rem;
+    text-align: center;
+
+    .globalErrorClear {
+        float: right;
+        color: yellow;
+    }
+
+    .warningMessage {
         &,
         & pre {
             margin-top: 1.5rem;

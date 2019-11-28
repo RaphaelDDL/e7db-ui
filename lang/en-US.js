@@ -4,21 +4,17 @@ const heroAndArtifactCommons = {
     lore: "Lore",
     skill: "Skill",
     stats: "Stats",
-    grade: "Star Grade",
+    grade: "Rarity",
     noDescription: "No description available",
+    level: "Level",
 };
 
 export default {
-    languages: {
-        en: "English",
-        pt: "Portuguese",
-        es: "Spanish",
-        ko: "Korean",
-        fr: "French",
-    },
+    gameName: "Epic Seven",
+    translationWIP: "Important: Translations are still a work in progress. Sorry for the inconvenience (´・ω・`)",
     links: {
         home: "Home",
-        about: "About + Contributing",
+        about: "About",
         heroes: "Heroes",
         artifacts: "Artifacts",
         items: "Items",
@@ -112,6 +108,9 @@ export default {
                 eff: "Effectiveness",
                 efr: "Effect Resistance",
                 dac: "Dual Attack Chance",
+                pen: "Penetration",
+                ddg: "Dodge",
+                con: "Hit",
             },
             specialty: "Specialty Change",
             specialtyChangeExplain:
