@@ -10,7 +10,7 @@ const heroAndArtifactCommons = {
 
 export default {
     gameName: "Epic Seven",
-    translationWIP: "mportante: as traduções ainda estão em andamento. Desculpe pela inconveniência (´・ω・`)",
+    translationWIP: "Importante: as traduções ainda estão em andamento. Desculpe pela inconveniência (´・ω・`)",
     links: {
         home: "Início",
         about: "Sobre",
