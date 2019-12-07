@@ -50,7 +50,7 @@
     "express-rate-limit": "^5.0.0",
     "helmet": "^3.21.2",
     "normalize.css": "^8.0.1",
-    "nuxt": "2.9.2",
+    "nuxt": "2.10.0",
     "nuxt-i18n": "^6.4.0",
     "v-tooltip": "^2.0.2",
     "vue-aplayer": "^1.6.1",
