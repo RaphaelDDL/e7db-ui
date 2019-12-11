@@ -30,10 +30,10 @@
                                 {{ $t("links.creators") }}
                             </a>
                         </nuxt-link>
-                        <nuxt-link tag="li" :to="localePath('changelog')" @click.native="trackMenuEvent">
+                        <nuxt-link tag="li" :to="localePath('ranking')" @click.native="trackMenuEvent">
                             <a>
                                 <img v-lazy="`${assetsUrl}/website/section-icons/changelog.png`" />
-                                {{ $t("links.changelog") }}
+                                {{ $t("links.ranking") }}
                             </a>
                         </nuxt-link>
                         <nuxt-link tag="li" :to="localePath('about')" @click.native="trackMenuEvent">
