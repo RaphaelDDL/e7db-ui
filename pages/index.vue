@@ -305,7 +305,7 @@
                             href="https://twitter.com/EpicSevenDB?ref_src=twsrc%5Etfw"
                             >Tweets by EpicSevenDB</a
                         >
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <script type="application/javascript" async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </client-only>
                 </div>
             </section>
