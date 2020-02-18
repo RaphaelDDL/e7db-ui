@@ -3,7 +3,7 @@
         <LoadingMessage :is-loading="isLoading" />
 
         <div v-if="!isLoading" class="section-box">
-            <h1>{{ $t("home.searchQuestion") }}</h1>
+            <h1 id="homeSearchQuestion">{{ $t("home.searchQuestion") }}</h1>
             <hr />
             <div class="search-container">
                 <input
@@ -12,6 +12,7 @@
                     type="search"
                     class="filter-by-name"
                     :placeholder="$t('home.searchPlaceholder')"
+                    aria-labelledby="homeSearchQuestion"
                 />
                 <ResultsList :artifacts="filteredArtifacts" :heroes="filteredHeroes" />
             </div>
