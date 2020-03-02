@@ -29,7 +29,7 @@ export const actions = {
             }
 
             this.$axios
-                .get("item")
+                .get("api/item")
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "item list");

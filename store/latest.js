@@ -24,7 +24,7 @@ export const actions = {
                 return;
             }
             this.$axios
-                .get("latest")
+                .get("api/latest")
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "latest list");

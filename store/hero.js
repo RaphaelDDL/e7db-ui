@@ -22,7 +22,7 @@ export const actions = {
             }
 
             this.$axios
-                .get("hero")
+                .get("api/hero")
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "hero list");
@@ -44,7 +44,7 @@ export const actions = {
     getSingle({ dispatch }, { fileId }) {
         return new Promise((resolve, reject) => {
             this.$axios
-                .get(`hero/${fileId}`)
+                .get(`api/hero/${fileId}`)
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "hero detail");

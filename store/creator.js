@@ -21,7 +21,7 @@ export const actions = {
                 return;
             }
             this.$axios
-                .get("creator")
+                .get("api/creator")
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "creators list");
