@@ -4,30 +4,30 @@
 
         <div class="profile">
             <span
-                v-if="element"
-                :class="`hero-element-${element}`"
+                v-if="attribute"
+                :class="`hero-element-${attribute}`"
                 class="no-text"
-                :title="$t(`elements.${element}`) + ' ' + $t('filters.element')"
+                :title="$t(`elements.${attribute}`) + ' ' + $t('filters.element')"
             >
-                {{ $t(`elements.${element}`) }}
+                {{ $t(`elements.${attribute}`) }}
             </span>
             &nbsp; &nbsp; &nbsp;
             <span
-                v-if="classType"
-                :class="`hero-class-${classType}`"
+                v-if="role"
+                :class="`hero-class-${role}`"
                 class="no-text"
-                :title="$t(`classes.${classType}`) + ' ' + $t('heroes.classType')"
+                :title="$t(`classes.${role}`) + ' ' + $t('heroes.classType')"
             >
-                {{ $t(`classes.${classType}`) }}
+                {{ $t(`classes.${role}`) }}
             </span>
             &nbsp; &nbsp; &nbsp;
             <span
                 v-if="zodiac"
-                :class="`hero-sign-${zodiac}`"
+                :class="`hero-sign-${trueSign}`"
                 class="no-text"
-                :title="$t(`zodiacSigns.${zodiac}`) + ' ' + $t('filters.zodiac')"
+                :title="$t(`zodiacSigns.${trueSign}`) + ' ' + $t('filters.zodiac')"
             >
-                {{ $t(`zodiacSigns.${zodiac}`) }}
+                {{ $t(`zodiacSigns.${trueSign}`) }}
             </span>
             <br />
             <h1>
@@ -39,13 +39,15 @@
             </p>
         </div>
 
-        <div v-if="summonQuote" class="summon-quote">
-            {{ summonQuote }}
+        <div v-if="get_line" class="summon-quote">
+            {{ get_line }}
         </div>
     </section>
 </template>
 
 <script>
+import {trueZodiac} from '~/util/Utils';
+
 export default {
     inject: ["assetsUrl"],
     props: {
@@ -65,11 +67,11 @@ export default {
             type: String,
             default: "",
         },
-        element: {
+        attribute: {
             type: String,
             default: "",
         },
-        summonQuote: {
+        get_line: {
             type: String,
             default: "",
         },
@@ -77,7 +79,7 @@ export default {
             type: String,
             default: "",
         },
-        classType: {
+        role: {
             type: String,
             default: "",
         },
@@ -94,6 +96,10 @@ export default {
                 loading: `${this.assetsUrl}/website/loading.gif`,
             };
         },
+        trueSign(){
+            const { zodiac } = this;
+            return trueZodiac(zodiac)
+        }
     },
 };
 </script>

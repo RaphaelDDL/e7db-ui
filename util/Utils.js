@@ -62,7 +62,7 @@ export function getByClass(list, heroClass) {
     if (!heroClass || !Array.isArray(list)) {
         return list;
     }
-    return list.filter(listItem => listItem.classType === heroClass);
+    return list.filter(listItem => listItem.classType === heroClass || listItem.role === heroClass);
 }
 
 export function getByZodiac(list, zodiacSign) {
@@ -724,15 +724,58 @@ export function trueRole(role) {
 
     switch (role) {
         case "assassin":
-            role = "thief";
-            break;
-
+            return "thief";
         case "manauser":
-            role = "soul-weaver";
-            break;
-
+            return "soul-weaver";
         default:
-            break;
+            return role;
     }
-    return role;
+}
+
+export function trueZodiac(zodiac) {
+    if (!zodiac) {
+        return "";
+    }
+
+    switch (zodiac) {
+        case "ram":
+            return "aries";
+        case "bull":
+            return "taurus";
+        case "twins":
+            return "gemini";
+        case "crab":
+            return "cancer";
+        case "lion":
+            return "leo";
+        case "maiden":
+            return "virgo";
+        case "scale":
+            return "libra";
+        case "scorpion":
+            return "scorpio";
+        case "archer":
+            return "sagittarius";
+        case "goat":
+            return "capricorn";
+        case "waterbearer":
+            return "aquarius";
+        case "fish":
+            return "pisces";
+        default:
+            return zodiac;
+    }
+}
+
+export function trueElement(element) {
+    if (!element) {
+        return "";
+    }
+
+    switch (element) {
+        case "wind":
+            return "earth";
+        default:
+            return element;
+    }
 }

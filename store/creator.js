@@ -21,7 +21,7 @@ export const actions = {
                 return;
             }
             this.$axios
-                .get("api/creator")
+                .get("api/creator", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "creators list");

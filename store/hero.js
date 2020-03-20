@@ -22,7 +22,7 @@ export const actions = {
             }
 
             this.$axios
-                .get("api/hero")
+                .get("api/hero",{ headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "hero list");
@@ -44,7 +44,7 @@ export const actions = {
     getSingle({ dispatch }, { fileId }) {
         return new Promise((resolve, reject) => {
             this.$axios
-                .get(`api/hero/${fileId}`)
+                .get(`hero/${fileId}`,{ headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "hero detail");

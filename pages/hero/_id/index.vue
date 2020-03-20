@@ -7,10 +7,10 @@
             :name="heroDetail.name"
             :image-urls="imageUrls"
             :rarity="heroDetail.rarity"
-            :class-type="heroDetail.classType"
-            :element="heroDetail.element"
+            :role="heroDetail.role"
+            :attribute="heroDetail.attribute"
             :zodiac="heroDetail.zodiac"
-            :summon-quote="heroDetail.summonQuote"
+            :get_line="heroDetail.get_line"
             :description="heroDetail.description"
         />
 
@@ -18,18 +18,6 @@
             <LoadingMessage :is-loading="isLoading" class="column" />
 
             <main v-if="!isLoading && showDetails" class="column is-three-fifths">
-                <!-- <nuxt-link :to="localePath('heroes')">&lt; {{ $t("heroes.back") }}</nuxt-link>
-                    <hr class="boxBorderHr" />
-                    -->
-                <!-- <Header :image-urls="imageUrls" :name="heroDetail.name" /> -->
-
-                <!-- <Profile
-                        :rarity="heroDetail.rarity"
-                        :class-type="heroDetail.classType"
-                        :element="heroDetail.element"
-                        :zodiac="heroDetail.zodiac"
-                    /> -->
-
                 <Skills
                     :id="heroDetail._id"
                     :skills-list="heroDetail.skills"
@@ -62,8 +50,6 @@
                     :specialty-change-name="heroDetail.specialtyChangeName"
                     :name="heroDetail.name"
                 />
-
-                <!-- <Artwork :image-urls="imageUrls" /> -->
 
                 <Camping
                     v-if="heroDetail.camping && heroDetail.camping.options && heroDetail.camping.options.length"
@@ -129,63 +115,7 @@ export default {
         return {
             showDetails: false,
             isLoading: true,
-            heroDetail: {
-                name: "",
-                rarity: "",
-                classType: "",
-                element: "",
-                zodiac: "",
-                specialtyChangeName: "",
-                selfSkillBarName: "",
-                background: "",
-                relations: [],
-                stats: {
-                    base: {
-                        cp: 0,
-                        atk: 0,
-                        hp: 0,
-                        spd: 0,
-                        def: 0,
-                        chc: 0,
-                        chd: 0,
-                        eff: 0,
-                        efr: 0,
-                        dac: 0,
-                    },
-                    max: {
-                        cp: 0,
-                        atk: 0,
-                        hp: 0,
-                        spd: 0,
-                        def: 0,
-                        chc: 0,
-                        chd: 0,
-                        eff: 0,
-                        efr: 0,
-                        dac: 5,
-                    },
-                },
-                skills: [],
-                specialtySkill: {
-                    name: "",
-                    description: "",
-                    dispatch: [],
-                    enhancement: [],
-                    stats: {
-                        command: 0,
-                        charm: 0,
-                        politics: 0,
-                    },
-                },
-                memoryImprintFormation: {
-                    north: false,
-                    south: false,
-                    east: false,
-                    west: false,
-                },
-                memoryImprint: [],
-                awakening: [],
-            },
+            heroDetail: {},
         };
     },
     computed: {
@@ -207,13 +137,13 @@ export default {
     },
     head() {
         const heroName = this.heroDetail && this.heroDetail.name ? this.heroDetail.name : "";
-        const classType = this.heroDetail && this.heroDetail.classType ? this.heroDetail.classType : "";
+        const role = this.heroDetail && this.heroDetail.role ? this.heroDetail.role : "";
         return headMetaTags(
             {
                 title: `${heroName} | ${this.$t("links.heroes")}${
                     this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""
                 }`,
-                description: `See detailed information about ${classType} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
+                description: `See detailed information about ${role} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
                 image: this.heroDetail && this.heroDetail._id ? this.imageUrls.icon : "",
             },
             this

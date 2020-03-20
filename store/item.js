@@ -29,7 +29,7 @@ export const actions = {
             }
 
             this.$axios
-                .get("api/item")
+                .get("api/item", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
                 .then(r => r.data.results)
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "item list");

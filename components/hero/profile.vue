@@ -10,10 +10,10 @@
                             <div class="column is-half hero-stats-type">{{ $t("heroes.grade") }}</div>
                             <div :class="`star-rating-${rarity}`" class="column is-half hero-stats-value"></div>
                         </li>
-                        <li v-if="classType" class="columns is-mobile">
+                        <li v-if="role" class="columns is-mobile">
                             <div class="column is-half hero-stats-type">{{ $t("heroes.classType") }}</div>
-                            <div :class="`hero-class-${classType}`" class="column is-half hero-stats-value no-text">
-                                {{ $t(`classes.${classType}`) }}
+                            <div :class="`hero-class-${role}`" class="column is-half hero-stats-value no-text">
+                                {{ $t(`classes.${role}`) }}
                             </div>
                         </li>
                         <li v-if="element" class="columns is-mobile">
@@ -50,7 +50,7 @@ export default {
             type: String,
             default: "",
         },
-        classType: {
+        role: {
             type: String,
             default: "",
         },

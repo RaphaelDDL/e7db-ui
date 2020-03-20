@@ -28,7 +28,7 @@ export default {
     props: ["hero"],
     computed: {
         heroClass() {
-            return `hero-class-${this.hero.classType}`;
+            return `hero-class-${this.hero.role}`;
         },
         heroElement() {
             return `hero-element-${this.hero.element}`;
