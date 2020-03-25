@@ -5,20 +5,20 @@
         <div class="profile">
             <span
                 v-if="attribute"
-                :class="`hero-element-${attribute}`"
+                :class="`hero-element-${trueElement}`"
                 class="no-text"
-                :title="$t(`elements.${attribute}`) + ' ' + $t('filters.element')"
+                :title="$t(`elements.${trueElement}`) + ' ' + $t('filters.element')"
             >
-                {{ $t(`elements.${attribute}`) }}
+                {{ $t(`elements.${trueElement}`) }}
             </span>
             &nbsp; &nbsp; &nbsp;
             <span
                 v-if="role"
-                :class="`hero-class-${role}`"
+                :class="`hero-class-${trueRole}`"
                 class="no-text"
-                :title="$t(`classes.${role}`) + ' ' + $t('heroes.classType')"
+                :title="$t(`classes.${trueRole}`) + ' ' + $t('heroes.classType')"
             >
-                {{ $t(`classes.${role}`) }}
+                {{ $t(`classes.${trueRole}`) }}
             </span>
             &nbsp; &nbsp; &nbsp;
             <span
@@ -46,11 +46,15 @@
 </template>
 
 <script>
-import {trueZodiac} from '~/util/Utils';
+import { trueRole, trueElement, trueZodiac } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
     props: {
+        cid: {
+            type: String,
+            default: "",
+        },
         id: {
             type: String,
             default: "",
@@ -91,15 +95,23 @@ export default {
     computed: {
         fullbodyImg() {
             return {
-                error: `${this.assetsUrl}/hero/${this.id}/full.png`,
+                error: `${this.assetsUrl}/_source/hero/${this.cid}_su.png`,
                 src: `${this.assetsUrl}/herofull/${this.id}.png`,
                 loading: `${this.assetsUrl}/website/loading.gif`,
             };
         },
-        trueSign(){
+        trueSign() {
             const { zodiac } = this;
-            return trueZodiac(zodiac)
-        }
+            return trueZodiac(zodiac);
+        },
+        trueElement() {
+            const { attribute } = this;
+            return trueElement(attribute);
+        },
+        trueRole() {
+            const { role } = this;
+            return trueRole(role);
+        },
     },
 };
 </script>

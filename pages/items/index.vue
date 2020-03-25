@@ -4,11 +4,11 @@
             <section class="section-container">
                 <LoadingMessage :is-loading="isLoading" />
                 <div v-if="!isLoading && list && list.length" class="section-box">
-                    Filters on next release; More items to be added soon
+                    <!-- Filters on next release; More items to be added soon -->
                     <hr />
                     <div class="columns is-mobile resource-item-list item-page">
                         <ItemPopover
-                            v-for="item in itemList"
+                            v-for="item in list"
                             :id="item._id"
                             :key="item._id"
                             :resource="item"
@@ -43,28 +43,9 @@ export default {
     // use this.list
     computed: {
         ...mapGetters("item", ["list"]),
-        itemList() {
-            const newList = [];
-            this.list.forEach(item => {
-                newList.push({
-                    item: item._id,
-                    qty: item.name,
-                });
-            });
-            return newList;
-        },
     },
     asyncData({ store }) {
         return store.dispatch("item/getList");
-    },
-
-    mounted() {
-        if (!this.list || (this.list && !this.list.length)) {
-            this.isLoading = true;
-            this.$store.dispatch("item/getList").then(() => {
-                this.isLoading = false;
-            });
-        }
     },
 
     head() {

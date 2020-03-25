@@ -4,72 +4,77 @@
 
         <ProfileExtended
             :id="heroDetail._id"
-            :name="heroDetail.name"
+            :cid="heroDetail.id"
+            :attribute="heroDetail.attribute"
+            :description="heroDetail.description"
+            :get_line="heroDetail.get_line"
             :image-urls="imageUrls"
+            :name="heroDetail.name"
             :rarity="heroDetail.rarity"
             :role="heroDetail.role"
-            :attribute="heroDetail.attribute"
             :zodiac="heroDetail.zodiac"
-            :get_line="heroDetail.get_line"
-            :description="heroDetail.description"
         />
 
         <div class="columns hero-detail-container">
             <LoadingMessage :is-loading="isLoading" class="column" />
 
-            <main v-if="!isLoading && showDetails" class="column is-three-fifths">
+            <main class="column is-three-fifths" v-if="!isLoading && showDetails">
                 <Skills
                     :id="heroDetail._id"
+                    :cid="heroDetail.id"
                     :skills-list="heroDetail.skills"
-                    :self-skill-bar-name="heroDetail.selfSkillBarName"
+                    :buffs="heroDetail.buffs"
+                    :debuffs="heroDetail.debuffs"
+                    :common="heroDetail.common"
                 />
 
                 <ExclusiveEquipment
                     v-if="heroDetail.ex_equip && heroDetail.ex_equip.length"
-                    :id="heroDetail._id"
-                    :skills-list="heroDetail.skills"
                     :exclusive-equipment-list="heroDetail.ex_equip"
                     :hero-stats-class="heroStatsClass"
+                    :id="heroDetail._id"
+                    :cid="heroDetail.id"
+                    :skills-list="heroDetail.skills"
                 />
 
                 <Awakening :awakening-list="heroDetail.awakening" :hero-stats-class="heroStatsClass" />
 
                 <Imprint
-                    :memory-imprint-formation="heroDetail.memoryImprintFormation"
-                    :memory-imprint="heroDetail.memoryImprint"
                     :hero-stats-class="heroStatsClass"
+                    :memory-imprint="heroDetail.memoryImprint"
+                    :memory-imprint-formation="heroDetail.memoryImprintFormation"
                 />
 
-                <Stats :stats="heroDetail.stats" :hero-stats-class="heroStatsClass" />
+                <Stats :hero-stats-class="heroStatsClass" :stats="heroDetail.stats" />
             </main>
-            <aside v-if="!isLoading && showDetails" class="column is-two-fifths">
-                <Lore v-if="heroDetail.background" :background="heroDetail.background" />
+            <aside class="column is-two-fifths" v-if="!isLoading && showDetails">
+                <Lore :background="heroDetail.background" v-if="heroDetail.background" />
 
                 <SpecialtyChange
-                    v-if="heroDetail.specialtyChangeName"
-                    :specialty-change-name="heroDetail.specialtyChangeName"
                     :name="heroDetail.name"
+                    :specialty-change-name="heroDetail.specialtyChangeName"
+                    v-if="heroDetail.specialtyChangeName"
                 />
 
                 <Camping
-                    v-if="heroDetail.camping && heroDetail.camping.options && heroDetail.camping.options.length"
                     :camping="heroDetail.camping"
+                    v-if="heroDetail.camping && heroDetail.camping.options && heroDetail.camping.options.length"
                 />
 
                 <SpecialtySkill
-                    v-if="heroDetail.specialtySkill && heroDetail.specialtySkill.name"
                     :specialty-skill="heroDetail.specialtySkill"
+                    v-if="heroDetail.specialtySkill && heroDetail.specialtySkill.name"
                 />
 
                 <Relations
-                    v-if="heroDetail.relations && heroDetail.relations.length"
                     :relations="heroDetail.relations"
+                    v-if="heroDetail.relations && heroDetail.relations.length"
                 />
 
                 <Voices
-                    v-if="heroDetail.voiceList && heroDetail.voiceList.length"
                     :id="heroDetail._id"
                     :voice-list="heroDetail.voiceList"
+                    v-if="heroDetail.voiceList && heroDetail.voiceList.length"
                 />
             </aside>
         </div>
@@ -80,7 +85,7 @@
 // import Modernizr from 'modernizr';
 import LoadingMessage from "~/components/general/LoadingMessage";
 import { mountedPageView } from "~/util/vueMixins";
-import { headMetaTags } from "~/util/Utils";
+import { headMetaTags, trueRole, trueElement, trueZodiac } from "~/util/Utils";
 import HeroComponents from "~/components/hero";
 
 export default {
@@ -121,9 +126,9 @@ export default {
     computed: {
         imageUrls() {
             return {
-                full: `${this.assetsUrl}/hero/${this.heroDetail._id}/full.png`,
-                small: `${this.assetsUrl}/hero/${this.heroDetail._id}/small.png`,
-                icon: `${this.assetsUrl}/hero/${this.heroDetail._id}/icon.png`,
+                full: `${this.assetsUrl}/_source/hero/${this.heroDetail.id}_su.png`,
+                small: `${this.assetsUrl}/_source/hero/${this.heroDetail.id}_l.png`,
+                icon: `${this.assetsUrl}/_source/hero/${this.heroDetail.id}_s.png`,
             };
         },
         // webpSupport() {
@@ -132,19 +137,30 @@ export default {
     },
     methods: {
         heroStatsClass(type = "") {
-            return type ? `stat-icon-${type}` : "";
+            let iconType = '';
+            switch (type) {
+                case 'att':
+                case 'att_rate':
+                    iconType = 'atk'
+                    break;
+
+                default:
+                    return '';
+            }
+            return `stat-icon-${iconType}`;
         },
     },
     head() {
-        const heroName = this.heroDetail && this.heroDetail.name ? this.heroDetail.name : "";
-        const role = this.heroDetail && this.heroDetail.role ? this.heroDetail.role : "";
+        const heroName = this.heroDetail?.name ?? "";
+        const role = trueRole(this.heroDetail?.role) ?? "";
+        const element = trueElement(this.heroDetail?.attribute) ?? "";
         return headMetaTags(
             {
                 title: `${heroName} | ${this.$t("links.heroes")}${
                     this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""
                 }`,
-                description: `See detailed information about ${role} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
-                image: this.heroDetail && this.heroDetail._id ? this.imageUrls.icon : "",
+                description: `See detailed information about ${element} ${role} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
+                image: this.heroDetail?.id ? this.imageUrls.icon : "",
             },
             this
         );

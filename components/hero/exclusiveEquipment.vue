@@ -80,6 +80,10 @@ export default {
             type: String,
             default: "",
         },
+        cid: {
+            type: String,
+            default: "",
+        },
     },
     methods: {
         skillClasses(skillSlot = 1) {
