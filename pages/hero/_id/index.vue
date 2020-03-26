@@ -31,24 +31,22 @@
                 <ExclusiveEquipment
                     v-if="heroDetail.ex_equip && heroDetail.ex_equip.length"
                     :exclusive-equipment-list="heroDetail.ex_equip"
-                    :hero-stats-class="heroStatsClass"
                     :id="heroDetail._id"
                     :cid="heroDetail.id"
                     :skills-list="heroDetail.skills"
                 />
 
-                <Awakening :awakening-list="heroDetail.awakening" :hero-stats-class="heroStatsClass" />
+                <Awakening :zodiac_tree="heroDetail.zodiac_tree" />
 
                 <Imprint
-                    :hero-stats-class="heroStatsClass"
-                    :memory-imprint="heroDetail.memoryImprint"
-                    :memory-imprint-formation="heroDetail.memoryImprintFormation"
+                    :devotion="heroDetail.devotion"
+                    :self_devotion="heroDetail.self_devotion"
                 />
 
-                <Stats :hero-stats-class="heroStatsClass" :stats="heroDetail.stats" />
+                <!-- <Stats :stats="heroDetail.stats" /> -->
             </main>
             <aside class="column is-two-fifths" v-if="!isLoading && showDetails">
-                <Lore :background="heroDetail.background" v-if="heroDetail.background" />
+                <Lore :background="heroDetail.story" v-if="heroDetail.story" />
 
                 <SpecialtyChange
                     :name="heroDetail.name"
@@ -56,26 +54,26 @@
                     v-if="heroDetail.specialtyChangeName"
                 />
 
+                <SpecialtySkill
+                    :specialty="heroDetail.specialty"
+                    v-if="heroDetail.specialty && heroDetail.specialty.name"
+                />
+
                 <Camping
                     :camping="heroDetail.camping"
-                    v-if="heroDetail.camping && heroDetail.camping.options && heroDetail.camping.options.length"
+                    v-if="heroDetail.camping && heroDetail.camping.topics && heroDetail.camping.topics.length"
                 />
 
-                <SpecialtySkill
-                    :specialty-skill="heroDetail.specialtySkill"
-                    v-if="heroDetail.specialtySkill && heroDetail.specialtySkill.name"
-                />
-
-                <Relations
+                <!-- <Relations
                     :relations="heroDetail.relations"
                     v-if="heroDetail.relations && heroDetail.relations.length"
-                />
+                /> -->
 
-                <Voices
+                <!-- <Voices
                     :id="heroDetail._id"
                     :voice-list="heroDetail.voiceList"
                     v-if="heroDetail.voiceList && heroDetail.voiceList.length"
-                />
+                /> -->
             </aside>
         </div>
     </div>
@@ -134,21 +132,6 @@ export default {
         // webpSupport() {
         //     return Modernizr.webp && Modernizr.webp.animation;
         // },
-    },
-    methods: {
-        heroStatsClass(type = "") {
-            let iconType = '';
-            switch (type) {
-                case 'att':
-                case 'att_rate':
-                    iconType = 'atk'
-                    break;
-
-                default:
-                    return '';
-            }
-            return `stat-icon-${iconType}`;
-        },
     },
     head() {
         const heroName = this.heroDetail?.name ?? "";

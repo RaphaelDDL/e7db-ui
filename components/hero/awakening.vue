@@ -2,9 +2,9 @@
     <section class="section-container">
         <Tabs :options="{ useUrlFragment: false }" class="section-tabs awakening-tabs">
             <Tab
-                v-for="(awakening, index) in awakeningList"
-                :id="`awakening-${index + 1}`"
-                :key="awakening.rank"
+                v-for="(awakening, index) in zodiac_tree"
+                :id="awakening._id"
+                :key="awakening._id"
                 class="hero-awakening section-box"
                 name=" "
             >
@@ -12,13 +12,15 @@
                 <hr />
                 <div class="hero-stats columns">
                     <div class="column is-full hero-stats-base">
+                        <h3>{{awakening.name}}</h3>
+                        <p>{{awakening.description}}</p>
                         <h4>{{ $t("heroes.statsIncrease") }}</h4>
                         <ul>
-                            <li v-if="awakening.skillUpgrade">
+                            <li v-if="awakening.skill_enhanced">
                                 <div class="columns is-mobile">
                                     <div class="column is-half hero-stats-type">
                                         <img v-lazy="`${assetsUrl}/stat/game_hud_element_good.png`" class="stat-icon" />
-                                        {{ $t("heroes.skillUpgrade") }}
+                                        {{ $t("heroes.skillUpgrade", [awakening.skill_enhanced]) }}
                                     </div>
                                     <div class="column is-half hero-stats-value">
                                         {{ $t("heroes.skillUpgradeApplied") }}
@@ -26,37 +28,37 @@
                                 </div>
                             </li>
                             <li
-                                v-for="(improvementObject, improvementIndex) in awakening.statsIncrease"
+                                v-for="(improvementObject, improvementIndex) in awakening.stats"
                                 :key="improvementIndex"
+                                class="columns is-mobile"
+
                             >
-                                <div
-                                    v-for="(improvementObjectValue, improvementObjectKey) in improvementObject"
-                                    :key="improvementObjectKey"
+                                <!-- <div
                                     class="columns is-mobile"
-                                >
+                                > -->
                                     <div
                                         class="column is-half hero-stats-type"
-                                        :class="heroStatsClass(improvementObjectKey)"
+                                        :class="heroStatsClass(improvementObject.stat)"
                                     >
-                                        {{ $t(`heroes.attributes.${improvementObjectKey}`) }}
+                                        {{ $t(`heroes.attributes.${heroStatsClass(improvementObject.stat,true)}`) }}
                                     </div>
                                     <div class="column is-half hero-stats-value">
-                                        {{ improvementObjectValue | toPercent }}
+                                        {{ improvementObject.value | toPercent }}
                                     </div>
-                                </div>
+                                <!-- </div> -->
                             </li>
                         </ul>
                     </div>
                 </div>
                 <h4>{{ $t("heroes.resources") }}</h4>
                 <div
-                    v-if="awakening.resources && awakening.resources.length"
+                    v-if="awakening.costs && awakening.costs.length"
                     class="awakening-resources resource-item-list"
                 >
                     <ItemPopover
-                        v-for="(resource, resourceindex) in awakening.resources"
-                        :key="`${index}_${resourceindex}`"
-                        :resource="resource"
+                        v-for="(costs, costsindex) in awakening.costs"
+                        :key="costs._id"
+                        :resource="costs"
                     />
                 </div>
             </Tab>
@@ -66,6 +68,7 @@
 
 <script>
 import { Tabs, Tab } from "vue-tabs-component";
+import { heroStatsClass } from "~/util/Utils";
 import ItemPopover from "~/components/items/ItemPopover";
 
 export default {
@@ -76,14 +79,13 @@ export default {
         ItemPopover,
     },
     props: {
-        awakeningList: {
+        zodiac_tree: {
             type: Array,
             default: () => [],
         },
-        heroStatsClass: {
-            type: Function,
-        },
     },
-    methods: {},
+    methods: {
+        heroStatsClass,
+    },
 };
 </script>

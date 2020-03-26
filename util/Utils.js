@@ -750,7 +750,7 @@ export function trueZodiac(zodiac) {
             return "leo";
         case "maiden":
             return "virgo";
-        case "scale":
+        case "scales":
             return "libra";
         case "scorpion":
             return "scorpio";
@@ -778,4 +778,46 @@ export function trueElement(element) {
         default:
             return element;
     }
+}
+
+export function heroStatsClass(type = "", typeOnly = false, convert = true) {
+    let iconType = "";
+    switch (type) {
+        case "att":
+        case "att_rate":
+            iconType = "atk";
+            break;
+        case "max_hp":
+        case "max_hp_rate":
+            iconType = "hp";
+            break;
+        case "def":
+        case "def_rate":
+            iconType = "def";
+            break;
+        case "res":
+            iconType = "res";
+            break;
+        case "speed":
+            iconType = "spd";
+            break;
+        case "cri":
+            iconType = "chc";
+            break;
+        case "coop":
+            iconType = "dac";
+            break;
+        case "acc":
+            iconType = "eff";
+            break;
+
+        default:
+            return "";
+    }
+
+    if (typeOnly) {
+        return convert ? iconType : type;
+    }
+
+    return convert ? `converted stat-icon-${iconType}` : `stat-icon-${type}`;
 }

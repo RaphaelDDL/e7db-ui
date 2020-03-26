@@ -408,7 +408,7 @@
 
 @each $rank, $color in $imprintPositions {
     .memory-imprint-rank-#{$rank} {
-        background-image: url(#{$assetsUrl}/imprint/#{$rank}.png);
+        background-image: url(#{$assetsUrl}/_source/img/hero_dedi_a_#{$rank}.png);
         background-size: auto 1.8rem;
     }
 }
@@ -444,7 +444,10 @@
 }
 
 @each $status in $statList {
-    .stat-icon-#{$status}::before {
+    .converted.stat-icon-#{$status}::before {
         background-image: url(#{$assetsUrl}/stat/cm_icon_stat_#{$status}.png);
+    }
+    .stat-icon-#{$status}::before {
+        background-image: url(#{$assetsUrl}/_source/img/cm_icon_stat_#{$status}.png);
     }
 }

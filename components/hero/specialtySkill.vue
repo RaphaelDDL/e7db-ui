@@ -4,32 +4,34 @@
             <h1>{{ $t("heroes.specialtySkill.header") }}</h1>
             <hr />
             <div class="skill-icon">
-                <img v-lazy="{ src: `${assetsUrl}/hero/_placeholder/sk_missing.png` }" />
-                <!-- <img v-lazy="{src:'',error:`${assetsUrl}/hero/_placeholder/sk_missing.png`}" /> -->
+                <img v-lazy="{src:`${assetsUrl}/_source/skill/${specialty.icon}.png`,error:`${assetsUrl}/hero/_placeholder/sk_missing.png`}" />
             </div>
             <h2 class="skill-name">
-                {{ specialtySkill.name }}
+                {{ specialty.name }}
             </h2>
             <div class="skill-sub-desc">
-                <div v-if="specialtySkill.dispatch" class="skill-soul-acquire">
-                    {{ specialtySkill.dispatch }}
+                <div v-if="specialty.type && specialty.type.name" class="skill-soul-acquire">
+                    {{ specialty.type.name }}
                 </div>
-                <div v-if="specialtySkill.enhancement" class="skill-bonus">
-                    {{ specialtySkill.enhancement }}
+                <div v-if="specialty.effect_value" class="skill-bonus">
+                     {{ specialty.effect_type | noUnderscore(true) }} {{ specialty.effect_value | toPercent }}
                 </div>
             </div>
-            <div v-if="specialtySkill.description" class="skill-desc">
-                {{ specialtySkill.description }}
+            <div v-if="specialty.type && specialty.type.description" class="skill-desc">
+                {{ specialty.type.description }}
+            </div>
+            <div v-if="specialty.description" class="skill-desc">
+                {{ specialty.description }}
             </div>
             <hr />
-            <ul v-if="specialtySkill.stats" v-lazy-container="{ selector: 'img' }">
+            <ul v-lazy-container="{ selector: 'img' }">
                 <li class="columns is-mobile">
                     <div class="column is-half hero-stats-type">
                         <span class="stat-icon-command"></span>
                         {{ $t("heroes.specialtySkill.command") }}
                     </div>
                     <div class="column is-half hero-stats-value">
-                        {{ specialtySkill.stats.command }}
+                        {{ specialty.command }}
                     </div>
                 </li>
                 <li class="columns is-mobile">
@@ -38,7 +40,7 @@
                         {{ $t("heroes.specialtySkill.charm") }}
                     </div>
                     <div class="column is-half hero-stats-value">
-                        {{ specialtySkill.stats.charm }}
+                        {{ specialty.charm }}
                     </div>
                 </li>
                 <li class="columns is-mobile">
@@ -47,7 +49,7 @@
                         {{ $t("heroes.specialtySkill.politics") }}
                     </div>
                     <div class="column is-half hero-stats-value">
-                        {{ specialtySkill.stats.politics }}
+                        {{ specialty.politics }}
                     </div>
                 </li>
             </ul>
@@ -59,7 +61,7 @@
 export default {
     inject: ["assetsUrl"],
     props: {
-        specialtySkill: {
+        specialty: {
             type: Object,
             default: () => {},
         },

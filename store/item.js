@@ -28,7 +28,6 @@ export const actions = {
         return new Promise((resolve, reject) => {
             const listGetter = this.getters["item/list"];
             const itemLangGetter = this.getters["item/lang"];
-            debugger;
             if (listGetter?.length && itemLangGetter === this.$i18n?.locale) {
                 resolve(listGetter);
                 return;
@@ -59,7 +58,6 @@ export const actions = {
         return new Promise((resolve, reject) => {
             const listGetter = this.getters["item/list"];
             const itemLangGetter = this.getters["item/lang"];
-            debugger;
             if (listGetter?.length && itemLangGetter === this.$i18n?.locale) {
                 return resolve(getters.single(_id));
             } else {

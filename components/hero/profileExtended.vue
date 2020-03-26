@@ -95,7 +95,7 @@ export default {
     computed: {
         fullbodyImg() {
             return {
-                error: `${this.assetsUrl}/_source/hero/${this.cid}_su.png`,
+                error: `${this.assetsUrl}/_source/face/${this.cid}_su.png`,
                 src: `${this.assetsUrl}/herofull/${this.id}.png`,
                 loading: `${this.assetsUrl}/website/loading.gif`,
             };
