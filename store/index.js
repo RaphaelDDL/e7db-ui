@@ -14,6 +14,7 @@ export const getters = {
     version: state => state.version,
     globalError: state => state.globalError,
     assetsUrl: state => state.assetsUrl,
+    locale: state => state.locale,
 };
 
 export const mutations = {

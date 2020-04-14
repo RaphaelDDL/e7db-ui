@@ -795,20 +795,23 @@ export function heroStatsClass(type = "", typeOnly = false, convert = true) {
         case "def_rate":
             iconType = "def";
             break;
-        case "res":
-            iconType = "res";
-            break;
         case "speed":
             iconType = "spd";
             break;
         case "cri":
             iconType = "chc";
             break;
+        case "cri_dmg":
+            iconType = "chd";
+            break;
         case "coop":
             iconType = "dac";
             break;
         case "acc":
             iconType = "eff";
+            break;
+        case "res":
+            iconType = "efr";
             break;
 
         default:
