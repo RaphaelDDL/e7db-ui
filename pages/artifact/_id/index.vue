@@ -76,9 +76,9 @@ export default {
     computed: {
         imageUrls() {
             return {
-                full: `${this.assetsUrl}/_source/item_arti/${this.artifactDetail.assets.image}.png`,
-                small: `${this.assetsUrl}/_source/item_arti/${this.artifactDetail.assets.thumbnail}.jpg`,
-                icon: `${this.assetsUrl}/_source/item_arti/${this.artifactDetail.assets.icon}.png`,
+                full: this.artifactDetail.assets.image,
+                small: this.artifactDetail.assets.thumbnail,
+                icon: this.artifactDetail.assets.icon,
             };
         },
     },
