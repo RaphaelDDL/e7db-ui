@@ -95,7 +95,7 @@ export default {
     inject: ["assetsUrl"],
     async asyncData({ params, store, redirect }) {
         const [heroDetail, itemList] = await Promise.all([
-            store.dispatch("hero/getSingle", { fileId: params.id }).catch(error => {
+            store.dispatch("hero/getSingle", { _id: params.id }).catch(error => {
                 return error;
             }),
             store.dispatch("item/getList").catch(error => {

@@ -16,7 +16,7 @@ export const actions = {
     getList({ dispatch, commit }) {
         return new Promise((resolve, reject) => {
             const listGetter = this.getters["artifact/list"];
-            if (listGetter && listGetter.length && this.state.locale === this.$i18n.locale) {
+            if (listGetter?.length && this.getters?.locale === this.$i18n.locale) {
                 resolve(listGetter);
                 return;
             }
@@ -30,8 +30,7 @@ export const actions = {
                     errorHandler({ dispatch, reject }, error, "artifact list");
                 })
                 .then(artifacts => {
-                    commit("SET_I18N", this.$i18n.locale, { root: true });
-                    if (artifacts && artifacts.length) {
+                    if (artifacts?.length) {
                         commit("SET_ARTIFACTS", artifacts);
                         resolve(artifacts);
                     } else {
@@ -56,7 +55,7 @@ export const actions = {
                     errorHandler({ dispatch, reject }, error, "artifact detail");
                 })
                 .then(artifact => {
-                    if (artifact && artifact.length) {
+                    if (artifact?.length) {
                         resolve(artifact[0]);
                     } else {
                         const error = {

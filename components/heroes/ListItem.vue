@@ -4,7 +4,7 @@
             localePath({
                 name: 'hero-id',
                 params: {
-                    id: hero.fileId,
+                    id: hero._id,
                 },
             })
         "
@@ -15,7 +15,7 @@
             <div :class="heroClass" class="no-text">
                 <h2>{{ hero.name }}</h2>
             </div>
-            <img :key="hero.name" v-lazy="imageUrls" class="hero-list-card-image" />
+            <img :key="hero._id" v-lazy="imageUrls" class="hero-list-card-image" />
             <div :class="[starRating, heroElement]" class="no-text small"></div>
         </a>
         <div class="hero-list-background"></div>
@@ -23,22 +23,24 @@
 </template>
 
 <script>
+import { trueRole, trueElement, trueZodiac } from "~/util/Utils";
+
 export default {
     inject: ["assetsUrl"],
     props: ["hero"],
     computed: {
         heroClass() {
-            return `hero-class-${this.hero.role}`;
+            return `hero-class-${trueRole(this.hero.role)}`;
         },
         heroElement() {
-            return `hero-element-${this.hero.element}`;
+            return `hero-element-${trueElement(this.hero.attribute)}`;
         },
         starRating() {
             return `star-rating-${this.hero.rarity}`;
         },
         imageUrls() {
             return {
-                src: `${this.assetsUrl}/hero/${this.hero.fileId}/small.png`,
+                src: this.hero?.assets?.thumbnail,
                 error: `${this.assetsUrl}/hero/_placeholder/small_missing.png`,
             };
         },

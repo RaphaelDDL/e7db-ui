@@ -54,12 +54,12 @@ export default {
         imageUrls() {
             return {
                 small: {
-                    src: this.artifact.assets.thumbnail,
+                    src: this.artifact.assets?.thumbnail,
                     error: `${this.assetsUrl}/artifact/_placeholder/small_missing.jpg`,
                     loading: `${this.assetsUrl}/website/loading.gif`,
                 },
                 icon: {
-                    src: this.artifact.assets.icon,
+                    src: this.artifact.assets?.icon,
                     error: `${this.assetsUrl}/artifact/_placeholder/icon_missing.png`,
                 },
             };

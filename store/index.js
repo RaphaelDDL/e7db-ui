@@ -7,7 +7,7 @@ export const state = () => ({
     },
     version,
     assetsUrl,
-    locale: "en",
+    locale: undefined,
 });
 
 export const getters = {

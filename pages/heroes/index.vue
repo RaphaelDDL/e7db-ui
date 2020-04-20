@@ -10,7 +10,7 @@
                         {{ $t("filters.noResult") }}
                     </h4>
                     <ul class="columns is-mobile hero-list-ul">
-                        <ListItem v-for="hero in filteredHeroList" :id="hero.fileId" :key="hero.fileId" :hero="hero" />
+                        <ListItem v-for="hero in filteredHeroList" :id="hero._id" :key="hero._id" :hero="hero" />
                     </ul>
                 </div>
             </section>

@@ -38,7 +38,7 @@ export function getByKeyword(list, keyword) {
         return list;
     }
     return list.filter(
-        listItem => listItem.name.toLowerCase().includes(search) || listItem.fileId.toLowerCase().includes(search)
+        listItem => listItem.name.toLowerCase().includes(search) || listItem._id.toLowerCase().includes(search)
     );
 }
 

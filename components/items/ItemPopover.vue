@@ -26,8 +26,8 @@
                     </div>
                     <div class="column">
                         <div v-if="itemDetail.category" class="item-type">{{ itemDetail.category }}</div>
-                        <div v-if="itemDetail.name" class="item-name">
-                            {{ itemDetail.name  }}
+                        <div v-if="itemDetail.name || resource.item" class="item-name">
+                            {{ itemDetail.name  || resource.item}}
                         </div>
                         <div v-if="!isList" class="item-quantity">
                             {{ $t("item.needed") }}: {{ resource.count | formatNumber }}
@@ -122,7 +122,7 @@ export default {
     methods: {
         imageUrls(resource) {
             return {
-                src: `${this.assetsUrl}/_source/item/${resource?.assets?.icon}.png`,
+                src: resource?.assets?.icon,
                 error: `${this.assetsUrl}/item/_placeholder/item_missing.png`,
             };
         },
