@@ -10,7 +10,7 @@
                 <div :class="skillClasses(skill)" class="skill-icon">
                     <img
                         v-lazy="{
-                            src: skillImage(skill, index + 1),
+                            src: `${skill.assets.icon}`,
                             error: `${assetsUrl}/hero/_placeholder/sk_missing.png`,
                         }"
                         alt
@@ -18,33 +18,33 @@
                 </div>
                 <h1 v-lazy-container="{ selector: 'img' }" class="skill-name">
                     <img
-                        v-for="buff in skill.buffs"
+                        v-for="buff in skill.buff"
                         :key="buff"
-                        :alt="buffDebuffKeyToName(buff) ? buffDebuffKeyToName(buff).name : buff"
-                        :data-src="`${assetsUrl}/buff/${buff}.png`"
-                        :title="buffDebuffKeyToName(buff) ? buffDebuffKeyToName(buff).name : buff"
+                        :alt="buffDebuffIDToName(buff).name"
+                        :data-src="`${assetsUrl}/_source/buff/${buffDebuffIDToName(buff).icon}.png`"
+                        :title="buffDebuffIDToName(buff).name"
                     />
                     <img
-                        v-for="debuff in skill.debuffs"
+                        v-for="debuff in skill.debuff"
                         :key="debuff"
-                        :alt="buffDebuffKeyToName(debuff) ? buffDebuffKeyToName(debuff).name : debuff"
-                        :data-src="`${assetsUrl}/buff/${debuff}.png`"
-                        :title="buffDebuffKeyToName(debuff) ? buffDebuffKeyToName(debuff).name : debuff"
+                        :alt="buffDebuffIDToName(debuff).name"
+                        :data-src="`${assetsUrl}/_source/buff/${buffDebuffIDToName(debuff).icon}.png`"
+                        :title="buffDebuffIDToName(debuff).name"
                     />
                     {{ skill.name }}
                 </h1>
                 <div class="skill-sub-desc">
-                    <div v-if="skill.soulAcquire" class="skill-soul-acquire">
-                        {{ $t("heroes.acquire") }} {{ skill.soulAcquire }} {{ $t("heroes.soul") }}
+                    <div v-if="skill.soul_gain" class="skill-soul-acquire">
+                        {{ $t("heroes.acquire") }} {{ skill.soul_gain }} {{ $t("heroes.soul") }}
                     </div>
-                    <div v-if="!skill.soulAcquire && skill.isPassive == true" class="skill-soul-acquire">
+                    <div v-if="!skill.soul_gain && skill.isPassive == true" class="skill-soul-acquire">
                         {{ $t("heroes.passive") }}
                     </div>
                     <div v-if="skillCooldown(skill)" class="skill-cooldown">
                         {{ skill.cooldown }} {{ $t("heroes.turns") }}
                     </div>
                 </div>
-                <div v-if="selfSkillBarName && skill.selfSkillBarValue && skill.selfSkillBarValue !== 0">
+                <!-- <div v-if="selfSkillBarName && skill.selfSkillBarValue && skill.selfSkillBarValue !== 0">
                     <div class="skill-sub-desc">
                         <div class="skill-selfskillbar">
                             <span v-if="skill.selfSkillBarValue > 0">{{ $t("heroes.acquire") }}</span>
@@ -52,17 +52,21 @@
                             {{ skill.selfSkillBarValue | noUnderscore }} {{ selfSkillBarName | noUnderscore(true) }}
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div v-if="skill.description" class="skill-desc">{{ skill.description }}</div>
-                <div v-if="skill.soulBurn && skill.soulBurnEffect">
+                <div v-if="skill.enhanced_description" class="skill-desc">
+                    <h5 class="skill-enhance">Skill Upgrade</h5>
+                    {{ skill.enhanced_description }}
+                </div>
+                <div v-if="skill.soul_requirement && skill.soul_description">
                     <hr />
                     <div class="skill-sub-desc">
                         <div class="skill-soul-acquire">{{ $t("heroes.soulBurnEffect") }}</div>
                         <div class="skill-soul-burn">
-                            {{ $t("heroes.consume") }} {{ skill.soulBurn }} {{ $t("heroes.soul") }}
+                            {{ $t("heroes.consume") }} {{ skill.soul_requirement }} {{ $t("heroes.soul") }}
                         </div>
                     </div>
-                    <div class="skill-desc">{{ skill.soulBurnEffect }}</div>
+                    <div class="skill-desc">{{ skill.soul_description }}</div>
                 </div>
                 <div v-if="skill.simpleDmgMod && skill.simpleDmgMod.simplified">
                     <hr />
@@ -105,28 +109,24 @@
                 </div>
 
                 <hr />
-                <div v-if="skill.enhancement && skill.enhancement.length">
+                <div v-if="skill.enhancements && skill.enhancements.length">
                     <div class="skill-enhance">
                         {{ $t("heroes.skillEnhance") }}
                     </div>
                     <ol class="skill-enhance-list">
                         <li
-                            v-for="(enhancement, enhancementindex) in skill.enhancement"
-                            :key="enhancementindex"
+                            v-for="enhancement in skill.enhancements"
+                            :key="enhancement._id"
                             :class="{
                                 'has-resource': enhancement && enhancement.resources && enhancement.resources.length,
                             }"
                         >
-                            {{ enhancement.description }}
+                            {{ enhancement.string }}
                             <div
-                                v-if="enhancement && enhancement.resources && enhancement.resources.length"
+                                v-if="enhancement && enhancement.costs && enhancement.costs.length"
                                 class="resource-item-list"
                             >
-                                <ItemPopover
-                                    v-for="(resource, resourceindex) in enhancement.resources"
-                                    :key="`${skill.name}_${enhancementindex}_${resourceindex}`"
-                                    :resource="resource"
-                                />
+                                <ItemPopover v-for="costs in enhancement.costs" :key="costs._id" :resource="costs" />
                             </div>
                         </li>
                     </ol>
@@ -138,7 +138,7 @@
 
 <script>
 import { Tabs, Tab } from "vue-tabs-component";
-import { buffDebuffKeyToName } from "~/util/Utils";
+// import { buffDebuffKeyToName } from "~/util/Utils";
 import ItemPopover from "~/components/items/ItemPopover";
 
 export default {
@@ -149,39 +149,59 @@ export default {
         ItemPopover,
     },
     props: {
-        skillDescription: {
-            type: Object,
-            default: () => {},
-        },
         skillsList: {
+            type: Array,
+            default: () => [],
+        },
+        buffs: {
+            type: Array,
+            default: () => [],
+        },
+        debuffs: {
+            type: Array,
+            default: () => [],
+        },
+        common: {
             type: Array,
             default: () => [],
         },
         id: {
             type: String,
+            default: "",
         },
-        selfSkillBarName: {
+        cid: {
             type: String,
+            default: "",
+        },
+        // selfSkillBarName: {
+        //     type: String,
+        // },
+    },
+    computed: {
+        buffDebuffCommonList() {
+            return this.buffs.concat(this.debuffs, this.common);
         },
     },
     methods: {
-        buffDebuffKeyToName,
+        buffDebuffIDToName(id) {
+            const buffDebuffObject = this.buffDebuffCommonList.find(buff => buff.id === id);
+            if (!buffDebuffObject) {
+                return {};
+            }
+            return buffDebuffObject;
+        },
         skillClasses(skill) {
-            const soulBurnNum = parseInt(skill.soulBurn, 10);
+            const soulBurnNum = parseInt(skill.soul_requirement, 10);
             const soulsIcons = !isNaN(soulBurnNum) && soulBurnNum / 10 ? soulBurnNum / 10 : 0;
             const consumeSoulClass = soulsIcons ? `consume-soul-${soulsIcons}` : "";
-            const awakenUpgrade = skill.awakenUpgrade == true; // eslint-disable-line eqeqeq
-            const isPassive = skill.isPassive == true; // eslint-disable-line eqeqeq
+            const awakenUpgrade = !!skill.can_enhance;
+            const isPassive = !!skill.passive;
 
             return {
                 "upgrade-passive": awakenUpgrade && isPassive,
                 "upgrade-active": awakenUpgrade && !isPassive,
                 [consumeSoulClass]: !!soulsIcons,
             };
-        },
-        skillImage(skill = {}, skillPos = 1) {
-            const passive = skill.isPassive == true ? "p" : ""; // eslint-disable-line eqeqeq
-            return `${this.assetsUrl}/hero/${this.id}/sk_${skillPos}${passive}.png`;
         },
         skillCooldown(skill = {}) {
             const cdNum = parseInt(skill.cooldown, 10);

@@ -4,39 +4,23 @@
             <h1>{{ $t("heroes.stats") }}</h1>
             <hr />
             <div class="hero-stats columns">
-                <div class="column is-half hero-stats-container-base">
+                <div v-if="stats.lv1BaseStarNoAwaken" class="column is-half hero-stats-container-base">
                     <h4 v-html="$t('heroes.lv1BaseStarNoAwaken')"></h4>
-                    <StatsTable
-                        v-if="stats.lv1BaseStarNoAwaken"
-                        :stats-table="stats.lv1BaseStarNoAwaken"
-                        :hero-stats-class="heroStatsClass"
-                    />
+                    <StatsTable :stats-table="stats.lv1BaseStarNoAwaken" />
                 </div>
-                <div class="column is-half hero-stats-container-50">
+                <div v-if="stats.lv50FiveStarNoAwaken" class="column is-half hero-stats-container-50">
                     <h4 v-html="$t('heroes.lv50FiveStarNoAwaken')"></h4>
-                    <StatsTable
-                        v-if="stats.lv50FiveStarNoAwaken"
-                        :stats-table="stats.lv50FiveStarNoAwaken"
-                        :hero-stats-class="heroStatsClass"
-                    />
+                    <StatsTable :stats-table="stats.lv50FiveStarNoAwaken" />
                 </div>
             </div>
             <div class="hero-stats columns">
-                <div class="column is-half hero-stats-container-60">
+                <div v-if="stats.lv60SixStarNoAwaken" class="column is-half hero-stats-container-60">
                     <h4 v-html="$t('heroes.lv60SixStarNoAwaken')"></h4>
-                    <StatsTable
-                        v-if="stats.lv60SixStarNoAwaken"
-                        :stats-table="stats.lv60SixStarNoAwaken"
-                        :hero-stats-class="heroStatsClass"
-                    />
+                    <StatsTable :stats-table="stats.lv60SixStarNoAwaken" />
                 </div>
-                <div class="column is-half hero-stats-container-max">
+                <div v-if="stats.lv60SixStarFullyAwakened" class="column is-half hero-stats-container-max">
                     <h4 v-html="$t('heroes.lv60SixStarFullyAwakened')"></h4>
-                    <StatsTable
-                        v-if="stats.lv60SixStarFullyAwakened"
-                        :stats-table="stats.lv60SixStarFullyAwakened"
-                        :hero-stats-class="heroStatsClass"
-                    />
+                    <StatsTable :stats-table="stats.lv60SixStarFullyAwakened" />
                 </div>
             </div>
         </div>
@@ -55,9 +39,6 @@ export default {
         stats: {
             type: Object,
             default: () => {},
-        },
-        heroStatsClass: {
-            type: Function,
         },
     },
 };

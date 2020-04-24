@@ -82,7 +82,7 @@ export default {
             awakening: "각성",
             statsIncrease: "능력치 증가",
             skillEnhance: "기술 향상",
-            skillUpgrade: "스킬 강화",
+            skillUpgrade: "스킬 강화 {0}",
             skillUpgradeApplied: "예",
             resources: "소모되는 자원",
             imprint: "기억 각성",

@@ -94,15 +94,16 @@
 </template>
 
 <script>
+import { heroStatsClass } from "~/util/Utils";
 export default {
     props: {
         statsTable: {
             type: Object,
             default: () => {},
         },
-        heroStatsClass: {
-            type: Function,
-        },
     },
+        methods: {
+        heroStatsClass,
+        }
 };
 </script>

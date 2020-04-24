@@ -4,87 +4,76 @@
 
         <ProfileExtended
             :id="heroDetail._id"
-            :name="heroDetail.name"
-            :image-urls="imageUrls"
-            :rarity="heroDetail.rarity"
-            :class-type="heroDetail.classType"
-            :element="heroDetail.element"
-            :zodiac="heroDetail.zodiac"
-            :summon-quote="heroDetail.summonQuote"
+            :cid="heroDetail.id"
+            :attribute="heroDetail.attribute"
             :description="heroDetail.description"
+            :get_line="heroDetail.get_line"
+            :image-urls="imageUrls"
+            :name="heroDetail.name"
+            :rarity="heroDetail.rarity"
+            :role="heroDetail.role"
+            :zodiac="heroDetail.zodiac"
         />
 
         <div class="columns hero-detail-container">
             <LoadingMessage :is-loading="isLoading" class="column" />
 
-            <main v-if="!isLoading && showDetails" class="column is-three-fifths">
-                <!-- <nuxt-link :to="localePath('heroes')">&lt; {{ $t("heroes.back") }}</nuxt-link>
-                    <hr class="boxBorderHr" />
-                    -->
-                <!-- <Header :image-urls="imageUrls" :name="heroDetail.name" /> -->
-
-                <!-- <Profile
-                        :rarity="heroDetail.rarity"
-                        :class-type="heroDetail.classType"
-                        :element="heroDetail.element"
-                        :zodiac="heroDetail.zodiac"
-                    /> -->
-
+            <main class="column is-three-fifths" v-if="!isLoading && showDetails">
                 <Skills
                     :id="heroDetail._id"
+                    :cid="heroDetail.id"
                     :skills-list="heroDetail.skills"
-                    :self-skill-bar-name="heroDetail.selfSkillBarName"
+                    :buffs="heroDetail.buffs"
+                    :debuffs="heroDetail.debuffs"
+                    :common="heroDetail.common"
                 />
 
                 <ExclusiveEquipment
                     v-if="heroDetail.ex_equip && heroDetail.ex_equip.length"
-                    :id="heroDetail._id"
-                    :skills-list="heroDetail.skills"
                     :exclusive-equipment-list="heroDetail.ex_equip"
-                    :hero-stats-class="heroStatsClass"
+                    :id="heroDetail._id"
+                    :cid="heroDetail.id"
+                    :skills-list="heroDetail.skills"
                 />
 
-                <Awakening :awakening-list="heroDetail.awakening" :hero-stats-class="heroStatsClass" />
+                <Awakening :zodiac_tree="heroDetail.zodiac_tree" />
 
                 <Imprint
-                    :memory-imprint-formation="heroDetail.memoryImprintFormation"
-                    :memory-imprint="heroDetail.memoryImprint"
-                    :hero-stats-class="heroStatsClass"
+                    :devotion="heroDetail.devotion"
+                    :self_devotion="heroDetail.self_devotion"
                 />
 
-                <Stats :stats="heroDetail.stats" :hero-stats-class="heroStatsClass" />
+                <!-- <Stats :stats="heroDetail.stats" /> -->
             </main>
-            <aside v-if="!isLoading && showDetails" class="column is-two-fifths">
-                <Lore v-if="heroDetail.background" :background="heroDetail.background" />
+            <aside class="column is-two-fifths" v-if="!isLoading && showDetails">
+                <Lore :background="heroDetail.story" v-if="heroDetail.story" />
 
                 <SpecialtyChange
-                    v-if="heroDetail.specialtyChangeName"
-                    :specialty-change-name="heroDetail.specialtyChangeName"
                     :name="heroDetail.name"
-                />
-
-                <!-- <Artwork :image-urls="imageUrls" /> -->
-
-                <Camping
-                    v-if="heroDetail.camping && heroDetail.camping.options && heroDetail.camping.options.length"
-                    :camping="heroDetail.camping"
+                    :specialty-change-name="heroDetail.specialtyChangeName"
+                    v-if="heroDetail.specialtyChangeName"
                 />
 
                 <SpecialtySkill
-                    v-if="heroDetail.specialtySkill && heroDetail.specialtySkill.name"
-                    :specialty-skill="heroDetail.specialtySkill"
+                    :specialty="heroDetail.specialty"
+                    v-if="heroDetail.specialty && heroDetail.specialty.name"
                 />
 
-                <Relations
-                    v-if="heroDetail.relations && heroDetail.relations.length"
+                <Camping
+                    :camping="heroDetail.camping"
+                    v-if="heroDetail.camping && heroDetail.camping.topics && heroDetail.camping.topics.length"
+                />
+
+                <!-- <Relations
                     :relations="heroDetail.relations"
-                />
+                    v-if="heroDetail.relations && heroDetail.relations.length"
+                /> -->
 
-                <Voices
-                    v-if="heroDetail.voiceList && heroDetail.voiceList.length"
+                <!-- <Voices
                     :id="heroDetail._id"
                     :voice-list="heroDetail.voiceList"
-                />
+                    v-if="heroDetail.voiceList && heroDetail.voiceList.length"
+                /> -->
             </aside>
         </div>
     </div>
@@ -94,7 +83,7 @@
 // import Modernizr from 'modernizr';
 import LoadingMessage from "~/components/general/LoadingMessage";
 import { mountedPageView } from "~/util/vueMixins";
-import { headMetaTags } from "~/util/Utils";
+import { headMetaTags, trueRole, trueElement, trueZodiac } from "~/util/Utils";
 import HeroComponents from "~/components/hero";
 
 export default {
@@ -106,7 +95,7 @@ export default {
     inject: ["assetsUrl"],
     async asyncData({ params, store, redirect }) {
         const [heroDetail, itemList] = await Promise.all([
-            store.dispatch("hero/getSingle", { fileId: params.id }).catch(error => {
+            store.dispatch("hero/getSingle", { _id: params.id }).catch(error => {
                 return error;
             }),
             store.dispatch("item/getList").catch(error => {
@@ -129,92 +118,32 @@ export default {
         return {
             showDetails: false,
             isLoading: true,
-            heroDetail: {
-                name: "",
-                rarity: "",
-                classType: "",
-                element: "",
-                zodiac: "",
-                specialtyChangeName: "",
-                selfSkillBarName: "",
-                background: "",
-                relations: [],
-                stats: {
-                    base: {
-                        cp: 0,
-                        atk: 0,
-                        hp: 0,
-                        spd: 0,
-                        def: 0,
-                        chc: 0,
-                        chd: 0,
-                        eff: 0,
-                        efr: 0,
-                        dac: 0,
-                    },
-                    max: {
-                        cp: 0,
-                        atk: 0,
-                        hp: 0,
-                        spd: 0,
-                        def: 0,
-                        chc: 0,
-                        chd: 0,
-                        eff: 0,
-                        efr: 0,
-                        dac: 5,
-                    },
-                },
-                skills: [],
-                specialtySkill: {
-                    name: "",
-                    description: "",
-                    dispatch: [],
-                    enhancement: [],
-                    stats: {
-                        command: 0,
-                        charm: 0,
-                        politics: 0,
-                    },
-                },
-                memoryImprintFormation: {
-                    north: false,
-                    south: false,
-                    east: false,
-                    west: false,
-                },
-                memoryImprint: [],
-                awakening: [],
-            },
+            heroDetail: {},
         };
     },
     computed: {
         imageUrls() {
             return {
-                full: `${this.assetsUrl}/hero/${this.heroDetail._id}/full.png`,
-                small: `${this.assetsUrl}/hero/${this.heroDetail._id}/small.png`,
-                icon: `${this.assetsUrl}/hero/${this.heroDetail._id}/icon.png`,
+                full: `${this.assetsUrl}/_source/hero/${this.heroDetail.id}_su.png`,
+                small: `${this.assetsUrl}/_source/hero/${this.heroDetail.id}_l.png`,
+                icon: `${this.assetsUrl}/_source/hero/${this.heroDetail.id}_s.png`,
             };
         },
         // webpSupport() {
         //     return Modernizr.webp && Modernizr.webp.animation;
         // },
     },
-    methods: {
-        heroStatsClass(type = "") {
-            return type ? `stat-icon-${type}` : "";
-        },
-    },
     head() {
-        const heroName = this.heroDetail && this.heroDetail.name ? this.heroDetail.name : "";
-        const classType = this.heroDetail && this.heroDetail.classType ? this.heroDetail.classType : "";
+        const heroName = this.heroDetail?.name ?? "";
+        const role = trueRole(this.heroDetail?.role) ?? "";
+        const element = trueElement(this.heroDetail?.attribute) ?? "";
         return headMetaTags(
             {
                 title: `${heroName} | ${this.$t("links.heroes")}${
                     this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""
                 }`,
-                description: `See detailed information about ${classType} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
-                image: this.heroDetail && this.heroDetail._id ? this.imageUrls.icon : "",
+                description: `See detailed information about ${element} ${role} ${heroName} Hero in EpicSeven game, including Artwork, Rarity, Class, Zodiac Sign, Attributes, Skills and their effects, Awakening and more!`,
+                image: this.heroDetail?.id ? this.imageUrls.icon : "",
             },
             this
         );

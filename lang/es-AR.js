@@ -84,7 +84,7 @@ export default {
             awakening: "Despertar",
             statsIncrease: "Aumento de estadísticas",
             skillEnhance: "habilidad para mejorar",
-            skillUpgrade: "Mejora de habilidad",
+            skillUpgrade: "Mejora de habilidad {0}",
             skillUpgradeApplied: "SÍ",
             resources: "Recursos Consumidos",
             imprint: "Sello de Memoria",

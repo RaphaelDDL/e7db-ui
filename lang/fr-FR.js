@@ -83,7 +83,7 @@ export default {
             awakening: "Éveil",
             statsIncrease: "Augmentation des statistiques",
             skillEnhance: "améliorer les compétences",
-            skillUpgrade: "Amélioration des compétences",
+            skillUpgrade: "Amélioration des compétences {0}",
             skillUpgradeApplied: "OUI",
             resources: "Resources nécessaires",
             imprint: "Empreinte mémorielle",

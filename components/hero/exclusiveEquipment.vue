@@ -5,11 +5,11 @@
                 v-for="exEquip in exclusiveEquipmentList"
                 :id="exEquip._id"
                 :key="exEquip._id"
-                :name="exEquip.name"
+                :name="$t('ex_equip.name')"
                 class="hero-ex-equip section-box"
             >
-                <h1>{{ $t("ex_equip.name") }}</h1>
-                <hr />
+                <!-- <h1>{{ $t("ex_equip.name") }}</h1> -->
+                <!-- <hr /> -->
                 <div class="skill-icon">
                     <img
                         v-lazy="{
@@ -23,19 +23,29 @@
                 <div class="skill-sub-desc">
                     <div v-if="exEquip.stat" class="skill-soul-acquire">
                         <!-- class="skill-soul-acquire" -->
-                        <div class="column is-half hero-stats-type">
-                            <span :class="heroStatsClass(exEquip.stat.type)"></span>
-                            {{ $t(`heroes.attributes.${exEquip.stat.type}`) }}: {{ exEquip.stat.min | toPercent }}~{{
-                                exEquip.stat.max | toPercent
+                        <div class="column is-full hero-stats-type">
+                            <span :class="heroStatusIconClass(exEquip)"></span>
+                            {{ $t(`heroes.attributes.${heroStatusType(exEquip)}`) }}: {{ exEquip.stat.value | toPercent }}~{{
+                                (exEquip.stat.value*2) | toPercent
                             }}
                         </div>
                     </div>
                 </div>
                 <div v-if="exEquip.description" class="skill-desc">{{ exEquip.description }}</div>
-                <!-- <hr /> -->
-                <template v-if="exEquip.enhancements && exEquip.enhancements.length">
+                <hr />
+                <ul v-if="exEquip.skills && exEquip.skills.length" class="bullets">
+                    <li
+                        v-for="(exEquipEnhancement, exEquipEnhancementIndex) in exEquip.skills"
+                        :id="`exEquipEnhancement_${exEquipEnhancementIndex}`"
+                        :key="`exEquipEnhancement_${exEquipEnhancementIndex}`"
+                        class="ex-equip-enhancements white"
+                    >
+                        {{ exEquipEnhancement.description }}
+                    </li>
+                </ul>
+                <!-- <template v-if="exEquip.skills && exEquip.skills.length">
                     <div
-                        v-for="(exEquipEnhancement, exEquipEnhancementIndex) in exEquip.enhancements"
+                        v-for="(exEquipEnhancement, exEquipEnhancementIndex) in exEquip.skills"
                         :id="`exEquipEnhancement_${exEquipEnhancementIndex}`"
                         :key="`exEquipEnhancement_${exEquipEnhancementIndex}`"
                         class="ex-equip-enhancements"
@@ -49,7 +59,7 @@
                             {{ exEquipEnhancement.description }}
                         </div>
                     </div>
-                </template>
+                </template> -->
             </Tab>
         </Tabs>
     </section>
@@ -57,6 +67,7 @@
 
 <script>
 import { Tabs, Tab } from "vue-tabs-component";
+import { heroStatsClass } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
@@ -73,15 +84,22 @@ export default {
             type: Array,
             default: () => [],
         },
-        heroStatsClass: {
-            type: Function,
-        },
         id: {
+            type: String,
+            default: "",
+        },
+        cid: {
             type: String,
             default: "",
         },
     },
     methods: {
+        heroStatusIconClass(exEquip) {
+            return heroStatsClass(exEquip.stat?.type)
+        },
+        heroStatusType(exEquip) {
+            return heroStatsClass(exEquip.stat?.type, true)
+        },
         skillClasses(skillSlot = 1) {
             const awakenUpgrade = this.skillsList[skillSlot - 1].awakenUpgrade == true; // eslint-disable-line eqeqeq
             const isPassive = this.skillsList[skillSlot - 1].isPassive == true; // eslint-disable-line eqeqeq

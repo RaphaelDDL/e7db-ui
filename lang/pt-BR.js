@@ -84,7 +84,7 @@ export default {
             awakening: "Despertar",
             statsIncrease: "Aumento de Atributos",
             skillEnhance: "Melhoria de Habilidade",
-            skillUpgrade: "Melhora de Habilidade",
+            skillUpgrade: "Melhora de Habilidade {0}",
             skillUpgradeApplied: "SIM",
             resources: "Recursos Consumidos",
             imprint: "Habilidade de Devoção",

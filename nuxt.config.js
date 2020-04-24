@@ -81,10 +81,29 @@ module.exports = {
             //         exclude: /(node_modules)/,
             //     });
             // }
+            // config.devtool = '#inline-source-map';
+            // config.devtool = '#eval-source-map';
 
             // fixing warning for hls of aplayer
             // https://github.com/SevenOutman/vue-aplayer/issues/61
             config.externals = "hls.js";
         },
+
+        // // if I want to switch to core-js@3
+        // // npm i -D core-js@3 @babel/runtime-corejs3
+        // babel: {
+        //     presets({ isServer }) {
+        //       return [
+        //         [
+        //           require.resolve('@nuxt/babel-preset-app'),
+        //           // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
+        //           {
+        //             buildTarget: isServer ? 'server' : 'client',
+        //             corejs: { version: 3 }
+        //           }
+        //         ]
+        //       ]
+        //     }
+        //   }
     },
 };

@@ -4,30 +4,30 @@
 
         <div class="profile">
             <span
-                v-if="element"
-                :class="`hero-element-${element}`"
+                v-if="attribute"
+                :class="`hero-element-${trueElement}`"
                 class="no-text"
-                :title="$t(`elements.${element}`) + ' ' + $t('filters.element')"
+                :title="$t(`elements.${trueElement}`) + ' ' + $t('filters.element')"
             >
-                {{ $t(`elements.${element}`) }}
+                {{ $t(`elements.${trueElement}`) }}
             </span>
             &nbsp; &nbsp; &nbsp;
             <span
-                v-if="classType"
-                :class="`hero-class-${classType}`"
+                v-if="role"
+                :class="`hero-class-${trueRole}`"
                 class="no-text"
-                :title="$t(`classes.${classType}`) + ' ' + $t('heroes.classType')"
+                :title="$t(`classes.${trueRole}`) + ' ' + $t('heroes.classType')"
             >
-                {{ $t(`classes.${classType}`) }}
+                {{ $t(`classes.${trueRole}`) }}
             </span>
             &nbsp; &nbsp; &nbsp;
             <span
                 v-if="zodiac"
-                :class="`hero-sign-${zodiac}`"
+                :class="`hero-sign-${trueSign}`"
                 class="no-text"
-                :title="$t(`zodiacSigns.${zodiac}`) + ' ' + $t('filters.zodiac')"
+                :title="$t(`zodiacSigns.${trueSign}`) + ' ' + $t('filters.zodiac')"
             >
-                {{ $t(`zodiacSigns.${zodiac}`) }}
+                {{ $t(`zodiacSigns.${trueSign}`) }}
             </span>
             <br />
             <h1>
@@ -39,16 +39,22 @@
             </p>
         </div>
 
-        <div v-if="summonQuote" class="summon-quote">
-            {{ summonQuote }}
+        <div v-if="get_line" class="summon-quote">
+            {{ get_line }}
         </div>
     </section>
 </template>
 
 <script>
+import { trueRole, trueElement, trueZodiac } from "~/util/Utils";
+
 export default {
     inject: ["assetsUrl"],
     props: {
+        cid: {
+            type: String,
+            default: "",
+        },
         id: {
             type: String,
             default: "",
@@ -65,11 +71,11 @@ export default {
             type: String,
             default: "",
         },
-        element: {
+        attribute: {
             type: String,
             default: "",
         },
-        summonQuote: {
+        get_line: {
             type: String,
             default: "",
         },
@@ -77,7 +83,7 @@ export default {
             type: String,
             default: "",
         },
-        classType: {
+        role: {
             type: String,
             default: "",
         },
@@ -89,10 +95,22 @@ export default {
     computed: {
         fullbodyImg() {
             return {
-                error: `${this.assetsUrl}/hero/${this.id}/full.png`,
+                error: `${this.assetsUrl}/_source/face/${this.cid}_su.png`,
                 src: `${this.assetsUrl}/herofull/${this.id}.png`,
                 loading: `${this.assetsUrl}/website/loading.gif`,
             };
+        },
+        trueSign() {
+            const { zodiac } = this;
+            return trueZodiac(zodiac);
+        },
+        trueElement() {
+            const { attribute } = this;
+            return trueElement(attribute);
+        },
+        trueRole() {
+            const { role } = this;
+            return trueRole(role);
         },
     },
 };

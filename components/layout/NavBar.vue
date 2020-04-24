@@ -10,7 +10,7 @@
 
         <SectionLinks :key="$i18n.locale" is-mobile-nav="false" @nav-click="trackNavInteractions" />
 
-        <ul :class="{ active: menuIsActive }" class="nav-links nav-touch" @click.native="trackNavInteractions">
+        <ul :class="{ active: menuIsActive }" class="nav-links nav-touch" @click="trackNavInteractions">
             <li>
                 <a aria-expanded="false" href="#" @click="toggleMobileNav">
                     <span class="sr-only">mobile menu</span>

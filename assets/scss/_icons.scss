@@ -290,7 +290,7 @@
     SKILL UPGRADE, SOUL CONSUME
 */
 .skill-icon {
-    &.upgrade-active::before {
+    &.upgrade-passive::before, &.upgrade-active::before {
         z-index: 5;
         content: '';
         display: block;
@@ -299,10 +299,18 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        top: -0.4rem;
-        left: -0.2rem;
-        background: transparent url(#{$assetsUrl}/skill/upgrade_active.png) center center no-repeat;
-        background-size: 100% auto;
+        top: -0.3rem;
+        left: 0;
+        background: transparent center center no-repeat;
+        background-size: auto 100%;
+    }
+
+    &.upgrade-active::before {
+        background-image: url(#{$assetsUrl}/_source/skill/frame_skillup.png);
+    }
+
+    &.upgrade-passive::before {
+        background-image: url(#{$assetsUrl}/_source/skill/frame_skillup_passive.png);
     }
 
     &::after {
@@ -400,7 +408,7 @@
 
 @each $rank, $color in $imprintPositions {
     .memory-imprint-rank-#{$rank} {
-        background-image: url(#{$assetsUrl}/imprint/#{$rank}.png);
+        background-image: url(#{$assetsUrl}/_source/img/hero_dedi_a_#{$rank}.png);
         background-size: auto 1.8rem;
     }
 }
@@ -436,7 +444,10 @@
 }
 
 @each $status in $statList {
-    .stat-icon-#{$status}::before {
+    .converted.stat-icon-#{$status}::before {
         background-image: url(#{$assetsUrl}/stat/cm_icon_stat_#{$status}.png);
+    }
+    .stat-icon-#{$status}::before {
+        background-image: url(#{$assetsUrl}/_source/img/cm_icon_stat_#{$status}.png);
     }
 }

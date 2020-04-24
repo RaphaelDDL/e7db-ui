@@ -111,7 +111,7 @@
                         >
                             <label
                                 :for="`${classProperty}-${currentClass}`"
-                                :title="`${currentClass === 'all' ? $t('filters.allClasses') : currentClass}`"
+                                :title="`${currentClass === 'all' ? $t('filters.allClasses') : trueRole(currentClass)}`"
                             >
                                 <input
                                     :id="`${classProperty}-${currentClass}`"
@@ -120,9 +120,12 @@
                                     type="radio"
                                     :value="`${currentClass === 'all' ? '' : currentClass}`"
                                 />
-                                <span :class="currentClass !== 'all' ? `hero-class-${currentClass} no-text` : ''">{{
-                                    `${currentClass === "all" ? $t("filters.all") : ""}`
-                                }}</span>
+                                <span
+                                    :class="
+                                        currentClass !== 'all' ? `hero-class-${trueRole(currentClass)} no-text` : ''
+                                    "
+                                    >{{ `${currentClass === "all" ? $t("filters.all") : ""}` }}</span
+                                >
                             </label>
                         </li>
                     </template>
@@ -145,7 +148,13 @@
                         >
                             <label
                                 :for="`element-${currentElement}`"
-                                :title="`${currentElement === 'all' ? $t('filters.allClasses') : currentElement}`"
+                                :title="
+                                    `${
+                                        currentElement === 'all'
+                                            ? $t('filters.allClasses')
+                                            : trueElement(currentElement)
+                                    }`
+                                "
                             >
                                 <input
                                     :id="`element-${currentElement}`"
@@ -156,7 +165,9 @@
                                 />
                                 <span
                                     :class="
-                                        currentElement !== 'all' ? `hero-element-${currentElement} small no-text` : ''
+                                        currentElement !== 'all'
+                                            ? `hero-element-${trueElement(currentElement)} small no-text`
+                                            : ''
                                     "
                                     >{{ `${currentElement === "all" ? $t("filters.all") : ""}` }}</span
                                 >
@@ -178,7 +189,7 @@
                         >
                             <label
                                 :for="`zodiac-${currentItem}`"
-                                :title="`${currentItem === 'all' ? $t('filters.allClasses') : currentItem}`"
+                                :title="`${currentItem === 'all' ? $t('filters.allClasses') : trueZodiac(currentItem)}`"
                             >
                                 <input
                                     :id="`zodiac-${currentItem}`"
@@ -187,9 +198,10 @@
                                     type="radio"
                                     :value="`${currentItem === 'all' ? '' : currentItem}`"
                                 />
-                                <span :class="currentItem !== 'all' ? `hero-sign-${currentItem} no-text` : ''">{{
-                                    `${currentItem === "all" ? $t("filters.all") : ""}`
-                                }}</span>
+                                <span
+                                    :class="currentItem !== 'all' ? `hero-sign-${trueZodiac(currentItem)} no-text` : ''"
+                                    >{{ `${currentItem === "all" ? $t("filters.all") : ""}` }}</span
+                                >
                             </label>
                         </li>
                     </template>
@@ -213,8 +225,12 @@
                     track-by="_id"
                 >
                     <template v-if="option._id" slot="option" slot-scope="{ option }">
-                        <img :src="`${assetsUrl}/buff/${option._id}.png`" class="buff-debuff-filter-icon buff" />
-                        <span class="buff-debuff-filter-text">{{ option.name || option._id }}</span>
+                        <img :src="`${option.assets.icon}`" class="buff-debuff-filter-icon buff" />
+                        <span class="buff-debuff-filter-text">
+                            {{ option.name || option._id }}
+                            <br />
+                            <small style="font-size:small;overflow-wrap:break-word;">{{ option.effect }}</small>
+                        </span>
                     </template>
                 </Multiselect>
             </div>
@@ -234,8 +250,38 @@
                     track-by="_id"
                 >
                     <template v-if="option._id" slot="option" slot-scope="{ option }">
-                        <img :src="`${assetsUrl}/buff/${option._id}.png`" class="buff-debuff-filter-icon debuff" />
-                        <span class="buff-debuff-filter-text">{{ option.name || option._id }}</span>
+                        <img :src="`${option.assets.icon}`" class="buff-debuff-filter-icon debuff" />
+                        <span class="buff-debuff-filter-text">
+                            {{ option.name || option._id }}
+                            <br />
+                            <small style="font-size:small;overflow-wrap:break-word;">{{ option.effect }}</small>
+                        </span>
+                    </template>
+                </Multiselect>
+            </div>
+        </div>
+        <div class="columns toggleable-btns">
+            <div class="column is-half-tablet is-multiselect-container">
+                <h5>{{ $t("filters.common") }}</h5>
+                <Multiselect
+                    v-model="selfFilters.common"
+                    :options="heroCommon"
+                    :taggable="true"
+                    :close-on-select="true"
+                    :multiple="true"
+                    placeholder="Common"
+                    :option-height="30"
+                    class="filter-multiselect"
+                    :show-labels="false"
+                    label="name"
+                    track-by="_id"
+                >
+                    <template v-if="option._id" slot="option" slot-scope="{ option }">
+                        <span class="buff-debuff-filter-text">
+                            {{ option.name || option._id }}
+                            <br />
+                            <small style="font-size:small;overflow-wrap:break-word;">{{ option.effect }}</small>
+                        </span>
                     </template>
                 </Multiselect>
             </div>
@@ -253,26 +299,54 @@
                     :option-height="30"
                     class="filter-multiselect"
                     :show-labels="false"
-                    label="attribute"
-                    track-by="_id"
+                    label="name"
                 >
                     <template slot="singleLabel" slot-scope="{ option }">
-                        <img :src="`${assetsUrl}/buff/${option.icon}.png`" class="buff-debuff-filter-icon buff" />
-                        <span class="buff-debuff-filter-text">{{
-                            $t(`heroes.attributes.${option.attribute}`) + " " + option.type || option._id
-                        }}</span>
+                        <span class="buff-debuff-filter-text"
+                            >{{ $t(`heroes.attributes.${statusKeyToIconKey(option)}`) }}&nbsp;{{
+                                `${option && option.indexOf("_rate") > -1 ? "%" : ""}`
+                            }}
+                        </span>
                     </template>
-                    <template v-if="option._id" slot="option" slot-scope="{ option }">
-                        <img :src="`${assetsUrl}/buff/${option.icon}.png`" class="buff-debuff-filter-icon buff" />
-                        <span class="buff-debuff-filter-text">{{
-                            $t(`heroes.attributes.${option.attribute}`) + " " + option.type || option._id
-                        }}</span>
+                    <template v-if="option" slot="option" slot-scope="{ option }">
+                        <span class="buff-debuff-filter-text"
+                            >{{ $t(`heroes.attributes.${statusKeyToIconKey(option)}`) }}&nbsp;{{
+                                `${option && option.indexOf("_rate") > -1 ? "%" : ""}`
+                            }}
+                        </span>
                     </template>
                 </Multiselect>
             </div>
-            <!-- <div class="column is-half-tablet is-multiselect-container">
-
-            </div> -->
+            <div class="column is-half-tablet is-multiselect-container">
+                <h5>Self {{ $t("heroes.imprint") }}</h5>
+                <Multiselect
+                    v-model="selfFilters.imprintSelf"
+                    :options="heroImprints"
+                    :taggable="true"
+                    :close-on-select="true"
+                    :multiple="false"
+                    :placeholder="`self ${$t('heroes.imprint')}`"
+                    :option-height="30"
+                    class="filter-multiselect"
+                    :show-labels="false"
+                    label="attribute"
+                >
+                    <template slot="singleLabel" slot-scope="{ option }">
+                        <span class="buff-debuff-filter-text"
+                            >{{ $t(`heroes.attributes.${statusKeyToIconKey(option)}`) }}&nbsp;{{
+                                `${option && option.indexOf("_rate") > -1 ? "%" : ""}`
+                            }}
+                        </span>
+                    </template>
+                    <template v-if="option" slot="option" slot-scope="{ option }">
+                        <span class="buff-debuff-filter-text"
+                            >{{ $t(`heroes.attributes.${statusKeyToIconKey(option)}`) }}&nbsp;{{
+                                `${option && option.indexOf("_rate") > -1 ? "%" : ""}`
+                            }}
+                        </span>
+                    </template>
+                </Multiselect>
+            </div>
         </div>
         <h4 @click="clearSelection">&#8593; {{ $t("filters.clearAllFilters") }}</h4>
     </div>
@@ -280,7 +354,7 @@
 
 <script>
 import Multiselect from "vue-multiselect";
-import { buffDebuffByType, imprintList } from "~/util/Utils";
+import { statusKeyToName, statusKeyToIconKey, buffDebuffByType, trueRole, trueElement, trueZodiac } from "~/util/Utils";
 import { inputDebounce } from "~/util/Directives";
 
 export default {
@@ -293,30 +367,45 @@ export default {
     },
     props: {
         filters: Object,
+        buffsList: Array,
     },
     data() {
         return {
             delay: 500,
-            heroClasses: ["all", "knight", "warrior", "thief", "mage", "soul-weaver", "ranger", "material"],
-            heroElements: ["all", "fire", "ice", "earth", "light", "dark"],
+            heroClasses: ["all", "knight", "warrior", "assassin", "mage", "manauser", "ranger"],
+            heroElements: ["all", "fire", "ice", "wind", "light", "dark"],
             heroZodiac: [
                 "all",
-                "aries",
-                "taurus",
-                "gemini",
-                "cancer",
-                "leo",
-                "virgo",
-                "libra",
-                "scorpio",
-                "sagittarius",
-                "capricorn",
-                "aquarius",
-                "pisces",
+                "ram",
+                "bull",
+                "twins",
+                "crab",
+                "lion",
+                "maiden",
+                "scales",
+                "scorpion",
+                "archer",
+                "goat",
+                "waterbearer",
+                "fish",
             ],
-            heroBuffs: buffDebuffByType("B"),
-            heroDebuffs: buffDebuffByType("D"),
-            heroImprints: imprintList(),
+            heroBuffs: buffDebuffByType(this.buffsList, "buff"),
+            heroDebuffs: buffDebuffByType(this.buffsList, "debuff"),
+            heroCommon: buffDebuffByType(this.buffsList, "common"),
+            heroImprints: [
+                "att_rate",
+                "att",
+                "def_rate",
+                "def",
+                "max_hp_rate",
+                "max_hp",
+                "speed",
+                "cri",
+                "cri_dmg",
+                "acc",
+                "res",
+                "coop",
+            ],
         };
     },
     computed: {
@@ -346,7 +435,13 @@ export default {
         },
     },
     methods: {
+        trueRole,
+        trueElement,
+        trueZodiac,
+        statusKeyToIconKey,
+        statusKeyToName,
         clearSelection() {
+            console.log(this.buffsList);
             this.$emit("filters:clear");
             this.$ga.event({
                 eventCategory: `${this.pageType}:filters`,

@@ -16,19 +16,22 @@ export const actions = {
     getList({ dispatch, commit }) {
         return new Promise((resolve, reject) => {
             const listGetter = this.getters["hero/list"];
-            if (listGetter && listGetter.length) {
+            if (listGetter?.length && this.getters?.locale === this.$i18n.locale) {
                 resolve(listGetter);
                 return;
             }
 
             this.$axios
-                .get("api/hero")
-                .then(r => r.data.results)
+                .get("hero",{ headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
+                .then(r => {
+                    commit("SET_I18N", this.$i18n.locale, { root: true });
+                    return r.data.results;
+                })
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "hero list");
                 })
                 .then(heroes => {
-                    if (heroes && heroes.length) {
+                    if (heroes?.length) {
                         commit("SET_HEROES", heroes);
                         resolve(heroes);
                     } else {
@@ -41,20 +44,23 @@ export const actions = {
                 });
         });
     },
-    getSingle({ dispatch }, { fileId }) {
+    getSingle({ dispatch, commit }, { _id }) {
         return new Promise((resolve, reject) => {
             this.$axios
-                .get(`api/hero/${fileId}`)
-                .then(r => r.data.results)
+                .get(`hero/${_id}`,{ headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
+                .then(r => {
+                    commit("SET_I18N", this.$i18n.locale, { root: true });
+                    return r.data.results;
+                })
                 .catch(error => {
                     errorHandler({ dispatch, reject }, error, "hero detail");
                 })
                 .then(hero => {
-                    if (hero && hero.length) {
+                    if (hero?.length) {
                         resolve(hero[0]);
                     } else {
                         const error = {
-                            stack: `results.length === 0 for ${fileId}`,
+                            stack: `results.length === 0 for ${_id}`,
                             message: "Error loading detail",
                         };
                         errorHandler({ dispatch, reject }, error, "hero detail");
