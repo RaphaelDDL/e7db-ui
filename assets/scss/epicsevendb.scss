@@ -1230,6 +1230,7 @@ aside.column {
         display: block;
         overflow: hidden;
         width: 100%;
+        min-width: 17rem;
         max-width: 22rem;
         height: 9rem;
         padding: 0.1rem 0.2rem;
@@ -1244,14 +1245,17 @@ aside.column {
         img {
             opacity: 0.8;
             display: block;
-            margin: 0 -0.5rem 0 auto;
             height: 8.9rem;
-            width: 19rem;
+            // width: 19rem;
             max-width: initial;
             // flex recalc/repaint slow on phones
             // height: 100%;
             // max-width: 20rem;
             z-index: 1;
+            top: 0;
+            right: -0.7rem;
+            bottom: 0;
+            position: absolute;
         }
 
         // h2,
@@ -1365,7 +1369,7 @@ aside.column {
 
 // https://github.com/shentao/vue-multiselect/issues/859
 .is-multiselect-container {
-    z-index: 10;
+    z-index: auto; // high # doesnt work, auto does
     position: relative;
 }
 

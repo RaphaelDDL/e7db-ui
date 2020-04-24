@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { catalystKeyToName, /* statusKeyToName, */ buffDebuffKeyToName, formatNumber, toPercent } from "~/util/Utils";
+import { formatNumber, toPercent } from "~/util/Utils";
 
 // function isInt(n) {
 //     return Number(n) === n && n % 1 === 0;
@@ -29,9 +29,6 @@ function noUnderscore(value, capitalize = false) {
     return capitalizeString(underscoreReplaced);
 }
 
-// Vue.filter("statusName", statusKeyToName);
-Vue.filter("catalystName", catalystKeyToName);
 Vue.filter("formatNumber", formatNumber);
-Vue.filter("buffDebuffName", buffDebuffKeyToName);
 Vue.filter("toPercent", toPercent);
 Vue.filter("noUnderscore", noUnderscore);

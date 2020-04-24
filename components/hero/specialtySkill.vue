@@ -4,7 +4,9 @@
             <h1>{{ $t("heroes.specialtySkill.header") }}</h1>
             <hr />
             <div class="skill-icon">
-                <img v-lazy="{src:`${assetsUrl}/_source/skill/${specialty.icon}.png`,error:`${assetsUrl}/hero/_placeholder/sk_missing.png`}" />
+                <img
+                    v-lazy="{ src: `${specialty.assets.icon}`, error: `${assetsUrl}/hero/_placeholder/sk_missing.png` }"
+                />
             </div>
             <h2 class="skill-name">
                 {{ specialty.name }}
@@ -14,7 +16,7 @@
                     {{ specialty.type.name }}
                 </div>
                 <div v-if="specialty.effect_value" class="skill-bonus">
-                     {{ specialty.effect_type | noUnderscore(true) }} {{ specialty.effect_value | toPercent }}
+                    {{ specialty.effect_type | noUnderscore(true) }} {{ specialty.effect_value | toPercent }}
                 </div>
             </div>
             <div v-if="specialty.type && specialty.type.description" class="skill-desc">

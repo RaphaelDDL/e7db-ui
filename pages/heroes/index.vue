@@ -4,7 +4,12 @@
             <section class="section-container">
                 <LoadingMessage :is-loading="isLoading" />
                 <div v-if="!isLoading && list && list.length" class="section-box hero-list">
-                    <ListFilters :filters="filters" page-type="hero" @filters:clear="clearSelection" />
+                    <ListFilters
+                        :filters="filters"
+                        :buffs-list="buffsList"
+                        page-type="hero"
+                        @filters:clear="clearSelection"
+                    />
 
                     <h4 v-if="filteredHeroList && !filteredHeroList.length">
                         {{ $t("filters.noResult") }}
@@ -32,6 +37,7 @@ import {
     getByBuffDebuff,
     getByZodiac,
     getByImprint,
+    getByImprintSelf,
     headMetaTags,
 } from "~/util/Utils";
 
@@ -43,7 +49,9 @@ const filterDefaults = {
     zodiac: "",
     buffs: [],
     debuffs: [],
+    common: [],
     imprint: "",
+    imprintSelf: "",
 };
 
 export default {
@@ -54,6 +62,24 @@ export default {
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
+
+    async asyncData({ store }) {
+        const [heroList, buffsList] = await Promise.all([
+            store.dispatch("hero/getList").catch(error => {
+                return error;
+            }),
+            store.dispatch("buffs/getList").catch(error => {
+                return error;
+            }),
+        ]);
+
+        return {
+            isLoading: false,
+            heroList,
+            buffsList,
+        };
+    },
+
     data() {
         return {
             isLoading: false,
@@ -64,35 +90,35 @@ export default {
     computed: {
         ...mapGetters("hero", ["list"]),
         filteredHeroList() {
-            return getByImprint(
-                getByZodiac(
-                    getByBuffDebuff(
-                        getByRarity(
-                            getByKeyword(
-                                getByClass(getByElement(this.list, this.filters.element), this.filters.heroClass),
-                                this.filters.keyword
+            const {
+                element,
+                heroClass,
+                zodiac,
+                keyword,
+                rarity,
+                buffs,
+                debuffs,
+                common,
+                imprint,
+                imprintSelf,
+            } = this.filters;
+            return getByImprintSelf(
+                getByImprint(
+                    getByZodiac(
+                        getByBuffDebuff(
+                            getByRarity(
+                                getByKeyword(getByClass(getByElement(this.list, element), heroClass), keyword),
+                                rarity
                             ),
-                            this.filters.rarity
+                            [...buffs, ...debuffs, ...common]
                         ),
-                        [...this.filters.buffs, ...this.filters.debuffs]
+                        zodiac
                     ),
-                    this.filters.zodiac
+                    imprint
                 ),
-                this.filters.imprint
+                imprintSelf
             );
         },
-    },
-    asyncData({ store }) {
-        return store.dispatch("hero/getList");
-    },
-
-    mounted() {
-        if (!this.list || (this.list && !this.list.length)) {
-            this.isLoading = true;
-            this.$store.dispatch("hero/getList").then(() => {
-                this.isLoading = false;
-            });
-        }
     },
 
     methods: {

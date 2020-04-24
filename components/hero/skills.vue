@@ -10,7 +10,7 @@
                 <div :class="skillClasses(skill)" class="skill-icon">
                     <img
                         v-lazy="{
-                            src: `${assetsUrl}/_source/skill/${skill.icon}.png`,
+                            src: `${skill.assets.icon}`,
                             error: `${assetsUrl}/hero/_placeholder/sk_missing.png`,
                         }"
                         alt
@@ -55,7 +55,8 @@
                 </div> -->
                 <div v-if="skill.description" class="skill-desc">{{ skill.description }}</div>
                 <div v-if="skill.enhanced_description" class="skill-desc">
-                    <h5 class="skill-enhance">Skill Upgrade</h5>{{ skill.enhanced_description }}
+                    <h5 class="skill-enhance">Skill Upgrade</h5>
+                    {{ skill.enhanced_description }}
                 </div>
                 <div v-if="skill.soul_requirement && skill.soul_description">
                     <hr />
@@ -114,7 +115,7 @@
                     </div>
                     <ol class="skill-enhance-list">
                         <li
-                            v-for="(enhancement, enhancementindex) in skill.enhancements"
+                            v-for="enhancement in skill.enhancements"
                             :key="enhancement._id"
                             :class="{
                                 'has-resource': enhancement && enhancement.resources && enhancement.resources.length,
@@ -125,11 +126,7 @@
                                 v-if="enhancement && enhancement.costs && enhancement.costs.length"
                                 class="resource-item-list"
                             >
-                                <ItemPopover
-                                    v-for="(costs, costsindex) in enhancement.costs"
-                                    :key="costs._id"
-                                    :resource="costs"
-                                />
+                                <ItemPopover v-for="costs in enhancement.costs" :key="costs._id" :resource="costs" />
                             </div>
                         </li>
                     </ol>
@@ -170,9 +167,11 @@ export default {
         },
         id: {
             type: String,
+            default: "",
         },
         cid: {
             type: String,
+            default: "",
         },
         // selfSkillBarName: {
         //     type: String,
@@ -181,13 +180,13 @@ export default {
     computed: {
         buffDebuffCommonList() {
             return this.buffs.concat(this.debuffs, this.common);
-        }
+        },
     },
     methods: {
-        buffDebuffIDToName(id){
-            let buffDebuffObject = this.buffDebuffCommonList.find(buff=>buff.id === id);
-            if(!buffDebuffObject){
-                return {}
+        buffDebuffIDToName(id) {
+            const buffDebuffObject = this.buffDebuffCommonList.find(buff => buff.id === id);
+            if (!buffDebuffObject) {
+                return {};
             }
             return buffDebuffObject;
         },

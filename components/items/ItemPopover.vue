@@ -27,7 +27,7 @@
                     <div class="column">
                         <div v-if="itemDetail.category" class="item-type">{{ itemDetail.category }}</div>
                         <div v-if="itemDetail.name || resource.item" class="item-name">
-                            {{ itemDetail.name  || resource.item}}
+                            {{ itemDetail.name || resource.item }}
                         </div>
                         <div v-if="!isList" class="item-quantity">
                             {{ $t("item.needed") }}: {{ resource.count | formatNumber }}
@@ -35,6 +35,17 @@
                     </div>
                 </div>
                 <div v-if="itemDetail.description" class="item-description">{{ itemDetail.description }}</div>
+                <br />
+                <div>
+                    See
+                    <a
+                        href="https://docs.google.com/spreadsheets/d/1UMIduFBIVc9OAoI-BeQ-LjPeihcziqXEzXw8n58bEd0/edit#gid=1218877357"
+                        rel="noopener nofollow"
+                        target="_blank"
+                        >/u/ImClumZ's Drop Location Spreadsheet</a
+                    >
+                    <em>(Link opens in new Tab)</em>, we are currently re-parsing data to pull drop locations.
+                </div>
                 <div
                     v-if="
                         (itemDetail.locations && itemDetail.locations.length) ||
@@ -96,7 +107,7 @@ export default {
             default() {
                 return {
                     item: "",
-                    assets:{},
+                    assets: {},
                     count: 0,
                 };
             },
