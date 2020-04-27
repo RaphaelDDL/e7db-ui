@@ -29,7 +29,7 @@
             <ul v-lazy-container="{ selector: 'img' }">
                 <li class="columns is-mobile">
                     <div class="column is-half hero-stats-type">
-                        <span class="stat-icon-command"></span>
+                        <span class="stat-icon-command legacy"></span>
                         {{ $t("heroes.specialtySkill.command") }}
                     </div>
                     <div class="column is-half hero-stats-value">
@@ -38,7 +38,7 @@
                 </li>
                 <li class="columns is-mobile">
                     <div class="column is-half hero-stats-type">
-                        <span class="stat-icon-charm"></span>
+                        <span class="stat-icon-charm legacy"></span>
                         {{ $t("heroes.specialtySkill.charm") }}
                     </div>
                     <div class="column is-half hero-stats-value">
@@ -47,7 +47,7 @@
                 </li>
                 <li class="columns is-mobile">
                     <div class="column is-half hero-stats-type">
-                        <span class="stat-icon-politics"></span>
+                        <span class="stat-icon-politics legacy"></span>
                         {{ $t("heroes.specialtySkill.politics") }}
                     </div>
                     <div class="column is-half hero-stats-value">

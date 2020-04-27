@@ -2,7 +2,7 @@
     <ul>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('cp', false, false)"></span>
+                <span :class="heroStatsClass('cp', true)"></span>
                 {{ $t("heroes.attributes.cp") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -11,7 +11,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('atk', false, false)"></span>
+                <span :class="heroStatsClass('att')"></span>
                 {{ $t("heroes.attributes.atk") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -20,7 +20,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('def', false, false)"></span>
+                <span :class="heroStatsClass('def')"></span>
                 {{ $t("heroes.attributes.def") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -29,7 +29,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('hp', false, false)"></span>
+                <span :class="heroStatsClass('max_hp')"></span>
                 {{ $t("heroes.attributes.hp") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -38,7 +38,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('spd', false, false)"></span>
+                <span :class="heroStatsClass('speed')"></span>
                 {{ $t("heroes.attributes.spd") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -47,7 +47,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('chc', false, false)"></span>
+                <span :class="heroStatsClass('cri')"></span>
                 {{ $t("heroes.attributes.chc") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -56,7 +56,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('chd', false, false)"></span>
+                <span :class="heroStatsClass('cri_dmg')"></span>
                 {{ $t("heroes.attributes.chd") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -65,7 +65,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('eff', false, false)"></span>
+                <span :class="heroStatsClass('acc')"></span>
                 {{ $t("heroes.attributes.eff") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -74,7 +74,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('efr', false, false)"></span>
+                <span :class="heroStatsClass('res')"></span>
                 {{ $t("heroes.attributes.efr") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -83,7 +83,7 @@
         </li>
         <li class="columns is-mobile">
             <div class="column is-half hero-stats-type">
-                <span :class="heroStatsClass('dac', false, false)"></span>
+                <span :class="heroStatsClass('coop')"></span>
                 {{ $t("heroes.attributes.dac") }}
             </div>
             <div class="column is-half hero-stats-value">
@@ -102,8 +102,8 @@ export default {
             default: () => {},
         },
     },
-        methods: {
+    methods: {
         heroStatsClass,
-        }
+    },
 };
 </script>

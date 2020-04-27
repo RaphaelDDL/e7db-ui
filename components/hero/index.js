@@ -1,5 +1,5 @@
 // import Header from "./header";
-import Stats from "./stats";
+import LegacyStats from "./stats";
 import Skills from "./skills";
 // import Artwork from "./artwork";
 import Lore from "./lore";
@@ -16,7 +16,7 @@ import ExclusiveEquipment from "./exclusiveEquipment";
 
 export default {
     // Header,
-    Stats,
+    LegacyStats,
     Skills,
     // Artwork,
     Lore,

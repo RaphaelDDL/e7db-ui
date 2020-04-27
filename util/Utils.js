@@ -197,6 +197,8 @@ export function toPercent(value) {
         //     return value + '%';
         case isZero(value):
             return "0%";
+        case value === 1:
+            return "100%";
         default:
             return value;
         // default:
@@ -267,16 +269,26 @@ export function trueElement(element) {
     }
 }
 
-export function heroStatsClass(type = "", typeOnly = false, convert = true) {
-    const iconType = statusKeyToIconKey(type);
-    if (typeOnly) {
-        return convert ? iconType : type;
+// export function heroStatsClass(type = "", typeOnly = false, convert = true) {
+//     const iconType = statusKeyToIconKey(type);
+//     if (typeOnly) {
+//         return convert ? iconType : type;
+//     }
+//     return convert ? `converted stat-icon-${iconType}` : `stat-icon-${type}`;
+// }
+export function heroStatsClass(type = "", legacyPath = false) {
+    if (legacyPath) {
+        return `legacy stat-icon-${statusKeyToIconKey(type)}`;
     }
-    return convert ? `converted stat-icon-${iconType}` : `stat-icon-${type}`;
+    return `stat-icon-${type}`.replace("_rate", "");
 }
 
-// convert new type to old for icon keys
-function statusKeyToIconKey(type) {
+export function heroStatsKey(type = "", convert = false) {
+    return convert ? statusKeyToIconKey(type) : type;
+}
+
+// convert new type to old for icon/translation keys
+function statusKeyToIconKey(type = "") {
     switch (type) {
         case "att":
         case "att_rate":
@@ -292,6 +304,7 @@ function statusKeyToIconKey(type) {
         case "cri":
             return "chc";
         case "cri_dmg":
+        case "chd":
             return "chd";
         case "coop":
             return "dac";
@@ -300,7 +313,7 @@ function statusKeyToIconKey(type) {
         case "res":
             return "efr";
         default:
-            return "";
+            return type;
     }
 }
 // convert new type to text

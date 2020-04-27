@@ -21,9 +21,11 @@
                                 </div>
                                 <div
                                     class="column is-half hero-stats-value"
-                                    :class="heroStatsClass(devotion.type, false)"
+                                    :class="heroStatsClass(self_devotion.type)"
                                 >
-                                    <strong>{{ $t(`heroes.attributes.${heroStatsClass(self_devotion.type,true)}`) }}</strong>
+                                    <strong>{{
+                                        $t(`heroes.attributes.${heroStatsKey(self_devotion.type, true)}`)
+                                    }}</strong>
                                     <span>&nbsp;+{{ self_devotion.grades[gradeLevel] | toPercent }}</span>
                                 </div>
                             </li>
@@ -42,7 +44,10 @@
                                 :class="positionActive.t"
                                 class="memory-imprint-formation-icon-container"
                             >
-                                <div :class="{ disabled: !devotion.slots[positionActive.n] }" class="imprint-formation-icon"></div>
+                                <div
+                                    :class="{ disabled: !devotion.slots[positionActive.n] }"
+                                    class="imprint-formation-icon"
+                                ></div>
                             </div>
                         </template>
                         <template v-else>{{ $t("heroes.noImprint") }}</template>
@@ -63,11 +68,8 @@
                                 >
                                     <span class="sr-only">{{ String(gradeLevel).toLowerCase() }}</span>
                                 </div>
-                                <div
-                                    class="column is-half hero-stats-value"
-                                    :class="heroStatsClass(devotion.type, false)"
-                                >
-                                    <strong>{{ $t(`heroes.attributes.${heroStatsClass(devotion.type,true)}`) }}</strong>
+                                <div class="column is-half hero-stats-value" :class="heroStatsClass(devotion.type)">
+                                    <strong>{{ $t(`heroes.attributes.${heroStatsKey(devotion.type, true)}`) }}</strong>
                                     <span>&nbsp;+{{ devotion.grades[gradeLevel] | toPercent }}</span>
                                 </div>
                             </li>
@@ -80,15 +82,20 @@
 </template>
 
 <script>
-import { heroStatsClass } from "~/util/Utils";
+import { heroStatsClass, statusKeyToIconKey, heroStatsKey } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
     data() {
         return {
-            grades: ['D','C','B','A','S','SS','SSS'],
-            formation: [{n:1,t:'east'},{n:2,t:'south'},{n:3,t:'north'},{n:4,t:'west'}],
-        }
+            grades: ["D", "C", "B", "A", "S", "SS", "SSS"],
+            formation: [
+                { n: 1, t: "east" },
+                { n: 2, t: "south" },
+                { n: 3, t: "north" },
+                { n: 4, t: "west" },
+            ],
+        };
     },
     props: {
         devotion: {
@@ -102,6 +109,8 @@ export default {
     },
     methods: {
         heroStatsClass,
+        statusKeyToIconKey,
+        heroStatsKey,
     },
 };
 </script>

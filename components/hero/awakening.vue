@@ -12,8 +12,8 @@
                 <hr />
                 <div class="hero-stats columns">
                     <div class="column is-full hero-stats-base">
-                        <h3>{{awakening.name}}</h3>
-                        <p>{{awakening.description}}</p>
+                        <h3>{{ awakening.name }}</h3>
+                        <p>{{ awakening.description }}</p>
                         <h4>{{ $t("heroes.statsIncrease") }}</h4>
                         <ul>
                             <li v-if="awakening.skill_enhanced">
@@ -31,35 +31,23 @@
                                 v-for="(improvementObject, improvementIndex) in awakening.stats"
                                 :key="improvementIndex"
                                 class="columns is-mobile"
-
                             >
-                                <!-- <div
-                                    class="columns is-mobile"
-                                > -->
-                                    <div
-                                        class="column is-half hero-stats-type"
-                                        :class="heroStatsClass(improvementObject.stat)"
-                                    >
-                                        {{ $t(`heroes.attributes.${heroStatsClass(improvementObject.stat,true)}`) }}
-                                    </div>
-                                    <div class="column is-half hero-stats-value">
-                                        {{ improvementObject.value | toPercent }}
-                                    </div>
-                                <!-- </div> -->
+                                <div
+                                    class="column is-half hero-stats-type"
+                                    :class="heroStatsClass(improvementObject.stat)"
+                                >
+                                    {{ $t(`heroes.attributes.${heroStatsKey(improvementObject.stat, true)}`) }}
+                                </div>
+                                <div class="column is-half hero-stats-value">
+                                    {{ improvementObject.value | toPercent }}
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <h4>{{ $t("heroes.resources") }}</h4>
-                <div
-                    v-if="awakening.costs && awakening.costs.length"
-                    class="awakening-resources resource-item-list"
-                >
-                    <ItemPopover
-                        v-for="(costs, costsindex) in awakening.costs"
-                        :key="costs._id"
-                        :resource="costs"
-                    />
+                <div v-if="awakening.costs && awakening.costs.length" class="awakening-resources resource-item-list">
+                    <ItemPopover v-for="(costs, costsindex) in awakening.costs" :key="costs._id" :resource="costs" />
                 </div>
             </Tab>
         </Tabs>
@@ -68,7 +56,7 @@
 
 <script>
 import { Tabs, Tab } from "vue-tabs-component";
-import { heroStatsClass } from "~/util/Utils";
+import { heroStatsClass, heroStatsKey } from "~/util/Utils";
 import ItemPopover from "~/components/items/ItemPopover";
 
 export default {
@@ -86,6 +74,7 @@ export default {
     },
     methods: {
         heroStatsClass,
+        heroStatsKey,
     },
 };
 </script>

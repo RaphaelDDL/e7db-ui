@@ -5,10 +5,10 @@
 */
 @function starRating($number) {
     $url: url(#{$assetsUrl}/star/cm_icon_star.png);
-    $finalUrl: '';
+    $finalUrl: "";
     @for $i from 1 through $number {
         @if $i > 1 {
-            $finalUrl: $finalUrl + ', ' + $url;
+            $finalUrl: $finalUrl + ", " + $url;
         } @else {
             $finalUrl: $url;
         }
@@ -24,7 +24,7 @@
         @if $i > 1 {
             $currentPos: $firstPositioning - ($iconSize * (($i - 1)) * $iconGap);
 
-            $finalPositioning: $finalPositioning + ', ' + $currentPos;
+            $finalPositioning: $finalPositioning + ", " + $currentPos;
         } @else {
             $finalPositioning: $firstPositioning;
         }
@@ -35,9 +35,9 @@
         @return $finalPositioning;
     }
 }
-[class*='star-rating-'] {
+[class*="star-rating-"] {
     &::after {
-        content: '';
+        content: "";
         display: inline-block;
         vertical-align: middle;
         background-color: transparent;
@@ -90,7 +90,7 @@
 /*
     JOB, CLASS
 */
-[class*='hero-class-'] {
+[class*="hero-class-"] {
     &::before,
     &::after {
         display: inline-block;
@@ -102,7 +102,7 @@
     }
     &::before {
         $iconSize: 2.3rem;
-        content: '';
+        content: "";
         height: $iconSize;
         width: $iconSize;
         background-size: $iconSize auto;
@@ -122,14 +122,14 @@
         background-image: url(#{$assetsUrl}/class/cm_icon_role_#{$current}.png);
     }
     .hero-class-#{$current}:not(.no-text)::after {
-        content: '#{$current}';
+        content: "#{$current}";
     }
 }
 
 /*
     ELEMENT, AFINITY
 */
-[class*='hero-element-'] {
+[class*="hero-element-"] {
     $iconSize: 3.4rem;
 
     &::before,
@@ -142,7 +142,7 @@
         text-transform: capitalize;
     }
     &::before {
-        content: '';
+        content: "";
         height: $iconSize;
         width: $iconSize;
         background-size: $iconSize auto;
@@ -165,21 +165,21 @@
     $current: nth($heroElementList, $i);
 
     .hero-element-#{$current}::before {
-        @if $current == 'dark' or $current == 'light' {
+        @if $current == "dark" or $current == "light" {
             background-image: url(#{$assetsUrl}/attribute/cm_icon_prom#{$current}.png);
         } @else {
             background-image: url(#{$assetsUrl}/attribute/cm_icon_pro#{$current}.png);
         }
     }
     .hero-element-#{$current}:not(.no-text)::after {
-        content: '#{$current}';
+        content: "#{$current}";
     }
 }
 
 /*
     ZODIAC SIGN
 */
-[class*='hero-sign-'] {
+[class*="hero-sign-"] {
     &::before,
     &::after {
         display: inline-block;
@@ -191,7 +191,7 @@
     }
     &::before {
         $iconSize: 2.5rem;
-        content: '';
+        content: "";
         height: $iconSize;
         width: $iconSize;
         background-size: $iconSize auto;
@@ -199,7 +199,7 @@
         background-repeat: no-repeat;
     }
 
-    &:not(.no-text)::before{
+    &:not(.no-text)::before {
         margin-right: 0.5rem;
     }
 }
@@ -211,14 +211,14 @@
         background-image: url(#{$assetsUrl}/zodiac-sign/#{$i}_#{$current}.png);
     }
     .hero-sign-#{$current}:not(.no-text)::after {
-        content: '#{$current}';
+        content: "#{$current}";
     }
 }
 
 /*
     RELATIONSHIP
 */
-[class*='hero-relation-'] {
+[class*="hero-relation-"] {
     &::before,
     &::after {
         display: inline-block;
@@ -230,7 +230,7 @@
     }
     &::before {
         $iconSize: 3.4rem * 0.75;
-        content: '';
+        content: "";
         height: $iconSize;
         width: $iconSize;
         background-size: $iconSize auto;
@@ -248,7 +248,7 @@
             background-image: url(#{$assetsUrl}/relationship/cm_icon_storymap_#{$name}.png);
         }
         &:not(.no-text)::after {
-            content: '#{$name}';
+            content: "#{$name}";
         }
     }
 }
@@ -256,7 +256,7 @@
 /*
     SOCIAL
 */
-[class*='social-icon-'] {
+[class*="social-icon-"] {
     &::before,
     &::after {
         display: inline-block;
@@ -268,7 +268,7 @@
     }
     &::before {
         $iconSize: 1.5rem;
-        content: '';
+        content: "";
         height: $iconSize;
         width: $iconSize;
         background-size: $iconSize auto;
@@ -290,9 +290,10 @@
     SKILL UPGRADE, SOUL CONSUME
 */
 .skill-icon {
-    &.upgrade-passive::before, &.upgrade-active::before {
+    &.upgrade-passive::before,
+    &.upgrade-active::before {
         z-index: 5;
-        content: '';
+        content: "";
         display: block;
         width: 100%;
         height: 100%;
@@ -314,7 +315,7 @@
     }
 
     &::after {
-        content: '';
+        content: "";
         display: block;
         height: 2.5rem;
         position: absolute;
@@ -326,7 +327,7 @@
         background-repeat: repeat-x;
         z-index: 10;
     }
-    &[class*='consume-soul-']::after {
+    &[class*="consume-soul-"]::after {
         background-image: url(#{$assetsUrl}/star/cm_icon_star_s.png);
     }
 
@@ -371,7 +372,7 @@
 */
 @for $i from 1 through 4 {
     .awakening-tab-icon-#{$i}:not(.no-text)::after {
-        content: 'x#{$i}';
+        content: "x#{$i}";
     }
 }
 .section-tabs.awakening-tabs {
@@ -381,7 +382,7 @@
             .tabs-component-tab-a {
                 min-height: 3.5rem;
                 $iconSize: 3rem;
-                content: '';
+                content: "";
                 background-size: $iconSize auto;
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -401,7 +402,7 @@
 /*
     MEMORY IMPRINT
 */
-[class*='memory-imprint-rank-']{
+[class*="memory-imprint-rank-"] {
     background: transparent 0 50% no-repeat;
     background-size: auto 1.8rem;
 }
@@ -416,18 +417,18 @@
 /*
     STAT, ATTRIBUTE
 */
-[class*='stat-icon-'] {
+[class*="stat-icon-"] {
     &::before {
         display: inline-block;
         vertical-align: middle;
         background-color: transparent;
     }
     &::before {
-        content: '';
+        content: "";
         background-position: left center;
         background-repeat: no-repeat;
         background-image: url(#{$assetsUrl}/stat/cm_icon_stat_what.png);
-        margin-right: .4rem;
+        margin-right: 0.4rem;
         vertical-align: bottom;
 
         $iconSize: 1.6rem;
@@ -444,10 +445,10 @@
 }
 
 @each $status in $statList {
-    .converted.stat-icon-#{$status}::before {
+    .stat-icon-#{$status}::before {
         background-image: url(#{$assetsUrl}/_source/img/cm_icon_stat_#{$status}.png);
     }
-    .stat-icon-#{$status}::before {
+    .legacy.stat-icon-#{$status}::before {
         background-image: url(#{$assetsUrl}/stat/cm_icon_stat_#{$status}.png);
     }
 }

@@ -38,12 +38,9 @@
 
                 <Awakening :zodiac_tree="heroDetail.zodiac_tree" />
 
-                <Imprint
-                    :devotion="heroDetail.devotion"
-                    :self_devotion="heroDetail.self_devotion"
-                />
+                <Imprint :devotion="heroDetail.devotion" :self_devotion="heroDetail.self_devotion" />
 
-                <Stats :stats="heroDetail.calculatedStatus" />
+                <LegacyStats :stats="heroDetail.calculatedStatus" />
             </main>
             <aside class="column is-two-fifths" v-if="!isLoading && showDetails">
                 <Lore :background="heroDetail.story" v-if="heroDetail.story" />

@@ -9,7 +9,6 @@
                     <StatsTable
                         v-if="stats.lv1BaseStarNoAwaken"
                         :stats-table="stats.lv1BaseStarNoAwaken"
-                        :hero-stats-class="heroStatsClass"
                     />
                 </div> -->
                 <div class="column is-half hero-stats-container-base">
@@ -18,11 +17,7 @@
                 </div>
                 <div class="column is-half hero-stats-container-50">
                     <!-- <h4 v-html="$t('heroes.lv1BaseStarNoAwaken')"></h4> -->
-                    <StatsTable
-                        v-if="stats.lv50FiveStarFullyAwakened"
-                        :stats-table="stats.lv50FiveStarFullyAwakened"
-                        :hero-stats-class="heroStatsClass"
-                    />
+                    <StatsTable v-if="stats.lv50FiveStarFullyAwakened" :stats-table="stats.lv50FiveStarFullyAwakened" />
                 </div>
             </div>
             <div class="hero-stats columns">
