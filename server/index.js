@@ -54,7 +54,7 @@ async function start() {
                     "*.g.doubleclick.net",
                     "*.twitter.com",
                     "*.twimg.com",
-                    IS_DEV ? "'unsafe-eval'" : undefined,
+                    IS_DEV ? "'unsafe-eval'" : "'self'",
                 ],
                 connectSrc: [
                     "'self'",
