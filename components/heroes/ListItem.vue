@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { trueRole, trueElement, trueZodiac } from "~/util/Utils";
+import { trueRole, trueElement } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],

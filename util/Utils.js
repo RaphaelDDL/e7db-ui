@@ -166,6 +166,10 @@ function isZero(n) {
     return Number(n) === n && n === 0;
 }
 
+function isOne(n) {
+    return Number(n) === n && n === 1;
+}
+
 function isFloat(n) {
     return Number(n) === n && n % 1 !== 0;
 }
@@ -197,7 +201,7 @@ export function toPercent(value) {
         //     return value + '%';
         case isZero(value):
             return "0%";
-        case value === 1:
+        case isOne(value):
             return "100%";
         default:
             return value;

@@ -46,7 +46,10 @@ export const actions = {
     getSingle({ commit, dispatch }, { _id }) {
         return new Promise((resolve, reject) => {
             this.$axios
-                .get(`artifact/${_id}`, { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
+                .get(`artifact/${_id}`, {
+                    headers: { "x-e7db-lang": this.$i18n.locale },
+                    params: { lang: this.$i18n.locale },
+                })
                 .then(r => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
                     return r.data.results;

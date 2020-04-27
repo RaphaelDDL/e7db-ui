@@ -2,7 +2,7 @@
     <section class="section-container">
         <Tabs :options="{ useUrlFragment: false }" class="section-tabs awakening-tabs">
             <Tab
-                v-for="(awakening, index) in zodiac_tree"
+                v-for="awakening in zodiac_tree"
                 :id="awakening._id"
                 :key="awakening._id"
                 class="hero-awakening section-box"
@@ -47,7 +47,7 @@
                 </div>
                 <h4>{{ $t("heroes.resources") }}</h4>
                 <div v-if="awakening.costs && awakening.costs.length" class="awakening-resources resource-item-list">
-                    <ItemPopover v-for="(costs, costsindex) in awakening.costs" :key="costs._id" :resource="costs" />
+                    <ItemPopover v-for="costs in awakening.costs" :key="costs._id" :resource="costs" />
                 </div>
             </Tab>
         </Tabs>

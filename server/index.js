@@ -5,9 +5,11 @@ const helmet = require("helmet");
 const { Nuxt, Builder } = require("nuxt");
 const app = express();
 
+const IS_DEV = !(process.env.NODE_ENV === "production");
+
 // Import and Set Nuxt.js options
 const config = require("../nuxt.config.js");
-config.dev = !(process.env.NODE_ENV === "production");
+config.dev = IS_DEV;
 
 async function start() {
     function haltOnTimedout(req, res, next) {
@@ -52,6 +54,7 @@ async function start() {
                     "*.g.doubleclick.net",
                     "*.twitter.com",
                     "*.twimg.com",
+                    IS_DEV ? "'unsafe-eval'" : undefined,
                 ],
                 connectSrc: [
                     "'self'",

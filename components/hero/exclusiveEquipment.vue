@@ -25,9 +25,8 @@
                         <!-- class="skill-soul-acquire" -->
                         <div class="column is-full hero-stats-type">
                             <span :class="heroStatusIconClass(exEquip)"></span>
-                            {{ $t(`heroes.attributes.${heroStatusType(exEquip)}`) }}: {{ exEquip.stat.value | toPercent }}~{{
-                                (exEquip.stat.value*2) | toPercent
-                            }}
+                            {{ $t(`heroes.attributes.${heroStatusType(exEquip)}`) }}:
+                            {{ exEquip.stat.value | toPercent }}~{{ (exEquip.stat.value * 2) | toPercent }}
                         </div>
                     </div>
                 </div>
@@ -67,7 +66,7 @@
 
 <script>
 import { Tabs, Tab } from "vue-tabs-component";
-import { heroStatsClass } from "~/util/Utils";
+import { heroStatsClass, heroStatsKey } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
@@ -95,10 +94,10 @@ export default {
     },
     methods: {
         heroStatusIconClass(exEquip) {
-            return heroStatsClass(exEquip.stat?.type)
+            return heroStatsClass(exEquip.stat?.type);
         },
         heroStatusType(exEquip) {
-            return heroStatsClass(exEquip.stat?.type, true)
+            return heroStatsKey(exEquip.stat?.type, true);
         },
         skillClasses(skillSlot = 1) {
             const awakenUpgrade = this.skillsList[skillSlot - 1].awakenUpgrade == true; // eslint-disable-line eqeqeq

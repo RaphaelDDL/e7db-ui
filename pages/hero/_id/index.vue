@@ -18,7 +18,7 @@
         <div class="columns hero-detail-container">
             <LoadingMessage :is-loading="isLoading" class="column" />
 
-            <main class="column is-three-fifths" v-if="!isLoading && showDetails">
+            <main v-if="!isLoading && showDetails" class="column is-three-fifths">
                 <Skills
                     :id="heroDetail._id"
                     :cid="heroDetail.id"
@@ -30,8 +30,8 @@
 
                 <ExclusiveEquipment
                     v-if="heroDetail.ex_equip && heroDetail.ex_equip.length"
-                    :exclusive-equipment-list="heroDetail.ex_equip"
                     :id="heroDetail._id"
+                    :exclusive-equipment-list="heroDetail.ex_equip"
                     :cid="heroDetail.id"
                     :skills-list="heroDetail.skills"
                 />
@@ -42,23 +42,23 @@
 
                 <LegacyStats :stats="heroDetail.calculatedStatus" />
             </main>
-            <aside class="column is-two-fifths" v-if="!isLoading && showDetails">
-                <Lore :background="heroDetail.story" v-if="heroDetail.story" />
+            <aside v-if="!isLoading && showDetails" class="column is-two-fifths">
+                <Lore v-if="heroDetail.story" :background="heroDetail.story" />
 
                 <SpecialtyChange
+                    v-if="heroDetail.specialtyChangeName"
                     :name="heroDetail.name"
                     :specialty-change-name="heroDetail.specialtyChangeName"
-                    v-if="heroDetail.specialtyChangeName"
                 />
 
                 <SpecialtySkill
-                    :specialty="heroDetail.specialty"
                     v-if="heroDetail.specialty && heroDetail.specialty.name"
+                    :specialty="heroDetail.specialty"
                 />
 
                 <Camping
-                    :camping="heroDetail.camping"
                     v-if="heroDetail.camping && heroDetail.camping.topics && heroDetail.camping.topics.length"
+                    :camping="heroDetail.camping"
                 />
 
                 <!-- <Relations
@@ -80,7 +80,7 @@
 // import Modernizr from 'modernizr';
 import LoadingMessage from "~/components/general/LoadingMessage";
 import { mountedPageView } from "~/util/vueMixins";
-import { headMetaTags, trueRole, trueElement, trueZodiac } from "~/util/Utils";
+import { headMetaTags, trueRole, trueElement } from "~/util/Utils";
 import HeroComponents from "~/components/hero";
 
 export default {

@@ -12,14 +12,9 @@
                     </h4>
                     <ul class="imprint-list">
                         <template v-for="personality in camping.personalities">
-                            <li
-                                :key="`${personality}`"
-                                class="columns is-mobile"
-                            >
-                                <div
-                                    class="column is-full hero-stats-type strong"
-                                >
-                                    {{personality}}
+                            <li :key="`${personality}`" class="columns is-mobile">
+                                <div class="column is-full hero-stats-type strong">
+                                    {{ personality }}
                                 </div>
                             </li>
                         </template>
@@ -30,14 +25,9 @@
                     <h4>Topics</h4>
                     <ul class="imprint-list">
                         <template v-for="topic in camping.topics">
-                            <li
-                                :key="`${topic}`"
-                                class="columns is-mobile"
-                            >
-                                <div
-                                    class="column is-full hero-stats-type strong"
-                                >
-                                    {{topic}}
+                            <li :key="`${topic}`" class="columns is-mobile">
+                                <div class="column is-full hero-stats-type strong">
+                                    {{ topic }}
                                 </div>
                             </li>
                         </template>

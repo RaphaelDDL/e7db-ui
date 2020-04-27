@@ -1,9 +1,11 @@
 const pkg = require("./package");
 const I18N = require("./lang/config");
 
+const IS_PROD = !!(process.env.NODE_ENV === "production");
+
 module.exports = {
     mode: "universal",
-    modern: process.env.NODE_ENV === "production",
+    modern: IS_PROD,
     server: {
         port: process.env.PORT || 3000, // default: 3000
         host: process.env.HOST || "0.0.0.0", // default: localhost
@@ -23,10 +25,10 @@ module.exports = {
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
 
-    // workbox: {
-    //     cacheAssets: false, // for /*
-    //     offline: false // for /_nuxt/*
-    // },
+    workbox: {
+        cacheAssets: false, // for /*
+        offline: false, // for /_nuxt/*
+    },
 
     // Customize the progress-bar color
     loading: { color: "#008be6", throttle: 0, height: "4px" },
@@ -51,7 +53,7 @@ module.exports = {
     // @nuxtjs/google-analytics module configuration
     googleAnalytics: {
         id: pkg.data.analyticsId,
-        dev: true,
+        dev: !IS_PROD,
         autoTracking: {
             pageviewOnLoad: false,
             page: false,
@@ -68,22 +70,26 @@ module.exports = {
 
     // Build configuration
     build: {
-        /*
-         ** You can extend webpack config here
-         */
+        cssSourceMap: !IS_PROD,
+        devtools: !IS_PROD,
+        babel: {
+            babelrc: true,
+        },
+        // extend webpack config here
         extend(config, ctx) {
             // Run ESLint on save
-            // if (ctx.isDev && ctx.isClient) {
-            //     config.module.rules.push({
-            //         enforce: 'pre',
-            //         test: /\.(js|vue)$/,
-            //         loader: 'eslint-loader',
-            //         exclude: /(node_modules)/,
-            //     });
-            // }
-            // config.devtool = '#inline-source-map';
-            // config.devtool = '#eval-source-map';
-
+            if (ctx.isDev && ctx.isClient) {
+                config.module.rules.push({
+                    enforce: "pre",
+                    test: /\.(js|vue)$/,
+                    loader: "eslint-loader",
+                    exclude: /(node_modules)/,
+                });
+            }
+            if (!IS_PROD) {
+                // config.devtool = '#inline-source-map';
+                config.devtool = "#eval-source-map";
+            }
             // fixing warning for hls of aplayer
             // https://github.com/SevenOutman/vue-aplayer/issues/61
             config.externals = "hls.js";
