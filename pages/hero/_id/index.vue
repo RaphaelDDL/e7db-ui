@@ -43,7 +43,7 @@
                     :self_devotion="heroDetail.self_devotion"
                 />
 
-                <!-- <Stats :stats="heroDetail.stats" /> -->
+                <Stats :stats="heroDetail.calculatedStatus" />
             </main>
             <aside class="column is-two-fifths" v-if="!isLoading && showDetails">
                 <Lore :background="heroDetail.story" v-if="heroDetail.story" />
