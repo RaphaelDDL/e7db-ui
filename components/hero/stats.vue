@@ -4,13 +4,25 @@
             <h1>{{ $t("heroes.stats") }}</h1>
             <hr />
             <div class="hero-stats columns">
-                <div v-if="stats.lv1BaseStarNoAwaken" class="column is-half hero-stats-container-base">
+                <!-- <div class="column is-half hero-stats-container-base">
                     <h4 v-html="$t('heroes.lv1BaseStarNoAwaken')"></h4>
-                    <StatsTable :stats-table="stats.lv1BaseStarNoAwaken" />
-                </div>
-                <div v-if="stats.lv50FiveStarNoAwaken" class="column is-half hero-stats-container-50">
+                    <StatsTable
+                        v-if="stats.lv1BaseStarNoAwaken"
+                        :stats-table="stats.lv1BaseStarNoAwaken"
+                        :hero-stats-class="heroStatsClass"
+                    />
+                </div> -->
+                <div class="column is-half hero-stats-container-base">
                     <h4 v-html="$t('heroes.lv50FiveStarNoAwaken')"></h4>
                     <StatsTable :stats-table="stats.lv50FiveStarNoAwaken" />
+                </div>
+                <div class="column is-half hero-stats-container-50">
+                    <!-- <h4 v-html="$t('heroes.lv1BaseStarNoAwaken')"></h4> -->
+                    <StatsTable
+                        v-if="stats.lv50FiveStarFullyAwakened"
+                        :stats-table="stats.lv50FiveStarFullyAwakened"
+                        :hero-stats-class="heroStatsClass"
+                    />
                 </div>
             </div>
             <div class="hero-stats columns">
