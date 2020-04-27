@@ -53,11 +53,16 @@
                         </div>
                     </div>
                 </div> -->
-                <div v-if="skill.description" class="skill-desc">{{ skill.description }}</div>
-                <div v-if="skill.enhanced_description" class="skill-desc">
-                    <h5 class="skill-enhance">Skill Upgrade</h5>
-                    {{ skill.enhanced_description }}
-                </div>
+                <div
+                    v-if="skill.description"
+                    class="skill-desc"
+                    v-html="skillVariableDescription(skill.description, skill.values)"
+                ></div>
+                <h5 v-if="skill.enhanced_description" class="skill-enhance">Skill Upgrade</h5>
+                <div
+                    class="skill-desc"
+                    v-html="skillVariableDescription(skill.enhanced_description, skill.values)"
+                ></div>
                 <div v-if="skill.soul_requirement && skill.soul_description">
                     <hr />
                     <div class="skill-sub-desc">
@@ -138,7 +143,7 @@
 
 <script>
 import { Tabs, Tab } from "vue-tabs-component";
-// import { buffDebuffKeyToName } from "~/util/Utils";
+import { toPercent } from "~/util/Utils";
 import ItemPopover from "~/components/items/ItemPopover";
 
 export default {
@@ -206,6 +211,26 @@ export default {
         skillCooldown(skill = {}) {
             const cdNum = parseInt(skill.cooldown, 10);
             return !!(!isNaN(cdNum) && cdNum);
+        },
+        skillVariableDescription(description = "", values = []) {
+            description = description.replace("\\n", "\n");
+
+            const descArray = description?.split("{{variable}}");
+            if (descArray.length < 2) {
+                return description;
+            }
+            if (!values?.length) {
+                return description;
+            }
+            const prepareString = descArray.reduce((acc, curr, i) => {
+                acc.push(curr);
+                if (i < descArray.length - 1 && !Array.isArray(values[i])) {
+                    acc.push("<span class='white strong'>" + toPercent(values[i]) + "</span>");
+                }
+                return acc;
+            }, []);
+
+            return prepareString.join("");
         },
     },
 };

@@ -445,9 +445,9 @@
 
 @each $status in $statList {
     .converted.stat-icon-#{$status}::before {
-        background-image: url(#{$assetsUrl}/stat/cm_icon_stat_#{$status}.png);
+        background-image: url(#{$assetsUrl}/_source/img/cm_icon_stat_#{$status}.png);
     }
     .stat-icon-#{$status}::before {
-        background-image: url(#{$assetsUrl}/_source/img/cm_icon_stat_#{$status}.png);
+        background-image: url(#{$assetsUrl}/stat/cm_icon_stat_#{$status}.png);
     }
 }
