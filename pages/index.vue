@@ -274,11 +274,11 @@
 
             <section class="section-container">
                 <div class="section-box">
-                    <h1>Website Translation Status</h1>
+                    <h1>Website Translation Status (updated 2020/05/10)</h1>
                     <hr />
                     <p>
                         We are looking for help to translate some languages. <br />
-                        If your native language is (or you are very good with) Japanese, Chinese, French or German and
+                        If your native language is (or you are very good with) Japanese or Chinese and
                         you would like to help translating from English to that language, let us know. <br /><br />
                         The game data is already translated, we are looking for helpers on the static text of the
                         website. That is, if you change to any language different than English and still see a few text
@@ -287,9 +287,10 @@
                     <p>Also, please let us know if any static text translation is wrong :)</p>
                     <hr />
                     <ul class="bullets">
-                        <li>Heroes - Currently working on.</li>
-                        <li>Artifact - Game Data completed; Static Text: Almost there.</li>
-                        <li>Items - Not started</li>
+                        <li>Heroes - Game Data Complete; Filters: Complete; TO-DO: Layout for Status Slider, SC Quests, SC Skill Tree, Relations (we got data for all that, just need to implement on website)</li>
+                        <li>Artifact - Done.</li>
+                        <li>Items - Game Data almost completed; Missing re-do the Drop Table</li>
+                        <li>Overall Static Text: Needs a refactor, kinda messy.</li>
                         <li>Other Sections - Not started.</li>
                     </ul>
                 </div>
