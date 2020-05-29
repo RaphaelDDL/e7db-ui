@@ -10,7 +10,7 @@
                         Personalities
                         <!-- {{ $t("heroes.imprintPosition") }} -->
                     </h4>
-                    <ul class="imprint-list">
+                    <ul v-if="camping.personalities && camping.personalities.length" class="imprint-list">
                         <template v-for="personality in camping.personalities">
                             <li :key="`${personality}`" class="columns is-mobile">
                                 <div class="column is-full hero-stats-type strong">
@@ -19,6 +19,7 @@
                             </li>
                         </template>
                     </ul>
+                    <div v-else>N/A</div>
                 </div>
                 <div v-if="camping.topics && camping.topics.length" class="column is-half hero-stats-container-50">
                     <!-- <h4>{{ $t("heroes.imprintBonus") }}</h4> -->
@@ -33,10 +34,11 @@
                         </template>
                     </ul>
                 </div>
+                <div v-else>N/A</div>
             </div>
 
             <h4>Values</h4>
-            <ul>
+            <ul v-if="camping.values">
                 <li v-for="campValue in Object.keys(camping.values)" :key="campValue" class="columns is-mobile">
                     <div class="column is-half hero-stats-type">
                         {{ campValue }}
@@ -46,6 +48,7 @@
                     </div>
                 </li>
             </ul>
+            <div v-else>N/A</div>
         </div>
     </section>
 </template>

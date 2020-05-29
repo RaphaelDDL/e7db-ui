@@ -278,8 +278,8 @@
                     <hr />
                     <p>
                         We are looking for help to translate some languages. <br />
-                        If your native language is (or you are very good with) Japanese or Chinese and
-                        you would like to help translating from English to that language, let us know. <br /><br />
+                        If your native language is (or you are very good with) Japanese or Chinese and you would like to
+                        help translating from English to that language, let us know. <br /><br />
                         The game data is already translated, we are looking for helpers on the static text of the
                         website. That is, if you change to any language different than English and still see a few text
                         in English (other than game data), those are the ones missing translations.
@@ -287,7 +287,10 @@
                     <p>Also, please let us know if any static text translation is wrong :)</p>
                     <hr />
                     <ul class="bullets">
-                        <li>Heroes - Game Data Complete; Filters: Complete; TO-DO: Layout for Status Slider, SC Quests, SC Skill Tree, Relations (we got data for all that, just need to implement on website)</li>
+                        <li>
+                            Heroes - Game Data Complete; Filters: Complete; TO-DO: Layout for Status Slider, SC Quests,
+                            SC Skill Tree, Relations (we got data for all that, just need to implement on website)
+                        </li>
                         <li>Artifact - Done.</li>
                         <li>Items - Game Data almost completed; Missing re-do the Drop Table</li>
                         <li>Overall Static Text: Needs a refactor, kinda messy.</li>
@@ -333,6 +336,13 @@ export default {
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
+    asyncData({ store }) {
+        return Promise.all([
+            // store.dispatch("latest/getList"),
+            store.dispatch("hero/getList"),
+            store.dispatch("artifact/getList"),
+        ]);
+    },
     computed: {
         ...mapGetters("latest", ["latestHeroes", "latestArtifacts"]),
     },
@@ -358,13 +368,6 @@ export default {
             },
             this
         );
-    },
-    asyncData({ store }) {
-        return Promise.all([
-            // store.dispatch("latest/getList"),
-            store.dispatch("hero/getList"),
-            store.dispatch("artifact/getList"),
-        ]);
     },
 };
 </script>

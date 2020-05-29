@@ -45,8 +45,7 @@ export default {
     },
     errors: {
         title: "出錯啦.",
-        description:
-            "如果一直出錯, 請前往 Github 提交 issue 并附上以下信息 (如果有錯誤信息的話).",
+        description: "如果一直出錯, 請前往 Github 提交 issue 并附上以下信息 (如果有錯誤信息的話).",
     },
     home: {
         latest: "最新的英雄＆神器",
@@ -134,8 +133,7 @@ export default {
         heroAndArtifactCommons
     ),
     about: {
-        p1:
-            "EpicSevenDB.com 是由玩家維護的網站，致力於提供準確的 英雄, 神器, 裝備, 物品, 任務 等信息!",
+        p1: "EpicSevenDB.com 是由玩家維護的網站，致力於提供準確的 英雄, 神器, 裝備, 物品, 任務 等信息!",
         p2:
             "爲此, 本網站通過 Github 接受玩家社群提供的一切建議，創意及游戲數據. 如果你願意幫助我們，請訪問如下鏈接. 感謝您的支持!",
     },
