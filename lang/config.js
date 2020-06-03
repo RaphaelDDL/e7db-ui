@@ -64,7 +64,7 @@ module.exports = {
     defaultLocale: "en",
     fallbackLocale: "en",
     lazy: true,
-    seo: true,
+    seo: false, //we are already calling $nuxtI18nSeo via header in each page
     baseUrl: "https://epicsevendb.com",
     vueI18n: {
         defaultLocale: "en",
