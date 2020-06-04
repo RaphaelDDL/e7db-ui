@@ -1,8 +1,8 @@
 {
     "name": "epicsevendb-ui",
-    "version": "1.8.3",
+    "version": "1.8.4",
     "description": "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
-    "author": "RaphaelDDL <raphaelddl@epicsevendb.com>",
+    "author": "RaphaelDDL <ddl@raphaelddl.com>",
     "repository": "https://github.com/EpicSevenDB/ui",
     "homepage": "https://epicsevendb.com",
     "bugs": {

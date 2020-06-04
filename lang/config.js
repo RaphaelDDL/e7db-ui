@@ -25,11 +25,18 @@ module.exports = {
             countries: ["Japan"],
         },
         {
-            name: "普通话",
+            name: "简化字",
             code: "cn",
             iso: "zh-CN",
             file: "zh-CN.js",
             countries: ["China"],
+        },
+        {
+            name: "正體字",
+            code: "tw",
+            iso: "zh-TW",
+            file: "zh-TW.js",
+            countries: ["Taiwan"],
         },
         {
             name: "Português",
@@ -64,7 +71,7 @@ module.exports = {
     defaultLocale: "en",
     fallbackLocale: "en",
     lazy: true,
-    seo: false, //we are already calling $nuxtI18nSeo via header in each page
+    seo: false, // we are already calling $nuxtI18nSeo via header in each page
     baseUrl: "https://epicsevendb.com",
     vueI18n: {
         defaultLocale: "en",

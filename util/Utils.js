@@ -124,6 +124,7 @@ export function headMetaTags(metaTags = {}, instanceThis = {}) {
     const head = {
         title: pageTitle,
         meta: [],
+        link: [],
         htmlAttrs: {
             lang: instanceThis.$i18n.locale,
         },
@@ -148,11 +149,12 @@ export function headMetaTags(metaTags = {}, instanceThis = {}) {
             content: metaTag === "title" ? pageTitle : metaTags[metaTag] || "",
         });
     });
-    if (process.client && instanceThis.$nuxtI18nSeo) {
+    // if (process.client && instanceThis.$nuxtI18nSeo) {
+    if (instanceThis.$nuxtI18nSeo) {
         const i18nSeo = instanceThis.$nuxtI18nSeo();
         head.htmlAttrs = { ...i18nSeo.htmlAttrs };
         head.meta = [...head.meta, ...i18nSeo.meta];
-        head.link = { ...i18nSeo.link };
+        head.link = [...i18nSeo.link];
     }
 
     return head;
