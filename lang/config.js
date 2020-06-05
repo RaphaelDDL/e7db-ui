@@ -25,14 +25,14 @@ module.exports = {
             countries: ["Japan"],
         },
         {
-            name: "简化字",
+            name: "简体中文",
             code: "cn",
             iso: "zh-CN",
             file: "zh-CN.js",
             countries: ["China"],
         },
         {
-            name: "正體字",
+            name: "繁體中文",
             code: "tw",
             iso: "zh-TW",
             file: "zh-TW.js",
