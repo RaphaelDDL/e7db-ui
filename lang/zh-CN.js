@@ -3,7 +3,7 @@ const heroAndArtifactCommons = {
     icon: "图标",
     lore: "背景故事",
     skill: "技能",
-    stats: "人物数据",
+    stats: "属性",
     grade: "稀有度",
     noDescription: "无可用说明",
     level: "级别",
