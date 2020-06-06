@@ -3,23 +3,23 @@ const heroAndArtifactCommons = {
     icon: "圖標",
     lore: "背景故事",
     skill: "技能",
-    stats: "人物数据",
+    stats: "屬性",
     grade: "稀有度",
     noDescription: "無可用説明",
     level: "級別",
 };
 
 export default {
-    gameName: "第七史诗",
-    translationWIP: "重要提示：翻译仍在进行中。抱歉给你带来不便 (´・ω・`)",
+    gameName: "第七史詩",
+    translationWIP: "重要提示：翻譯仍在進行中。抱歉給你帶來不便 (´・ω・`)",
     links: {
         home: "主頁",
         about: "關於",
         heroes: "英雄",
         artifacts: "神器",
         items: "物品",
-        creators: "内容創作者",
-        changelog: "更新日志",
+        creators: "內容創作者",
+        changelog: "更新日誌",
         privacyPolicy: "隱私政策",
         back: "返回",
     },
