@@ -121,9 +121,9 @@ export default {
     computed: {
         imageUrls() {
             return {
-                full: this.heroDetail.assets.image,
-                small: this.heroDetail.assets.thumbnail,
-                icon: this.heroDetail.assets.icon,
+                full: this.heroDetail?.assets?.image,
+                small: this.heroDetail?.assets?.thumbnail,
+                icon: this.heroDetail?.assets?.icon,
             };
         },
         // webpSupport() {
