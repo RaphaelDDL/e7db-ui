@@ -3,7 +3,7 @@ import { errorHandler } from "~/util/Utils";
 export const state = () => ({ creators: [] });
 
 export const getters = {
-    list: state => state.creators,
+    list: (state) => state.creators,
 };
 
 export const mutations = {
@@ -25,11 +25,11 @@ export const actions = {
                     headers: { "x-e7db-lang": this.$i18n.locale },
                     params: { lang: this.$i18n.locale },
                 })
-                .then(r => r.data.results)
-                .catch(error => {
+                .then((r) => r.data.results)
+                .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "creators list");
                 })
-                .then(creators => {
+                .then((creators) => {
                     if (creators && creators.length) {
                         commit("SET_CREATORS", creators);
                         resolve(creators);

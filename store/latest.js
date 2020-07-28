@@ -3,9 +3,9 @@ import { errorHandler } from "~/util/Utils";
 export const state = () => ({ hero: [], artifact: [] });
 
 export const getters = {
-    all: state => state,
-    latestHeroes: state => state.hero,
-    latestArtifacts: state => state.artifact,
+    all: (state) => state,
+    latestHeroes: (state) => state.hero,
+    latestArtifacts: (state) => state.artifact,
 };
 
 export const mutations = {
@@ -25,11 +25,11 @@ export const actions = {
             }
             this.$axios
                 .get("latest", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
-                .then(r => r.data.results)
-                .catch(error => {
+                .then((r) => r.data.results)
+                .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "latest list");
                 })
-                .then(latest => {
+                .then((latest) => {
                     if (latest && latest.length) {
                         commit("SET_LATEST", latest[0]);
                         resolve(latest);

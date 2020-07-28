@@ -148,13 +148,9 @@
                         >
                             <label
                                 :for="`element-${currentElement}`"
-                                :title="
-                                    `${
-                                        currentElement === 'all'
-                                            ? $t('filters.allClasses')
-                                            : trueElement(currentElement)
-                                    }`
-                                "
+                                :title="`${
+                                    currentElement === 'all' ? $t('filters.allClasses') : trueElement(currentElement)
+                                }`"
                             >
                                 <input
                                     :id="`element-${currentElement}`"
@@ -229,7 +225,7 @@
                         <span class="buff-debuff-filter-text">
                             {{ option.name || option._id }}
                             <br />
-                            <small style="font-size:small;overflow-wrap:break-word;">{{ option.effect }}</small>
+                            <small style="font-size: small; overflow-wrap: break-word;">{{ option.effect }}</small>
                         </span>
                     </template>
                 </Multiselect>
@@ -254,7 +250,7 @@
                         <span class="buff-debuff-filter-text">
                             {{ option.name || option._id }}
                             <br />
-                            <small style="font-size:small;overflow-wrap:break-word;">{{ option.effect }}</small>
+                            <small style="font-size: small; overflow-wrap: break-word;">{{ option.effect }}</small>
                         </span>
                     </template>
                 </Multiselect>
@@ -280,7 +276,7 @@
                         <span class="buff-debuff-filter-text">
                             {{ option.name || option._id }}
                             <br />
-                            <small style="font-size:small;overflow-wrap:break-word;">{{ option.effect }}</small>
+                            <small style="font-size: small; overflow-wrap: break-word;">{{ option.effect }}</small>
                         </span>
                     </template>
                 </Multiselect>

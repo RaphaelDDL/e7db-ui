@@ -7,10 +7,10 @@ import { basePageHeader } from "~/util/Constants";
 // leading edge, instead of the trailing.
 export function debounce(func, wait, immediate) {
     let timeout;
-    return function() {
+    return function () {
         const context = this;
         const args = arguments;
-        const later = function() {
+        const later = function () {
             timeout = null;
             if (!immediate) func.apply(context, args);
         };
@@ -38,7 +38,7 @@ export function getByKeyword(list, keyword) {
         return list;
     }
     return list.filter(
-        listItem => listItem?.name?.toLowerCase()?.includes(search) || listItem?._id?.toLowerCase().includes(search)
+        (listItem) => listItem?.name?.toLowerCase()?.includes(search) || listItem?._id?.toLowerCase().includes(search)
     );
 }
 
@@ -46,7 +46,7 @@ export function getByRarity(list, rarity) {
     if (!rarity || !Array.isArray(list)) {
         return list;
     }
-    return list.filter(listItem => listItem?.rarity === rarity);
+    return list.filter((listItem) => listItem?.rarity === rarity);
 }
 
 // artifact-specific
@@ -54,7 +54,7 @@ export function getByRole(list, role) {
     if (!role || !Array.isArray(list)) {
         return list;
     }
-    return list.filter(listItem => listItem?.role === role);
+    return list.filter((listItem) => listItem?.role === role);
 }
 
 // hero-specifics
@@ -62,21 +62,21 @@ export function getByClass(list, heroClass) {
     if (!heroClass || !Array.isArray(list)) {
         return list;
     }
-    return list.filter(listItem => listItem?.role === heroClass);
+    return list.filter((listItem) => listItem?.role === heroClass);
 }
 
 export function getByZodiac(list, zodiacSign) {
     if (!zodiacSign || !Array.isArray(list)) {
         return list;
     }
-    return list.filter(listItem => listItem?.zodiac === zodiacSign);
+    return list.filter((listItem) => listItem?.zodiac === zodiacSign);
 }
 
 export function getByElement(list, element) {
     if (!element || !Array.isArray(list)) {
         return list;
     }
-    return list.filter(listItem => listItem?.attribute === element);
+    return list.filter((listItem) => listItem?.attribute === element);
 }
 
 export function getByBuffDebuff(list, BuffsDebuffs) {
@@ -86,8 +86,8 @@ export function getByBuffDebuff(list, BuffsDebuffs) {
     if (!BuffsDebuffs?.length) {
         return list;
     }
-    return list.filter(hero => {
-        return BuffsDebuffs.map(selectedBuffDebuff => selectedBuffDebuff.id).every(r =>
+    return list.filter((hero) => {
+        return BuffsDebuffs.map((selectedBuffDebuff) => selectedBuffDebuff.id).every((r) =>
             [...hero.buffs, ...hero.debuffs, ...hero.common].includes(r)
         );
     });
@@ -97,7 +97,7 @@ export function getByImprint(list, imprint) {
     if (!imprint || !Array.isArray(list)) {
         return list;
     }
-    return list.filter(listItem => listItem?.devotion?.type === imprint);
+    return list.filter((listItem) => listItem?.devotion?.type === imprint);
 }
 
 export function getByImprintSelf(list, imprint) {
@@ -105,7 +105,7 @@ export function getByImprintSelf(list, imprint) {
         return list;
     }
     /* eslint-disable camelcase */
-    return list.filter(listItem => listItem?.self_devotion?.type === imprint);
+    return list.filter((listItem) => listItem?.self_devotion?.type === imprint);
 }
 
 export function buffDebuffByType(list, type) {
@@ -116,7 +116,7 @@ export function buffDebuffByType(list, type) {
         return [];
     }
 
-    return list.filter(buff => buff.type === type) || [];
+    return list.filter((buff) => buff.type === type) || [];
 }
 
 export function headMetaTags(metaTags = {}, instanceThis = {}) {
@@ -133,7 +133,7 @@ export function headMetaTags(metaTags = {}, instanceThis = {}) {
 
     const pageMetaTags = Object.keys(metaTags);
 
-    pageMetaTags.forEach(metaTag => {
+    pageMetaTags.forEach((metaTag) => {
         // general
         if (!ogOnlyTags.includes(metaTag)) {
             head.meta.push({

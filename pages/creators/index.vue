@@ -63,6 +63,9 @@ export default {
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
+    asyncData({ store }) {
+        return store.dispatch("creator/getList");
+    },
     data() {
         return {
             isLoading: false,
@@ -71,9 +74,6 @@ export default {
     // use this.list
     computed: {
         ...mapGetters("creator", ["list"]),
-    },
-    asyncData({ store }) {
-        return store.dispatch("creator/getList");
     },
     mounted() {
         if (!this.list || (this.list && !this.list.length)) {

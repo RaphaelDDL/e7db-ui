@@ -3,11 +3,11 @@ import { errorHandler } from "~/util/Utils";
 export const state = () => ({ itemList: [] });
 
 export const getters = {
-    list: state => state.itemList,
-    single: state => _id => {
-        return state.itemList.filter(a => a._id === _id)[0] || {};
+    list: (state) => state.itemList,
+    single: (state) => (_id) => {
+        return state.itemList.filter((a) => a._id === _id)[0] || {};
     },
-    singleRarity: (state, getters) => _id => {
+    singleRarity: (state, getters) => (_id) => {
         const singleItem = getters.single(_id);
         return singleItem.grade ?? 0;
     },
@@ -30,14 +30,14 @@ export const actions = {
 
             this.$axios
                 .get("item", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
-                .then(r => {
+                .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
                     return r.data.results;
                 })
-                .catch(error => {
+                .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "item list");
                 })
-                .then(items => {
+                .then((items) => {
                     if (items?.length) {
                         commit("SET_ITEMS", items);
                         resolve(items);
@@ -61,7 +61,7 @@ export const actions = {
                     .then(() => {
                         resolve(getters.single(_id));
                     })
-                    .catch(error => {
+                    .catch((error) => {
                         errorHandler({ dispatch, reject }, error, "item detail");
                     });
             }

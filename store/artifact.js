@@ -3,7 +3,7 @@ import { errorHandler } from "~/util/Utils";
 export const state = () => ({ artifactList: [] });
 
 export const getters = {
-    list: state => state.artifactList,
+    list: (state) => state.artifactList,
 };
 
 export const mutations = {
@@ -22,14 +22,14 @@ export const actions = {
             }
             this.$axios
                 .get("artifact", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
-                .then(r => {
+                .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
                     return r.data.results;
                 })
-                .catch(error => {
+                .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "artifact list");
                 })
-                .then(artifacts => {
+                .then((artifacts) => {
                     if (artifacts?.length) {
                         commit("SET_ARTIFACTS", artifacts);
                         resolve(artifacts);
@@ -50,14 +50,14 @@ export const actions = {
                     headers: { "x-e7db-lang": this.$i18n.locale },
                     params: { lang: this.$i18n.locale },
                 })
-                .then(r => {
+                .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
                     return r.data.results;
                 })
-                .catch(error => {
+                .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "artifact detail");
                 })
-                .then(artifact => {
+                .then((artifact) => {
                     if (artifact?.length) {
                         resolve(artifact[0]);
                     } else {

@@ -49,7 +49,7 @@
                 <div
                     v-if="
                         (itemDetail.locations && itemDetail.locations.length) ||
-                            (itemDetail.apShops && itemDetail.apShops.length)
+                        (itemDetail.apShops && itemDetail.apShops.length)
                     "
                     class="item-locations"
                 >
@@ -69,9 +69,9 @@
                     <hr
                         v-if="
                             itemDetail.locations &&
-                                itemDetail.locations.length &&
-                                itemDetail.apShops &&
-                                itemDetail.apShops.length
+                            itemDetail.locations.length &&
+                            itemDetail.apShops &&
+                            itemDetail.apShops.length
                         "
                     />
                     <div v-if="itemDetail.apShops && itemDetail.apShops.length" class="columns">
@@ -143,7 +143,7 @@ export default {
 
             this.$store
                 .dispatch("item/getSingle", { _id })
-                .then(itemDetail => {
+                .then((itemDetail) => {
                     this.itemDetail = itemDetail;
                     this.showDetails = true;
                 })

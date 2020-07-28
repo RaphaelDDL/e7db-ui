@@ -11,7 +11,7 @@
                     <img
                         v-lazy="{
                             src: imageUrls.small,
-                            error: `${this.assetsUrl}/artifact/_placeholder/small_missing.jpg`,
+                            error: `${assetsUrl}/artifact/_placeholder/small_missing.jpg`,
                         }"
                         alt="small art"
                     />

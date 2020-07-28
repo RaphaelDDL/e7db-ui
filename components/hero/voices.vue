@@ -58,7 +58,7 @@ export default {
         },
         musicList() {
             const list = [];
-            this.voiceList.forEach(voice => {
+            this.voiceList.forEach((voice) => {
                 list.push(this.generateMusicObject(voice));
             });
             list.shift();

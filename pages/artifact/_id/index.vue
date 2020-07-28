@@ -32,7 +32,7 @@ export default {
     inject: ["assetsUrl"],
     async asyncData({ params, store, redirect }) {
         const [artifactDetail] = await Promise.all([
-            store.dispatch("artifact/getSingle", { _id: params.id }).catch(error => {
+            store.dispatch("artifact/getSingle", { _id: params.id }).catch((error) => {
                 return error;
             }),
         ]);

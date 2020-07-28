@@ -45,6 +45,9 @@ export default {
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
+    asyncData({ store }) {
+        return store.dispatch("artifact/getList");
+    },
     data() {
         return {
             isLoading: false,
@@ -61,10 +64,6 @@ export default {
             );
         },
     },
-    asyncData({ store }) {
-        return store.dispatch("artifact/getList");
-    },
-
     mounted() {
         if (!this.list || (this.list && !this.list.length)) {
             this.isLoading = true;

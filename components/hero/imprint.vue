@@ -86,6 +86,16 @@ import { heroStatsClass, statusKeyToIconKey, heroStatsKey } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
+    props: {
+        devotion: {
+            type: Object,
+            default: () => {},
+        },
+        self_devotion: {
+            type: Object,
+            default: () => [],
+        },
+    },
     data() {
         return {
             grades: ["D", "C", "B", "A", "S", "SS", "SSS"],
@@ -96,16 +106,6 @@ export default {
                 { n: 4, t: "west" },
             ],
         };
-    },
-    props: {
-        devotion: {
-            type: Object,
-            default: () => {},
-        },
-        self_devotion: {
-            type: Object,
-            default: () => [],
-        },
     },
     methods: {
         heroStatsClass,

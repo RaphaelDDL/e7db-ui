@@ -272,7 +272,7 @@
                 </div>
             </section> -->
 
-            <section class="section-container">
+            <!-- <section class="section-container">
                 <div class="section-box">
                     <h1>Website Translation Status (updated 2020/05/10)</h1>
                     <hr />
@@ -297,7 +297,7 @@
                         <li>Other Sections - Not started.</li>
                     </ul>
                 </div>
-            </section>
+            </section> -->
 
             <section class="section-container">
                 <div class="section-box">

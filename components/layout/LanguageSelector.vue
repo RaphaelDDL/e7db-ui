@@ -38,7 +38,7 @@ export default {
     inject: ["assetsUrl"],
     computed: {
         currentLocale() {
-            const currentLocale = this.$i18n.locales.filter(i => i.code === this.$i18n.locale);
+            const currentLocale = this.$i18n.locales.filter((i) => i.code === this.$i18n.locale);
             return currentLocale.length ? currentLocale[0] : { code: "xx", name: "unhandled", iso: "xx-XX" };
         },
     },

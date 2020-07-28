@@ -21,14 +21,14 @@
                         v-for="buff in skill.buff"
                         :key="buff"
                         :alt="buffDebuffIDToName(buff).name"
-                        :data-src="`${assetsUrl}/_source/buff/${buffDebuffIDToName(buff).icon}.png`"
+                        :data-src="buffDebuffIDToName(buff).assets.icon"
                         :title="buffDebuffIDToName(buff).name"
                     />
                     <img
                         v-for="debuff in skill.debuff"
                         :key="debuff"
                         :alt="buffDebuffIDToName(debuff).name"
-                        :data-src="`${assetsUrl}/_source/buff/${buffDebuffIDToName(debuff).icon}.png`"
+                        :data-src="buffDebuffIDToName(debuff).assets.icon"
                         :title="buffDebuffIDToName(debuff).name"
                     />
                     {{ skill.name }}
@@ -189,7 +189,7 @@ export default {
     },
     methods: {
         buffDebuffIDToName(id) {
-            const buffDebuffObject = this.buffDebuffCommonList.find(buff => buff.id === id);
+            const buffDebuffObject = this.buffDebuffCommonList.find((buff) => buff.id === id);
             if (!buffDebuffObject) {
                 return {};
             }

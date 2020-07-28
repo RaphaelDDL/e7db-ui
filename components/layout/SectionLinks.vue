@@ -84,7 +84,7 @@ export default {
     },
     computed: {
         currentLocale() {
-            const currentLocale = this.$i18n.locales.filter(i => i.code === this.$i18n.locale);
+            const currentLocale = this.$i18n.locales.filter((i) => i.code === this.$i18n.locale);
             return currentLocale.length ? currentLocale[0] : { iso: "en-US", countries: [] };
         },
         localeLink() {

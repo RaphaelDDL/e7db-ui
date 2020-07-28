@@ -3,7 +3,7 @@ import { errorHandler } from "~/util/Utils";
 export const state = () => ({ rankingList: [] });
 
 export const getters = {
-    list: state => state.rankingList,
+    list: (state) => state.rankingList,
 };
 
 export const mutations = {
@@ -22,14 +22,14 @@ export const actions = {
             }
             this.$axios
                 .get("ranking", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
-                .then(r => {
+                .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
                     return r.data.results;
                 })
-                .catch(error => {
+                .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "ranking list");
                 })
-                .then(rankings => {
+                .then((rankings) => {
                     if (rankings?.length) {
                         commit("SET_RANKING", rankings);
                         resolve(rankings);
@@ -53,7 +53,7 @@ export const actions = {
                     .then(() => {
                         resolve(getters.single(_id));
                     })
-                    .catch(error => {
+                    .catch((error) => {
                         errorHandler({ dispatch, reject }, error, "item detail");
                     });
             }

@@ -65,10 +65,10 @@ export default {
 
     async asyncData({ store }) {
         const [heroList, buffsList] = await Promise.all([
-            store.dispatch("hero/getList").catch(error => {
+            store.dispatch("hero/getList").catch((error) => {
                 return error;
             }),
-            store.dispatch("buffs/getList").catch(error => {
+            store.dispatch("buffs/getList").catch((error) => {
                 return error;
             }),
         ]);

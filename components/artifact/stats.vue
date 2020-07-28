@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="columns is-full is-mobile">
-                            <div class="column  is-text-left">
+                            <div class="column is-text-left">
                                 <button @click="currLevel > 1 ? currLevel-- : false">
                                     -1
                                 </button>
@@ -58,7 +58,7 @@
                                     class="slider is-fullwidth is-large"
                                 />
                             </div>
-                            <div class="column  is-text-right">
+                            <div class="column is-text-right">
                                 <button @click="currLevel < 30 ? currLevel++ : false">
                                     +1
                                 </button>
@@ -135,7 +135,7 @@ export default {
         statusByLevel() {
             const { attack, health } = this.stats;
             // math.floor(math.floor((base_stat * (0.75 + (0.05 * grade)))) * (1 + 0.40 * level))
-            const calcStats = attribute => {
+            const calcStats = (attribute) => {
                 return Math.floor(Math.floor(attribute * (0.75 + 0.05 * this.rarity)) * (1 + 0.4 * this.currLevel));
             };
             return {

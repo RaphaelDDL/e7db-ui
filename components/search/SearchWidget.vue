@@ -53,14 +53,14 @@ export default {
             return (
                 this.heroList &&
                 this.trimmedSearch.length &&
-                this.heroList.filter(h => h && h.trimmedName && h.trimmedName.includes(this.trimmedSearch))
+                this.heroList.filter((h) => h && h.trimmedName && h.trimmedName.includes(this.trimmedSearch))
             );
         },
         filteredArtifacts() {
             return (
                 this.artifactList &&
                 this.trimmedSearch.length &&
-                this.artifactList.filter(a => a && a.trimmedName && a.trimmedName.includes(this.trimmedSearch))
+                this.artifactList.filter((a) => a && a.trimmedName && a.trimmedName.includes(this.trimmedSearch))
             );
         },
     },
@@ -71,8 +71,8 @@ export default {
         //         this.dispatch(this.artifactList, "artifact/getList"),
         //     ]).then(() => {
         //         // just store these changes so we don't have to calc on the fly
-        this.heroList.forEach(h => (h.trimmedName = stripText(h.name)));
-        this.artifactList.forEach(a => (a.trimmedName = stripText(a.name)));
+        this.heroList.forEach((h) => (h.trimmedName = stripText(h.name)));
+        this.artifactList.forEach((a) => (a.trimmedName = stripText(a.name)));
         //         this.isLoading = false;
         //     });
     },

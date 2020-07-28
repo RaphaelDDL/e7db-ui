@@ -35,6 +35,9 @@ export default {
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
+    asyncData({ store }) {
+        return store.dispatch("item/getList");
+    },
     data() {
         return {
             isLoading: false,
@@ -44,10 +47,6 @@ export default {
     computed: {
         ...mapGetters("item", ["list"]),
     },
-    asyncData({ store }) {
-        return store.dispatch("item/getList");
-    },
-
     head() {
         return headMetaTags(
             {
