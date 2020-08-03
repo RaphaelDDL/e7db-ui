@@ -1290,7 +1290,7 @@ aside.column {
             padding: 0;
             min-width: auto;
             min-height: auto;
-            background: transparent url(#{$assetsUrl}/_source/img/_circle_gold.png) no-repeat center center;
+            background: transparent no-repeat center center; // url(#{$assetsUrl}/_source/img/_circle_gold.png)
             background-size: auto 12.5rem;
 
             h2,

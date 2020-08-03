@@ -11,7 +11,7 @@
         class="column"
         tag="li"
     >
-        <a class="hero-list-card" :class="`is-icon-${!!icon}`" :title="hero.name" v-bind="iconBgImage">
+        <a v-lazy:background-image="iconBgImage" class="hero-list-card" :class="`is-icon-${!!icon}`" :title="hero.name">
             <div :class="heroClass" class="no-text">
                 <h2>{{ hero.name }}</h2>
             </div>
@@ -46,11 +46,9 @@ export default {
         },
         iconBgImage() {
             if (!this.icon) {
-                return {};
+                return "";
             }
-            return {
-                style: `background-image:url(${this.assetsUrl}/_source/item/border/${avatarBorder(this.icon)}.png)`,
-            };
+            return `${this.assetsUrl}/_source/item/border/${avatarBorder(this.icon)}.png`;
         },
     },
 };
