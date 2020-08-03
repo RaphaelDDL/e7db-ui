@@ -11,7 +11,7 @@
         class="column"
         tag="li"
     >
-        <a class="hero-list-card">
+        <a v-lazy:background-image="iconBgImage" class="hero-list-card" :class="`is-icon-${!!icon}`" :title="hero.name">
             <div :class="heroClass" class="no-text">
                 <h2>{{ hero.name }}</h2>
             </div>
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import { trueRole, trueElement } from "~/util/Utils";
+import { trueRole, trueElement, avatarBorder } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
-    props: ["hero"],
+    props: ["hero", "icon"],
     computed: {
         heroClass() {
             return `hero-class-${trueRole(this.hero.role)}`;
@@ -40,9 +40,15 @@ export default {
         },
         imageUrls() {
             return {
-                src: this.hero?.assets?.thumbnail,
+                src: this.hero?.assets?.[this.icon ? "icon" : "thumbnail"],
                 error: `${this.assetsUrl}/hero/_placeholder/small_missing.png`,
             };
+        },
+        iconBgImage() {
+            if (!this.icon) {
+                return "";
+            }
+            return `${this.assetsUrl}/_source/item/border/${avatarBorder(this.icon)}.png`;
         },
     },
 };

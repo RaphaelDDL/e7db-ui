@@ -4,6 +4,7 @@ const I18N = require("./lang/config");
 const IS_PROD = !!(process.env.NODE_ENV === "production");
 
 module.exports = {
+    telemetry: true,
     mode: "universal",
     modern: IS_PROD,
     server: {

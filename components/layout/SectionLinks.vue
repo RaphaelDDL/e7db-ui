@@ -34,6 +34,13 @@
             </a>
         </nuxt-link>
 
+        <nuxt-link tag="li" :to="localePath('ranking')" @click.native="trackMenuEvent">
+            <a>
+                <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/ranking.png`" alt />
+                {{ $t("links.ranking") }}
+            </a>
+        </nuxt-link>
+
         <nuxt-link tag="li" :to="localePath('creators')" @click.native="trackMenuEvent">
             <a>
                 <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/creators.png`" alt />
