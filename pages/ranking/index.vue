@@ -42,7 +42,7 @@
                                             :id="`${player._id}${hero._id}`"
                                             :key="`${player._id}${hero._id}`"
                                             :hero="hero"
-                                            :icon="true"
+                                            :icon="player.border"
                                         />
                                     </ul>
                                 </div>

@@ -378,4 +378,55 @@ export function arenaBadge(value) {
     }
 }
 
+export function avatarBorder(value) {
+    if (typeof value !== "string") {
+        return value;
+    }
+
+    const borderMap = {
+        ma_border7: "icon_border_300days",
+        ma_border22: "icon_border_abyss100",
+        ma_border1: "icon_border_base",
+        ma_border2: "icon_border_pvp_season2_rank_1",
+        ma_border3: "icon_border_pvp_season2_rank_2",
+        ma_border4: "icon_border_pvp_season2_rank_3",
+        ma_border5: "icon_border_pvp_rank_none",
+        ma_border6: "icon_border_pvp_season2_shop_1",
+        ma_border9: "icon_border_pvp_season3_rank_1",
+        ma_border10: "icon_border_pvp_season3_rank_2",
+        ma_border11: "icon_border_pvp_season3_rank_3",
+        ma_border12: "icon_border_pvp_season3_rank_n",
+        ma_border13: "icon_border_pvp_season3_shop_1",
+        ma_border15: "icon_border_pvp_season4_rank_1",
+        ma_border16: "icon_border_pvp_season4_rank_2",
+        ma_border17: "icon_border_pvp_season4_rank_3",
+        ma_border18: "icon_border_pvp_season4_rank_n",
+        ma_border19: "icon_border_pvp_season4_shop_1",
+        ma_border23: "icon_border_pvp_season5_rank_1",
+        ma_border24: "icon_border_pvp_season5_rank_2",
+        ma_border25: "icon_border_pvp_season5_rank_3",
+        ma_border26: "icon_border_pvp_season5_rank_n",
+        ma_border27: "icon_border_pvp_season5_shop_1",
+        ma_border36: "icon_border_pvp_season6_rank_1",
+        ma_border37: "icon_border_pvp_season6_rank_2",
+        ma_border38: "icon_border_pvp_season6_rank_3",
+        ma_border39: "icon_border_pvp_season6_rank_n",
+        ma_border40: "icon_border_pvp_season6_shop_1",
+        ma_border8: "icon_border_seasonpass_season1",
+        ma_border14: "icon_border_seasonpass_season2",
+        ma_border20: "icon_border_seasonpass_season3",
+        ma_border21: "icon_border_seasonpass_season4",
+        ma_border28: "icon_border_seasonpass_season5",
+        ma_border33: "icon_border_seasonpass_season6",
+        ma_border34: "icon_border_seasonpass_season7",
+        ma_border35: "icon_border_seasonpass_season8",
+        ma_border29: "icon_border_ss1_rta001",
+        ma_border30: "icon_border_ss1_rta002",
+        ma_border31: "icon_border_ss1_rta003",
+        ma_border32: "icon_border_ss1_rta004",
+    };
+
+    return borderMap[value] ?? "icon_border_base";
+}
+
 export { statusKeyToIconKey, statusKeyToName };

@@ -11,7 +11,7 @@
         class="column"
         tag="li"
     >
-        <a class="hero-list-card" :class="`is-icon-${!!icon}`" :title="hero.name">
+        <a class="hero-list-card" :class="`is-icon-${!!icon}`" :title="hero.name" v-bind="iconBgImage">
             <div :class="heroClass" class="no-text">
                 <h2>{{ hero.name }}</h2>
             </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { trueRole, trueElement } from "~/util/Utils";
+import { trueRole, trueElement, avatarBorder } from "~/util/Utils";
 
 export default {
     inject: ["assetsUrl"],
@@ -42,6 +42,14 @@ export default {
             return {
                 src: this.hero?.assets?.[this.icon ? "icon" : "thumbnail"],
                 error: `${this.assetsUrl}/hero/_placeholder/small_missing.png`,
+            };
+        },
+        iconBgImage() {
+            if (!this.icon) {
+                return {};
+            }
+            return {
+                style: `background-image:url(${this.assetsUrl}/_source/item/border/${avatarBorder(this.icon)}.png)`,
             };
         },
     },
