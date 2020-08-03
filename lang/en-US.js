@@ -22,7 +22,7 @@ export default {
         changelog: "Changelog",
         privacyPolicy: "Privacy Policy",
         back: "Back",
-        ranking: "Ranking",
+        ranking: "Arena Ranking",
     },
     loader: {
         message: "Fetching data, please wait..",

@@ -353,4 +353,29 @@ function statusKeyToName(type) {
             return "";
     }
 }
+
+export function arenaBadge(value) {
+    if (typeof value !== "string") {
+        return value;
+    }
+    switch (true) {
+        case value.includes("bronze"):
+            return "icon_pvp_sa_league_bronze";
+        case value.includes("challenger"):
+            return "icon_pvp_sa_league_challenger";
+        case value.includes("champion"):
+            return "icon_pvp_sa_league_champion";
+        case value.includes("gold"):
+            return "icon_pvp_sa_league_gold";
+        case value.includes("legend"):
+            return "icon_pvp_sa_league_legend";
+        case value.includes("master"):
+            return "icon_pvp_sa_league_master";
+        case value.includes("silver"):
+            return "icon_pvp_sa_league_silver";
+        default:
+            return value;
+    }
+}
+
 export { statusKeyToIconKey, statusKeyToName };

@@ -111,8 +111,9 @@ input[type="radio"] {
     vertical-align: baseline;
 }
 
-small {
-    font-size: 0.875em;
+small,
+.small {
+    font-size: 0.875em !important;
 }
 
 span {
@@ -126,7 +127,7 @@ p {
 
 strong,
 .strong {
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 
 .boxBorderHr {
@@ -160,7 +161,7 @@ strong,
 }
 
 button {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 1.2rem;
 
     & img {
@@ -444,7 +445,8 @@ nav.top-nav-bar {
             text-decoration: none;
             color: $menuFontColor;
 
-            &:hover {
+            &:hover,
+            .nuxt-link-active {
                 background-color: lighten($menuOptionsBackgroundColor, 15%);
                 color: white;
             }
@@ -767,9 +769,9 @@ aside.column {
     color: rgb(72, 137, 232);
 }
 
-.skill-multi-notes{
+.skill-multi-notes {
     text-align: center;
-    color:white;
+    color: white;
     font-size: 1.1rem;
 
     @include tablet {
@@ -788,7 +790,6 @@ aside.column {
     display: none;
     font-size: 1.2rem;
 }
-
 
 .skill-bonus,
 .skill-cooldown {
@@ -1281,6 +1282,36 @@ aside.column {
             color: white;
             text-shadow: -0.1rem -0.1rem 0 #000, 0.1rem -0.1rem 0 #000, -0.1rem 0.1rem 0 #000, 0.1rem 0.1rem 0 #000;
         }
+
+        &.is-icon-true {
+            width: 12rem;
+            height: 12rem;
+            bottom: 0;
+            padding: 0;
+            min-width: auto;
+            min-height: auto;
+            background: transparent url(#{$assetsUrl}/_source/img/_circle_gold.png) no-repeat center center;
+            background-size: auto 12rem;
+
+            h2,
+            & + .hero-list-background {
+                display: none;
+            }
+
+            .hero-list-card-image {
+                width: 9rem;
+                height: 9rem;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+
+            [class*="hero-element-"] {
+                text-align: center;
+                width: 100px;
+            }
+        }
     }
 }
 
@@ -1556,8 +1587,8 @@ aside.column {
             display: block;
             margin: 0 0 0 auto;
 
-            &[lazy=loading]{
-                width:auto;
+            &[lazy="loading"] {
+                width: auto;
             }
         }
         .artifact-icon {
@@ -1575,7 +1606,7 @@ aside.column {
 .artifact-slider {
     button {
         border-color: $boxBorder;
-        background:lighten(black,10%);
+        background: lighten(black, 10%);
         font-size: 1.4rem;
         color: $skillEnhanceFontColor;
         @extend .strong;
@@ -1585,14 +1616,14 @@ aside.column {
         }
 
         &:hover {
-            background:lighten(black,20%);
+            background: lighten(black, 20%);
         }
     }
 }
 .artifact-status {
     font-size: 2.5rem;
 
-    [class*=stat-icon-]{
+    [class*="stat-icon-"] {
         &::before {
             vertical-align: middle;
         }
@@ -1802,7 +1833,7 @@ aside.column {
 .globalWarning {
     border-color: yellow;
     padding: 0;
-    background-color: darken(yellow,40%);
+    background-color: darken(yellow, 40%);
     font-size: 1.2rem;
     text-align: center;
 
@@ -1948,14 +1979,14 @@ aside.column {
 }
 
 @keyframes heroMove {
-    0%,100% {
+    0%,
+    100% {
         transform: rotate(0);
-      }
+    }
     50% {
         transform: rotate(-1deg);
     }
-  }
-
+}
 
 .hero-summoning {
     background: transparent url(#{$assetsUrl}/website/summon/gacha_get_bg0_e7db.jpg) no-repeat top center;
@@ -1982,11 +2013,11 @@ aside.column {
 
         @include tablet {
             top: 0;
-            right:10%;
+            right: 10%;
         }
 
-        &[lazy=loading] {
-            width: 8.0rem;
+        &[lazy="loading"] {
+            width: 8rem;
             height: 11.6rem;
             top: 50%;
             left: 50%;
@@ -1995,14 +2026,14 @@ aside.column {
             bottom: unset;
         }
 
-        &[lazy=error] {
+        &[lazy="error"] {
             top: 50%;
             transform: translate(0, -50%) scaleX(-1);
             -ms-filter: "FlipH";
             filter: FlipH;
         }
 
-        &[lazy=loaded] {
+        &[lazy="loaded"] {
             transform-origin: center bottom;
             animation: heroMove 8s infinite running;
         }
@@ -2075,5 +2106,30 @@ aside.column {
 //     //
 // }
 
+.ranking-list-ul {
+    .ranking-user {
+        border-top: 1px solid $boxBorder;
+        padding-top: 2rem;
 
+        &:first-child {
+            padding-top: 0;
+            border-top: 0;
+        }
 
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3) {
+            .player-name {
+                display: inline-block;
+                padding-left: 3rem;
+                background: transparent url(#{$assetsUrl}/_source/img/cm_icon_etc_ankcup.png) no-repeat left center;
+                background-size: auto 2.6rem;
+            }
+        }
+    }
+    .rank-icon {
+        float: left;
+        max-width: 112px;
+        max-height: 100px;
+    }
+}

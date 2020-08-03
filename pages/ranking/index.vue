@@ -2,27 +2,51 @@
     <div class="columns">
         <main class="column is-12">
             <section class="section-container">
-                <div class="section-box">
+                <div class="section-box hero-list">
                     <h1>{{ $t("links.ranking") }}</h1>
                     <hr />
-                    <div v-if="lastUpdated">
+                    <div v-if="lastUpdated" class="is-text-center small">
                         Last Updated in
-                        <span class="white">
+                        <span class="skillEnhanceFontColor">
                             {{ lastUpdated }}
                         </span>
-                        <hr />
                     </div>
-                    <ul>
-                        <li v-for="player in list" :key="player._id">
-                            #{{ player.rank }} - {{ player.player }} | {{ player.score }} | {{ player.league }} |
-                            {{ player.border }}
+                    <h4 class="has-margin-bottom">
+                        View the Top 100 players among all Arena players
+                    </h4>
 
-                            <ul>
-                                <li v-for="hero in player.team" :key="`${player._id}${hero._id}`">
-                                    {{ hero.name }} | {{ hero.rarity }} | {{ hero.attribute }} | {{ hero.role }} |
-                                    {{ hero.assets.icon }} |
-                                </li>
-                            </ul>
+                    <ul class="ranking-list-ul">
+                        <li v-for="player in list" :key="player._id" class="ranking-user">
+                            <div class="columns">
+                                <div class="column is-two-fifths">
+                                    <img
+                                        v-lazy="{
+                                            src: `${assetsUrl}/_source/emblem/${arenaBadge(player.league)}.png`,
+                                            error: `${assetsUrl}/hero/_placeholder/sk_missing.png`,
+                                        }"
+                                        alt=""
+                                        class="rank-icon"
+                                    />
+                                    <small>{{ player.league | noUnderscore(true) }}</small>
+                                    <h2>
+                                        #{{ player.rank }}
+                                        <span class="skillEnhanceFontColor player-name">{{ player.player }}</span>
+                                    </h2>
+                                    <small>{{ player.score | formatNumber }} pts.</small>
+                                    <div class="clearBoth"></div>
+                                </div>
+                                <div class="column is-three-fifths">
+                                    <ul class="columns is-mobile hero-list-ul">
+                                        <ListItem
+                                            v-for="hero in player.team"
+                                            :id="`${player._id}${hero._id}`"
+                                            :key="`${player._id}${hero._id}`"
+                                            :hero="hero"
+                                            :icon="true"
+                                        />
+                                    </ul>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -34,8 +58,13 @@
 <script>
 import { mapGetters } from "vuex";
 import { mountedPageView } from "~/util/vueMixins";
-import { headMetaTags } from "~/util/Utils";
+import { headMetaTags, arenaBadge } from "~/util/Utils";
+import ListItem from "~/components/heroes/ListItem";
+
 export default {
+    components: {
+        ListItem,
+    },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
     asyncData({ store }) {
@@ -50,6 +79,9 @@ export default {
         lastUpdated() {
             return this.list?.[0]?.ts ? new Date(this.list[0].ts * 1000) : null;
         },
+    },
+    methods: {
+        arenaBadge,
     },
     head() {
         return headMetaTags(
