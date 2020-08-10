@@ -137,7 +137,7 @@ export default {
             {
                 title: `${this.$t("links.ranking")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
                 description:
-                    "See latest PvP Arena Rankings for all Servers, discover the most used teams and heroes and more.",
+                    "See latest PvP Arena Rankings for Global Server, discover the most used teams and heroes and more.",
                 image: this.assetsUrl + "/website/book_about.png",
             },
             this
