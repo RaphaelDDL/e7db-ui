@@ -429,4 +429,17 @@ export function avatarBorder(value) {
     return borderMap[value] ?? "icon_border_base";
 }
 
+export function calculateHeroUsage(rankings) {
+    if (!rankings?.length) {
+        return [];
+    }
+    const heroTable = {};
+    rankings.forEach((player) => {
+        player?.team?.forEach((hero) => {
+            heroTable[hero.name] = +heroTable[hero.name] + 1 || 1;
+        });
+    });
+    return Object.entries(heroTable).sort((a, b) => b[1] - a[1]);
+}
+
 export { statusKeyToIconKey, statusKeyToName };

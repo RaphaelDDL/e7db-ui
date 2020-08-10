@@ -12,9 +12,54 @@
                         </span>
                     </div>
                     <h4 class="has-margin-bottom">
-                        View the Top 100 players among all Arena players
+                        Hero Usage Statistics
                     </h4>
 
+                    <div class="columns is-mobile">
+                        <div class="column is-half">
+                            <div class="columns white is-mobile">
+                                <div class="column is-half">Name</div>
+                                <div class="column is-one-quarter">Appears</div>
+                                <div class="column is-one-quarter">% of Total</div>
+                            </div>
+                            <hr />
+                            <div
+                                v-for="hero in heroUsage.slice(0, heroUsageHalfLength)"
+                                :key="hero[0]"
+                                class="columns is-mobile"
+                            >
+                                <div class="column is-half">{{ hero[0] }}</div>
+                                <div class="column is-one-quarter">{{ hero[1] }}</div>
+                                <div class="column is-one-quarter skillEnhanceFontColor">
+                                    {{ (hero[1] / 400) | toPercent }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="columns white is-mobile">
+                                <div class="column is-half">Name</div>
+                                <div class="column is-one-quarter">Appears</div>
+                                <div class="column is-one-quarter">% of Total</div>
+                            </div>
+                            <hr />
+                            <div
+                                v-for="hero in heroUsage.slice(heroUsageHalfLength)"
+                                :key="hero[0]"
+                                class="columns is-mobile"
+                            >
+                                <div class="column is-half">{{ hero[0] }}</div>
+                                <div class="column is-one-quarter">{{ hero[1] }}</div>
+                                <div class="column is-one-quarter skillEnhanceFontColor">
+                                    {{ (hero[1] / 400) | toPercent }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <h4 class="has-margin-bottom">
+                        Top 100 players among all Arena players (Global)
+                    </h4>
                     <ul class="ranking-list-ul">
                         <li v-for="player in list" :key="player._id" class="ranking-user">
                             <div class="columns">
@@ -76,8 +121,12 @@ export default {
     // use this.list
     computed: {
         ...mapGetters("ranking", ["list"]),
+        ...mapGetters("ranking", ["heroUsage"]),
         lastUpdated() {
             return this.list?.[0]?.ts ? new Date(this.list[0].ts * 1000) : null;
+        },
+        heroUsageHalfLength() {
+            return this.heroUsage?.length / 2 ?? 0;
         },
     },
     methods: {

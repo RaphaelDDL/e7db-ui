@@ -1,14 +1,16 @@
-import { errorHandler } from "~/util/Utils";
+import { errorHandler, calculateHeroUsage } from "~/util/Utils";
 
-export const state = () => ({ rankingList: [] });
+export const state = () => ({ rankingList: [], heroUsage: [] });
 
 export const getters = {
     list: (state) => state.rankingList,
+    heroUsage: (state) => state.heroUsage,
 };
 
 export const mutations = {
     SET_RANKING(state, rankings) {
         state.rankingList = rankings;
+        state.heroUsage = calculateHeroUsage(rankings);
     },
 };
 
