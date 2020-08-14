@@ -1424,6 +1424,23 @@ aside.column {
     }
 }
 
+.hero-filter-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+
+    &[lazy="error"] {
+        border: 0.1rem solid rgb(64, 64, 64);
+        border-radius: 2.8rem;
+    }
+}
+
+.hero-filter-text {
+    vertical-align: middle;
+    display: inline-block;
+}
+
 .filter-group {
     position: relative;
     display: inline-flex;
@@ -2119,7 +2136,7 @@ aside.column {
         &:first-child,
         &:nth-child(2),
         &:nth-child(3) {
-            .player-name {
+            &:not(.filtered) .player-name {
                 display: inline-block;
                 padding-left: 3rem;
                 background: transparent url(#{$assetsUrl}/_source/img/cm_icon_etc_ankcup.png) no-repeat left center;

@@ -93,6 +93,19 @@ export function getByBuffDebuff(list, BuffsDebuffs) {
     });
 }
 
+export function getByHeroId(list, heroIdList) {
+    if (!Array.isArray(heroIdList) || !Array.isArray(list)) {
+        return list;
+    }
+    if (!heroIdList?.length) {
+        return list;
+    }
+
+    return list.filter((player) => {
+        return heroIdList.map((hero) => hero.id).every((id) => player.team.some((teamHero) => teamHero.id === id));
+    });
+}
+
 export function getByImprint(list, imprint) {
     if (!imprint || !Array.isArray(list)) {
         return list;

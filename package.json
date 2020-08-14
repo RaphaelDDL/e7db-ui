@@ -1,105 +1,105 @@
 {
-  "name": "epicsevendb-ui",
-  "version": "1.8.4",
-  "description": "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
-  "author": "RaphaelDDL <ddl@raphaelddl.com>",
-  "repository": "https://github.com/EpicSevenDB/ui",
-  "homepage": "https://epicsevendb.com",
-  "bugs": {
-    "url": "https://github.com/EpicSevenDB/ui/issues"
-  },
-  "private": true,
-  "license": "CC-BY-NC-SA-4.0",
-  "data": {
-    "apiEndpoint": "https://api.epicsevendb.com/",
-    "assetsEndpoint": "https://assets.epicsevendb.com",
-    "analyticsId": "UA-129320031-1"
-  },
-  "engines": {
-    "node": ">=10"
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm test"
-    }
-  },
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest --passWithNoTests",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
-  },
-  "dependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/node": "^7.10.5",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
-    "@babel/plugin-proposal-optional-chaining": "^7.10.4",
-    "@babel/plugin-transform-runtime": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/register": "^7.10.5",
-    "@babel/runtime": "^7.10.5",
-    "@nuxtjs/axios": "^5.12.0",
-    "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/pwa": "^2.6.0",
-    "babel-eslint": "^10.1.0",
-    "babel-preset-minify": "^0.5.1",
-    "bulma-slider": "2.0.0",
-    "connect-timeout": "^1.9.0",
-    "cross-env": "^7.0.2",
-    "dateformat": "^3.0.3",
-    "express": "^4.17.1",
-    "express-rate-limit": "^5.1.3",
-    "helmet": "^3.23.3",
-    "normalize.css": "^8.0.1",
-    "nuxt": "2.14.0",
-    "nuxt-i18n": "^6.13.1",
-    "sass-loader": "8.0.2",
-    "v-tooltip": "^2.0.3",
-    "vue-aplayer": "^1.6.1",
-    "vue-i18n": "^8.19.0",
-    "vue-js-modal": "^1.3.35",
-    "vue-lazyload": "^1.3.3",
-    "vue-multiselect": "^2.1.6",
-    "vue-tabs-component": "^1.5.0",
-    "snyk": "^1.369.0"
-  },
-  "devDependencies": {
-    "@babel/runtime-corejs2": "^7.10.5",
-    "@nuxtjs/eslint-config": "^3.1.0",
-    "@vue/test-utils": "^1.0.3",
-    "babel-jest": "^26.1.0",
-    "core-js": "^3.6.5",
-    "eslint": "^7.5.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": ">=14.1.1",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.19.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-nuxt": ">=1.0.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-promise": ">=4.2.1",
-    "eslint-plugin-standard": ">=4.0.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "husky": "^4.2.5",
-    "jest": "^26.1.0",
-    "lint-staged": "^10.2.11",
-    "node-sass": "^4.14.1",
-    "nodemon": "^2.0.4",
-    "prettier": "^2.0.5",
-    "vue-jest": "^3.0.6"
-  },
-  "snyk": true
+    "name": "epicsevendb-ui",
+    "version": "1.8.5",
+    "description": "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
+    "author": "RaphaelDDL <ddl@raphaelddl.com>",
+    "repository": "https://github.com/EpicSevenDB/ui",
+    "homepage": "https://epicsevendb.com",
+    "bugs": {
+        "url": "https://github.com/EpicSevenDB/ui/issues"
+    },
+    "private": true,
+    "license": "CC-BY-NC-SA-4.0",
+    "data": {
+        "apiEndpoint": "https://api.epicsevendb.com/",
+        "assetsEndpoint": "https://assets.epicsevendb.com",
+        "analyticsId": "UA-129320031-1"
+    },
+    "engines": {
+        "node": ">=10"
+    },
+    "lint-staged": {
+        "*.{js,vue}": [
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged && npm test"
+        }
+    },
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+        "build": "nuxt build",
+        "start": "cross-env NODE_ENV=production node server/index.js",
+        "generate": "nuxt generate",
+        "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+        "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+        "test": "jest --passWithNoTests",
+        "snyk-protect": "snyk protect",
+        "prepare": "npm run snyk-protect"
+    },
+    "dependencies": {
+        "@babel/cli": "^7.10.5",
+        "@babel/core": "^7.10.5",
+        "@babel/node": "^7.10.5",
+        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
+        "@babel/plugin-proposal-optional-chaining": "^7.10.4",
+        "@babel/plugin-transform-runtime": "^7.10.5",
+        "@babel/preset-env": "^7.10.4",
+        "@babel/register": "^7.10.5",
+        "@babel/runtime": "^7.10.5",
+        "@nuxtjs/axios": "^5.12.0",
+        "@nuxtjs/google-analytics": "^2.4.0",
+        "@nuxtjs/pwa": "^2.6.0",
+        "babel-eslint": "^10.1.0",
+        "babel-preset-minify": "^0.5.1",
+        "bulma-slider": "2.0.0",
+        "connect-timeout": "^1.9.0",
+        "cross-env": "^7.0.2",
+        "dateformat": "^3.0.3",
+        "express": "^4.17.1",
+        "express-rate-limit": "^5.1.3",
+        "helmet": "^3.23.3",
+        "normalize.css": "^8.0.1",
+        "nuxt": "2.14.0",
+        "nuxt-i18n": "^6.13.1",
+        "sass-loader": "8.0.2",
+        "v-tooltip": "^2.0.3",
+        "vue-aplayer": "^1.6.1",
+        "vue-i18n": "^8.19.0",
+        "vue-js-modal": "^1.3.35",
+        "vue-lazyload": "^1.3.3",
+        "vue-multiselect": "^2.1.6",
+        "vue-tabs-component": "^1.5.0",
+        "snyk": "^1.369.0"
+    },
+    "devDependencies": {
+        "@babel/runtime-corejs2": "^7.10.5",
+        "@nuxtjs/eslint-config": "^3.1.0",
+        "@vue/test-utils": "^1.0.3",
+        "babel-jest": "^26.1.0",
+        "core-js": "^3.6.5",
+        "eslint": "^7.5.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-config-standard": ">=14.1.1",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jest": "^23.19.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-nuxt": ">=1.0.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-promise": ">=4.2.1",
+        "eslint-plugin-standard": ">=4.0.1",
+        "eslint-plugin-vue": "^6.2.2",
+        "husky": "^4.2.5",
+        "jest": "^26.1.0",
+        "lint-staged": "^10.2.11",
+        "node-sass": "^4.14.1",
+        "nodemon": "^2.0.4",
+        "prettier": "^2.0.5",
+        "vue-jest": "^3.0.6"
+    },
+    "snyk": true
 }
