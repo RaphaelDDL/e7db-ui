@@ -7,7 +7,20 @@
                     <h1>{{ $t("links.creators") }}</h1>
                     <p>
                         Below, profiles of selected Content Creators that provide great Epic Seven content to the
-                        community, bringing information and joy to viewers.
+                        community
+                    </p>
+                    <hr />
+                    <p>
+                        <i
+                            >Note: List Order is not endorsement of better vs worse as is randomized to provide
+                            visibility to all creators.</i
+                        >
+                    </p>
+                    <p>
+                        <strong
+                            >If you are an Epic Seven Content Creator and would like to be added or removed from this
+                            list, please contact <em>RaphaelDDL#5150</em> on Discord</strong
+                        >.
                     </p>
                     <hr />
                     <ul v-if="list && list.length" class="bullets creators">
@@ -32,19 +45,6 @@
                             </div>
                         </li>
                     </ul>
-                    <hr />
-                    <p>
-                        <i
-                            >Note: List Order is not endorsement of better vs worse as is randomized to provide
-                            visibility to all creators.</i
-                        >
-                    </p>
-                    <p>
-                        <i
-                            >If you are an Epic Seven Content Creator and would like to be added or removed from this
-                            list, please contact <em>RaphaelDDL#5150</em> on Discord</i
-                        >.
-                    </p>
                 </div>
             </section>
         </main>

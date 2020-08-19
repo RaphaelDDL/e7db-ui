@@ -39,6 +39,13 @@ module.exports = {
             countries: ["Taiwan"],
         },
         {
+            name: "Français",
+            code: "fr",
+            iso: "fr-FR",
+            file: "fr-FR.js",
+            countries: ["France", "Canada"],
+        },
+        {
             name: "Português",
             code: "pt",
             iso: "pt-BR",
@@ -53,11 +60,11 @@ module.exports = {
             countries: ["Spain", "Argentina"],
         },
         {
-            name: "Français",
-            code: "fr",
-            iso: "fr-FR",
-            file: "fr-FR.js",
-            countries: ["France", "Canada"],
+            name: "ภาษาไทย",
+            code: "th",
+            iso: "th-TH",
+            file: "th-TH.js",
+            countries: ["Thailand"],
         },
         {
             name: "Deutsch",
