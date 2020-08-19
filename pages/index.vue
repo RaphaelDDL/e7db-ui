@@ -18,6 +18,12 @@
                                 {{ $t("links.artifacts") }}
                             </a>
                         </nuxt-link>
+                        <nuxt-link tag="li" :to="localePath('ranking')" @click.native="trackMenuEvent">
+                            <a>
+                                <img v-lazy="`${assetsUrl}/website/section-icons/ranking.png`" />
+                                {{ $t("links.ranking") }}
+                            </a>
+                        </nuxt-link>
                         <nuxt-link tag="li" :to="localePath('items')" @click.native="trackMenuEvent">
                             <a>
                                 <img v-lazy="`${assetsUrl}/website/section-icons/items.png`" />
@@ -28,12 +34,6 @@
                             <a>
                                 <img v-lazy="`${assetsUrl}/website/section-icons/creators.png`" />
                                 {{ $t("links.creators") }}
-                            </a>
-                        </nuxt-link>
-                        <nuxt-link tag="li" :to="localePath('changelog')" @click.native="trackMenuEvent">
-                            <a>
-                                <img v-lazy="`${assetsUrl}/website/section-icons/changelog.png`" />
-                                {{ $t("links.changelog") }}
                             </a>
                         </nuxt-link>
                         <nuxt-link tag="li" :to="localePath('about')" @click.native="trackMenuEvent">
