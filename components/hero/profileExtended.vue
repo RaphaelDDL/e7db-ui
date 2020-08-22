@@ -1,5 +1,5 @@
 <template>
-    <section class="hero-summoning section-box">
+    <section v-lazy:background-image="bgImage" class="hero-summoning section-box">
         <img v-lazy="fullbodyImg" class="fullbody-fit" />
 
         <div class="profile">
@@ -99,6 +99,9 @@ export default {
                 src: `${this.assetsUrl}/herofull/${this.id}.png`,
                 loading: `${this.assetsUrl}/website/loading.gif`,
             };
+        },
+        bgImage() {
+            return `${this.assetsUrl}/website/summon/gacha_get_bg0_e7db.jpg`;
         },
         trueSign() {
             const { zodiac } = this;

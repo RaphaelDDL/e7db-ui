@@ -160,6 +160,10 @@ strong,
     margin-bottom: 2rem;
 }
 
+.is-full-width {
+    width: 100%;
+}
+
 button {
     padding: 0.5rem 1rem;
     border-radius: 1.2rem;
@@ -2006,7 +2010,7 @@ aside.column {
 }
 
 .hero-summoning {
-    background: transparent url(#{$assetsUrl}/website/summon/gacha_get_bg0_e7db.jpg) no-repeat top center;
+    background: transparent no-repeat top center;
     overflow: hidden;
     box-shadow: inset 0 0 2rem -0.5rem black;
     position: relative;

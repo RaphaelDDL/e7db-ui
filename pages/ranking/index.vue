@@ -62,7 +62,7 @@
                     </h4>
                     <div class="columns">
                         <div class="column is-half-tablet is-multiselect-container">
-                            <h5>{{ $t("filters.header") }}</h5>
+                            <h5>{{ $t("filters.header") }} (1-4 {{ $t("links.heroes") }})</h5>
                             <Multiselect
                                 v-model="selectedHeroes"
                                 :options="heroList"
@@ -71,7 +71,7 @@
                                 :multiple="true"
                                 placeholder="Heroes"
                                 :option-height="30"
-                                class="filter-multiselect"
+                                class="filter-multiselect is-full-width"
                                 :show-labels="false"
                                 label="name"
                                 track-by="_id"

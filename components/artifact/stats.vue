@@ -200,7 +200,7 @@ export default {
 </script>
 <style lang="scss">
 @import "@/assets/scss/_variables.scss";
-@import "bulma-slider";
+@import "bulma-slider/dist/css/bulma-slider.min.css";
 $slider-track-background: $skillEnhanceFontColor;
 input[type="range"].slider {
     &::-webkit-slider-runnable-track {
