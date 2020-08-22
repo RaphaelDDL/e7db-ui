@@ -154,6 +154,7 @@ export default {
     elements: {
         fire: "Fire",
         earth: "Earth",
+        wind: "Earth",
         ice: "Ice",
         light: "Light",
         dark: "Dark",
@@ -191,5 +192,10 @@ export default {
     },
     ex_equip: {
         name: "Exclusive Equipment",
+    },
+    ranking: {
+        header: "Top {0} Arena Ranking",
+        moonlight: "Moonlight",
+        rgb: "RGB",
     },
 };

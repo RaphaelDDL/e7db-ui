@@ -224,6 +224,12 @@ export function toPercent(value) {
         //     return '';
     }
 }
+export function toFixed(value) {
+    if (typeof value !== "number") {
+        return value;
+    }
+    return value.toFixed(2);
+}
 
 export function trueRole(role) {
     if (!role) {
@@ -447,12 +453,30 @@ export function calculateHeroUsage(rankings) {
         return [];
     }
     const heroTable = {};
+    const roleTable = {};
+    const attributeTable = {};
+    const moonlightTable = {};
+    const rarityTable = {};
+
     rankings.forEach((player) => {
         player?.team?.forEach((hero) => {
-            heroTable[hero.name] = +heroTable[hero.name] + 1 || 1;
+            if (hero.name) heroTable[hero.name] = +heroTable[hero.name] + 1 || 1;
+            if (hero.role) roleTable[hero.role] = +roleTable[hero.role] + 1 || 1;
+            if (hero.attribute) attributeTable[hero.attribute] = +attributeTable[hero.attribute] + 1 || 1;
+
+            if (hero.rarity) rarityTable[hero.rarity] = +rarityTable[hero.rarity] + 1 || 1;
+
+            const IS_ML = !!hero.moonlight;
+            moonlightTable[IS_ML] = +moonlightTable[IS_ML] + 1 || 1;
         });
     });
-    return Object.entries(heroTable).sort((a, b) => b[1] - a[1]);
+    return {
+        byName: Object.entries(heroTable).sort((a, b) => b[1] - a[1]),
+        byClass: Object.entries(roleTable).sort((a, b) => b[1] - a[1]),
+        byElement: Object.entries(attributeTable).sort((a, b) => b[1] - a[1]),
+        byML: Object.entries(moonlightTable).sort((a, b) => b[1] - a[1]),
+        byRarity: Object.entries(rarityTable).sort((a, b) => b[1] - a[1]),
+    };
 }
 
 export { statusKeyToIconKey, statusKeyToName };

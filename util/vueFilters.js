@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { formatNumber, toPercent } from "~/util/Utils";
+import { formatNumber, toPercent, toFixed } from "~/util/Utils";
 
 // function isInt(n) {
 //     return Number(n) === n && n % 1 === 0;
@@ -31,4 +31,5 @@ function noUnderscore(value, capitalize = false) {
 
 Vue.filter("formatNumber", formatNumber);
 Vue.filter("toPercent", toPercent);
+Vue.filter("toFixed", toFixed);
 Vue.filter("noUnderscore", noUnderscore);
