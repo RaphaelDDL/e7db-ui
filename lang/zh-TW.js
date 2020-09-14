@@ -22,6 +22,7 @@ export default {
         changelog: "更新日誌",
         privacyPolicy: "隱私政策",
         back: "返回",
+        ranking: "競技場排名",
     },
     loader: {
         message: "加載數據中，請等待..",
@@ -188,5 +189,10 @@ export default {
     },
     ex_equip: {
         name: "專屬裝備",
+    },
+    ranking: {
+        header: "Top {0} 競技場排名",
+        moonlight: "光暗",
+        rgb: "三色",
     },
 };
