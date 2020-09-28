@@ -36,7 +36,7 @@
                 step="1"
             />
 
-            <p style="white-space: pre-wrap;">{{ skillDescriptionModel }}</p>
+            <p style="white-space: pre-wrap">{{ skillDescriptionModel }}</p>
         </div>
     </section>
 </template>

@@ -93,9 +93,7 @@
                             To allow you to participate in interactive features of our Service when you choose to do so
                         </li>
                         <li>To provide customer care and support</li>
-                        <li>
-                            To provide analysis or valuable information so that we can improve the Service
-                        </li>
+                        <li>To provide analysis or valuable information so that we can improve the Service</li>
                         <li>To monitor the usage of the Service</li>
                         <li>To detect, prevent and address technical issues</li>
                     </ul>
@@ -131,12 +129,8 @@
                     <ul>
                         <li>To comply with a legal obligation</li>
                         <li>To protect and defend the rights or property of EpicSevenDB</li>
-                        <li>
-                            To prevent or investigate possible wrongdoing in connection with the Service
-                        </li>
-                        <li>
-                            To protect the personal safety of users of the Service or the public
-                        </li>
+                        <li>To prevent or investigate possible wrongdoing in connection with the Service</li>
+                        <li>To protect the personal safety of users of the Service or the public</li>
                         <li>To protect against legal liability</li>
                     </ul>
 
@@ -160,9 +154,7 @@
                     </p>
 
                     <h3>Analytics</h3>
-                    <p>
-                        We may use third-party Service Providers to monitor and analyze the use of our Service.
-                    </p>
+                    <p>We may use third-party Service Providers to monitor and analyze the use of our Service.</p>
                     <ul>
                         <li>
                             <p>
@@ -202,9 +194,7 @@
                     </p>
 
                     <h2>Children's Privacy</h2>
-                    <p>
-                        Our Service does not address anyone under the age of 18 ("Children").
-                    </p>
+                    <p>Our Service does not address anyone under the age of 18 ("Children").</p>
                     <p>
                         We do not knowingly collect personally identifiable information from anyone under the age of 18.
                         If you are a parent or guardian and you are aware that your Children has provided us with
@@ -228,13 +218,9 @@
                     </p>
 
                     <h2>Contact Us</h2>
-                    <p>
-                        If you have any questions about this Privacy Policy, please contact us:
-                    </p>
+                    <p>If you have any questions about this Privacy Policy, please contact us:</p>
                     <ul>
-                        <li>
-                            By visiting this page on our website: https://epicsevendb.com/about
-                        </li>
+                        <li>By visiting this page on our website: https://epicsevendb.com/about</li>
                     </ul>
                 </div>
             </section>

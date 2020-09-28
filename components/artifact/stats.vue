@@ -25,26 +25,18 @@
                     <div class="artifact-slider has-margin-bottom">
                         <div class="columns is-full is-mobile">
                             <div class="column is-one-third is-text-left">
-                                <button @click="currLevel = 1">
-                                    Lv. 1
-                                </button>
+                                <button @click="currLevel = 1">Lv. 1</button>
                             </div>
                             <div class="column is-one-third is-text-center">
-                                <button @click="currLevel = 15">
-                                    Lv. 15
-                                </button>
+                                <button @click="currLevel = 15">Lv. 15</button>
                             </div>
                             <div class="column is-one-third is-text-right">
-                                <button @click="currLevel = 30">
-                                    Lv. Max
-                                </button>
+                                <button @click="currLevel = 30">Lv. Max</button>
                             </div>
                         </div>
                         <div class="columns is-full is-mobile">
                             <div class="column is-text-left">
-                                <button @click="currLevel > 1 ? currLevel-- : false">
-                                    -1
-                                </button>
+                                <button @click="currLevel > 1 ? currLevel-- : false">-1</button>
                             </div>
                             <div class="column is-three-quarters is-text-center">
                                 <input
@@ -59,9 +51,7 @@
                                 />
                             </div>
                             <div class="column is-text-right">
-                                <button @click="currLevel < 30 ? currLevel++ : false">
-                                    +1
-                                </button>
+                                <button @click="currLevel < 30 ? currLevel++ : false">+1</button>
                             </div>
                         </div>
                     </div>

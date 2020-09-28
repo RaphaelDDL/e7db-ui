@@ -13,9 +13,7 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            EpicSevenDB Twitter
-                                        </strong>
+                                        <strong> EpicSevenDB Twitter </strong>
                                         <br />
                                         We created a Twitter for the webiste, so you can have updates more frequently.
                                         We also added the feed on the home page.
@@ -39,18 +37,14 @@
                                         </client-only>
                                     </li>
                                     <li>
-                                        <strong>
-                                            Hero Exclusive Equipment
-                                        </strong>
+                                        <strong> Hero Exclusive Equipment </strong>
                                         <br />
                                         Added Exclusive Equipment section on hero page. Thank you
                                         <strong class="white">Dimbreath</strong> for the PR with all equipment (and the
                                         assets too lol).
                                     </li>
                                     <li>
-                                        <strong>
-                                            Updated E7DB API
-                                        </strong>
+                                        <strong> Updated E7DB API </strong>
                                         <br />
                                         API can now be used with our oficial domain, that is,
                                         <a href="https://api.epicsevendb.com/" target="_blank"
@@ -58,9 +52,7 @@
                                         >. The herokuapp.com URL still works, don't worry.
                                     </li>
                                     <li>
-                                        <strong>
-                                            Updated DB
-                                        </strong>
+                                        <strong> Updated DB </strong>
                                         <br />
                                         As always, thank you <strong class="white">Kromagg</strong> for keeping the
                                         gamedatabase updated, and everyone else who reported bugs on the data lately.
@@ -91,9 +83,7 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            Hero Multipliers
-                                        </strong>
+                                        <strong> Hero Multipliers </strong>
                                         <br />
                                         Added Multiplier for the heroes. We are still working on the multipliers; Some
                                         might be presented wrongly when they scale off different things than attributes,
@@ -125,9 +115,7 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            Memory Imprint Filter @ Hero List Page
-                                        </strong>
+                                        <strong> Memory Imprint Filter @ Hero List Page </strong>
                                         <br />
                                         Now added a new filter, requested by many: Memory Imprint filter. Select between
                                         Attack%, Attack+, and so on when filtering your desired unit! You can choose
@@ -155,9 +143,7 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            Hero Detail Page revamp
-                                        </strong>
+                                        <strong> Hero Detail Page revamp </strong>
                                         <br />
                                         Revamped Hero Profile at Details page to look like the summon screen in-game.
                                         That means, we added the small description and the summon quote of everyone!
@@ -190,9 +176,7 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            Content Creators
-                                        </strong>
+                                        <strong> Content Creators </strong>
                                         <br />
                                         Added Content Creators page. You'll be able to see a few quality Creators of
                                         Epic Seven content in there. Content is randomized so noone thinks "the first is
@@ -247,18 +231,14 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            Voices
-                                        </strong>
+                                        <strong> Voices </strong>
                                         <br />
                                         Hero voices are now under a playlist rather than separately. This should fix the
                                         lag that was happening when scrolling due to the amount of aplayer instances.
                                         Now it's only one :D
                                     </li>
                                     <li>
-                                        <strong>
-                                            Items
-                                        </strong>
+                                        <strong> Items </strong>
                                         <br />
                                         Added Item page. Still a WIP, utilizes same popover component as the awakening
                                         and skill Enhancements on hero page. That is, clicking on the item shows a
@@ -266,16 +246,12 @@
                                         other items to be added soon.
                                     </li>
                                     <li>
-                                        <strong>
-                                            Hero Camping Options
-                                        </strong>
+                                        <strong> Hero Camping Options </strong>
                                         <br />
                                         Added the Hero Camping Options on the Hero Detail page.
                                     </li>
                                     <li>
-                                        <strong>
-                                            Section Icons
-                                        </strong>
+                                        <strong> Section Icons </strong>
                                         <br />
                                         Changed the section images on home and mobile menu in order for all to have same
                                         standard. Yes, they are the guild icons :P
@@ -299,26 +275,20 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            Icons
-                                        </strong>
+                                        <strong> Icons </strong>
                                         <br />
                                         Now Attributes on both Hero and Artifact detail pages have their corresponding
                                         icons. That means, Attack has a Sword, Defense has a Shield and so on. So to
                                         make easier to see, not having to read the entire string anymore.
                                     </li>
                                     <li>
-                                        <strong>
-                                            Translations
-                                        </strong>
+                                        <strong> Translations </strong>
                                         <br />
                                         Updated a few keys on all translation files, some were missing, like Specialty
                                         Skills and what not.
                                     </li>
                                     <li>
-                                        <strong>
-                                            Refactored Code
-                                        </strong>
+                                        <strong> Refactored Code </strong>
                                         <br />
                                         Both Artifact and Hero detail pages were refactored into smaller components. Yet
                                         to see if will have any performance difference, but at least for coding, it's
@@ -343,9 +313,7 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            Sound List
-                                        </strong>
+                                        <strong> Sound List </strong>
                                         <br />
                                         Implemented Heroes' Voices on each Hero detail page! Thank you
                                         <strong>Dimbreath</strong> for providing the files and renaming them properly.
@@ -370,9 +338,7 @@
                                 <p>Implemented and/or Fixed the following:</p>
                                 <ul class="bullets">
                                     <li>
-                                        <strong>
-                                            Multi-language issues
-                                        </strong>
+                                        <strong> Multi-language issues </strong>
                                         <br />
                                         Fixed issues with lang selector and the lang keys, fixed korean to use standard
                                         ISO format (ko-KR) instead of (kr-KR), therefore to get Korean, you must access
@@ -1178,9 +1144,7 @@
                         <li>
                             <strong>Dec 27th, 2018 - version 0.1.5</strong>
                             <div class="bullet-description">
-                                <p>
-                                    I hope you guys have enjoyed your holiday, and also our first release.
-                                </p>
+                                <p>I hope you guys have enjoyed your holiday, and also our first release.</p>
                                 <p>I've fixed a few issues today:</p>
                                 <ul class="bullets">
                                     <li>

@@ -3,7 +3,7 @@
         <div class="section-box">
             <h1>{{ $t("artifacts.lore") }}</h1>
             <hr />
-            <p style="white-space: pre-wrap;">{{ loreDescription }}</p>
+            <p style="white-space: pre-wrap">{{ loreDescription }}</p>
         </div>
     </section>
 </template>
