@@ -16,21 +16,24 @@ export const actions = {
     getList({ dispatch, commit }) {
         return new Promise((resolve, reject) => {
             const listGetter = this.getters["creators/list"];
-            if (listGetter && listGetter.length) {
+            if (listGetter?.length) {
                 resolve(listGetter);
                 return;
             }
             this.$axios
-                .get("api/creator", {
+                .get("creator", {
                     headers: { "x-e7db-lang": this.$i18n.locale },
                     params: { lang: this.$i18n.locale },
                 })
-                .then((r) => r.data.results)
+                .then((r) => {
+                    commit("SET_I18N", this.$i18n.locale, { root: true });
+                    return r.data.results;
+                })
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "creators list");
                 })
                 .then((creators) => {
-                    if (creators && creators.length) {
+                    if (creators?.length) {
                         commit("SET_CREATORS", creators);
                         resolve(creators);
                     } else {

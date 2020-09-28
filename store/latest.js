@@ -19,18 +19,21 @@ export const actions = {
     getList({ dispatch, commit }) {
         return new Promise((resolve, reject) => {
             const listGetter = this.getters["latest/all"];
-            if (listGetter && listGetter.length) {
+            if (listGetter?.length) {
                 resolve(listGetter);
                 return;
             }
             this.$axios
                 .get("latest", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
-                .then((r) => r.data.results)
+                .then((r) => {
+                    commit("SET_I18N", this.$i18n.locale, { root: true });
+                    return r.data.results;
+                })
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "latest list");
                 })
                 .then((latest) => {
-                    if (latest && latest.length) {
+                    if (latest?.length) {
                         commit("SET_LATEST", latest[0]);
                         resolve(latest);
                     } else {
