@@ -21,7 +21,7 @@ export const actions = {
                 return;
             }
             this.$axios
-                .get("creator", {
+                .get("api/creator", {
                     headers: { "x-e7db-lang": this.$i18n.locale },
                     params: { lang: this.$i18n.locale },
                 })

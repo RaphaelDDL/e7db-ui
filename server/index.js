@@ -40,8 +40,8 @@ async function start() {
             directives: {
                 defaultSrc: ["'self'", "*.epicsevendb.com"],
                 frameSrc: ["'self'", "*.epicsevendb.com", "*.twitter.com"],
-                fontSrc: ["'self'"],
-                styleSrc: ["'self'", "'unsafe-inline'", "*.twitter.com", "*.twimg.com"],
+                fontSrc: ["'self'", "*.gstatic.com"],
+                styleSrc: ["'self'", "'unsafe-inline'", "*.twitter.com", "*.twimg.com", "*.googleapis.com"],
                 imgSrc: ["'self'", "data:", "*.epicsevendb.com", "*"],
                 scriptSrc: [
                     "'self'",
@@ -67,6 +67,7 @@ async function start() {
                     "*.doubleclick.net",
                     "*.g.doubleclick.net",
                     "*.twitter.com",
+                    "*.iubenda.com",
                 ],
             },
         })

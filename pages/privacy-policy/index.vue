@@ -4,8 +4,12 @@
             <section class="section-container">
                 <div class="section-box">
                     <h1>{{ $t("links.privacyPolicy") }}</h1>
+                    <hr />
+                    <div v-html="policy"></div>
 
-                    <p>Effective date: December 23, 2018</p>
+                    <!-- {{ policy }} -->
+
+                    <!-- <p>Effective date: December 23, 2018</p>
 
                     <p>
                         EpicSevenDB ("us", "we", or "our") operates the https://epicsevendb.com website (the "Service").
@@ -22,9 +26,7 @@
 
                     <p>
                         We use your data to provide and improve the Service. By using the Service, you agree to the
-                        collection and use of information in accordance with this policy. Unless otherwise defined in
-                        this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms
-                        and Conditions, accessible from https://epicsevendb.com
+                        collection and use of information in accordance with this policy.
                     </p>
 
                     <h2>Information Collection And Use</h2>
@@ -46,6 +48,7 @@
 
                     <ul>
                         <li>Cookies and Usage Data</li>
+                        <li>Personal Data</li>
                     </ul>
 
                     <h4>Usage Data</h4>
@@ -182,6 +185,35 @@
                         </li>
                     </ul>
 
+                    <h3>Google OAuth</h3>
+                    <p>We may use third-party Service Providers to monitor and analyze the use of our Service.</p>
+                    <ul>
+                        <li>
+                            <p>
+                                <strong>Google Analytics</strong>
+                            </p>
+                            <p>
+                                Google Analytics is a web analytics service offered by Google that tracks and reports
+                                website traffic. Google uses the data collected to track and monitor the use of our
+                                Service. This data is shared with other Google services. Google may use the collected
+                                data to contextualize and personalize the ads of its own advertising network.
+                            </p>
+                            <p>
+                                You can opt-out of having made your activity on the Service available to Google
+                                Analytics by installing the Google Analytics opt-out browser add-on. The add-on prevents
+                                the Google Analytics JavaScript (ga.js, analytics.js, and dc.js) from sharing
+                                information with Google Analytics about visits activity.
+                            </p>
+                            <p>
+                                For more information on the privacy practices of Google, please visit the Google Privacy
+                                & Terms web page:
+                                <a href="https://policies.google.com/privacy?hl=en"
+                                    >https://policies.google.com/privacy?hl=en</a
+                                >
+                            </p>
+                        </li>
+                    </ul>
+
                     <h2>Links To Other Sites</h2>
                     <p>
                         Our Service may contain links to other sites that are not operated by us. If you click on a
@@ -221,7 +253,7 @@
                     <p>If you have any questions about this Privacy Policy, please contact us:</p>
                     <ul>
                         <li>By visiting this page on our website: https://epicsevendb.com/about</li>
-                    </ul>
+                    </ul> -->
                 </div>
             </section>
         </main>
@@ -229,11 +261,18 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { mountedPageView } from "~/util/vueMixins";
 import { headMetaTags } from "~/util/Utils";
 export default {
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
+    asyncData({ store }) {
+        return store.dispatch("privacy/getPolicy");
+    },
+    computed: {
+        ...mapGetters("privacy", ["policy"]),
+    },
     head() {
         return headMetaTags(
             {
