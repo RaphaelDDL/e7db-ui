@@ -24,7 +24,6 @@ export const actions = {
                 resolve(policy);
                 return;
             }
-            debugger;
             this.$axios({
                 method: "get",
                 url: "privacy-policy/83074028/only-legal",
@@ -37,7 +36,6 @@ export const actions = {
                     errorHandler({ dispatch, reject }, error, "policy");
                 })
                 .then((policy) => {
-                    debugger;
                     if (policy) {
                         commit("SET_POLICY", policy);
                         resolve(policy);

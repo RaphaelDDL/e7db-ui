@@ -174,7 +174,9 @@ export function headMetaTags(metaTags = {}, instanceThis = {}) {
 }
 
 export function errorHandler({ dispatch, reject }, error, apiType) {
-    reject();
+    console.warn(apiType, error?.message);
+    console.warn(apiType, error?.stack);
+    // reject();
 }
 
 function isZero(n) {

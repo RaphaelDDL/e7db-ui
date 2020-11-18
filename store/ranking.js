@@ -26,22 +26,14 @@ export const actions = {
                 .get("ranking", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
                 .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
-                    return r.data.results;
+                    return r?.data?.results;
                 })
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "ranking list");
                 })
                 .then((rankings) => {
-                    if (rankings?.length) {
-                        commit("SET_RANKING", rankings);
-                        resolve(rankings);
-                    } else {
-                        const error = {
-                            stack: `results.length === 0 for rankings list`,
-                            message: "Error loading list",
-                        };
-                        errorHandler({ dispatch, reject }, error, "ranking list");
-                    }
+                    commit("SET_RANKING", rankings?.length ? rankings : []);
+                    resolve(rankings);
                 });
         });
     },
