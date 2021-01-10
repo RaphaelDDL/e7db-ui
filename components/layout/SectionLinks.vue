@@ -41,12 +41,12 @@
             </a>
         </nuxt-link>
 
-        <nuxt-link tag="li" :to="localePath('creators')" @click.native="trackMenuEvent">
+        <!-- <nuxt-link tag="li" :to="localePath('creators')" @click.native="trackMenuEvent">
             <a>
                 <img v-if="isMobile" :src="`${assetsUrl}/website/section-icons/creators.png`" alt />
                 {{ $t("links.creators") }}
             </a>
-        </nuxt-link>
+        </nuxt-link> -->
         <!-- <nuxt-link tag='li' :to='/monsters'  @click.native="trackMenuEvent">
         <a>
             <img :src='`${assetsUrl}/website/journal_monster.png`' alt v-if='isMobile'> Monsters

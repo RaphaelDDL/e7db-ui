@@ -1,5 +1,6 @@
 <script>
 import { Pie } from "vue-chartjs";
+import ChartJsPluginDataLabels from "chartjs-plugin-datalabels";
 
 export default {
     extends: Pie,
@@ -41,10 +42,19 @@ export default {
                     },
                 ],
                 labels: this.processedData.labels,
+                formatter: (value, ctx) => {
+                    const dataArr = ctx.chart.data.datasets[0].data;
+                    const sum = dataArr.reduce((acc, data) => {
+                        acc = acc + data;
+                        return acc;
+                    }, 0);
+                    return ((value * 100) / sum).toFixed(2) + "%";
+                },
             };
         },
     },
     mounted() {
+        this.addPlugin(ChartJsPluginDataLabels);
         this.renderChart(this.chartdata, this.options);
     },
 };

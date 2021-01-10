@@ -31,13 +31,6 @@
                     :styles="chartStyles"
                     :options="chartOptions"
                 />
-                <br /><br />
-                <Moonlight
-                    :by-m-l="heroUsage.byML"
-                    :background-color="chartBackgroundColor"
-                    :styles="chartStyles"
-                    :options="chartOptions"
-                />
             </Tab>
             <Tab
                 v-if="heroUsage && heroUsage.byRarity && Object.keys(heroUsage.byRarity).length"

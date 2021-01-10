@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import ChartJsPluginDataLabels from "chartjs-plugin-datalabels";
 import NavBar from "~/components/layout/NavBar.vue";
 import LanguageSelector from "~/components/layout/LanguageSelector.vue";
 import GlobalError from "~/components/general/GlobalError.vue";
@@ -48,6 +49,9 @@ export default {
         globalError() {
             return this.$store.getters.globalError;
         },
+    },
+    mounted() {
+        window?.Chart?.plugins?.unregister(ChartJsPluginDataLabels);
     },
 };
 </script>

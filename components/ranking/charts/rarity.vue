@@ -1,8 +1,8 @@
 <script>
-import { Pie } from "vue-chartjs";
+import { HorizontalBar } from "vue-chartjs";
 
 export default {
-    extends: Pie,
+    extends: HorizontalBar,
     props: {
         byRarity: {
             type: Array,
@@ -37,7 +37,7 @@ export default {
                     {
                         data: this.processedData.data,
                         backgroundColor: this.backgroundColor,
-                        label: this.$t("ranking.moonlight"),
+                        label: this.$t("heroes.grade"),
                     },
                 ],
                 labels: this.processedData.labels,

@@ -4,12 +4,12 @@
             <h1>{{ $t("heroes.imprint") }}</h1>
             <hr />
             <div class="hero-stats columns">
-                <div v-if="self_devotion.grades" class="column is-full">
+                <div v-if="selfDevotion.grades" class="column is-full">
                     <h4>{{ $t("heroes.imprintSelf") }}</h4>
                     <ul class="imprint-list">
                         <template v-for="(gradeLevel, gradeLevelIndex) in grades">
                             <li
-                                v-if="self_devotion.grades[gradeLevel]"
+                                v-if="selfDevotion.grades[gradeLevel]"
                                 :key="`selfdev${gradeLevel + gradeLevelIndex}`"
                                 class="columns is-mobile"
                             >
@@ -19,14 +19,11 @@
                                 >
                                     <span class="sr-only">{{ String(gradeLevel).toLowerCase() }}</span>
                                 </div>
-                                <div
-                                    class="column is-half hero-stats-value"
-                                    :class="heroStatsClass(self_devotion.type)"
-                                >
+                                <div class="column is-half hero-stats-value" :class="heroStatsClass(selfDevotion.type)">
                                     <strong>{{
-                                        $t(`heroes.attributes.${heroStatsKey(self_devotion.type, true)}`)
+                                        $t(`heroes.attributes.${heroStatsKey(selfDevotion.type, true)}`)
                                     }}</strong>
-                                    <span>&nbsp;+{{ self_devotion.grades[gradeLevel] | toPercent }}</span>
+                                    <span>&nbsp;+{{ selfDevotion.grades[gradeLevel] | toPercent }}</span>
                                 </div>
                             </li>
                         </template>
@@ -91,9 +88,9 @@ export default {
             type: Object,
             default: () => {},
         },
-        self_devotion: {
+        selfDevotion: {
             type: Object,
-            default: () => [],
+            default: () => {},
         },
     },
     data() {

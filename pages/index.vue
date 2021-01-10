@@ -30,12 +30,12 @@
                                 {{ $t("links.items") }}
                             </a>
                         </nuxt-link>
-                        <nuxt-link tag="li" :to="localePath('creators')" @click.native="trackMenuEvent">
+                        <!-- <nuxt-link tag="li" :to="localePath('creators')" @click.native="trackMenuEvent">
                             <a>
                                 <img v-lazy="`${assetsUrl}/website/section-icons/creators.png`" />
                                 {{ $t("links.creators") }}
                             </a>
-                        </nuxt-link>
+                        </nuxt-link> -->
                         <nuxt-link tag="li" :to="localePath('about')" @click.native="trackMenuEvent">
                             <a>
                                 <img v-lazy="`${assetsUrl}/website/section-icons/about.png`" />
@@ -143,7 +143,7 @@
                     </ul>
                 </div>
             </section> -->
-            <section class="section-container">
+            <!-- <section class="section-container">
                 <div class="section-box">
                     <h1>{{ $t("home.tools") }}</h1>
                     <hr />
@@ -261,7 +261,7 @@
                         </li>
                     </ul>
                 </div>
-            </section>
+            </section> -->
         </aside>
         <main class="column is-three-fifths-tablet is-12-mobile">
             <!-- <section class="section-container">

@@ -36,7 +36,7 @@
                 </div>
                 <div v-if="itemDetail.description" class="item-description">{{ itemDetail.description }}</div>
                 <br />
-                <div>
+                <!-- <div>
                     See
                     <a
                         href="https://docs.google.com/spreadsheets/d/1UMIduFBIVc9OAoI-BeQ-LjPeihcziqXEzXw8n58bEd0/edit#gid=1218877357"
@@ -45,11 +45,11 @@
                         >/u/ImClumZ's Drop Location Spreadsheet</a
                     >
                     <em>(Link opens in new Tab)</em>, we are currently re-parsing data to pull drop locations.
-                </div>
+                </div> -->
                 <div
                     v-if="
                         (itemDetail.locations && itemDetail.locations.length) ||
-                        (itemDetail.apShops && itemDetail.apShops.length)
+                        (itemDetail.shops && itemDetail.shops.length)
                     "
                     class="item-locations"
                 >
@@ -70,19 +70,20 @@
                         v-if="
                             itemDetail.locations &&
                             itemDetail.locations.length &&
-                            itemDetail.apShops &&
-                            itemDetail.apShops.length
+                            itemDetail.shops &&
+                            itemDetail.shops.length
                         "
                     />
-                    <div v-if="itemDetail.apShops && itemDetail.apShops.length" class="columns">
+                    <div v-if="itemDetail.shops && itemDetail.shops.length" class="columns">
                         <div class="column">
                             <h3>{{ $t("item.apShops") }}:</h3>
                             <ul class="bullets collapsed">
-                                <li v-for="apShop in itemDetail.apShops" :key="apShop.chapter">
-                                    <span class="skillEnhanceFontColor">{{ apShop.chapter }}</span> |
+                                <li v-for="apShop in itemDetail.shops" :key="apShop.chapter">
+                                    [<span class="skillEnhanceFontColor">{{ apShop.continent }}</span
+                                    >] <span class="skillEnhanceFontColor">{{ apShop.chapter }}</span> |
                                     {{ $t("item.available") }}:
-                                    <span class="skillEnhanceFontColor">{{ apShop.quantity }}</span> | Cost:
-                                    <span class="skillEnhanceFontColor">{{ apShop.cost }}AP</span>
+                                    <span class="skillEnhanceFontColor">{{ apShop.limit_count }}</span> | Cost:
+                                    <span class="skillEnhanceFontColor">{{ apShop.price }}AP</span>
                                 </li>
                             </ul>
                         </div>
@@ -97,10 +98,10 @@
 import LoadingMessage from "~/components/general/LoadingMessage";
 
 export default {
-    inject: ["assetsUrl"],
     components: {
         LoadingMessage,
     },
+    inject: ["assetsUrl"],
     props: {
         resource: {
             type: Object,

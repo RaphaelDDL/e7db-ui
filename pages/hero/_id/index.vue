@@ -38,18 +38,18 @@
 
                 <Awakening :zodiac_tree="heroDetail.zodiac_tree" />
 
-                <Imprint :devotion="heroDetail.devotion" :self_devotion="heroDetail.self_devotion" />
+                <Imprint :devotion="heroDetail.devotion" :self-devotion="heroDetail.self_devotion" />
 
                 <LegacyStats :stats="heroDetail.calculatedStatus" />
             </main>
             <aside v-if="!isLoading && showDetails" class="column is-two-fifths">
                 <Lore v-if="heroDetail.story" :background="heroDetail.story" />
 
-                <SpecialtyChange
-                    v-if="heroDetail.specialtyChangeName"
+                <!-- <SpecialtyChange
+                    v-if="heroDetail.specialty_change"
                     :name="heroDetail.name"
-                    :specialty-change-name="heroDetail.specialtyChangeName"
-                />
+                    :specialty-change-name="heroDetail.specialty_change"
+                /> -->
 
                 <SpecialtySkill
                     v-if="heroDetail.specialty && heroDetail.specialty.name"
@@ -118,18 +118,6 @@ export default {
             heroDetail: {},
         };
     },
-    computed: {
-        imageUrls() {
-            return {
-                full: this.heroDetail?.assets?.image,
-                small: this.heroDetail?.assets?.thumbnail,
-                icon: this.heroDetail?.assets?.icon,
-            };
-        },
-        // webpSupport() {
-        //     return Modernizr.webp && Modernizr.webp.animation;
-        // },
-    },
     head() {
         const heroName = this.heroDetail?.name ?? "";
         const role = trueRole(this.heroDetail?.role) ?? "";
@@ -144,6 +132,18 @@ export default {
             },
             this
         );
+    },
+    computed: {
+        imageUrls() {
+            return {
+                full: this.heroDetail?.assets?.image,
+                small: this.heroDetail?.assets?.thumbnail,
+                icon: this.heroDetail?.assets?.icon,
+            };
+        },
+        // webpSupport() {
+        //     return Modernizr.webp && Modernizr.webp.animation;
+        // },
     },
 };
 </script>

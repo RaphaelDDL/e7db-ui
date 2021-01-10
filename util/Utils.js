@@ -457,7 +457,6 @@ export function calculateHeroUsage(rankings) {
     const heroTable = {};
     const roleTable = {};
     const attributeTable = {};
-    const moonlightTable = {};
     const rarityTable = {};
 
     rankings.forEach((player) => {
@@ -467,16 +466,12 @@ export function calculateHeroUsage(rankings) {
             if (hero.attribute) attributeTable[hero.attribute] = +attributeTable[hero.attribute] + 1 || 1;
 
             if (hero.rarity) rarityTable[hero.rarity] = +rarityTable[hero.rarity] + 1 || 1;
-
-            const IS_ML = !!hero.moonlight;
-            moonlightTable[IS_ML] = +moonlightTable[IS_ML] + 1 || 1;
         });
     });
     return {
         byName: Object.entries(heroTable).sort((a, b) => b[1] - a[1]),
         byClass: Object.entries(roleTable).sort((a, b) => b[1] - a[1]),
         byElement: Object.entries(attributeTable).sort((a, b) => b[1] - a[1]),
-        byML: Object.entries(moonlightTable).sort((a, b) => b[1] - a[1]),
         byRarity: Object.entries(rarityTable).sort((a, b) => b[1] - a[1]),
     };
 }
