@@ -63,7 +63,7 @@
         "express-rate-limit": "^5.2.3",
         "helmet": "^4.3.1",
         "normalize.css": "^8.0.1",
-        "nuxt": "2.14.12",
+        "nuxt": "2.15.0",
         "nuxt-i18n": "^6.17.0",
         "sass-loader": "^10.1.0",
         "v-tooltip": "^2.1.2",
