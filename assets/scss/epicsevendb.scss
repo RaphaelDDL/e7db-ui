@@ -587,6 +587,19 @@ aside.column {
     }
 }
 
+.bluestacks {
+    a {
+        text-align: center;
+        display: block;
+    }
+
+    img {
+        max-width: 25rem;
+        display: block;
+        margin: 0 auto 1rem;
+    }
+}
+
 // @include mobile {
 //     aside.column {
 //         padding: 0;

@@ -122,6 +122,17 @@ export default {
             selectedHeroes: [],
         };
     },
+    head() {
+        return headMetaTags(
+            {
+                title: `${this.$t("links.ranking")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
+                description:
+                    "See latest PvP Arena Rankings for Global Server, discover the most used teams and heroes and more.",
+                image: this.assetsUrl + "/website/book_about.png",
+            },
+            this
+        );
+    },
     computed: {
         ...mapGetters("ranking", ["list"]),
         ...mapGetters({ heroList: "hero/list" }),
@@ -140,17 +151,6 @@ export default {
         clearSelection() {
             this.selectedHeroes = [];
         },
-    },
-    head() {
-        return headMetaTags(
-            {
-                title: `${this.$t("links.ranking")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
-                description:
-                    "See latest PvP Arena Rankings for Global Server, discover the most used teams and heroes and more.",
-                image: this.assetsUrl + "/website/book_about.png",
-            },
-            this
-        );
     },
 };
 </script>

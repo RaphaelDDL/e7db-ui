@@ -147,12 +147,12 @@ import { toPercent } from "~/util/Utils";
 import ItemPopover from "~/components/items/ItemPopover";
 
 export default {
-    inject: ["assetsUrl"],
     components: {
         Tabs,
         Tab,
         ItemPopover,
     },
+    inject: ["assetsUrl"],
     props: {
         skillsList: {
             type: Array,

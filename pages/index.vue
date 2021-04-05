@@ -48,6 +48,14 @@
         </div>
         <aside class="column is-two-fifths-tablet is-12-mobile home">
             <section class="section-container">
+                <div class="section-box bluestacks">
+                    <a href="https://bstk.me/pqYSxvMRi" rel="noopener" target="_blank">
+                        <img src="~/assets/bluestacks_logo.png" alt="Bluestack logo" class="bluestack-logo" />
+                        Play EpicSeven on your computer with BlueStacks!
+                    </a>
+                </div>
+            </section>
+            <section class="section-container">
                 <div class="section-box">
                     {{ $t("home.appDownloadHeader") }}
                     <a
@@ -343,6 +351,16 @@ export default {
             store.dispatch("artifact/getList"),
         ]);
     },
+    head() {
+        return headMetaTags(
+            {
+                title: `${this.$t("links.home")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
+                description:
+                    "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
+            },
+            this
+        );
+    },
     computed: {
         ...mapGetters("latest", ["latestHeroes", "latestArtifacts"]),
     },
@@ -358,16 +376,6 @@ export default {
                 // eventValue: 123
             });
         },
-    },
-    head() {
-        return headMetaTags(
-            {
-                title: `${this.$t("links.home")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
-                description:
-                    "The Epic Seven Wiki and Database with information on Heroes, Artifacts, Catalysis, Items, Quests, Guides and more!",
-            },
-            this
-        );
     },
 };
 </script>

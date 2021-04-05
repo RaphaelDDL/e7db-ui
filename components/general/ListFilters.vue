@@ -254,13 +254,13 @@ import { buffDebuffByType } from "~/util/Utils";
 import { inputDebounce } from "~/util/Directives";
 
 export default {
-    inject: ["assetsUrl"],
     components: {
         Multiselect,
     },
     directives: {
         debounce: inputDebounce,
     },
+    inject: ["assetsUrl"],
     props: {
         filters: Object,
         pageType: String,

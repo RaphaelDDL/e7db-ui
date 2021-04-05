@@ -60,12 +60,12 @@ import { heroStatsClass, heroStatsKey } from "~/util/Utils";
 import ItemPopover from "~/components/items/ItemPopover";
 
 export default {
-    inject: ["assetsUrl"],
     components: {
         Tabs,
         Tab,
         ItemPopover,
     },
+    inject: ["assetsUrl"],
     props: {
         zodiac_tree: {
             type: Array,

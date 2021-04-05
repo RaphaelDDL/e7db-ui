@@ -54,12 +54,12 @@ import { Tabs, Tab } from "vue-tabs-component";
 import ChartComponents from "~/components/ranking/charts";
 
 export default {
-    inject: ["assetsUrl"],
     components: {
         Tabs,
         Tab,
         ...ChartComponents,
     },
+    inject: ["assetsUrl"],
     props: {
         numberOfPlayers: {
             type: Number,

@@ -73,15 +73,6 @@ export default {
             isLoading: false,
         };
     },
-    computed: {
-        imageUrls() {
-            return {
-                full: this.artifactDetail.assets.image,
-                small: this.artifactDetail.assets.thumbnail,
-                icon: this.artifactDetail.assets.icon,
-            };
-        },
-    },
 
     head() {
         const {
@@ -100,6 +91,15 @@ export default {
             },
             this
         );
+    },
+    computed: {
+        imageUrls() {
+            return {
+                full: this.artifactDetail.assets.image,
+                small: this.artifactDetail.assets.thumbnail,
+                icon: this.artifactDetail.assets.icon,
+            };
+        },
     },
 };
 </script>

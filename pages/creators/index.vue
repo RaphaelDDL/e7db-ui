@@ -71,18 +71,6 @@ export default {
             isLoading: false,
         };
     },
-    // use this.list
-    computed: {
-        ...mapGetters("creator", ["list"]),
-    },
-    mounted() {
-        if (!this.list || (this.list && !this.list.length)) {
-            this.isLoading = true;
-            this.$store.dispatch("creator/getList").then(() => {
-                this.isLoading = false;
-            });
-        }
-    },
     head() {
         return headMetaTags(
             {
@@ -93,6 +81,17 @@ export default {
             },
             this
         );
+    },
+    computed: {
+        ...mapGetters("creator", ["list"]),
+    },
+    mounted() {
+        if (!this.list || (this.list && !this.list.length)) {
+            this.isLoading = true;
+            this.$store.dispatch("creator/getList").then(() => {
+                this.isLoading = false;
+            });
+        }
     },
 };
 </script>

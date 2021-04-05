@@ -138,10 +138,10 @@ import { inputDebounce } from "~/util/Directives";
 import { trueRole } from "~/util/Utils";
 
 export default {
-    inject: ["assetsUrl"],
     directives: {
         debounce: inputDebounce,
     },
+    inject: ["assetsUrl"],
     props: {
         filters: Object,
         default: () => {},

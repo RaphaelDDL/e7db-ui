@@ -7,7 +7,7 @@
                     <GlobalError :global-error="globalError" />
                 </div>
             </div>
-            <div v-if="this.$i18n.locale !== 'en'" class="columns">
+            <div v-if="$i18n.locale !== 'en'" class="columns">
                 <div class="column is-12">
                     <section class="globalWarning section-box">
                         <div class="header">

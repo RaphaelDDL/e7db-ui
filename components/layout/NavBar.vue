@@ -29,10 +29,10 @@ import SectionLinks from "~/components/layout/SectionLinks.vue";
 
 export default {
     name: "NavBar",
-    inject: ["assetsUrl"],
     components: {
         SectionLinks,
     },
+    inject: ["assetsUrl"],
     props: {
         errorTitle: Boolean,
     },

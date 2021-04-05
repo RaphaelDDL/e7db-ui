@@ -354,13 +354,13 @@ import { statusKeyToName, statusKeyToIconKey, buffDebuffByType, trueRole, trueEl
 import { inputDebounce } from "~/util/Directives";
 
 export default {
-    inject: ["assetsUrl"],
     components: {
         Multiselect,
     },
     directives: {
         debounce: inputDebounce,
     },
+    inject: ["assetsUrl"],
     props: {
         filters: Object,
         buffsList: Array,

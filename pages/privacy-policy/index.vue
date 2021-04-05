@@ -270,9 +270,6 @@ export default {
     asyncData({ store }) {
         return store.dispatch("privacy/getPolicy");
     },
-    computed: {
-        ...mapGetters("privacy", ["policy"]),
-    },
     head() {
         return headMetaTags(
             {
@@ -283,6 +280,9 @@ export default {
             },
             this
         );
+    },
+    computed: {
+        ...mapGetters("privacy", ["policy"]),
     },
 };
 </script>

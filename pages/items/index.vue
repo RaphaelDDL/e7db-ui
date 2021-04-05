@@ -43,10 +43,6 @@ export default {
             isLoading: false,
         };
     },
-    // use this.list
-    computed: {
-        ...mapGetters("item", ["list"]),
-    },
     head() {
         return headMetaTags(
             {
@@ -57,6 +53,10 @@ export default {
             },
             this
         );
+    },
+    // use this.list
+    computed: {
+        ...mapGetters("item", ["list"]),
     },
 };
 </script>

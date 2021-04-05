@@ -86,7 +86,17 @@ export default {
             filters: { ...filterDefaults },
         };
     },
-    // use this.list
+    head() {
+        return headMetaTags(
+            {
+                title: `${this.$t("links.heroes")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
+                description:
+                    "See information about all Heroes in EpicSeven game, including Rarity, Class, Element and more!",
+                image: `${this.assetsUrl}/website/journal_hero.png`,
+            },
+            this
+        );
+    },
     computed: {
         ...mapGetters("hero", ["list"]),
         filteredHeroList() {
@@ -125,18 +135,6 @@ export default {
         clearSelection() {
             this.filters = { ...filterDefaults };
         },
-    },
-
-    head() {
-        return headMetaTags(
-            {
-                title: `${this.$t("links.heroes")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
-                description:
-                    "See information about all Heroes in EpicSeven game, including Rarity, Class, Element and more!",
-                image: `${this.assetsUrl}/website/journal_hero.png`,
-            },
-            this
-        );
     },
 };
 </script>

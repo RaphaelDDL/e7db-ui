@@ -54,6 +54,17 @@ export default {
             filters: { ...filterDefaults },
         };
     },
+    head() {
+        return headMetaTags(
+            {
+                title: `${this.$t("links.artifacts")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
+                description:
+                    "See information about all Artifacts on EpicSeven game, including Rarity, Class Specificity, Attributes and more!",
+                image: `${this.assetsUrl}/website/journal_artifact.png`,
+            },
+            this
+        );
+    },
     computed: {
         ...mapGetters("artifact", ["list"]), // this.list,
         // ...mapState('artifact', ['filteredArtifactList']), //this.filteredArtifactList,
@@ -77,17 +88,6 @@ export default {
         clearSelection() {
             this.filters = { ...filterDefaults };
         },
-    },
-    head() {
-        return headMetaTags(
-            {
-                title: `${this.$t("links.artifacts")}${this.$i18n.locale !== "en" ? " | " + this.$t("gameName") : ""}`,
-                description:
-                    "See information about all Artifacts on EpicSeven game, including Rarity, Class Specificity, Attributes and more!",
-                image: `${this.assetsUrl}/website/journal_artifact.png`,
-            },
-            this
-        );
     },
 };
 </script>

@@ -69,11 +69,11 @@ import { Tabs, Tab } from "vue-tabs-component";
 import { heroStatsClass, heroStatsKey } from "~/util/Utils";
 
 export default {
-    inject: ["assetsUrl"],
     components: {
         Tabs,
         Tab,
     },
+    inject: ["assetsUrl"],
     props: {
         exclusiveEquipmentList: {
             type: Array,
