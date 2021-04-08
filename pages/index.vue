@@ -92,8 +92,8 @@
             <section class="section-container">
                 <div class="section-box support-coffees">
                     <p>Support EpicSevenDB</p>
-                    <div class="columns is-12">
-                        <div class="column is-half is-vcentered is-centered">
+                    <div class="columns is-12 is-vcentered is-centered">
+                        <div class="column is-half">
                             <a href="https://www.buymeacoffee.com/raphaelddl" rel="noopener" target="_blank">
                                 <img
                                     src="~/assets/bmc-button-red.png"
@@ -101,7 +101,7 @@
                                 />
                             </a>
                         </div>
-                        <div class="column is-half is-vcentered is-centered">
+                        <div class="column is-half">
                             <a href="https://ko-fi.com/raphaelddl" rel="noopener" target="_blank">
                                 <img src="~/assets/kofi-button-blue.png" alt="Buy EpicSevenDB a Coffee (ko-fi.com)" />
                             </a>
