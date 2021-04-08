@@ -11,4 +11,4 @@ restart:
     pm2 restart 1
 
 deploy:
-    make pull; make restart;
+    make build; make restart;
