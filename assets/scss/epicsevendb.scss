@@ -587,16 +587,22 @@ aside.column {
     }
 }
 
-.bluestacks {
-    a {
-        text-align: center;
-        display: block;
-    }
+.support {
+    display: block;
 
-    img {
-        max-width: 25rem;
-        display: block;
-        margin: 0 auto 1rem;
+    &-bluestacks,
+    &-coffees {
+        a {
+            text-align: center;
+            display: block;
+        }
+
+        img {
+            width: 80%;
+            max-width: 25rem;
+            display: block;
+            margin: 0 auto 1rem;
+        }
     }
 }
 

@@ -48,14 +48,6 @@
         </div>
         <aside class="column is-two-fifths-tablet is-12-mobile home">
             <section class="section-container">
-                <div class="section-box bluestacks">
-                    <a href="https://bstk.me/pqYSxvMRi" rel="noopener" target="_blank">
-                        <img src="~/assets/bluestacks_logo.png" alt="Bluestack logo" class="bluestack-logo" />
-                        Play EpicSeven on your computer with BlueStacks!
-                    </a>
-                </div>
-            </section>
-            <section class="section-container">
                 <div class="section-box">
                     {{ $t("home.appDownloadHeader") }}
                     <a
@@ -87,6 +79,34 @@
                             }}</a>
                         </li>
                     </ul>
+                </div>
+            </section>
+            <section class="section-container">
+                <div class="section-box support-bluestacks">
+                    <a href="https://bstk.me/pqYSxvMRi" rel="noopener" target="_blank">
+                        <p>Play EpicSeven on your computer with BlueStacks!</p>
+                        <img src="~/assets/bluestacks_logo.png" alt="Bluestack logo" class="bluestack-logo" />
+                    </a>
+                </div>
+            </section>
+            <section class="section-container">
+                <div class="section-box support-coffees">
+                    <p>Support EpicSevenDB</p>
+                    <div class="columns is-12">
+                        <div class="column is-half is-vcentered is-centered">
+                            <a href="https://www.buymeacoffee.com/raphaelddl" rel="noopener" target="_blank">
+                                <img
+                                    src="~/assets/bmc-button-red.png"
+                                    alt="Buy EpicSevenDB a Coffee (buymeacoffee.com)"
+                                />
+                            </a>
+                        </div>
+                        <div class="column is-half is-vcentered is-centered">
+                            <a href="https://ko-fi.com/raphaelddl" rel="noopener" target="_blank">
+                                <img src="~/assets/kofi-button-blue.png" alt="Buy EpicSevenDB a Coffee (ko-fi.com)" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!-- <section class="section-container">
@@ -315,7 +335,7 @@
                             data-height="600"
                             data-theme="dark"
                             href="https://twitter.com/EpicSevenDB?ref_src=twsrc%5Etfw"
-                            >Tweets by EpicSevenDB</a
+                            >@EpicSevenDB Twitter Feed</a
                         >
                         <script
                             type="application/javascript"

@@ -51,6 +51,8 @@ async function start() {
                     "*.google-analytics.com",
                     "*.cloudflare.com",
                     "*.doubleclick.net",
+                    "*.buymeacoffee.com",
+                    "*.ko-fi.com",
                     "*.g.doubleclick.net",
                     "*.twitter.com",
                     "*.twimg.com",
