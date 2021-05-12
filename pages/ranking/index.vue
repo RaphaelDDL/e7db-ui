@@ -5,6 +5,7 @@
                 <Header :last-updated="lastUpdated" :number-of-players="numberOfPlayers" />
                 <Statistics :number-of-players="numberOfPlayers" />
                 <section class="section-container">
+                    <ContentAd />
                     <div class="section-box hero-list">
                         <div class="columns">
                             <div class="column is-half-tablet is-multiselect-container">
@@ -105,12 +106,14 @@ import { mountedPageView } from "~/util/vueMixins";
 import { headMetaTags, arenaBadge, getByHeroId } from "~/util/Utils";
 import ListItem from "~/components/heroes/ListItem";
 import RankingComponents from "~/components/ranking";
+import ContentAd from "~/components/ads/content.vue";
 
 export default {
     components: {
         ListItem,
         Multiselect,
         ...RankingComponents,
+        ContentAd,
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],
