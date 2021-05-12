@@ -14,6 +14,8 @@
         </main>
         <aside v-if="!isLoading && showDetails" class="column is-two-fifths">
             <Artwork :image-urls="imageUrls" />
+
+            <ContentAd />
         </aside>
     </div>
 </template>
@@ -23,10 +25,12 @@ import LoadingMessage from "~/components/general/LoadingMessage";
 import { headMetaTags } from "~/util/Utils";
 import { mountedPageView } from "~/util/vueMixins";
 import ArtifactComponents from "~/components/artifact";
+import ContentAd from "~/components/ads/content.vue";
 export default {
     components: {
         LoadingMessage,
         ...ArtifactComponents,
+        ContentAd,
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],

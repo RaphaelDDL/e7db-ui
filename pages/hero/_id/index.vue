@@ -71,6 +71,8 @@
                     :voice-list="heroDetail.voiceList"
                     v-if="heroDetail.voiceList && heroDetail.voiceList.length"
                 /> -->
+
+                <ContentAd />
             </aside>
         </div>
     </div>
@@ -82,11 +84,13 @@ import LoadingMessage from "~/components/general/LoadingMessage";
 import { mountedPageView } from "~/util/vueMixins";
 import { headMetaTags, trueRole, trueElement } from "~/util/Utils";
 import HeroComponents from "~/components/hero";
+import ContentAd from "~/components/ads/content.vue";
 
 export default {
     components: {
         LoadingMessage,
         ...HeroComponents,
+        ContentAd,
     },
     mixins: [mountedPageView],
     inject: ["assetsUrl"],

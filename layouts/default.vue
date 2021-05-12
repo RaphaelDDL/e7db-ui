@@ -23,8 +23,9 @@
             <nuxt :key="$route.fullPath" />
         </div>
         <div class="app-version">{{ $t("home.version") }} {{ version }}</div>
-
         <LanguageSelector />
+
+        <HorizontalAd />
     </div>
 </template>
 
@@ -33,10 +34,11 @@ import ChartJsPluginDataLabels from "chartjs-plugin-datalabels";
 import NavBar from "~/components/layout/NavBar.vue";
 import LanguageSelector from "~/components/layout/LanguageSelector.vue";
 import GlobalError from "~/components/general/GlobalError.vue";
+import HorizontalAd from "~/components/ads/horizontal.vue";
 
 export default {
     name: "EpicSevenDBCom",
-    components: { NavBar, GlobalError, LanguageSelector },
+    components: { NavBar, GlobalError, LanguageSelector, HorizontalAd },
     provide() {
         return {
             assetsUrl: this.$store.getters.assetsUrl,

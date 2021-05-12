@@ -11,13 +11,19 @@
                     </p>
                     <p>{{ $t("errors.description") }}</p>
                 </div>
+                <ContentAd />
             </section>
         </main>
+        <HorizontalAd />
     </div>
 </template>
 
 <script>
+import HorizontalAd from "~/components/ads/horizontal.vue";
+import ContentAd from "~/components/ads/content.vue";
+
 export default {
+    components: { HorizontalAd, ContentAd },
     inject: ["assetsUrl"],
 };
 </script>

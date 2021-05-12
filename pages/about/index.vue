@@ -12,13 +12,6 @@
                         {{ $t("about.p2") }}
                     </p>
                     <ul class="bullets">
-                        <!-- <li>
-                            <a href="https://ko-fi.com/RaphaelDDL" rel="noopener" target="_blank">Ko-Fi</a>
-                            <div class="bullet-description">
-                                If you'd like to support us in any way, you could by buying a coffee or tea. That's an
-                                engineer's fuel :)
-                            </div>
-                        </li> -->
                         <li>
                             <a href="https://github.com/EpicSevenDB/ui/issues" rel="noopener" target="_blank"
                                 >Github:EpicSevenDB/ui</a
@@ -32,7 +25,7 @@
                                 bugs that happened on the website.
                             </div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="https://github.com/EpicSevenDB/gamedatabase/issues" rel="noopener" target="_blank"
                                 >Github:EpicSevenDB/gamedatabase</a
                             >
@@ -52,7 +45,7 @@
                                 if you would like to contribute but has little or none knowledge in git, github and
                                 jsons :)
                             </div>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="https://github.com/EpicSevenDB/apiserver/issues" rel="noopener" target="_blank"
                                 >Github:EpicSevenDB/apiserver</a
