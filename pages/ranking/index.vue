@@ -4,8 +4,12 @@
             <main class="column is-12">
                 <Header :last-updated="lastUpdated" :number-of-players="numberOfPlayers" />
                 <Statistics :number-of-players="numberOfPlayers" />
+
                 <section class="section-container">
                     <ContentAd />
+                </section>
+
+                <section class="section-container">
                     <div class="section-box hero-list">
                         <div class="columns">
                             <div class="column is-half-tablet is-multiselect-container">
