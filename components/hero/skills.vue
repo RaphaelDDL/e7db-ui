@@ -53,16 +53,19 @@
                         </div>
                     </div>
                 </div> -->
-                <div
+                <p
                     v-if="skill.description"
                     class="skill-desc"
                     v-html="skillVariableDescription(skill.description, skill.values)"
-                ></div>
+                ></p>
+                <div v-if="skill.pow && skill.att_rate" class="skill-sub-desc">
+                    <span class="skill-mult-title">{{ $t("heroes.multipliers.header") }}</span
+                    >:&nbsp;<strong class="white">ATT_RATE:</strong>&nbsp;{{ skill.att_rate }} |
+                    <strong class="white">POW:</strong>&nbsp;{{ skill.pow }}
+                </div>
                 <h5 v-if="skill.enhanced_description" class="skill-enhance">Skill Upgrade</h5>
-                <div
-                    class="skill-desc"
-                    v-html="skillVariableDescription(skill.enhanced_description, skill.values)"
-                ></div>
+                <p class="skill-desc" v-html="skillVariableDescription(skill.enhanced_description, skill.values)"></p>
+
                 <div v-if="skill.soul_requirement && skill.soul_description">
                     <hr />
                     <div class="skill-sub-desc">
@@ -71,9 +74,17 @@
                             {{ $t("heroes.consume") }} {{ skill.soul_requirement }} {{ $t("heroes.soul") }}
                         </div>
                     </div>
-                    <div class="skill-desc">{{ skill.soul_description }}</div>
+
+                    <p class="skill-desc">{{ skill.soul_description }}</p>
+                    <div v-if="skill.soul_pow && skill.soul_att_rate" class="skill-sub-desc">
+                        <span class="skill-mult-title">{{ $t("heroes.multipliers.header") }}</span
+                        >:&nbsp;<strong class="white">{{ $t("heroes.soulBurn") }} ATT_RATE:</strong>&nbsp;{{
+                            skill.att_rate
+                        }}
+                        | <strong class="white">{{ $t("heroes.soulBurn") }} POW:</strong>&nbsp;{{ skill.pow }}
+                    </div>
                 </div>
-                <div v-if="skill.simpleDmgMod && skill.simpleDmgMod.simplified">
+                <!-- <div v-if="skill.simpleDmgMod && skill.simpleDmgMod.simplified">
                     <hr />
                     <div class="skill-sub-desc skill-multi-desc">
                         <div>
@@ -111,7 +122,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <hr />
                 <div v-if="skill.enhancements && skill.enhancements.length">
