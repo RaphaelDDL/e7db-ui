@@ -36,16 +36,16 @@ export const actions = {
                     errorHandler({ dispatch, reject }, error, "policy");
                 })
                 .then((policy) => {
-                    if (policy) {
-                        commit("SET_POLICY", policy);
-                        resolve(policy);
-                    } else {
+                    if (!policy) {
                         const error = {
                             stack: `policy empty`,
                             message: "Error loading policy",
                         };
                         errorHandler({ dispatch, reject }, error, "get policy");
                     }
+                    const placeholder = policy ?? "Error fetching policy data";
+                    commit("SET_POLICY", placeholder);
+                    resolve(placeholder);
                 });
         });
     },
@@ -67,17 +67,16 @@ export const actions = {
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "tos");
                 })
-                .then((tos) => {
-                    if (tos) {
-                        commit("SET_TOS", tos);
-                        resolve(tos);
-                    } else {
+                .then((tos = "Error fetching ToS data") => {
+                    commit("SET_TOS", tos);
+                    if (!tos) {
                         const error = {
                             stack: `tos empty`,
                             message: "Error loading tos",
                         };
                         errorHandler({ dispatch, reject }, error, "get tos");
                     }
+                    resolve(tos);
                 });
         });
     },

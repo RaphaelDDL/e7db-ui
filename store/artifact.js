@@ -24,22 +24,21 @@ export const actions = {
                 .get("artifact", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
                 .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
-                    return r.data.results;
+                    return r?.data?.results;
                 })
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "artifact list");
                 })
-                .then((artifacts) => {
-                    if (artifacts?.length) {
-                        commit("SET_ARTIFACTS", artifacts);
-                        resolve(artifacts);
-                    } else {
+                .then((artifacts = []) => {
+                    commit("SET_ARTIFACTS", artifacts);
+                    if (!artifacts?.length) {
                         const error = {
                             stack: `results.length === 0 for artifacts list`,
                             message: "Error loading list",
                         };
                         errorHandler({ dispatch, reject }, error, "artifact list");
                     }
+                    resolve(artifacts);
                 });
         });
     },

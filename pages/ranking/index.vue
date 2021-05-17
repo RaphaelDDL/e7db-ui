@@ -1,6 +1,6 @@
 <template>
     <div class="columns">
-        <template v-if="!!numberOfPlayers">
+        <template v-if="!!numberOfPlayers && !isLastUpdatedOld">
             <main class="column is-12">
                 <Header :last-updated="lastUpdated" :number-of-players="numberOfPlayers" />
                 <Statistics :number-of-players="numberOfPlayers" />
@@ -94,8 +94,10 @@
                 <Header :last-updated="lastUpdated" :number-of-players="0" />
                 <div class="section-box">
                     <p>
-                        Ranking Data is unavailable, most likely due to Researcher Carrot Bot being down. Please try
-                        again later.
+                        Ranking Data is unavailable
+                        <span v-if="isLastUpdatedOld">
+                            because current saved data is too old (see "last updated in" above)</span
+                        >, most likely due to Researcher Carrot Bot being down. Please try again later.
                     </p>
                 </div>
             </section>
@@ -151,6 +153,16 @@ export default {
         },
         filteredRankList() {
             return getByHeroId(this.list, this.selectedHeroes);
+        },
+        isLastUpdatedOld() {
+            const { lastUpdated } = this;
+            if (!lastUpdated) {
+                return false;
+            }
+            const dateUpdated = new Date(lastUpdated * 1000);
+            const dateToday = new Date();
+            const date30DaysAgo = new Date(new Date(dateToday).setDate(dateToday.getDate() - 30));
+            return !!(date30DaysAgo > dateUpdated);
         },
     },
     methods: {

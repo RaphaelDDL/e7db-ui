@@ -27,22 +27,21 @@ export const actions = {
                 })
                 .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
-                    return r.data.results;
+                    return r?.data?.results;
                 })
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "creators list");
                 })
-                .then((creators) => {
-                    if (creators?.length) {
-                        commit("SET_CREATORS", creators);
-                        resolve(creators);
-                    } else {
+                .then((creators = []) => {
+                    commit("SET_CREATORS", creators);
+                    if (!creators?.length) {
                         const error = {
                             stack: `results.length === 0 for creators list`,
                             message: "Error loading list",
                         };
                         errorHandler({ dispatch, reject }, error, "creators list");
                     }
+                    resolve(creators);
                 });
         });
     },

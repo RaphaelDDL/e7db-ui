@@ -10,8 +10,8 @@ export const getters = {
 };
 
 export const mutations = {
-    SET_BUFFS(state, buffs) {
-        state.buffList = buffs;
+    SET_BUFFS(state, buffs = []) {
+        state.buffList = buffs.filter((b) => typeof b.id === "number") || [];
     },
 };
 
@@ -28,22 +28,21 @@ export const actions = {
                 .get("buffs", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
                 .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
-                    return r.data.results;
+                    return r?.data?.results;
                 })
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "buffs list");
                 })
-                .then((buffs) => {
-                    if (buffs?.length) {
-                        commit("SET_BUFFS", buffs);
-                        resolve(buffs);
-                    } else {
+                .then((buffs = []) => {
+                    commit("SET_BUFFS", buffs);
+                    if (!buffs?.length) {
                         const error = {
                             stack: `results.length === 0 for buffs list`,
                             message: "Error loading list",
                         };
                         errorHandler({ dispatch, reject }, error, "buffs list");
                     }
+                    resolve(buffs);
                 });
         });
     },

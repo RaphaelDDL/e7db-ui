@@ -31,26 +31,10 @@ export const actions = {
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "ranking list");
                 })
-                .then((rankings) => {
+                .then((rankings = []) => {
                     commit("SET_RANKING", rankings?.length ? rankings : []);
                     resolve(rankings);
                 });
-        });
-    },
-    getSingle({ dispatch, getters }, { _id }) {
-        return new Promise((resolve, reject) => {
-            const listGetter = this.getters["ranking/list"];
-            if (listGetter?.length && this.getters.locale === this.$i18n.locale) {
-                return resolve(getters.single(_id));
-            } else {
-                return dispatch("getList")
-                    .then(() => {
-                        resolve(getters.single(_id));
-                    })
-                    .catch((error) => {
-                        errorHandler({ dispatch, reject }, error, "item detail");
-                    });
-            }
         });
     },
 };

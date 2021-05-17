@@ -25,22 +25,21 @@ export const actions = {
                 .get("hero", { headers: { "x-e7db-lang": this.$i18n.locale }, params: { lang: this.$i18n.locale } })
                 .then((r) => {
                     commit("SET_I18N", this.$i18n.locale, { root: true });
-                    return r.data.results;
+                    return r?.data?.results;
                 })
                 .catch((error) => {
                     errorHandler({ dispatch, reject }, error, "hero list");
                 })
-                .then((heroes) => {
-                    if (heroes?.length) {
-                        commit("SET_HEROES", heroes);
-                        resolve(heroes);
-                    } else {
+                .then((heroes = []) => {
+                    commit("SET_HEROES", heroes);
+                    if (!heroes?.length) {
                         const error = {
                             stack: `results.length === 0 for heroes list`,
                             message: "Error loading list",
                         };
                         errorHandler({ dispatch, reject }, error, "heroes list");
                     }
+                    resolve(heroes);
                 });
         });
     },
