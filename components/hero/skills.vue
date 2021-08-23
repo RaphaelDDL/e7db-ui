@@ -13,7 +13,9 @@
                             src: `${skill.assets.icon}`,
                             error: `${assetsUrl}/hero/_placeholder/sk_missing.png`,
                         }"
-                        alt
+                        :alt="skill.name"
+                        width="82"
+                        height="84"
                     />
                 </div>
                 <h1 v-lazy-container="{ selector: 'img' }" class="skill-name">

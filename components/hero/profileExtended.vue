@@ -1,6 +1,6 @@
 <template>
     <section v-lazy:background-image="bgImage" class="hero-summoning section-box">
-        <img v-lazy="fullbodyImg" class="fullbody-fit" />
+        <img v-lazy="fullbodyImg" class="fullbody-fit" :alt="name" />
 
         <div class="profile">
             <span

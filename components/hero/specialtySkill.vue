@@ -6,6 +6,9 @@
             <div class="skill-icon">
                 <img
                     v-lazy="{ src: `${specialty.assets.icon}`, error: `${assetsUrl}/hero/_placeholder/sk_missing.png` }"
+                    :alt="specialty.name"
+                    width="74"
+                    height="74"
                 />
             </div>
             <h2 class="skill-name">
