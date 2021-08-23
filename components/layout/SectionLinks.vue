@@ -73,7 +73,11 @@
         <li>
             <a href="javascript:void(0)" :class="localeLink" @click="modalShow">
                 Language:
-                <img :src="`${assetsUrl}/website/flags/${currentLocale.countries[0]}.png`" class="locale-flags" />
+                <img
+                    :src="`${assetsUrl}/website/flags/${currentLocale.countries[0]}.png`"
+                    class="locale-flags"
+                    :alt="currentLocale.name"
+                />
             </a>
         </li>
     </ul>
