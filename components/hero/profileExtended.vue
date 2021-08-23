@@ -1,5 +1,6 @@
 <template>
     <section v-lazy:background-image="bgImage" class="hero-summoning section-box">
+        <link rel="preload" :href="fullbodyImg" as="image" crossorigin media="(min-width: 768px)" />
         <img v-lazy="fullbodyImg" class="fullbody-fit" :alt="name" />
 
         <div class="profile">
