@@ -79,17 +79,17 @@ module.exports = {
         // extend webpack config here
         extend(config, ctx) {
             // Run ESLint on save
-            if (ctx.isDev && ctx.isClient) {
-                config.module.rules.push({
-                    enforce: "pre",
-                    test: /\.(js|vue)$/,
-                    loader: "eslint-loader",
-                    exclude: /(node_modules)/,
-                });
-            }
+            // if (ctx.isDev && ctx.isClient) {
+            //     config.module.rules.push({
+            //         enforce: "pre",
+            //         test: /\.(js|vue)$/,
+            //         loader: "eslint-loader",
+            //         exclude: /(node_modules)/,
+            //     });
+            // }
             if (!IS_PROD) {
                 // config.devtool = '#inline-source-map';
-                config.devtool = "#eval-source-map";
+                config.devtool = "eval-source-map";
             }
             // fixing warning for hls of aplayer
             // https://github.com/SevenOutman/vue-aplayer/issues/61

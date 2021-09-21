@@ -11,6 +11,7 @@ const heroAndArtifactCommons = {
 
 export default {
     gameName: "エピックセブン",
+    important: "重要",
     translationWIP: "重要：翻訳はまだ進行中の作業です。ご不便おかけしてすみません (´・ω・`)",
     links: {
         heroes: "英雄",

@@ -10,6 +10,7 @@ const heroAndArtifactCommons = {
 
 export default {
     gameName: "Epic Seven",
+    important: "Importante",
     translationWIP:
         "Importante: las traducciones siguen siendo un trabajo en progreso. Lo siento por los inconvenientes ocasionados (´・ω・`)",
     links: {
@@ -124,10 +125,8 @@ export default {
         heroAndArtifactCommons
     ),
     about: {
-        p1:
-            "EpicSevenDB.com es un sitio hecho por fans cuyo objetivo es proveer información precisa sobre héros, artefactos, equipamiento, items, misiones, y mucho mas!",
-        p2:
-            "Para eso, recibe ayuda de la comunidad por medio de sugerencias, ideas e información del juego por medio de Github. Si piensas que puedes darnos una mano, por favor mira los links abajo. ¡Toda la ayuda es apreciada!",
+        p1: "EpicSevenDB.com es un sitio hecho por fans cuyo objetivo es proveer información precisa sobre héros, artefactos, equipamiento, items, misiones, y mucho mas!",
+        p2: "Para eso, recibe ayuda de la comunidad por medio de sugerencias, ideas e información del juego por medio de Github. Si piensas que puedes darnos una mano, por favor mira los links abajo. ¡Toda la ayuda es apreciada!",
     },
     classes: {
         knight: "Custodes",

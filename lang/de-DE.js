@@ -11,6 +11,7 @@ const heroAndArtifactCommons = {
 
 export default {
     gameName: "Epische Sieben",
+    important: "Wichtig",
     translationWIP: "Wichtig: Übersetzungen sind noch in Arbeit. Entschuldigen Sie die Unannehmlichkeiten (´・ω・`)",
     links: {
         heroes: "Klasse",

@@ -11,6 +11,7 @@ const heroAndArtifactCommons = {
 
 export default {
     gameName: "第七史诗",
+    important: "重要提示",
     translationWIP: "重要提示：翻译仍在进行中。抱歉给你带来不便 (´・ω・`)",
     links: {
         home: "主页",
@@ -135,8 +136,7 @@ export default {
     ),
     about: {
         p1: "EpicSevenDB.com 是由玩家维护的网站，致力于提供准确的 英雄, 神器, 装备, 物品, 任务 等信息!",
-        p2:
-            "为此, 本网站通过 Github 接受玩家社群提供的一切建议，创意及游戏数据. 如果你愿意帮助我们，请访问如下链接. 感谢您的支持!",
+        p2: "为此, 本网站通过 Github 接受玩家社群提供的一切建议，创意及游戏数据. 如果你愿意帮助我们，请访问如下链接. 感谢您的支持!",
     },
     classes: {
         thief: "盗贼",
