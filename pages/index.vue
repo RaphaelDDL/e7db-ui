@@ -82,6 +82,18 @@
                 </div>
             </section>
             <section class="section-container">
+                <div class="section-box support-ldplayer">
+                    <a
+                        href="https://www.ldplayer.net/?n=34944791#utm_source=aff&utm_medium=aff&utm_campaign=aff34944791"
+                        rel="noopener"
+                        target="_blank"
+                    >
+                        <p>Play EpicSeven on your computer with LDPlayer!</p>
+                        <img src="~/assets/ldplayer_logo.png" alt="LDPlayer logo" class="ldplayer-logo" />
+                    </a>
+                </div>
+            </section>
+            <section class="section-container">
                 <div class="section-box support-bluestacks">
                     <a href="https://bstk.me/pqYSxvMRi" rel="noopener" target="_blank">
                         <p>Play EpicSeven on your computer with BlueStacks!</p>
@@ -329,13 +341,13 @@
 
             <section class="section-container">
                 <div class="section-box">
-                    <client-only placeholder="@EpicSevenDB Twitter Feed">
+                    <client-only placeholder="@GachaCenter Twitter Feed">
                         <a
                             class="twitter-timeline"
                             data-height="600"
                             data-theme="dark"
-                            href="https://twitter.com/EpicSevenDB?ref_src=twsrc%5Etfw"
-                            >@EpicSevenDB Twitter Feed</a
+                            href="https://twitter.com/GachaCenter?ref_src=twsrc%5Etfw"
+                            >@GachaCenter Twitter Feed</a
                         >
                         <script
                             type="application/javascript"

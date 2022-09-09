@@ -7,43 +7,26 @@
                     <div class="header">
                         <h4>&#9733; EpicSevenDB {{ $t("important") }} &#9733;</h4>
                         <div class="errorMessage white">
-                            <p>Dear Heirs,</p>
                             <p>
-                                As we've
+                                E7DB hasn't been updated since June 2021 due to impossibility to datamine directly from
+                                game data.
                                 <a
                                     class="skillEnhanceFontColor"
-                                    href="https://twitter.com/EpicSevenDB/status/1418291607074480130"
+                                    href="https://twitter.com/GachaCenter/status/1418291607074480130"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    >shared on our Twitter (link to thread)</a
-                                >
-                                in July, the game security was changed, therefore it must be bypassed yet again in order
-                                to get latest data for you. Since we made the choice of making our data source being
-                                mined data (E7DB API v2, as v1 was manual entry), there's nothing much to be done at the
-                                moment.
+                                    >See explanation on our Twitter</a
+                                >.
                             </p>
-                            <p>
-                                There are some ways of acquiring data but they don't allow to easily extract all data
-                                and all languages to feed the API properly, so it would be troublesome and incomplete.
-                            </p>
-                            <p>
-                                We apologize for the inconvenience, but until we find a viable solution, the website
-                                will not be updated.
-                            </p>
-                            <p>
-                                In the meantime, we are working on both making a new layout and DBs for other games.
-                                E7DB will also move to the new layout.
-                            </p>
-                            <p>
-                                It'll be hosted on
-                                <a class="skillEnhanceFontColor" href="https://gacha.center/" target="_blank"
-                                    >https://gacha.center</a
-                                >
-                                (work in progress).
-                            </p>
-                            <p>
-                                <small>Best Regards,<br />RaphaelDDL<br />E7DB Dev / Gacha.Center Dev</small>
-                            </p>
+                            <hr />
+                            We are
+                            <h2 style="display: inline">LOOKING FOR DATAMINERS</h2>
+                            to help us (E7 and other gacha games) to release
+                            <a class="skillEnhanceFontColor" href="https://gacha.center/" target="_blank"
+                                >https://gacha.center</a
+                            >. <br />
+                            If you are a dataminer, please contact RaphaelDDL#5150 on Discord or @GachaCenter in Twitter
+                            :-)
                         </div>
                     </div>
                 </section>
