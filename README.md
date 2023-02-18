@@ -1,4 +1,4 @@
-> **Notice**
+> **Warning**
 > EpicSevenDB 2018-2023
 > I tried to provide an ad-free database website and a free API for tool developers to focus on the tool rather than game data (e.g. gear optimizer, etcetc).
 > Unfortunately E7DB has not been updated since Jun, 2021 due to lack of dataminer help or any community support, therefore I officially closed it in Jan 17th, 2023. F*ck Smilegate.
